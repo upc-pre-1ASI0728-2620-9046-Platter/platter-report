@@ -179,73 +179,20 @@ Las historias cumplen con las siguientes normas metodológicas:
 
 ## 3.3. Impact Mapping.
 
-El **Impact Mapping** es una técnica estratégica de planificación visual propuesta por Gojko Adzic que permite alinear el desarrollo de software con los objetivos de negocio medibles de la organización. Mediante esta herramienta, el equipo garantiza que cada una de las funcionalidades y User Stories responda directamente a cómo la plataforma generará impacto en los comportamientos de los actores clave para alcanzar las metas planteadas para **Platter**.
+A continuación, se presenta el Impact Mapping de Platter, una representación estratégica elaborada en la herramienta **UXPressia** que alinea los objetivos de negocio (Business Goals) con los actores clave (Personas), los cambios de comportamiento que esperamos provocar (Impacts) y las características del producto que construiremos (Deliverables), vinculándolos directamente a nuestras User Stories del Product Backlog.
 
-* **Business Goal 1 (Adopción de Restaurantes MYPE):** Lograr la afiliación y activación operativa de **100 restaurantes independientes** de comida criolla, marina y especialidades en los distritos de Lima Centro, Miraflores, San Isidro y Surco en un plazo de **6 meses** posteriores al lanzamiento oficial.
-* **Business Goal 2 (Conversión y Uso Efectivo en Mesa):** Alcanzar una tasa promedio de adopción del **75% de comensales** que escanean el código QR en mesa e interactúan activando la experiencia WebAR de al menos un plato durante los primeros **90 días** de funcionamiento en los locales afiliados.
-* **Business Goal 3 (Eficiencia Operativa Gastronómica):** Reducir en un **85% el tiempo promedio** que los dueños y administradores de restaurantes dedican a redactar fichas técnicas, categorizar platos e ingresar información de alérgenos (pasando de un promedio de 4 horas a menos de 30 minutos para una carta completa de 30 platos) durante los primeros **60 días** de uso.
+![Impact Mapping](./assets/impact-mapping.png)
 
-```mermaid
-flowchart LR
-    subgraph GOALS ["Business Goals (SMART)"]
-        G1["G1: Afiliar 100 restaurantes MYPE en 6 meses"]
-        G2["G2: 75% comensales usan WebAR en mesa en 90 días"]
-        G3["G3: Reducir tiempo de gestión de carta en 85%"]
-    end
+*(Nota: En la herramienta UXPressia se ha construido el diagrama completo en donde se observa:*
 
-    subgraph ACTORS ["Actors / Personas"]
-        A1["Dueño de Restaurante (MYPE)"]
-        A2["Comensal en Salón"]
-        A3["Visitante Web"]
-    end
+* **Business Goals (SMART):**
+  - **G1:** Afiliar y activar operativamente a 100 restaurantes independientes (MYPE) en Lima Metropolitana en un plazo de 6 meses tras el lanzamiento.
+  - **G2:** Lograr que el 75% de comensales en mesas piloto escaneen el código QR y visualicen al menos un plato en Realidad Aumentada durante los primeros 90 días.
+  - **G3:** Reducir en un 85% el tiempo promedio de redacción y digitalización de una carta gastronómica (de 4 horas a menos de 30 minutos) mediante autocompletado con IA en los primeros 60 días.
+* **Personas (Actors):** Administrador / Dueño de Restaurante (Carlos Mendoza), Comensal en Mesa (Valeria Ramos) y Visitante Digital de la Landing Page.
+* **Impacts:** "Digitalizar fichas de platos en segundos sin fotógrafos ni redactores", "Equipar mesas con códigos QR listos para imprimir", "Escanear QR y proyectar platos a escala 1:1 sin descargar apps", "Verificar alérgenos e ingredientes certificados para pedir con certeza", "Probar demo interactiva y solicitar piloto gratuito de 14 días".
+* **Deliverables:** Motor de análisis con Gemini Vision y asignación 3D, Generador y exportador de códigos QR vectorizados, Visor WebAR sin instalación (WebXR / Quick Look), Filtro inteligente de alérgenos y Landing Page informativa con calculadora de ROI).
 
-    subgraph IMPACTS ["Impacts (Comportamientos Esperados)"]
-        I1["Solicitar piloto gratuito y comprobar bajo costo"]
-        I2["Digitalizar carta sin contratar fotógrafos"]
-        I3["Escanear QR y ver platos sin instalar apps"]
-        I4["Decidir pedido rápido y sin dudas de porción"]
-        I5["Crear fichas completas en segundos con IA"]
-    end
-
-    subgraph DELIVERABLES ["Deliverables (Entregables Digitales)"]
-        D1["Landing Page informativa y calculadora ROI"]
-        D2["Módulo de captura y asignación 3D"]
-        D3["Generador de códigos QR descargables"]
-        D4["Visor WebAR ultraligero sin instalación"]
-        D5["Filtro inteligente de alérgenos"]
-        D6["Motor de inferencia multimodal Gemini Vision"]
-    end
-
-    G1 --> A3
-    A3 --> I1
-    I1 --> D1
-
-    G1 --> A1
-    A1 --> I2
-    I2 --> D2
-    I2 --> D3
-
-    G2 --> A2
-    A2 --> I3
-    I3 --> D4
-    A2 --> I4
-    I4 --> D4
-    I4 --> D5
-
-    G3 --> A1
-    A1 --> I5
-    I5 --> D6
-    I5 --> D2
-```
-
-| Business Goal (SMART) | Actor / Persona | Impact (Comportamiento deseado) | Deliverable (Solución de Software) | User Stories Asociadas |
-| :--- | :--- | :--- | :--- | :--- |
-| **G1: Afiliación de 100 restaurantes MYPE en 6 meses** | **Visitante / Dueño de Restaurante** | Se interesa en la propuesta comercial, calcula su retorno de inversión y se postula al piloto gratuito de 14 días. | **Landing Page Comercial & Calculadora de Planes:** Portal web optimizado con casos de éxito, cotizador dinámico de mesas y formulario de onboarding rápido. | `US01`, `US02`, `US03`, `US04` |
-| **G1: Afiliación de 100 restaurantes MYPE en 6 meses** | **Dueño de Restaurante** | Equipa físicamente todas sus mesas con portacódigos QR profesionales sin pagar diseño externo. | **Generador & Gestor de Códigos QR:** Módulo administrativo con generación masiva y exportación de plantillas gráficas listas para imprenta. | `US11`, `US12`, `US20` |
-| **G2: 75% comensales usan WebAR en mesa en 90 días** | **Comensal en Restaurante** | Escanea el QR inmediatamente sin resistencia a descargar aplicaciones; explora la carta en Realidad Aumentada 1:1. | **Visor WebAR sin Fricción:** Experiencia web basada en estándares WebXR (Android) y Quick Look (iOS) con modelos fotorrealistas optimizados en carga. | `US13`, `US14`, `US16`, `US22` |
-| **G2: 75% comensales usan WebAR en mesa en 90 días** | **Comensal con Restricciones** | Consulta alérgenos e ingredientes con certeza clínica antes de pedir, reduciendo dudas y quejas al personal. | **Ficha Nutricional & Filtro de Alérgenos:** Módulo interactivo con alertas visuales de alérgenos y filtros de exclusión en la carta digital. | `US15`, `US17` |
-| **G3: Reducción del tiempo de gestión de carta en 85%** | **Dueño de Restaurante** | Crea o actualiza fichas de platos tomando una foto con el celular, prescindiendo de redactores de contenido. | **Motor Asistido por IA (Gemini Vision) & Biblioteca 3D:** Pipeline de inferencia visual que extrae nombres, descripciones y alérgenos y asocia modelos 3D escala 1:1 en segundos. | `US05`, `US06`, `US07`, `US08`, `US09`, `US10`, `US18`, `US21` |
-| **G3: Reducción del tiempo de gestión de carta en 85%** | **Dueño de Restaurante** | Monitorea qué platos generan más vistas en Realidad Aumentada y toma decisiones de abastecimiento de insumos. | **Dashboard de Analítica Gastronómica:** Panel con gráficos de interacción por plato, escaneos por mesa y exportación de datos. | `US19` |
 
 ---
 
