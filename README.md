@@ -684,52 +684,42 @@ graph TD
 El **Container Diagram (C4 Nivel 2)** descompone el sistema Platter en sus unidades ejecutables independientes (**Contenedores de Software**), detallando las tecnologías elegidas, las responsabilidades de cada contenedor y los protocolos de comunicación interna y externa.
 
 ```mermaid
-graph TB
-    classDef container fill:#438dd5,stroke:#2e6295,color:#ffffff;
-    classDef db fill:#2b5b88,stroke:#1a3854,color:#ffffff;
-    classDef ext fill:#888888,stroke:#555555,color:#ffffff;
-    classDef person fill:#08427b,stroke:#052e56,color:#ffffff;
+C4Container
+    title Container Diagram - Platter Solution (C4 Level 2)
 
-    Owner["Dueño de Restaurante"]:::person
-    Diner["Comensal en Mesa"]:::person
+    Person(restaurantAdmin, "Administrador de Restaurante", "Usuario gestor del restaurante")
+    Person(diner, "Comensal", "Cliente en mesa física")
 
-    subgraph PlatterSystem["Platter Platform (Contenedores de Software)"]
-        LandingApp["<b>Landing Page Web App</b><br>[Container: HTML5 / Tailwind / JS]<br>Sitio estático que expone la propuesta de valor, calculadora de planes y demo WebAR interactiva."]:::container
-        AdminMobileApp["<b>Restaurant Admin App</b><br>[Container: Flutter / Dart]<br>App móvil nativa para captura de fotos de platos en cocina y gestión de mesas."]:::container
-        WebARClient["<b>WebAR Dining Web App</b><br>[Container: SPA / model-viewer / WebXR]<br>Aplicación web ligera ejecutada en el navegador móvil para visualización de carta y AR 1:1."]:::container
+    Container_Boundary(c1, "Platter Platform") {
+        Container(adminWeb, "Restaurant Admin Web App", "Vue.js / TypeScript, SPA", "Interfaz web para gestión de menús, códigos QR de mesas y panel de suscripción.")
+        Container(arWeb, "AR Dining Web Client", "Three.js / WebXR, PWA", "Cliente web ligero optimizado para navegadores móviles que renderiza platos 3D sin descargas.")
         
-        ApiGateway["<b>API Gateway & Reverse Proxy</b><br>[Container: Spring Cloud Gateway / NGINX]<br>Enruta peticiones, maneja terminación TLS 1.3, rate limiting y validación de tokens JWT."]:::container
+        Container(apiGateway, "API Gateway / Reverse Proxy", "Nginx / CloudFront", "Ruta peticiones, aplica rate limiting, balanceo de carga y terminación SSL.")
         
-        BackendCore["<b>Platter Core Backend Service</b><br>[Container: Spring Boot / Java 21]<br>Implementa la lógica de negocio modular: Catálogos, Mesas, Suscripciones y Seguridad."]:::container
-        AIOrchestrator["<b>AI Ingestion & Analysis Service</b><br>[Container: Spring Boot / Java 21]<br>Orquesta la inferencia con Gemini Vision implementando Circuit Breaker y adaptadores ACL."]:::container
+        Container(backendService, "Platter Core REST API", "Spring Boot / ASP.NET Core", "Implementa los Bounded Contexts, la lógica del dominio, control de tokens de mesa y reglas de negocio.")
 
-        PostgresDB[("<b>Relational Database</b><br>[Container: PostgreSQL 16]<br>Almacena información de restaurantes, usuarios, platos, mesas, categorías y auditoría.")]:::db
-        RedisCache[("<b>Distributed Cache</b><br>[Container: Redis In-Memory]<br>Almacena en caché los catálogos activos de menú y sesiones efímeras de mesa.")]:::db
-    end
+        ContainerDb(relationalDb, "Relational Database", "PostgreSQL", "Almacena perfiles de restaurantes, configuraciones de mesa, usuarios, cartas y registros de facturación.")
+        ContainerDb(cacheDb, "In-Memory Cache", "Redis", "Caché de catálogos frecuentes y control de sesiones activas de mesas.")
+    }
 
-    subgraph ExternalCloud["Servicios Externos Cloud"]
-        GeminiExt["<b>Google Gemini Vision API</b><br>[External API]"]:::ext
-        S3Bucket["<b>Cloud Object Storage & CDN</b><br>[External: AWS S3 / Cloudflare]"]:::ext
-    end
+    System_Ext(geminiAPI, "Google Gemini Vision API", "Servicio externo de IA multimodal.")
+    System_Ext(cloudStorage, "AWS S3 Bucket", "Almacén de modelos 3D (.glb, .usdz) y logos vectoriales.")
+    System_Ext(stripeGateway, "Stripe API", "Servicio de pasarela de pagos.")
 
-    Owner -->|Accede a información comercial [HTTPS]| LandingApp
-    Owner -->|Gestiona platos y toma fotos [HTTPS / JSON]| AdminMobileApp
-    Diner -->|Escanea QR y navega carta WebAR [HTTPS / WebXR]| WebARClient
+    Rel(restaurantAdmin, adminWeb, "Accede a", "HTTPS")
+    Rel(diner, arWeb, "Interactúa con la experiencia AR en", "HTTPS / WebXR")
 
-    AdminMobileApp -->|Peticiones REST con JWT| ApiGateway
-    WebARClient -->|Peticiones de lectura de carta| ApiGateway
-    LandingApp -->|Envía formulario de contacto piloto| ApiGateway
+    Rel(adminWeb, apiGateway, "Consume servicios vía", "JSON/HTTPS")
+    Rel(arWeb, apiGateway, "Consume catálogo y resuelve tokens vía", "JSON/HTTPS")
 
-    ApiGateway -->|Enruta peticiones de gestión y catálogo [HTTP]| BackendCore
-    ApiGateway -->|Enruta análisis fotográfico [HTTP / Multipart]| AIOrchestrator
+    Rel(apiGateway, backendService, "Enruta tráfico a", "HTTP/REST")
 
-    AIOrchestrator -->|Inferencia visual multimodal [HTTPS / REST]| GeminiExt
-    AIOrchestrator -->|Retorna metadata gastronómica normalizada| BackendCore
-
-    BackendCore -->|Persistencia transaccional [JDBC / JPA]| PostgresDB
-    BackendCore -->|Lectura / Escritura de catálogos activos [Jedis / Lettuce]| RedisCache
-    BackendCore -->|Sube fotos originales y modelos 3D [S3 API]| S3Bucket
-    WebARClient -.->|Descarga modelos 3D comprimidos con Draco [HTTPS]| S3Bucket
+    Rel(backendService, relationalDb, "Lectura y persistencia con", "JPA / JDBC / TCP")
+    Rel(backendService, cacheDb, "Consulta y escribe caché con", "Redis Protocol")
+    Rel(backendService, geminiAPI, "Solicita inferencia gastronómica a", "HTTPS/REST")
+    Rel(backendService, stripeGateway, "Procesa checkout y webhooks con", "HTTPS/REST")
+    Rel(backendService, cloudStorage, "Genera URLs presignadas y gestiona modelos en", "AWS SDK / HTTPS")
+    Rel(arWeb, cloudStorage, "Descarga modelos 3D directamente desde", "HTTPS / CDN")
 ```
 
 **Responsabilidades Técnicas de los Contenedores:**
