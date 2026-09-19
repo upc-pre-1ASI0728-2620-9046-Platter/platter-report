@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UXPressia - Impact Mapping | Platter</title>
+    <title>UXPressia - Impact Mapping Simple | Platter</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
-        .card { background-color: white; padding: 1.1rem; border-radius: 0.6rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 1.25rem; position: relative; border: 1px solid #e2e8f0; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .card { background-color: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom: 1rem; position: relative; border: 1px solid #e2e8f0; }
         .connector-right::after { content: ''; position: absolute; right: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
         .connector-both::before { content: ''; position: absolute; left: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
         .connector-both::after { content: ''; position: absolute; right: -2rem; top: 50%; width: 2rem; height: 2px; background-color: #cbd5e1; z-index: 0;}
@@ -17,220 +17,131 @@
 </head>
 <body class="p-8">
 
-    <div class="max-w-[1600px] mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
+    <div class="max-w-[1400px] mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-200 overflow-x-auto">
         
         <!-- Header -->
         <div class="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
             <div>
-                <div class="flex items-center gap-3">
-                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                    <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight">Platter — Impact Mapping</h1>
-                </div>
-                <p class="text-sm text-gray-500 mt-1">Guía visual de referencia para modelado y diagramación en la herramienta <strong>UXPressia</strong></p>
+                <h1 class="text-2xl font-bold text-gray-800">Platter — Impact Map (UXPressia)</h1>
+                <p class="text-sm text-gray-500 mt-1">Estructura simplificada para diagramar rápidamente en UXPressia</p>
             </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">UXPressia Template Standard</span>
-                <span class="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">5 Columns Model</span>
+            <div class="text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
+                Versión Rápida
             </div>
         </div>
 
-        <!-- Layout de 5 columnas estilo UXPressia -->
-        <div class="flex min-w-[1450px] gap-8 relative z-10">
+        <!-- Layout 5 Columnas -->
+        <div class="flex min-w-[1200px] gap-8 relative z-10">
 
-            <!-- 1. GOAL (SMART) -->
+            <!-- 1. GOAL -->
             <div class="w-1/5 flex flex-col">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">1</span>
-                    <h3 class="text-xs font-bold text-gray-500 tracking-wider uppercase">1. Business Goals (SMART)</h3>
-                </div>
-
-                <!-- Goal 1 -->
-                <div class="card border-l-4 border-blue-600 connector-right mt-16">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded uppercase">Meta Principal G1</span>
-                        <span class="text-[10px] text-gray-400 font-medium">6 meses</span>
-                    </div>
-                    <p class="text-xs font-semibold text-gray-900 leading-relaxed">
-                        Afiliar y activar operativamente a <strong>100 restaurantes independientes (MYPE)</strong> en Lima Metropolitana en un plazo de 6 meses tras el lanzamiento.
-                    </p>
-                </div>
-
-                <!-- Goal 2 -->
-                <div class="card border-l-4 border-emerald-500 connector-right mt-24">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase">Conversión G2</span>
-                        <span class="text-[10px] text-gray-400 font-medium">90 días</span>
-                    </div>
-                    <p class="text-xs font-semibold text-gray-900 leading-relaxed">
-                        Lograr que el <strong>75% de comensales</strong> en mesas piloto escaneen el código QR y visualicen al menos un plato en Realidad Aumentada.
-                    </p>
-                </div>
-
-                <!-- Goal 3 -->
-                <div class="card border-l-4 border-amber-500 connector-right mt-20">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded uppercase">Eficiencia G3</span>
-                        <span class="text-[10px] text-gray-400 font-medium">60 días</span>
-                    </div>
-                    <p class="text-xs font-semibold text-gray-900 leading-relaxed">
-                        Reducir en un <strong>85% el tiempo promedio</strong> de redacción y digitalización de cartas gastronómicas (de 4h a &lt;30m) mediante autocompletado con IA.
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">1. Business Goal</h3>
+                <div class="card border-l-4 border-blue-500 connector-right mt-32">
+                    <span class="text-[10px] font-bold text-blue-500 uppercase">Primary Goal</span>
+                    <p class="text-sm font-semibold text-gray-800 mt-2">
+                        Lograr que el 75% de los comensales en mesas piloto visualicen al menos un plato en Realidad Aumentada y afiliar a 50 restaurantes en los primeros 3 meses.
                     </p>
                 </div>
             </div>
 
-            <!-- 2. PERSONAS (ACTORS) -->
+            <!-- 2. PERSONAS -->
             <div class="w-1/5 flex flex-col">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">2</span>
-                    <h3 class="text-xs font-bold text-gray-500 tracking-wider uppercase">2. Personas (Actors)</h3>
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">2. Personas (Actors)</h3>
+                
+                <!-- Dueño de Restaurante -->
+                <div class="card border-l-4 border-purple-500 connector-both mt-10 mb-20">
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xs">DR</div>
+                        <span class="text-[10px] font-bold text-purple-600 uppercase">Actor Clave</span>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-800">Dueño / Administrador de Restaurante</p>
+                    <p class="text-xs text-gray-500 mt-1">Busca digitalizar su carta rápido y a bajo costo.</p>
                 </div>
 
-                <!-- Persona 1: Dueño -->
-                <div class="card border-l-4 border-purple-500 connector-both mt-4">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-xs">CM</div>
-                        <div>
-                            <span class="text-[10px] font-bold text-purple-600 uppercase">Segmento 1</span>
-                            <h4 class="text-xs font-bold text-gray-900">Carlos Mendoza</h4>
-                        </div>
+                <!-- Comensal -->
+                <div class="card border-l-4 border-emerald-500 connector-both mt-10">
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xs">CO</div>
+                        <span class="text-[10px] font-bold text-emerald-600 uppercase">Actor Clave</span>
                     </div>
-                    <p class="text-[11px] text-gray-600 font-medium">Dueño y Administrador de Restaurante MYPE de cocina criolla tradicional.</p>
-                </div>
-
-                <!-- Persona 2: Comensal -->
-                <div class="card border-l-4 border-emerald-500 connector-both mt-24">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xs">VR</div>
-                        <div>
-                            <span class="text-[10px] font-bold text-emerald-600 uppercase">Segmento 2</span>
-                            <h4 class="text-xs font-bold text-gray-900">Valeria Ramos</h4>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-gray-600 font-medium">Comensal joven con restricciones dietarias (alergia a mariscos y gluten).</p>
-                </div>
-
-                <!-- Persona 3: Visitante -->
-                <div class="card border-l-4 border-sky-500 connector-both mt-20">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-bold text-xs">VW</div>
-                        <div>
-                            <span class="text-[10px] font-bold text-sky-600 uppercase">Prospecto Web</span>
-                            <h4 class="text-xs font-bold text-gray-900">Visitante Digital</h4>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-gray-600 font-medium">Propietario gastronómico evaluando soluciones para modernizar su salón.</p>
+                    <p class="text-sm font-semibold text-gray-800">Comensal en Mesa</p>
+                    <p class="text-xs text-gray-500 mt-1">Desea ver el tamaño real del plato y sus alérgenos.</p>
                 </div>
             </div>
 
             <!-- 3. IMPACTS -->
             <div class="w-1/5 flex flex-col">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs">3</span>
-                    <h3 class="text-xs font-bold text-gray-500 tracking-wider uppercase">3. Impacts</h3>
-                </div>
-
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">3. Impacts</h3>
+                
                 <!-- Admin Impacts -->
-                <div class="card border-l-4 border-purple-300 connector-both">
-                    <span class="text-[9px] font-bold text-purple-700 uppercase block mb-1">Impacto Administrativo</span>
-                    <p class="text-xs font-semibold text-gray-800">Digitalizar y redactar fichas de platos en segundos tomando una fotografía sin contratar fotógrafos ni redactores.</p>
+                <div class="card border-l-4 border-purple-300 connector-both mt-4">
+                    <p class="text-xs font-semibold text-gray-700">Digitalizar la carta en minutos tomando fotos con el móvil y usando IA.</p>
                 </div>
-
-                <div class="card border-l-4 border-purple-300 connector-both mt-2">
-                    <span class="text-[9px] font-bold text-purple-700 uppercase block mb-1">Impacto Salón</span>
-                    <p class="text-xs font-semibold text-gray-800">Equipar mesas con códigos QR listos para imprenta sin pagar por diseño publicitario externo.</p>
+                <div class="card border-l-4 border-purple-300 connector-both mb-8 mt-4">
+                    <p class="text-xs font-semibold text-gray-700">Equipar mesas con códigos QR listos para imprimir sin pagar diseño.</p>
                 </div>
 
                 <!-- Diner Impacts -->
-                <div class="card border-l-4 border-emerald-300 connector-both mt-10">
-                    <span class="text-[9px] font-bold text-emerald-700 uppercase block mb-1">Impacto Comensal</span>
-                    <p class="text-xs font-semibold text-gray-800">Escanear el QR y proyectar el plato en 3D escala 1:1 en su mesa sin resistencia a instalar aplicaciones.</p>
+                <div class="card border-l-4 border-emerald-300 connector-both mt-6">
+                    <p class="text-xs font-semibold text-gray-700">Ver platos en 3D sobre la mesa a escala 1:1 sin descargar apps.</p>
                 </div>
-
-                <div class="card border-l-4 border-emerald-300 connector-both mt-2">
-                    <span class="text-[9px] font-bold text-emerald-700 uppercase block mb-1">Impacto Seguridad</span>
-                    <p class="text-xs font-semibold text-gray-800">Verificar ingredientes y alérgenos certificados para pedir con total seguridad médica y sin reclamos.</p>
-                </div>
-
-                <!-- Web Impacts -->
-                <div class="card border-l-4 border-sky-300 connector-both mt-10">
-                    <span class="text-[9px] font-bold text-sky-700 uppercase block mb-1">Impacto Adquisición</span>
-                    <p class="text-xs font-semibold text-gray-800">Probar la demo WebAR en la Landing Page, calcular el costo mensual y solicitar el piloto gratuito de 14 días.</p>
+                <div class="card border-l-4 border-emerald-300 connector-both mt-4">
+                    <p class="text-xs font-semibold text-gray-700">Revisar ingredientes y alérgenos antes de ordenar con total seguridad.</p>
                 </div>
             </div>
 
             <!-- 4. DELIVERABLES -->
             <div class="w-1/5 flex flex-col">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">4</span>
-                    <h3 class="text-xs font-bold text-gray-500 tracking-wider uppercase">4. Deliverables</h3>
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">4. Deliverables</h3>
+                
+                <div class="card border-l-4 border-gray-400 connector-both mt-4">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded inline-block mb-1">Mobile App / IA</span>
+                    <p class="text-xs font-semibold text-gray-800">Autocompletado de descripción y alérgenos con Gemini Vision.</p>
                 </div>
 
-                <div class="card border-l-4 border-indigo-400 connector-both">
-                    <span class="text-[9px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase inline-block mb-1">AI Engine + 3D Asset</span>
-                    <p class="text-xs font-semibold text-gray-800">Motor de análisis con Gemini Vision y asignación de modelos 3D escala 1:1 preconfigurados.</p>
+                <div class="card border-l-4 border-gray-400 connector-both mb-8 mt-4">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded inline-block mb-1">Panel Web</span>
+                    <p class="text-xs font-semibold text-gray-800">Generador y descargador de plantillas QR para mesas.</p>
                 </div>
 
-                <div class="card border-l-4 border-indigo-400 connector-both mt-4">
-                    <span class="text-[9px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase inline-block mb-1">QR Generator</span>
-                    <p class="text-xs font-semibold text-gray-800">Módulo generador y exportador de plantillas QR vectorizadas por identificador de mesa.</p>
+                <div class="card border-l-4 border-gray-400 connector-both mt-6">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded inline-block mb-1">WebAR</span>
+                    <p class="text-xs font-semibold text-gray-800">Visor de Realidad Aumentada sin instalación en navegador.</p>
                 </div>
 
-                <div class="card border-l-4 border-indigo-400 connector-both mt-8">
-                    <span class="text-[9px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase inline-block mb-1">WebAR Viewer</span>
-                    <p class="text-xs font-semibold text-gray-800">Visor WebAR sin instalación (WebXR para Android y AR Quick Look para iOS).</p>
-                </div>
-
-                <div class="card border-l-4 border-indigo-400 connector-both mt-4">
-                    <span class="text-[9px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase inline-block mb-1">Safety & Nutrition</span>
-                    <p class="text-xs font-semibold text-gray-800">Filtro interactivo de alérgenos y ficha técnica de ingredientes normados.</p>
-                </div>
-
-                <div class="card border-l-4 border-indigo-400 connector-both mt-8">
-                    <span class="text-[9px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase inline-block mb-1">Landing Page</span>
-                    <p class="text-xs font-semibold text-gray-800">Landing Page estática con simulador 3D interactivo, calculadora de planes y formulario de onboarding.</p>
+                <div class="card border-l-4 border-gray-400 connector-both mt-4">
+                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded inline-block mb-1">Carta Web</span>
+                    <p class="text-xs font-semibold text-gray-800">Filtro de alérgenos y ficha detallada de ingredientes.</p>
                 </div>
             </div>
 
             <!-- 5. USER STORIES -->
             <div class="w-1/5 flex flex-col">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-xs">5</span>
-                    <h3 class="text-xs font-bold text-gray-500 tracking-wider uppercase">5. User Stories</h3>
+                <h3 class="text-xs font-bold text-gray-400 tracking-wider mb-4 uppercase">5. User Stories</h3>
+                
+                <div class="card border-l-4 border-yellow-400 connector-left mt-4">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded inline-block mb-1">US05 & US06</span>
+                    <p class="text-[11px] text-gray-600 italic">"Como dueño, quiero cargar fotos y que la IA sugiera la descripción y alérgenos."</p>
                 </div>
 
-                <div class="card border-l-4 border-rose-400 connector-left">
-                    <span class="text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded inline-block mb-1">US05 & US06</span>
-                    <p class="text-[11px] text-gray-600 italic">"Como dueño de restaurante, deseo capturar la foto del plato y autocompletar descripción y categoría con IA."</p>
+                <div class="card border-l-4 border-yellow-400 connector-left mb-8 mt-4">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded inline-block mb-1">US11 & US12</span>
+                    <p class="text-[11px] text-gray-600 italic">"Como dueño, quiero generar códigos QR por mesa listos para imprimir."</p>
                 </div>
 
-                <div class="card border-l-4 border-rose-400 connector-left mt-2">
-                    <span class="text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded inline-block mb-1">US11 & US12</span>
-                    <p class="text-[11px] text-gray-600 italic">"Como dueño de restaurante, deseo generar códigos QR por mesa y descargar plantillas en alta resolución."</p>
+                <div class="card border-l-4 border-yellow-400 connector-left mt-6">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded inline-block mb-1">US13 & US14</span>
+                    <p class="text-[11px] text-gray-600 italic">"Como comensal, quiero escanear el QR y proyectar el plato en mi mesa en WebAR sin instalar apps."</p>
                 </div>
 
-                <div class="card border-l-4 border-rose-400 connector-left mt-4">
-                    <span class="text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded inline-block mb-1">US13 & US14</span>
-                    <p class="text-[11px] text-gray-600 italic">"Como comensal, deseo escanear el QR y proyectar el plato en WebAR a escala 1:1 sobre la mesa sin apps."</p>
-                </div>
-
-                <div class="card border-l-4 border-rose-400 connector-left mt-2">
-                    <span class="text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded inline-block mb-1">US15 & US17</span>
-                    <p class="text-[11px] text-gray-600 italic">"Como comensal, deseo filtrar platos por alérgenos y revisar advertencias de ingredientes sensibles."</p>
-                </div>
-
-                <div class="card border-l-4 border-rose-400 connector-left mt-6">
-                    <span class="text-[9px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded inline-block mb-1">US01 & US04</span>
-                    <p class="text-[11px] text-gray-600 italic">"Como visitante, deseo probar la demo interactiva en la web y registrar mi restaurante para un piloto gratuito."</p>
+                <div class="card border-l-4 border-yellow-400 connector-left mt-4">
+                    <span class="text-[10px] font-bold text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded inline-block mb-1">US15 & US17</span>
+                    <p class="text-[11px] text-gray-600 italic">"Como comensal, quiero filtrar platos por alérgenos y ver ingredientes para comer seguro."</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- Footer / Instructions for UXPressia -->
-        <div class="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
-            <span>Estructura formal de 5 columnas alineada a UXPressia (Business Goals, Personas, Impacts, Deliverables, User Stories).</span>
-            <span>Platter Digital Product — ASI0728</span>
-        </div>
     </div>
 
 </body>

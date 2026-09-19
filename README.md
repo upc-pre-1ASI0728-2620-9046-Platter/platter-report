@@ -179,19 +179,16 @@ Las historias cumplen con las siguientes normas metodológicas:
 
 ## 3.3. Impact Mapping.
 
-A continuación, se presenta el Impact Mapping de Platter, una representación estratégica elaborada en la herramienta **UXPressia** que alinea los objetivos de negocio (Business Goals) con los actores clave (Personas), los cambios de comportamiento que esperamos provocar (Impacts) y las características del producto que construiremos (Deliverables), vinculándolos directamente a nuestras User Stories del Product Backlog.
+A continuación, se presenta el Impact Mapping de Platter, una representación estratégica elaborada en la herramienta **UXPressia** que alinea los objetivos de negocio (Business Goals) con los usuarios clave (Personas), los cambios de comportamiento que esperamos provocar (Impacts) y las características del producto que construiremos (Deliverables), vinculándolos directamente con nuestras User Stories.
 
 ![Impact Mapping](./assets/impact-mapping.png)
 
 *(Nota: En la herramienta UXPressia se ha construido el diagrama completo en donde se observa:*
 
-* **Business Goals (SMART):**
-  - **G1:** Afiliar y activar operativamente a 100 restaurantes independientes (MYPE) en Lima Metropolitana en un plazo de 6 meses tras el lanzamiento.
-  - **G2:** Lograr que el 75% de comensales en mesas piloto escaneen el código QR y visualicen al menos un plato en Realidad Aumentada durante los primeros 90 días.
-  - **G3:** Reducir en un 85% el tiempo promedio de redacción y digitalización de una carta gastronómica (de 4 horas a menos de 30 minutos) mediante autocompletado con IA en los primeros 60 días.
-* **Personas (Actors):** Administrador / Dueño de Restaurante (Carlos Mendoza), Comensal en Mesa (Valeria Ramos) y Visitante Digital de la Landing Page.
-* **Impacts:** "Digitalizar fichas de platos en segundos sin fotógrafos ni redactores", "Equipar mesas con códigos QR listos para imprimir", "Escanear QR y proyectar platos a escala 1:1 sin descargar apps", "Verificar alérgenos e ingredientes certificados para pedir con certeza", "Probar demo interactiva y solicitar piloto gratuito de 14 días".
-* **Deliverables:** Motor de análisis con Gemini Vision y asignación 3D, Generador y exportador de códigos QR vectorizados, Visor WebAR sin instalación (WebXR / Quick Look), Filtro inteligente de alérgenos y Landing Page informativa con calculadora de ROI).
+* **Business Goal:** Lograr que el 75% de los comensales en mesas piloto visualicen al menos un plato en Realidad Aumentada y afiliar a 50 restaurantes en los primeros 3 meses.
+* **Personas:** Dueño / Administrador de Restaurante, Comensal en Mesa.
+* **Impacts:** "Digitalizar la carta en minutos usando fotos y autocompletado con IA", "Equipar mesas con códigos QR listos para imprimir", "Ver platos en 3D sobre la mesa a escala 1:1 sin descargar apps", "Revisar ingredientes y alérgenos antes de ordenar".
+* **Deliverables:** Autocompletado con Gemini Vision, Generador de códigos QR para mesas, Visor WebAR sin instalación, Filtro de alérgenos y ficha de ingredientes).
 
 
 ---
