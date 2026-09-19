@@ -537,17 +537,18 @@ El **Context Map** (Mapa de Contextos) formaliza las relaciones estructurales, d
 Durante el proceso de diseño, el equipo debatió decisiones estratégicas clave respondiendo a las preguntas de análisis arquitectónico recomendadas por la metodología:
 * *¿Qué pasaría si el análisis de IA estuviese dentro del contexto de catálogo?* Generaría un fuerte acoplamiento tecnológico: cualquier cambio en el SDK o en la estructura de prompts de Google Gemini contaminaría el modelo de entidades del catálogo de platos. Por ello, se decidió aislar la IA en su propio Bounded Context.
 * *¿Por qué utilizar un Anti-Corruption Layer (ACL)?* La API de Google Gemini es un servicio externo gobernado por un tercero que utiliza sus propias estructuras de datos (`Content`, `Part`, `Candidate`). El patrón **ACL** traduce los esquemas de Google hacia el lenguaje ubicuo interno de Platter, blindando la arquitectura ante roturas de contrato externas.
-* *¿Qué relación existe entre Catálogo y la Experiencia WebAR?* La relación es **Upstream / Downstream ($U ightarrow D$)** donde el Catálogo actúa como proveedor de servicios mediante un contrato formal **Open Host Service / Published Language (OHS / PL)** basado en endpoints RESTful con esquemas JSON documentados en OpenAPI 3.0.
+* *¿Qué relación existe entre Catálogo y la Experiencia WebAR?* La relación es **Upstream / Downstream ($U 
+ightarrow D$)** donde el Catálogo actúa como proveedor de servicios mediante un contrato formal **Open Host Service / Published Language (OHS / PL)** basado en endpoints RESTful con esquemas JSON documentados en OpenAPI 3.0.
 * *¿Cómo se relaciona la gestión de mesas con las suscripciones?* Existe una relación **Customer / Supplier ($C/S$)** donde el contexto de Suscripciones es Upstream y condiciona las capacidades del contexto de Mesas (ej. no permitir emitir más de 15 mesas si el restaurante cuenta con el plan Básico).
 
 A continuación, se presenta la especificación formal del mapa de relaciones entre los contextos:
 
 ```mermaid
-graph TD
-    classDef core fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1e3a8a;
-    classDef supp fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#14532d;
-    classDef gen fill:#fefce8,stroke:#ca8a04,stroke-width:2px,color:#713f12;
-    classDef ext fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d;
+flowchart TD
+    classDef core fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#1e3a8a;
+    classDef supp fill:#dcfce7,stroke:#15803d,stroke-width:2px,color:#14532d;
+    classDef gen fill:#fef9c3,stroke:#a16207,stroke-width:2px,color:#713f12;
+    classDef ext fill:#fee2e2,stroke:#b91c1c,stroke-width:2px,color:#7f1d1d;
 
     Gemini["<b>Google Gemini Vision API</b><br>[External System]"]:::ext
     AI["<b>AI Gastronomic Analysis Context</b><br>[Core Domain]"]:::core
@@ -556,20 +557,25 @@ graph TD
     Table["<b>Restaurant & Table Management Context</b><br>[Supporting Domain]"]:::supp
     Billing["<b>Subscription & Billing Context</b><br>[Generic Subdomain]"]:::gen
 
-    Gemini -- "[U] Public API" --> |"ACL [D]"| AI
-    AI -- "[U] Supplier" --> |"[D] Customer"| Catalog
-    Catalog -- "[U] OHS / PL" --> |"[D] Consumer"| AR
-    Table -- "[U] Provider" --> |"[D] Resolver"| AR
-    Billing -- "[U] Governance" --> |"[D] Conformist"| Table
-    Billing -- "[U] Service Limit" --> |"[D] Policy"| Catalog
+    Gemini -->|"[U] Public API / [D] ACL"| AI
+    AI -->|"[U] Supplier / [D] Customer"| Catalog
+    Catalog -->|"[U] OHS/PL / [D] Consumer"| AR
+    Table -->|"[U] Provider / [D] Resolver"| AR
+    Billing -->|"[U] Limits / [D] Conformist"| Table
+    Billing -->|"[U] Limits / [D] Policy"| Catalog
 ```
 
 **Patrones de Integración Aplicados:**
-1. **Gemini API $ightarrow$ AI Gastronomic Analysis Context:** Patrón **Anti-Corruption Layer (ACL)**. La clase adaptadora interna `GeminiApiClientAdapter` encapsula la serialización JSON de Google y expone únicamente interfaces del dominio (`GastronomicInferenceService`).
-2. **AI Gastronomic Analysis $ightarrow$ Dish & Menu Catalog:** Patrón **Customer / Supplier (C/S)**. El equipo de Catálogo establece los requerimientos de metadata que el servicio de IA debe abastecer.
-3. **Dish & Menu Catalog $ightarrow$ AR Dining Experience:** Patrón **Open Host Service / Published Language (OHS / PL)**. La API de consulta pública expone recursos REST estandarizados consumidos de forma desacoplada por la WebApp del comensal.
-4. **Restaurant & Table Management $ightarrow$ AR Dining Experience:** Patrón **Upstream / Downstream (U/D)**. La aplicación web del comensal consulta al servicio de mesas para validar criptográficamente el token del QR antes de renderizar la carta.
-5. **Subscription & Billing $ightarrow$ Restaurant / Catalog:** Patrón **Upstream / Downstream (U/D)** con políticas de límite de recursos (cuota de platos y número máximo de mesas activas).
+1. **Gemini API $
+ightarrow$ AI Gastronomic Analysis Context:** Patrón **Anti-Corruption Layer (ACL)**. La clase adaptadora interna `GeminiApiClientAdapter` encapsula la serialización JSON de Google y expone únicamente interfaces del dominio (`GastronomicInferenceService`).
+2. **AI Gastronomic Analysis $
+ightarrow$ Dish & Menu Catalog:** Patrón **Customer / Supplier (C/S)**. El equipo de Catálogo establece los requerimientos de metadata que el servicio de IA debe abastecer.
+3. **Dish & Menu Catalog $
+ightarrow$ AR Dining Experience:** Patrón **Open Host Service / Published Language (OHS / PL)**. La API de consulta pública expone recursos REST estandarizados consumidos de forma desacoplada por la WebApp del comensal.
+4. **Restaurant & Table Management $
+ightarrow$ AR Dining Experience:** Patrón **Upstream / Downstream (U/D)**. La aplicación web del comensal consulta al servicio de mesas para validar criptográficamente el token del QR antes de renderizar la carta.
+5. **Subscription & Billing $
+ightarrow$ Restaurant / Catalog:** Patrón **Upstream / Downstream (U/D)** con políticas de límite de recursos (cuota de platos y número máximo de mesas activas).
 
 > [!NOTE]
 > **Evidencia Gráfica de Context Mapping:** El diagrama de relaciones estratégicas de DDD elaborado en la herramienta **Miro** / **UXPressia** se documenta a continuación:
