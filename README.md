@@ -114,57 +114,34 @@ Esta sección permite especificar los requisitos de los productos digitales que 
 
 ## 3.1. To-Be Scenario Mapping.
 
-El equipo desarrolló el **To-Be Scenario Mapping** mediante una serie de sesiones colaborativas estructuradas en cuatro etapas:
-1. **Preparación y alineación de arquetipos:** Se tomaron como referencia los perfiles de los User Personas definidos: el Administrador/Dueño de restaurante MYPE (orientado a la optimización de tiempos, reducción de costos y diferenciación) y el Comensal presencial (orientado a una toma de decisión gastronómica ágil, visualmente confiable y sin fricciones técnicas).
-2. **Lluvia de ideas individual y convergencia:** Cada integrante del equipo postuló los puntos de contacto (*touchpoints*) ideales a lo largo del recorrido, eliminando los cuellos de botella identificados en el estado actual (*As-Is*), como la redacción manual de cartas y la incertidumbre del comensal respecto a porciones e ingredientes.
-3. **Definición y secuenciación de fases:** Se agruparon las acciones en columnas cronológicas secuenciales, estableciendo para cada fase las dimensiones de comportamiento (*Doing*), cognición (*Thinking*) y emoción (*Feeling*).
-4. **Contraste con el As-Is Scenario Mapping:** Se validó que la solución propuesta transforme radicalmente los puntos de dolor previos, sustituyendo procesos manuales lentos por automatización con Inteligencia Artificial (Gemini Vision) y habilitando la visualización WebAR inmediata a escala 1:1 sin instalación de aplicaciones nativas.
+El To-Be Scenario Mapping describe la secuencia de interacción ideal que experimentan los usuarios objetivo al utilizar la solución tecnológica propuesta, proyectando las fases del recorrido y detallando las dimensiones de comportamiento (*Doing*), cognición (*Thinking*) y emoción (*Feeling*) para cada segmento.
 
-A continuación, se presentan los escenarios To-Be diseñados para cada segmento objetivo:
+### Segmento 1 - Carlos Mendoza
 
-### 3.1.1. To-Be Scenario Mapping: Dueño / Administrador de Restaurante
-
-* **User Persona representado:** Carlos Mendoza (42 años, Administrador y copropietario de restaurante de cocina criolla tradicional en Lima).
-* **Meta del escenario:** Incorporar y publicar un nuevo plato emblemático en su carta digital con Realidad Aumentada y generar el código QR de mesa en menos de 2 minutos.
-
-| Fases / Dimensiones | Fase 1: Carga y Captura del Plato | Fase 2: Análisis y Enriquecimiento con IA | Fase 3: Asignación 3D y Generación de QR | Fase 4: Despliegue en Mesa y Monitoreo |
+| Phases | Captura del plato | Análisis y autocompletado con IA | Asignación 3D y generación QR | Monitoreo en salón |
 | :--- | :--- | :--- | :--- | :--- |
-| **Doing (Hacer)** | Accede a la aplicación administrativa de Platter desde su smartphone, selecciona "Agregar Plato" y toma una fotografía directa del plato recién preparado en cocina. | Espera unos segundos mientras la IA multimodal procesa la imagen. Revisa la descripción gastronómica sugerida, la lista de ingredientes clave, alérgenos detectados y calorías estimadas; ajusta un ingrediente específico y confirma. | Selecciona el modelo 3D gastronómico preconfigurado a escala real sugerido por el catálogo de Platter. Genera el código QR asignado a las mesas del salón y descarga la plantilla gráfica para exhibición. | Imprime y coloca los portacódigos QR en las mesas. Al finalizar la jornada, ingresa al panel administrativo para observar la cantidad de escaneos y platos visualizados en AR. |
-| **Thinking (Pensar)** | *"No necesito un fotógrafo profesional ni una cámara costosa; una toma clara desde mi propio celular es suficiente."* | *"Es increíble: identificó los mariscos como alérgenos de inmediato y la descripción suena apetitosa y profesional sin tener que redactarla yo."* | *"El modelo 3D coincide con las dimensiones de nuestro plato real. Ya no tengo que pagar por modelado 3D externo ni esperar semanas."* | *"Mis clientes están viendo la comida antes de pedirla y puedo saber qué platos llaman más la atención en tiempo real."* |
-| **Feeling (Sentir)** | Expectativa positiva y simplicidad de inicio. | Asombro por la precisión del análisis y gran alivio por el tiempo ahorrado. | Confianza, profesionalismo y satisfacción al tener material listo para imprimir. | Empoderamiento comercial y entusiasmo por modernizar su negocio sin elevar costos. |
+| **Doing** | Ingresa a la app móvil de Platter y toma una fotografía directa del plato preparado en cocina. | Carga la foto y revisa la descripción, ingredientes, alérgenos y calorías sugeridas por la IA. Ajusta detalles y confirma. | Vincula un modelo 3D a escala real desde el catálogo y genera los códigos QR de las mesas listos para imprimir. | Coloca los códigos QR en las mesas e ingresa al panel administrativo para observar las visualizaciones AR en tiempo real. |
+| **Thinking** | "No necesito un fotógrafo profesional, una foto clara con mi celular es suficiente". "El proceso es rápido y sencillo". | "La IA redactó una descripción atractiva y detectó los alérgenos al instante". "Ahorro horas de redacción manual". | "El modelo 3D coincide con las dimensiones de nuestro plato real". "Tengo los QR listos sin pagar diseño extra". | "Mis clientes exploran la carta antes de pedir". "Puedo saber qué platos llaman más la atención en tiempo real". |
+| **Feeling** | Tranquilidad y confianza. | Asombro y alivio. | Seguridad y profesionalismo. | Satisfacción y control. |
 
-### 3.1.2. To-Be Scenario Mapping: Comensal de Restaurante
+### Segmento 2 - Valeria Ramos
 
-* **User Persona representado:** Valeria Ramos (27 años, Diseñadora gráfica, comensal habitual con intolerancia alimentaria al gluten y mariscos).
-* **Meta del escenario:** Decidir qué ordenar en un restaurante nuevo con plena certeza visual de la porción y conocimiento confiable de los ingredientes y alérgenos.
-
-| Fases / Dimensiones | Fase 1: Llegada y Escaneo de Mesa | Fase 2: Apertura Instantánea en Navegador | Fase 3: Proyección en Realidad Aumentada (1:1) | Fase 4: Confirmación y Pedido Seguro |
+| Phases | Llegada y escaneo de QR | Exploración de la carta | Proyección en Realidad Aumentada | Decisión y pedido |
 | :--- | :--- | :--- | :--- | :--- |
-| **Doing (Hacer)** | Toma asiento en la mesa del restaurante, abre la cámara de su smartphone y escanea el código QR ubicado en el soporte físico de la mesa. | El navegador web de su teléfono abre directamente la carta interactiva de Platter sin pedirle descargas de tiendas de apps ni formularios de registro previo. | Selecciona un plato recomendado, pulsa "Ver en mi mesa" y enfoca la superficie del mantel. Observa el modelo 3D a tamaño real interactuando con la vajilla y rotándolo 360°. | Revisa la pestaña de alérgenos donde constata la ausencia de gluten, comprueba que el tamaño de la porción se ajusta a su apetito y solicita el plato al mozo con total seguridad. |
-| **Thinking (Pensar)** | *"Qué práctico que no me obliguen a descargar una aplicación pesada solo para almorzar."* | *"Carga sumamente rápido y la carta luce limpia, organizada y con fotos claras."* | *"¡Se ve exactamente como si ya lo hubieran servido! Ahora sé exactamente qué tan generosa es la porción."* | *"Puedo comer tranquila sabiendo qué contiene el plato y teniendo la certeza de que coincide con mis expectativas."* |
-| **Feeling (Sentir)** | Comodidad y ausencia de frustración tecnológica. | Curiosidad y bienvenida ante una interfaz moderna. | Asombro, diversión y alta confianza en la propuesta del restaurante. | Tranquilidad, satisfacción plena y sensación de una experiencia gastronómica superior. |
-
-### 3.1.3. Matriz Comparativa de Transformación: As-Is vs. To-Be
-
-| Criterio de Experiencia | Escenario Actual (As-Is) | Escenario Propuesto con Platter (To-Be) | Impacto Transformador |
-| :--- | :--- | :--- | :--- |
-| **Tiempo de actualización de carta** | De 3 a 6 horas redactando fichas, buscando descripciones y enviando a diseñar o imprimir. | Menos de 90 segundos gracias al autocompletado multimodal de Gemini Vision. | Reducción de más del 90% en tiempo operativo para el restaurante MYPE. |
-| **Costo de digitalización 3D** | Inaccesible (desde £49 por plato con fotogrametría externa y semanas de espera). | Acceso inmediato a biblioteca de modelos 3D escala 1:1 incluida en la plataforma. | Democratización tecnológica para negocios gastronómicos independientes. |
-| **Acceso para el comensal** | Fricción por cartas en PDF pesadas, zoom incómodo o apps nativas que nadie desea instalar. | Acceso WebAR directo mediante QR nativo en el navegador móvil (WebXR / Quick Look). | Cero barreras de entrada; tasa de rebote minimizada al 100%. |
-| **Certeza sobre ingredientes y porciones** | Incertidumbre del comensal; riesgo médico por alérgenos no declarados; reclamos por porciones. | Proyección 3D a escala real sobre la mesa y desglose automático de alérgenos e ingredientes. | Mayor conversión de venta, reducción drástica de reclamos y fidelización. |
+| **Doing** | Se sienta en la mesa, abre la cámara de su smartphone y escanea el código QR ubicado en el soporte físico. | Navega por las categorías de la carta digital en su navegador móvil y revisa los platos con fotos y descripciones claras. | Selecciona "Ver en mi mesa", enfoca la superficie del mantel y visualiza el plato en 3D a tamaño real interactuando con su entorno. | Verifica que no contenga alérgenos que le afecten, confirma su elección y realiza su pedido al mozo con total certeza. |
+| **Thinking** | "Qué práctico que no tenga que descargar ninguna aplicación pesada solo para almorzar". | "La carta carga rápido y muestra ingredientes detallados". "Puedo ver qué opciones se adaptan a mi dieta". | "¡Se ve a tamaño real sobre mi mesa!". "Ahora sé con certeza qué tan generosa es la porción antes de pedir". | "Tengo total confianza en lo que voy a comer y el plato superó mis dudas sobre su tamaño". |
+| **Feeling** | Comodidad y tranquilidad. | Curiosidad e interés. | Asombro y seguridad. | Satisfacción y valoración. |
 
 ---
 
 ## 3.2. User Stories.
 
-Para formalizar los requisitos funcionales y técnicos de los productos digitales de Platter (Landing Page estática, Aplicación Web/Móvil Administrativa, Visor WebAR para Comensales y Servicios Backend RESTful), el equipo definió un catálogo de **22 User Stories** articuladas en **7 Epics**. 
+Para formalizar los requisitos funcionales y técnicos de los productos digitales de Platter (Landing Page estática, Aplicación Web/Móvil Administrativa, Visor WebAR para Comensales y Servicios Backend RESTful), el equipo definió un catálogo consolidado de **22 User Stories** articuladas en **7 Epics**. 
 
 Las historias cumplen con las siguientes normas metodológicas:
 * **Formato estándar de usuario:** Redactadas desde la perspectiva de los roles involucrados: *Visitante* (para el sitio estático/Landing Page), *Dueño de restaurante / Administrador*, *Comensal* y *Developer* (para las historias técnicas de arquitectura e integración).
 * **Criterios de Aceptación Gherkin (`Given - When - Then`):** Redactados en tiempo presente, tercera persona, sin referencias acopladas a detalles visuales de la interfaz de usuario (evitando mencionar colores, botones específicos o coordenadas) y plenamente comprobables mediante pruebas funcionales y de integración.
 * **Trazabilidad:** Cada historia está asociada a su Epic correspondiente.
-
-### Catálogo Consolidado de Epics y User Stories
 
 | Epic / User Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 | :--- | :--- | :--- | :--- | :--- |
@@ -204,15 +181,9 @@ Las historias cumplen con las siguientes normas metodológicas:
 
 El **Impact Mapping** es una técnica estratégica de planificación visual propuesta por Gojko Adzic que permite alinear el desarrollo de software con los objetivos de negocio medibles de la organización. Mediante esta herramienta, el equipo garantiza que cada una de las funcionalidades y User Stories responda directamente a cómo la plataforma generará impacto en los comportamientos de los actores clave para alcanzar las metas planteadas para **Platter**.
 
-### 3.3.1. Objetivos de Negocio SMART (Business Goals)
-
 * **Business Goal 1 (Adopción de Restaurantes MYPE):** Lograr la afiliación y activación operativa de **100 restaurantes independientes** de comida criolla, marina y especialidades en los distritos de Lima Centro, Miraflores, San Isidro y Surco en un plazo de **6 meses** posteriores al lanzamiento oficial.
 * **Business Goal 2 (Conversión y Uso Efectivo en Mesa):** Alcanzar una tasa promedio de adopción del **75% de comensales** que escanean el código QR en mesa e interactúan activando la experiencia WebAR de al menos un plato durante los primeros **90 días** de funcionamiento en los locales afiliados.
 * **Business Goal 3 (Eficiencia Operativa Gastronómica):** Reducir en un **85% el tiempo promedio** que los dueños y administradores de restaurantes dedican a redactar fichas técnicas, categorizar platos e ingresar información de alérgenos (pasando de un promedio de 4 horas a menos de 30 minutos para una carta completa de 30 platos) durante los primeros **60 días** de uso.
-
-### 3.3.2. Mapa de Impacto Estructurado (Actors, Impacts, Deliverables & User Stories)
-
-A continuación, se presenta la articulación estratégica entre las Metas de Negocio, los Actores involucrados, los Cambios de Comportamiento esperados (*Impacts*), los Entregables de Software (*Deliverables*) y las Historias de Usuario asociadas:
 
 ```mermaid
 flowchart LR
@@ -267,8 +238,6 @@ flowchart LR
     I5 --> D2
 ```
 
-### 3.3.3. Matriz de Detalle del Impact Mapping
-
 | Business Goal (SMART) | Actor / Persona | Impact (Comportamiento deseado) | Deliverable (Solución de Software) | User Stories Asociadas |
 | :--- | :--- | :--- | :--- | :--- |
 | **G1: Afiliación de 100 restaurantes MYPE en 6 meses** | **Visitante / Dueño de Restaurante** | Se interesa en la propuesta comercial, calcula su retorno de inversión y se postula al piloto gratuito de 14 días. | **Landing Page Comercial & Calculadora de Planes:** Portal web optimizado con casos de éxito, cotizador dinámico de mesas y formulario de onboarding rápido. | `US01`, `US02`, `US03`, `US04` |
@@ -284,20 +253,7 @@ flowchart LR
 
 El **Product Backlog** de Platter consolida y prioriza todas las User Stories del sistema utilizando la técnica ágil de estimación relativa en **Story Points** fundamentada en la secuencia modificada de Fibonacci (**1, 2, 3, 5, 8**). 
 
-### Criterios de Priorización por Valor de Negocio
-
-De acuerdo con las mejores prácticas del marco Scrum y las directrices del curso:
-* **El orden del backlog está estrictamente determinado por el Valor de Negocio:** La Landing Page (adquisición de prospectos tempranos) y el núcleo funcional mínimo viable (MVP compuesto por la captura con IA y el visor WebAR sin fricción) se posicionan en los primeros lugares del backlog para permitir validaciones de mercado tempranas desde el Sprint 1.
-* **Evitación de antipatrones:** No se colocan funcionalidades de autenticación o seguridad compleja al inicio si no aportan valor directo a la experiencia de validación del cliente final. Las tareas de configuración de pagos o analítica avanzada se reservan para etapas posteriores una vez validada la propuesta central.
-
-### Estimación en Story Points (Fibonacci)
-* **1 punto:** Modificaciones estéticas menores o cambios de contenido textual directo sin lógica compleja (ej. visualización de secciones informativas).
-* **2 puntos:** Formularios con validación local estándar o acciones CRUD simples (ej. descarga de archivos gráficos, filtros básicos).
-* **3 puntos:** Componentes interactivos con lógica intermedia, comunicación entre vistas o manejo de estado local (ej. integración con cámara, cálculo de rangos).
-* **5 puntos:** Funcionalidades complejas que involucran renderizado 3D/AR, manipulación de streams o sincronización en tiempo real (ej. visor WebAR, filtrado dinámico de alérgenos).
-* **8 puntos:** Módulos de alta incertidumbre técnica o integración de servicios multimodales externos con manejo de tolerancia a fallos (ej. integración de API Gemini Vision con Circuit Breaker).
-
-### Tabla del Product Backlog Priorizado
+El orden del backlog está estrictamente determinado por el **Valor de Negocio**: la Landing Page (adquisición de prospectos tempranos) y el núcleo funcional mínimo viable (MVP compuesto por la captura con IA y el visor WebAR sin fricción) se posicionan en los primeros lugares del backlog para permitir validaciones de mercado tempranas desde el Sprint 1. Las tareas de configuración de pagos o analítica avanzada se reservan para etapas posteriores una vez validada la propuesta central.
 
 | # Orden | User Story Id | Título | Descripción | Story Points (1 / 2 / 3 / 5 / 8) |
 | :---: | :---: | :--- | :--- | :---: |
@@ -324,9 +280,9 @@ De acuerdo con las mejores prácticas del marco Scrum y las directrices del curs
 | **21** | **US19** | Panel de Analítica de Interacciones AR y Platos Populares | Como dueño de restaurante, deseo visualizar métricas de escaneos de QR y visualizaciones AR por plato para identificar qué preparaciones despiertan mayor interés entre mis comensales. | **5** |
 | **22** | **US20** | Gestión de Suscripción Mensual y Métodos de Pago | Como dueño de restaurante, deseo gestionar mi plan de suscripción mensual y registrar mi tarjeta de crédito/débito para mantener activo el servicio de Platter sin interrupciones. | **5** |
 
-### Gestión en Herramienta Ágil
-El backlog completo ha sido registrado y organizado en la herramienta de gestión ágil Jira Software del equipo, configurando los Epics, estimaciones en puntos y criterios de aceptación en formato Gherkin:
+El backlog completo ha sido registrado y organizado en la herramienta de gestión ágil Jira Software del equipo:
 * **Enlace público al Product Backlog en Jira:** [https://upc-pre-1asi0728-2620-9046-platter.atlassian.net/jira/software/projects/PLA/boards/1/backlog](https://upc-pre-1asi0728-2620-9046-platter.atlassian.net/jira/software/projects/PLA/boards/1/backlog)
+
 
 
 # Capítulo IV: Strategic-Level Software Design
