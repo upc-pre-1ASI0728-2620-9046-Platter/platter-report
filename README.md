@@ -821,5 +821,31 @@ flowchart TD
 
 
 # Conclusiones
+1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
+   Se evidenció que la brecha tradicional entre la expectativa visual del comensal y el plato servido en mesa representaba un factor crítico de indecisión, quejas y pérdida de reputación para los negocios gastronómicos[cite: 1, 2]. Mediante la adopción de una arquitectura orientada a la eliminación de fricción basada en **WebAR sin instalación** (aprovechando estándares nativos como WebXR Device API para Android y AR Quick Look para iOS)[cite: 1, 3], Platter resuelve la reticencia del usuario final[cite: 1, 3]. El comensal logra visualizar el plato en su entorno a escala física real 1:1 en menos de 2 segundos y con un máximo de 2 toques tras escanear el código QR de mesa, sin requerir descargas de aplicaciones ni registros obligatorios[cite: 1, 3].
 
+2. **Liderazgo en costos y viabilidad operativa para el segmento MYPE:**
+   Las soluciones de Realidad Aumentada existentes en el mercado imponen tarifas de modelado fotogramétrico prohibitivas (desde £49 por plato) y flujos manuales lentos incompatibles con la realidad económica de los restaurantes pequeños y medianos[cite: 1, 3]. Platter supera esta barrera económica mediante la convergencia de una biblioteca de modelos 3D normalizados y calibrados métricamente junto a un pipeline de procesamiento automatizado con **Google Gemini Vision**[cite: 1, 3]. Dicha integración reduce la carga operativa del administrador del restaurante, autogenerando fichas gastronómicas completas (descripción, ingredientes, calorías y etiquetado normado de alérgenos) en menos de 3.5 segundos a partir de una simple fotografía tomada con el smartphone[cite: 1, 2, 3].
+
+3. **Gobernanza del dominio mediante Domain-Driven Design (DDD):**
+   La aplicación sistemática de EventStorming, Candidate Context Discovery y Bounded Context Canvases permitió descomponer el dominio en cinco Bounded Contexts cohesivos, aislando el núcleo de valor competitivo (*Core Domain*: Catálogo de Platos, Análisis Gastronómico con IA y Experiencia WebAR) de los servicios de soporte y genéricos (Gestión de Mesas y Facturación)[cite: 1, 3]. La formalización del *Context Map* mediante la incorporación de una **Capa Anticorrupción (ACL)** para aislar la API de Google Gemini[cite: 1, 3] y un contrato **Open Host Service / Published Language (OHS / PL)** para la publicación de la carta digital[cite: 1, 3], blindó el núcleo del sistema frente a cambios de contratos externos y facilitó la trazabilidad técnica entre requerimientos y diseño[cite: 1, 3, 5].
+
+4. **Robustez y resiliencia arquitectónica (ADD y C4 Model):**
+   A través del modelado con el C4 Model y el proceso de Attribute-Driven Design (ADD)[cite: 1, 3, 5], se fundamentaron decisiones técnicas orientadas a cumplir escenarios de calidad estrictos:
+   * **Rendimiento:** Despacho de activos 3D comprimidos con Draco a través de Amazon S3 y CloudFront (CDN) con cabeceras de caché inmutable, alcanzando tiempos de entrega inferiores a 1.5 segundos en redes móviles 4G[cite: 1, 3].
+   * **Tolerancia a fallos:** Protección del backend mediante el patrón **Circuit Breaker (Resilience4j)** ante posibles degradaciones de la API de Google Gemini, garantizando degradación elegante hacia la carga manual en menos de 100 ms sin bloquear los hilos del servidor[cite: 1, 3].
+   * **Escalabilidad y Concurrencia:** Adopción de un monolito modular en Spring Boot 3 / Java 21 respaldado por Redis para retener catálogos en memoria, permitiendo atender hasta 500 peticiones concurrentes por segundo y reduciendo en más de un 85% las consultas directas a PostgreSQL durante horas pico[cite: 1, 3].
 #
+# Recomendaciones
+
+1. **Gestión y control de calidad del pipeline de modelos 3D:**
+   Se recomienda implementar un control estricto sobre los modelos poligonales y texturas integrados en la biblioteca compartida de Platter, garantizando que el peso de los archivos .glb y .usdz no supere el umbral de 3.0 MB una vez procesados con compresión Draco[cite: 1, 3]. Asimismo, debe auditarse continuamente la compatibilidad de sombreado PBR tanto en navegadores móviles Android (Chrome / WebXR) como en iOS (Safari / AR Quick Look) para evitar artefactos visuales en mesa[cite: 1, 3].
+
+2. **Estrategia de invalidación reactiva de caché:**
+   Considerando que los restaurantes actualizan la disponibilidad de insumos en tiempo real ante quiebres de stock en cocina[cite: 3, 4], se aconseja que las operaciones de actualización de catálogo emitan eventos de dominio que purguen reactivamente las claves correspondientes en Redis[cite: 3]. De este modo, se asegura que los comensales no ordenen preparaciones agotadas, sin incurrir en una limpieza global que degrade el rendimiento del servidor en horas pico[cite: 1, 3].
+
+3. **Supervisión de cuotas y manejo de contingencia para la API de IA:**
+   A medida que se incorporen nuevos restaurantes durante la fase piloto[cite: 1, 2], se debe monitorear el consumo de tokens y los límites de peticiones por minuto (RPM) de Google Gemini Vision[cite: 3]. Es recomendable instrumentar alertas tempranas al alcanzar el 80% de la cuota y prever colas de reintento asíncronas para momentos de alta concurrencia de registro de cartas[cite: 3].
+
+4. **Validación empírica en pruebas de campo (Salón Piloto):**
+   Para los siguientes sprints de desarrollo e implementación[cite: 5], se sugiere realizar pruebas de usabilidad y telemetría de red directamente en salones de prueba[cite: 2, 4]. Esto permitirá evaluar el comportamiento de detección de superficies horizontales del visor WebAR bajo distintas condiciones de iluminación física y mantelería[cite: 1, 3], asegurando que el bloqueo de escala métrica 1:1 funcione de forma idéntica en diversos dispositivos de gama media y alta[cite: 3, 4].
