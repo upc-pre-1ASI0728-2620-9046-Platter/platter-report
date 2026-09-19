@@ -645,25 +645,25 @@ graph TB
 El **System Context Diagram (C4 Nivel 1)** coloca al sistema de software **Platter** en el centro de atención, definiendo con precisión las fronteras del sistema, sus responsabilidades primordiales y cómo interactúa bidireccionalmente con cada actor y sistema adyacente.
 
 ```mermaid
-graph TD
-    classDef person fill:#08427b,stroke:#052e56,color:#ffffff;
-    classDef system fill:#1168bd,stroke:#0b4884,color:#ffffff;
-    classDef ext fill:#999999,stroke:#666666,color:#ffffff;
+C4Context
+    title System Context Diagram - Platter Platform (C4 Level 1)
 
-    Owner["<b>Dueño de Restaurante</b><br>[Person]<br>Administra la carta, toma fotos de platos y descarga códigos QR físicos."]:::person
-    Diner["<b>Comensal</b><br>[Person]<br>Escanea el código QR en mesa, revisa alérgenos y proyecta el plato en WebAR."]:::person
-    
-    PlatterSys["<b>Platter Platform</b><br>[Software System]<br>Digitaliza cartas gastronómicas mediante IA y sirve experiencias interactivas WebAR a escala 1:1 sobre superficies de mesa sin instalación de apps."]:::system
-    
-    Gemini["<b>Google Gemini Vision API</b><br>[External System]<br>Analiza imágenes gastronómicas y deduce nombres, categorías, alérgenos y calorías."]:::ext
-    ObjectStore["<b>Cloud Object Storage & CDN</b><br>[External System]<br>Alojamiento optimizado de archivos 3D (GLB/USDZ) con compresión Draco."]:::ext
-    PayGateway["<b>MercadoPago API</b><br>[External System]<br>Procesa pagos de suscripción mensual recurrentes."]:::ext
+    Person(restaurantAdmin, "Administrador de Restaurante", "Gestiona la carta, modelos 3D de platos, configuración de mesas y suscripciones.")
+    Person(diner, "Comensal", "Escanea códigos QR en mesa para visualizar platos interactivos en Realidad Aumentada (WebAR).")
 
-    Owner -->|Carga fotos, gestiona mesas y platos [HTTPS]| PlatterSys
-    Diner -->|Escanea QR, filtra alérgenos y activa WebAR [HTTPS/WebXR]| PlatterSys
-    PlatterSys -->|Solicita análisis multimodal [HTTPS/REST]| Gemini
-    PlatterSys -->|Almacena y despacha modelos 3D y fotos [HTTPS/S3 API]| ObjectStore
-    PlatterSys -->|Valida cobros de membresía mensual [HTTPS/REST]| PayGateway
+    Enterprise_Boundary(b0, "Platter Ecosystem") {
+        System(platterSystem, "Platter Software System", "Provee la gestión de cartas digitales, proyección WebAR, análisis asistido por IA y administración de salones.")
+    }
+
+    System_Ext(geminiAPI, "Google Gemini Vision API", "Motor externo multimodal para análisis y extracción de información de platos e insumos.")
+    System_Ext(stripeGateway, "Payment Gateway (Stripe)", "Procesa pagos recurrentes y facturación de suscripciones SaaS.")
+    System_Ext(cloudStorage, "Cloud Object Storage", "Repositorio de almacenamiento para texturas y modelos 3D (.glb/.gltf).")
+
+    Rel(restaurantAdmin, platterSystem, "Administra locales, platos y mesas usando", "HTTPS/Web")
+    Rel(diner, platterSystem, "Escanea QR y visualiza platillos en", "HTTPS/Mobile Web Browser")
+    Rel(platterSystem, geminiAPI, "Envía imágenes de platillos y consultas con", "REST/JSON / HTTPS")
+    Rel(platterSystem, stripeGateway, "Gestiona suscripciones y cobros con", "REST/Webhooks")
+    Rel(platterSystem, cloudStorage, "Sube y descarga assets 3D optimizados mediante", "HTTPS / S3 API")
 ```
 
 **Explicación del Diagrama de Contexto:**
