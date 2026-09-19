@@ -748,64 +748,58 @@ El **Deployment Diagram** describe la topología física y lógica de la infraes
 La infraestructura ha sido diseñada sobre la nube pública de **Amazon Web Services (AWS)** aprovechando servicios gestionados para garantizar alta disponibilidad (99.5%), escalabilidad automática y costos operativos contenidos:
 
 ```mermaid
-graph TB
-    subgraph ClientZone["Entorno de Dispositivos Cliente"]
-        DinerDevice["<b>Smartphone del Comensal</b><br>[iOS / Android]<br>• Navegador Safari / Chrome<br>• Visor WebXR / AR Quick Look"]
-        OwnerDevice["<b>Smartphone de Restaurante</b><br>[Android 10+ / iOS 14+]<br>• App Flutter compilada de forma nativa"]
-    end
+C4Deployment
+    title Deployment Diagram - Platter Cloud Production Environment (AWS)
 
-    subgraph CloudflareZone["Edge Network (CDN & Seguridad)"]
-        EdgeDNS["<b>Cloudflare Edge Network / AWS CloudFront</b><br>• Terminación SSL / TLS 1.3<br>• DDoS Protection (WAF)<br>• Edge Caching de modelos 3D (.glb/.usdz)"]
-    end
+    Deployment_Node(userDevice, "Client Device", "Smartphone / Desktop") {
+        Deployment_Node(browser, "Web Browser", "Chrome / Safari (WebXR Compatible)") {
+            Container(clientInstance, "Web Client Apps", "PWA / SPA", "Admin Portal & AR Mobile Experience")
+        }
+    }
 
-    subgraph AWSCloud["Amazon Web Services (Region: us-east-1)"]
-        subgraph PublicSubnet["Public Subnet (VPC Multi-AZ)"]
-            ALB["<b>Application Load Balancer (ALB)</b><br>• Distribución elástica de tráfico HTTPS<br>• Health checks automáticos"]
-        end
+    Deployment_Node(aws, "Amazon Web Services (AWS)", "Cloud Provider Region: us-east-1") {
+        
+        Deployment_Node(edgeNetwork, "Edge Tier & Content Distribution", "AWS Edge Infrastructure") {
+            Deployment_Node(cf, "Amazon CloudFront (CDN)", "Edge locations") {
+                Container(cdnCache, "CDN Distribution", "HTTPS", "Distribuye SPAs estáticas y assets 3D optimizados")
+            }
+            Deployment_Node(s3Static, "Amazon S3", "Bucket de Almacenamiento") {
+                Container(staticAssets, "Static Web & 3D Store", "S3 Storage", "Archivos HTML5/JS/CSS y modelos .glb")
+            }
+        }
 
-        subgraph PrivateAppSubnet["Private Application Subnet (Segura)"]
-            subgraph ECSCluster["AWS ECS Fargate (Auto-Scaling Cluster)"]
-                AppInstance1["<b>Platter App Container (Task 1)</b><br>Docker: Spring Boot Java 21<br>0.5 vCPU / 1.0 GB RAM"]
-                AppInstance2["<b>Platter App Container (Task 2)</b><br>Docker: Spring Boot Java 21<br>0.5 vCPU / 1.0 GB RAM"]
-            end
-        end
+        Deployment_Node(vpc, "Virtual Private Cloud (VPC)", "10.0.0.0/16") {
+            
+            Deployment_Node(publicSubnet, "Public Subnets", "Multi-AZ (us-east-1a, us-east-1b)") {
+                Deployment_Node(alb, "Application Load Balancer (ALB)", "AWS ALB") {
+                    Container(loadBalancer, "ALB Ingress", "Reverse Proxy", "Terminación SSL y distribución de tráfico")
+                }
+            }
 
-        subgraph PrivateDataSubnet["Private Database Subnet (Aislada)"]
-            RDSPrimary[("<b>Amazon RDS PostgreSQL 16</b><br>Instancia Primary (Multi-AZ)<br>Almacenamiento SSD gp3")]
-            RDSReplica[("<b>Amazon RDS Read Replica</b><br>Réplica de lectura en Standby")]
-            ElastiCache[("<b>Amazon ElastiCache (Redis)</b><br>Nodo en memoria para catálogos")]
-        end
+            Deployment_Node(privateSubnetApp, "Private Subnets - Compute Tier", "Multi-AZ Auto Scaling Group") {
+                Deployment_Node(ecsCluster, "Amazon ECS (Fargate)", "Container Orchestration") {
+                    Container(apiContainers, "Backend API Tasks", "Docker Containers", "Platter Core Web API Service Instances")
+                }
+            }
 
-        subgraph StorageServices["Servicios de Almacenamiento Gestionado"]
-            S3Bucket["<b>Amazon S3 Bucket</b><br>Almacenamiento de fotos gastronómicas<br>y modelos 3D optimizados"]
-        end
-    end
+            Deployment_Node(privateSubnetData, "Private Subnets - Data Tier", "Isolated Multi-AZ") {
+                Deployment_Node(rds, "Amazon RDS Multi-AZ", "Database Engine") {
+                    ContainerDb(dbMaster, "PostgreSQL Master & Replica", "RDS Managed Instance", "Persistencia transaccional de datos")
+                }
+                Deployment_Node(elasticache, "Amazon ElastiCache", "In-Memory Datastore") {
+                    ContainerDb(redisCache, "Redis Cluster", "Managed Cache", "Caché distribuida de catálogos y sesiones")
+                }
+            }
+        }
+    }
 
-    subgraph ExternalSaaS["Servicios Externos de IA"]
-        GeminiCloud["<b>Google Cloud Platform (GCP)</b><br>Google Gemini 1.5 Flash API"]
-    end
-
-    DinerDevice -->|Petición HTTPS de carta y modelos 3D| EdgeDNS
-    OwnerDevice -->|Petición HTTPS de gestión con JWT| EdgeDNS
-
-    EdgeDNS -->|Resuelve activos 3D en caché (Hit 90%)| DinerDevice
-    EdgeDNS -->|Reenvía peticiones dinámicas de API| ALB
-
-    ALB -->|Balancea peticiones HTTP/2| AppInstance1
-    ALB -->|Balancea peticiones HTTP/2| AppInstance2
-
-    AppInstance1 -->|Persistencia transaccional| RDSPrimary
-    AppInstance2 -->|Persistencia transaccional| RDSPrimary
-    RDSPrimary -.->|Replicación sincrónica Multi-AZ| RDSReplica
-
-    AppInstance1 -->|Consulta de catálogos en memoria| ElastiCache
-    AppInstance2 -->|Consulta de catálogos en memoria| ElastiCache
-
-    AppInstance1 -->|Sube fotos y descarga modelos vía IAM Role| S3Bucket
-    AppInstance2 -->|Sube fotos y descarga modelos vía IAM Role| S3Bucket
-
-    AppInstance1 -->|Inferencia visual segura vía HTTPS| GeminiCloud
-    AppInstance2 -->|Inferencia visual segura vía HTTPS| GeminiCloud
+    Rel(clientInstance, cf, "Solicita páginas web y modelos 3D vía", "HTTPS :443")
+    Rel(cf, s3Static, "Obtiene origen estático de", "S3 API")
+    Rel(clientInstance, loadBalancer, "Envía peticiones API a", "HTTPS :443")
+    Rel(loadBalancer, apiContainers, "Balancea y reenvía tráfico a", "HTTP :8080")
+    Rel(apiContainers, dbMaster, "Lee/Escribe estado en", "TCP :5432")
+    Rel(apiContainers, redisCache, "Consulta caché en", "TCP :6379")
+    Rel(apiContainers, s3Static, "Sube activos y firmas presignadas a", "HTTPS / AWS IAM")
 ```
 
 **Aspectos Relevantes de la Infraestructura de Despliegue:**
