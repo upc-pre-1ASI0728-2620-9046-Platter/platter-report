@@ -748,58 +748,62 @@ El **Deployment Diagram** describe la topología física y lógica de la infraes
 La infraestructura ha sido diseñada sobre la nube pública de **Amazon Web Services (AWS)** aprovechando servicios gestionados para garantizar alta disponibilidad (99.5%), escalabilidad automática y costos operativos contenidos:
 
 ```mermaid
-C4Deployment
-    title Deployment Diagram - Platter Cloud Production Environment (AWS)
+flowchart TD
+    classDef client fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef edge fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;
+    classDef compute fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#5b21b6;
+    classDef data fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;
+    classDef ext fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#991b1b;
 
-    Deployment_Node(userDevice, "Client Device", "Smartphone / Desktop") {
-        Deployment_Node(browser, "Web Browser", "Chrome / Safari (WebXR Compatible)") {
-            Container(clientInstance, "Web Client Apps", "PWA / SPA", "Admin Portal & AR Mobile Experience")
-        }
-    }
+    subgraph UserDevices ["Dispositivos de Usuario"]
+        BrowserAdmin["<b>Navegador Web / PWA</b><br>Admin Portal (Vue.js)"]:::client
+        BrowserDiner["<b>Navegador Móvil</b><br>WebAR Viewer (WebXR / Three.js)"]:::client
+    end
 
-    Deployment_Node(aws, "Amazon Web Services (AWS)", "Cloud Provider Region: us-east-1") {
+    subgraph AWSCloud ["Amazon Web Services (AWS) - Región us-east-1"]
         
-        Deployment_Node(edgeNetwork, "Edge Tier & Content Distribution", "AWS Edge Infrastructure") {
-            Deployment_Node(cf, "Amazon CloudFront (CDN)", "Edge locations") {
-                Container(cdnCache, "CDN Distribution", "HTTPS", "Distribuye SPAs estáticas y assets 3D optimizados")
-            }
-            Deployment_Node(s3Static, "Amazon S3", "Bucket de Almacenamiento") {
-                Container(staticAssets, "Static Web & 3D Store", "S3 Storage", "Archivos HTML5/JS/CSS y modelos .glb")
-            }
-        }
+        subgraph EdgeTier ["Edge Tier & Content Delivery"]
+            CloudFront["<b>Amazon CloudFront (CDN)</b><br>Distribución global y caché periférica"]:::edge
+            S3Storage["<b>Amazon S3 Bucket</b><br>Assets web estáticos y modelos 3D (.glb)"]:::edge
+        end
 
-        Deployment_Node(vpc, "Virtual Private Cloud (VPC)", "10.0.0.0/16") {
+        subgraph VPC ["Amazon Virtual Private Cloud (VPC) - 10.0.0.0/16"]
             
-            Deployment_Node(publicSubnet, "Public Subnets", "Multi-AZ (us-east-1a, us-east-1b)") {
-                Deployment_Node(alb, "Application Load Balancer (ALB)", "AWS ALB") {
-                    Container(loadBalancer, "ALB Ingress", "Reverse Proxy", "Terminación SSL y distribución de tráfico")
-                }
-            }
+            subgraph PublicSubnet ["Public Subnet (Multi-AZ)"]
+                ALB["<b>Application Load Balancer (ALB)</b><br>Terminación SSL y enrutamiento"]:::compute
+            end
 
-            Deployment_Node(privateSubnetApp, "Private Subnets - Compute Tier", "Multi-AZ Auto Scaling Group") {
-                Deployment_Node(ecsCluster, "Amazon ECS (Fargate)", "Container Orchestration") {
-                    Container(apiContainers, "Backend API Tasks", "Docker Containers", "Platter Core Web API Service Instances")
-                }
-            }
+            subgraph PrivateAppSubnet ["Private App Subnet (Multi-AZ)"]
+                ECSCluster["<b>Amazon ECS Cluster (AWS Fargate)</b><br>Tareas Docker de Spring Boot (API REST)"]:::compute
+            end
 
-            Deployment_Node(privateSubnetData, "Private Subnets - Data Tier", "Isolated Multi-AZ") {
-                Deployment_Node(rds, "Amazon RDS Multi-AZ", "Database Engine") {
-                    ContainerDb(dbMaster, "PostgreSQL Master & Replica", "RDS Managed Instance", "Persistencia transaccional de datos")
-                }
-                Deployment_Node(elasticache, "Amazon ElastiCache", "In-Memory Datastore") {
-                    ContainerDb(redisCache, "Redis Cluster", "Managed Cache", "Caché distribuida de catálogos y sesiones")
-                }
-            }
-        }
-    }
+            subgraph PrivateDataSubnet ["Private Data Subnet (Multi-AZ)"]
+                RDS["<b>Amazon RDS PostgreSQL 16</b><br>Primary DB & Multi-AZ Standby"]:::data
+                ElastiCache["<b>Amazon ElastiCache (Redis)</b><br>Caché distribuida de cartas y sesiones"]:::data
+            end
+        end
+    end
 
-    Rel(clientInstance, cf, "Solicita páginas web y modelos 3D vía", "HTTPS :443")
-    Rel(cf, s3Static, "Obtiene origen estático de", "S3 API")
-    Rel(clientInstance, loadBalancer, "Envía peticiones API a", "HTTPS :443")
-    Rel(loadBalancer, apiContainers, "Balancea y reenvía tráfico a", "HTTP :8080")
-    Rel(apiContainers, dbMaster, "Lee/Escribe estado en", "TCP :5432")
-    Rel(apiContainers, redisCache, "Consulta caché en", "TCP :6379")
-    Rel(apiContainers, s3Static, "Sube activos y firmas presignadas a", "HTTPS / AWS IAM")
+    subgraph ExternalServices ["Servicios Externos"]
+        GeminiAPI["<b>Google Gemini Vision API</b><br>Inferencia multimodal"]:::ext
+        StripeAPI["<b>Stripe API</b><br>Cobro de suscripciones"]:::ext
+    end
+
+    %% Conexiones
+    BrowserAdmin -->|HTTPS / 443| CloudFront
+    BrowserDiner -->|HTTPS / 443| CloudFront
+    CloudFront -->|Origin Fetch| S3Storage
+
+    BrowserAdmin -->|HTTPS / REST| ALB
+    BrowserDiner -->|HTTPS / REST| ALB
+
+    ALB -->|HTTP / 8080| ECSCluster
+
+    ECSCluster -->|TCP / 5432| RDS
+    ECSCluster -->|TCP / 6379| ElastiCache
+    ECSCluster -->|Presigned URLs / S3 API| S3Storage
+    ECSCluster -->|HTTPS / Inferencia IA| GeminiAPI
+    ECSCluster -->|HTTPS / Webhooks| StripeAPI
 ```
 
 **Aspectos Relevantes de la Infraestructura de Despliegue:**
