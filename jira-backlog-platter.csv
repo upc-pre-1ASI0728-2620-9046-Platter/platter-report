@@ -1,0 +1,499 @@
+﻿Issue Id,Issue Type,Summary,Description,Acceptance Criteria,Story Points,Priority,Epic Name,Epic Link,Parent Id
+EP01,Epic,[EP01] Landing Page & Adquisición de Clientes,"Como visitante interesado en soluciones gastronómicas, deseo explorar un sitio web informativo para conocer la propuesta de valor, los beneficios económicos y los planes de Platter.
+
+Alcance de la Épica:
+- El sitio web estático presenta información clara y responsiva dirigida a restaurantes y comensales.
+- Incluye secciones de beneficios, retorno de inversión (ROI), demostración interactiva, planes comerciales y formulario de contacto.","- El sitio web estático presenta información clara y responsiva dirigida a restaurantes y comensales.
+- Incluye secciones de beneficios, retorno de inversión (ROI), demostración interactiva, planes comerciales y formulario de contacto.",,High,EP01 - Landing Page & Adquisición de Clientes,,
+EP02,Epic,[EP02] Catálogo Gastronómico & Análisis con IA,"Como dueño de restaurante, deseo registrar mis platos mediante fotografías y procesamiento con Inteligencia Artificial para automatizar la creación de fichas técnicas de mi carta sin esfuerzo manual.
+
+Alcance de la Épica:
+- Permite cargar fotografías de platos desde el dispositivo móvil.
+- Genera descripción gastronómica, ingredientes, alérgenos y estimación calórica con IA.
+- Permite asociar modelos 3D a escala real y habilitar o deshabilitar platos en tiempo real.","- Permite cargar fotografías de platos desde el dispositivo móvil.
+- Genera descripción gastronómica, ingredientes, alérgenos y estimación calórica con IA.
+- Permite asociar modelos 3D a escala real y habilitar o deshabilitar platos en tiempo real.",,High,EP02 - Catálogo Gastronómico & Análisis con IA,,
+EP03,Epic,[EP03] Generación & Administración de Códigos QR,"Como dueño de restaurante, deseo generar y descargar códigos QR asociados a las mesas de mi salón para que mis clientes accedan directamente a la carta en Realidad Aumentada.
+
+Alcance de la Épica:
+- Genera identificadores únicos por mesa y por restaurante.
+- Proporciona plantillas descargables de alta resolución listas para imprimir y exhibir en mesas físicas.","- Genera identificadores únicos por mesa y por restaurante.
+- Proporciona plantillas descargables de alta resolución listas para imprimir y exhibir en mesas físicas.",,High,EP03 - Generación & Administración de Códigos QR,,
+EP04,Epic,[EP04] Experiencia WebAR para Comensales,"Como comensal en el restaurante, deseo visualizar los platos en Realidad Aumentada sobre mi mesa a tamaño real directamente desde el navegador web para tomar una decisión informada de compra sin instalar aplicaciones.
+
+Alcance de la Épica:
+- Permite abrir la carta mediante escaneo de código QR sin autenticación.
+- Renderiza modelos 3D fotorrealistas a escala 1:1 mediante estándares WebXR / Quick Look.
+- Permite rotar y comparar el tamaño del plato respecto a la vajilla física.","- Permite abrir la carta mediante escaneo de código QR sin autenticación.
+- Renderiza modelos 3D fotorrealistas a escala 1:1 mediante estándares WebXR / Quick Look.
+- Permite rotar y comparar el tamaño del plato respecto a la vajilla física.",,High,EP04 - Experiencia WebAR para Comensales,,
+EP05,Epic,[EP05] Información Nutricional & Alérgenos,"Como comensal con restricciones alimentarias, deseo consultar el detalle de ingredientes, calorías y alérgenos de cada plato para consumir alimentos seguros según mi perfil de salud.
+
+Alcance de la Épica:
+- Presenta lista clara de alérgenos certificados por la ficha del plato.
+- Permite filtrar la carta descartando platos con alérgenos no tolerados por el comensal.
+- Muestra advertencias de ingredientes sensibles de manera visible y accesible.","- Presenta lista clara de alérgenos certificados por la ficha del plato.
+- Permite filtrar la carta descartando platos con alérgenos no tolerados por el comensal.
+- Muestra advertencias de ingredientes sensibles de manera visible y accesible.",,High,EP05 - Información Nutricional & Alérgenos,,
+EP06,Epic,[EP06] Panel Administrativo & Suscripciones MYPE,"Como dueño de restaurante, deseo consultar métricas de interacción con mi carta y gestionar mi plan de suscripción mensual para optimizar la rentabilidad de mi establecimiento.
+
+Alcance de la Épica:
+- Proporciona analítica de platos más visualizados en AR y mesas con mayor interacción.
+- Permite seleccionar y gestionar planes de suscripción mensual mediante pasarela de pagos.","- Proporciona analítica de platos más visualizados en AR y mesas con mayor interacción.
+- Permite seleccionar y gestionar planes de suscripción mensual mediante pasarela de pagos.",,High,EP06 - Panel Administrativo & Suscripciones MYPE,,
+EP07,Epic,[EP07] Arquitectura Backend & Asset Pipeline (Technical Epics),"Como Developer, deseo disponer de servicios RESTful desacoplados y pipelines de procesamiento para asegurar alta disponibilidad, inferencia de IA y entrega eficiente de modelos 3D ligeros.
+
+Alcance de la Épica:
+- Expone endpoints modulares en Spring Boot bajo arquitectura limpia.
+- Gestiona compresión y despacho en caché de modelos GLB/USDZ con tiempos de respuesta reducidos.","- Expone endpoints modulares en Spring Boot bajo arquitectura limpia.
+- Gestiona compresión y despacho en caché de modelos GLB/USDZ con tiempos de respuesta reducidos.",,High,EP07 - Arquitectura Backend & Asset Pipeline (Technical Epics),,
+US01,Story,[US01] Visualización de Propuesta de Valor y Demostrador WebAR,"Como visitante del sitio web estático, deseo experimentar una demostración interactiva de Realidad Aumentada desde mi dispositivo para comprobar la efectividad de la carta 3D antes de registrar mi negocio.
+
+Criterios de Aceptación:
+**Scenario 1: Demostración exitosa desde móvil**
+**Given** que el visitante navega en la sección principal de la Landing Page desde un dispositivo móvil compatible con WebAR,
+**When** selecciona la opción de prueba interactiva de un plato de muestra,
+**Then** el navegador activa la vista de Realidad Aumentada y proyecta el plato gastronómico tridimensional a escala real sobre su entorno.
+
+**Scenario 2: Demostración desde navegador de escritorio**
+**Given** que el visitante ingresa a la Landing Page desde una computadora de escritorio,
+**When** consulta el área de demostración interactiva,
+**Then** el sistema presenta un visor 3D interactivo navegable con cursor y un código QR en pantalla para escanearlo y probar la experiencia en el smartphone.","**Scenario 1: Demostración exitosa desde móvil**
+**Given** que el visitante navega en la sección principal de la Landing Page desde un dispositivo móvil compatible con WebAR,
+**When** selecciona la opción de prueba interactiva de un plato de muestra,
+**Then** el navegador activa la vista de Realidad Aumentada y proyecta el plato gastronómico tridimensional a escala real sobre su entorno.
+
+**Scenario 2: Demostración desde navegador de escritorio**
+**Given** que el visitante ingresa a la Landing Page desde una computadora de escritorio,
+**When** consulta el área de demostración interactiva,
+**Then** el sistema presenta un visor 3D interactivo navegable con cursor y un código QR en pantalla para escanearlo y probar la experiencia en el smartphone.",5,High,,EP01 - Landing Page & Adquisición de Clientes,EP01
+US04,Story,[US04] Formulario de Solicitud de Piloto Gratuito,"Como visitante del segmento dueño de restaurante, deseo enviar mis datos de contacto y nombre de mi local comercial para solicitar una prueba piloto gratuita de 14 días con mi carta.
+
+Criterios de Aceptación:
+**Scenario 1: Envío exitoso de solicitud**
+**Given** que el visitante completa el formulario con nombre del restaurante, correo corporativo, teléfono y número de mesas válidos,
+**When** envía la solicitud de afiliación,
+**Then** el sistema registra los datos en la base de prospectos y muestra un mensaje de confirmación notificando que recibirá su acceso en menos de 24 horas.
+
+**Scenario 2: Validación de datos incompletos**
+**Given** que el visitante omite ingresar un correo o teléfono con formato válido,
+**When** intenta remitir el formulario,
+**Then** el sistema no procesa el envío y destaca los campos requeridos con mensajes de subsanación claros.","**Scenario 1: Envío exitoso de solicitud**
+**Given** que el visitante completa el formulario con nombre del restaurante, correo corporativo, teléfono y número de mesas válidos,
+**When** envía la solicitud de afiliación,
+**Then** el sistema registra los datos en la base de prospectos y muestra un mensaje de confirmación notificando que recibirá su acceso en menos de 24 horas.
+
+**Scenario 2: Validación de datos incompletos**
+**Given** que el visitante omite ingresar un correo o teléfono con formato válido,
+**When** intenta remitir el formulario,
+**Then** el sistema no procesa el envío y destaca los campos requeridos con mensajes de subsanación claros.",2,High,,EP01 - Landing Page & Adquisición de Clientes,EP01
+US02,Story,"[US02] Sección de Beneficios, Métricas de Retorno (ROI) y Casos de Uso","Como visitante del segmento dueño de restaurante, deseo revisar estadísticas del impacto de la Realidad Aumentada en ventas y testimonios de restaurantes piloto para fundamentar mi decisión de afiliación.
+
+Criterios de Aceptación:
+**Scenario 1: Consulta de indicadores de rentabilidad**
+**Given** que el visitante navega en la sección de beneficios de la Landing Page,
+**When** explora los datos comparativos de conversión y reducción de tiempos de gestión,
+**Then** visualiza métricas documentadas sobre incremento de ticket promedio (2x a 3x en conversión AR) y reducción de tiempos de actualización de carta.
+
+**Scenario 2: Navegación de casos de uso**
+**Given** que el visitante revisa los ejemplos por tipo de cocina (criolla, marina, especialidades),
+**When** selecciona un caso de uso específico,
+**Then** se despliegan detalles de cómo la solución resuelve la exhibición de porciones para dicho giro gastronómico.","**Scenario 1: Consulta de indicadores de rentabilidad**
+**Given** que el visitante navega en la sección de beneficios de la Landing Page,
+**When** explora los datos comparativos de conversión y reducción de tiempos de gestión,
+**Then** visualiza métricas documentadas sobre incremento de ticket promedio (2x a 3x en conversión AR) y reducción de tiempos de actualización de carta.
+
+**Scenario 2: Navegación de casos de uso**
+**Given** que el visitante revisa los ejemplos por tipo de cocina (criolla, marina, especialidades),
+**When** selecciona un caso de uso específico,
+**Then** se despliegan detalles de cómo la solución resuelve la exhibición de porciones para dicho giro gastronómico.",2,High,,EP01 - Landing Page & Adquisición de Clientes,EP01
+US03,Story,[US03] Consulta de Planes de Suscripción y Calculadora MYPE,"Como visitante del segmento dueño de restaurante, deseo consultar los planes tarifarios y calcular el costo según el número de mesas de mi local para evaluar la asequibilidad de la inversión.
+
+Criterios de Aceptación:
+**Scenario 1: Visualización transparente de planes**
+**Given** que el visitante accede a la sección de precios de la Landing Page,
+**When** revisa las alternativas de suscripción mensual,
+**Then** se detallan los límites de platos, soporte de IA, generación de códigos QR y acceso a la biblioteca de modelos 3D sin cobros ocultos por plato.
+
+**Scenario 2: Cálculo estimado de inversión**
+**Given** que el visitante ingresa el número de platos y mesas de su establecimiento en la calculadora de la página,
+**When** solicita el cálculo estimado,
+**Then** el sistema recomienda el plan óptimo y resalta el ahorro frente al modelado fotogramétrico tradicional.","**Scenario 1: Visualización transparente de planes**
+**Given** que el visitante accede a la sección de precios de la Landing Page,
+**When** revisa las alternativas de suscripción mensual,
+**Then** se detallan los límites de platos, soporte de IA, generación de códigos QR y acceso a la biblioteca de modelos 3D sin cobros ocultos por plato.
+
+**Scenario 2: Cálculo estimado de inversión**
+**Given** que el visitante ingresa el número de platos y mesas de su establecimiento en la calculadora de la página,
+**When** solicita el cálculo estimado,
+**Then** el sistema recomienda el plan óptimo y resalta el ahorro frente al modelado fotogramétrico tradicional.",3,High,,EP01 - Landing Page & Adquisición de Clientes,EP01
+US13,Story,[US13] Acceso Inmediato a Carta Digital sin Registro ni App,"Como comensal en la mesa del restaurante, deseo acceder a la carta digital interactiva inmediatamente al escanear el código QR con mi teléfono móvil sin tener que crear cuentas ni instalar aplicaciones.
+
+Criterios de Aceptación:
+**Scenario 1: Escaneo y carga exitosa en navegador**
+**Given** que el comensal escanea el código QR de su mesa mediante la aplicación de cámara de su smartphone (iOS o Android),
+**When** se abre la URL en el navegador móvil predeterminado,
+**Then** la carta del restaurante carga en menos de 2 segundos, mostrando el número de mesa identificada y las categorías del menú sin solicitar autenticación previa.
+
+**Scenario 2: Acceso a mesa no configurada o inactiva**
+**Given** que un comensal escanea un código QR deshabilitado o con identificador inválido,
+**When** el navegador intenta resolver la dirección web,
+**Then** el sistema muestra una pantalla amigable indicando que la mesa no está activa y ofreciendo visualizar el menú general del restaurante.","**Scenario 1: Escaneo y carga exitosa en navegador**
+**Given** que el comensal escanea el código QR de su mesa mediante la aplicación de cámara de su smartphone (iOS o Android),
+**When** se abre la URL en el navegador móvil predeterminado,
+**Then** la carta del restaurante carga en menos de 2 segundos, mostrando el número de mesa identificada y las categorías del menú sin solicitar autenticación previa.
+
+**Scenario 2: Acceso a mesa no configurada o inactiva**
+**Given** que un comensal escanea un código QR deshabilitado o con identificador inválido,
+**When** el navegador intenta resolver la dirección web,
+**Then** el sistema muestra una pantalla amigable indicando que la mesa no está activa y ofreciendo visualizar el menú general del restaurante.",3,High,,EP04 - Experiencia WebAR para Comensales,EP04
+US14,Story,[US14] Proyección del Plato en Realidad Aumentada (WebAR) a Escala 1:1,"Como comensal, deseo proyectar el modelo 3D del plato sobre la superficie de mi mesa con dimensiones reales a escala 1:1 para evaluar su presentación y tamaño antes de solicitarlo.
+
+Criterios de Aceptación:
+**Scenario 1: Activación de Realidad Aumentada en Android (WebXR / Scene Viewer)**
+**Given** que el comensal navega en la carta desde un dispositivo Android compatible con ARCore,
+**When** selecciona ""Ver en Realidad Aumentada"" en la ficha de un plato,
+**Then** el navegador ejecuta el visor nativo sin aplicaciones intermedias, detecta la superficie horizontal de la mesa y ubica el modelo 3D fotorrealista a escala 1:1.
+
+**Scenario 2: Activación de Realidad Aumentada en iOS (AR Quick Look)**
+**Given** que el comensal utiliza un dispositivo iPhone o iPad compatible con ARKit,
+**When** activa la visualización en AR,
+**Then** iOS despliega el visor AR Quick Look en formato USDZ permitiendo interactuar con el modelo y rotarlo 360 grados sobre el mantel.
+
+**Scenario 3: Dispositivo móvil sin compatibilidad AR**
+**Given** que el smartphone del comensal no posee soporte de hardware para Realidad Aumentada,
+**When** intenta ingresar a la experiencia AR,
+**Then** el sistema activa automáticamente un visor 3D interactivo en pantalla donde puede rotar y hacer zoom sobre el plato en 360°.","**Scenario 1: Activación de Realidad Aumentada en Android (WebXR / Scene Viewer)**
+**Given** que el comensal navega en la carta desde un dispositivo Android compatible con ARCore,
+**When** selecciona ""Ver en Realidad Aumentada"" en la ficha de un plato,
+**Then** el navegador ejecuta el visor nativo sin aplicaciones intermedias, detecta la superficie horizontal de la mesa y ubica el modelo 3D fotorrealista a escala 1:1.
+
+**Scenario 2: Activación de Realidad Aumentada en iOS (AR Quick Look)**
+**Given** que el comensal utiliza un dispositivo iPhone o iPad compatible con ARKit,
+**When** activa la visualización en AR,
+**Then** iOS despliega el visor AR Quick Look en formato USDZ permitiendo interactuar con el modelo y rotarlo 360 grados sobre el mantel.
+
+**Scenario 3: Dispositivo móvil sin compatibilidad AR**
+**Given** que el smartphone del comensal no posee soporte de hardware para Realidad Aumentada,
+**When** intenta ingresar a la experiencia AR,
+**Then** el sistema activa automáticamente un visor 3D interactivo en pantalla donde puede rotar y hacer zoom sobre el plato en 360°.",8,High,,EP04 - Experiencia WebAR para Comensales,EP04
+US05,Story,[US05] Carga Fotográfica de Plato para Análisis Automatizado,"Como dueño de restaurante, deseo cargar una fotografía de un plato recién preparado desde la cámara o galería de mi móvil para iniciar el proceso de digitalización con Inteligencia Artificial.
+
+Criterios de Aceptación:
+**Scenario 1: Carga de fotografía válida**
+**Given** que el administrador tiene una sesión activa en la aplicación y selecciona la opción de registrar plato,
+**When** captura o adjunta una fotografía en formato JPEG o PNG con peso menor a 10 MB,
+**Then** la imagen se procesa satisfactoriamente y se almacena en el repositorio de activos digitales para su análisis posterior.
+
+**Scenario 2: Formato o tamaño no soportado**
+**Given** que el usuario intenta subir un archivo con extensión no admitida o peso superior a 10 MB,
+**When** ejecuta la acción de carga,
+**Then** el sistema rechaza el archivo y emite una notificación indicando los límites permitidos de formato y peso.","**Scenario 1: Carga de fotografía válida**
+**Given** que el administrador tiene una sesión activa en la aplicación y selecciona la opción de registrar plato,
+**When** captura o adjunta una fotografía en formato JPEG o PNG con peso menor a 10 MB,
+**Then** la imagen se procesa satisfactoriamente y se almacena en el repositorio de activos digitales para su análisis posterior.
+
+**Scenario 2: Formato o tamaño no soportado**
+**Given** que el usuario intenta subir un archivo con extensión no admitida o peso superior a 10 MB,
+**When** ejecuta la acción de carga,
+**Then** el sistema rechaza el archivo y emite una notificación indicando los límites permitidos de formato y peso.",3,High,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US06,Story,[US06] Sugerencia Inteligente de Descripción y Categoría con IA,"Como dueño de restaurante, deseo que la plataforma analice la imagen del plato mediante Inteligencia Artificial multimodal para obtener una descripción comercial atractiva y su categoría sugerida en segundos.
+
+Criterios de Aceptación:
+**Scenario 1: Inferencia exitosa de descripción**
+**Given** que una fotografía gastronómica válida ha sido cargada al sistema,
+**When** se invoca el motor de análisis multimodal de Gemini Vision,
+**Then** el sistema retorna una propuesta de nombre comercial, categoría sugerida y descripción sensorial de entre 40 y 70 palabras adaptada a la gastronomía local.
+
+**Scenario 2: Fotografía difusa o no gastronómica**
+**Given** que el usuario subió una imagen con baja iluminación o sin elementos gastronómicos discernibles,
+**When** el motor de IA procesa la imagen y obtiene un nivel de confianza menor al umbral mínimo,
+**Then** el sistema solicita amablemente al usuario una nueva toma más clara o la opción de completar los datos de forma manual.","**Scenario 1: Inferencia exitosa de descripción**
+**Given** que una fotografía gastronómica válida ha sido cargada al sistema,
+**When** se invoca el motor de análisis multimodal de Gemini Vision,
+**Then** el sistema retorna una propuesta de nombre comercial, categoría sugerida y descripción sensorial de entre 40 y 70 palabras adaptada a la gastronomía local.
+
+**Scenario 2: Fotografía difusa o no gastronómica**
+**Given** que el usuario subió una imagen con baja iluminación o sin elementos gastronómicos discernibles,
+**When** el motor de IA procesa la imagen y obtiene un nivel de confianza menor al umbral mínimo,
+**Then** el sistema solicita amablemente al usuario una nueva toma más clara o la opción de completar los datos de forma manual.",5,High,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US07,Story,[US07] Detección Automática de Ingredientes Clave y Alérgenos,"Como dueño de restaurante, deseo que el sistema identifique los ingredientes principales y marque alérgenos normados a partir de la foto del plato para cumplir con las regulaciones de seguridad alimentaria.
+
+Criterios de Aceptación:
+**Scenario 1: Detección y clasificación de alérgenos comunes**
+**Given** que la imagen del plato contiene elementos como mariscos, maní, lácteos, huevo o trigo,
+**When** finaliza el análisis de ingredientes con IA,
+**Then** el sistema preselecciona las etiquetas de alérgenos correspondientes en la ficha del plato y lista los ingredientes principales reconocidos.
+
+**Scenario 2: Sin alérgenos evidentes**
+**Given** que el plato corresponde a una preparación libre de alérgenos principales,
+**When** concluye el análisis,
+**Then** el sistema presenta la lista de ingredientes limpia y deja las casillas de alérgenos desmarcadas para validación del administrador.","**Scenario 1: Detección y clasificación de alérgenos comunes**
+**Given** que la imagen del plato contiene elementos como mariscos, maní, lácteos, huevo o trigo,
+**When** finaliza el análisis de ingredientes con IA,
+**Then** el sistema preselecciona las etiquetas de alérgenos correspondientes en la ficha del plato y lista los ingredientes principales reconocidos.
+
+**Scenario 2: Sin alérgenos evidentes**
+**Given** que el plato corresponde a una preparación libre de alérgenos principales,
+**When** concluye el análisis,
+**Then** el sistema presenta la lista de ingredientes limpia y deja las casillas de alérgenos desmarcadas para validación del administrador.",5,Medium,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US10,Story,[US10] Asignación de Modelo 3D a Escala Real desde Biblioteca,"Como dueño de restaurante, deseo vincular un modelo 3D fotorrealista a escala 1:1 desde la biblioteca gastronómica predeterminada de Platter para que el plato disponga de visualización en Realidad Aumentada sin costo adicional de modelado.
+
+Criterios de Aceptación:
+**Scenario 1: Asociación automática por categoría**
+**Given** que el plato registrado pertenece a una categoría con modelos estándar disponibles (ej. cebiche, lomo saltado, hamburguesa artesanal),
+**When** el sistema clasifica el plato,
+**Then** vincula por defecto el modelo 3D optimizado (GLB/USDZ) configurado con dimensiones físicas exactas en metros.
+
+**Scenario 2: Selección manual alternativa**
+**Given** que el usuario desea asignar una representación 3D diferente a la sugerida,
+**When** navega por la galería de modelos gastronómicos y escoge un activo alternativo,
+**Then** la asociación se actualiza y la vista previa 3D refleja el nuevo modelo elegido.","**Scenario 1: Asociación automática por categoría**
+**Given** que el plato registrado pertenece a una categoría con modelos estándar disponibles (ej. cebiche, lomo saltado, hamburguesa artesanal),
+**When** el sistema clasifica el plato,
+**Then** vincula por defecto el modelo 3D optimizado (GLB/USDZ) configurado con dimensiones físicas exactas en metros.
+
+**Scenario 2: Selección manual alternativa**
+**Given** que el usuario desea asignar una representación 3D diferente a la sugerida,
+**When** navega por la galería de modelos gastronómicos y escoge un activo alternativo,
+**Then** la asociación se actualiza y la vista previa 3D refleja el nuevo modelo elegido.",3,Medium,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US11,Story,[US11] Generación de Códigos QR con Identificador de Mesa,"Como dueño de restaurante, deseo generar códigos QR individuales asociados a cada una de las mesas de mi restaurante para que los comensales accedan de manera contextualizada a la carta digital.
+
+Criterios de Aceptación:
+**Scenario 1: Generación masiva por rango de mesas**
+**Given** que el administrador ingresa la cantidad de mesas de su salón (ej. Mesas 1 a 20),
+**When** solicita la generación de códigos QR,
+**Then** el sistema genera identificadores criptográficos únicos vinculados al restaurante y al número de mesa correspondiente, dejándolos listos para consulta y descarga.
+
+**Scenario 2: Incorporación de una nueva mesa**
+**Given** que el local amplía su capacidad con una mesa adicional,
+**When** el administrador añade la mesa identificada como ""Terraza 01"",
+**Then** se genera de forma instantánea el QR respectivo sin alterar los códigos de las mesas previamente existentes.","**Scenario 1: Generación masiva por rango de mesas**
+**Given** que el administrador ingresa la cantidad de mesas de su salón (ej. Mesas 1 a 20),
+**When** solicita la generación de códigos QR,
+**Then** el sistema genera identificadores criptográficos únicos vinculados al restaurante y al número de mesa correspondiente, dejándolos listos para consulta y descarga.
+
+**Scenario 2: Incorporación de una nueva mesa**
+**Given** que el local amplía su capacidad con una mesa adicional,
+**When** el administrador añade la mesa identificada como ""Terraza 01"",
+**Then** se genera de forma instantánea el QR respectivo sin alterar los códigos de las mesas previamente existentes.",3,Medium,,EP03 - Generación & Administración de Códigos QR,EP03
+US12,Story,[US12] Descarga de Plantilla de QR en Alta Calidad para Impresión,"Como dueño de restaurante, deseo descargar los códigos QR en un formato gráfico listo para imprenta con el logotipo y nombre de mi negocio para colocarlos en soportes físicos de mesa.
+
+Criterios de Aceptación:
+**Scenario 1: Descarga en PDF vectorizado / PNG HD**
+**Given** que los códigos QR de las mesas han sido generados,
+**When** el usuario selecciona descargar la plantilla de mesas seleccionadas en formato imprimible,
+**Then** el sistema descarga un archivo estructurado en alta resolución apto para impresión con instrucciones de escaneo para el comensal.
+
+**Scenario 2: Personalización con marca del restaurante**
+**Given** que el restaurante tiene configurado su nombre comercial y logotipo en su perfil,
+**When** se genera la plantilla descargable,
+**Then** el arte gráfico incorpora dichos distintivos de marca de forma armonizada sobre el código QR.","**Scenario 1: Descarga en PDF vectorizado / PNG HD**
+**Given** que los códigos QR de las mesas han sido generados,
+**When** el usuario selecciona descargar la plantilla de mesas seleccionadas en formato imprimible,
+**Then** el sistema descarga un archivo estructurado en alta resolución apto para impresión con instrucciones de escaneo para el comensal.
+
+**Scenario 2: Personalización con marca del restaurante**
+**Given** que el restaurante tiene configurado su nombre comercial y logotipo en su perfil,
+**When** se genera la plantilla descargable,
+**Then** el arte gráfico incorpora dichos distintivos de marca de forma armonizada sobre el código QR.",2,Medium,,EP03 - Generación & Administración de Códigos QR,EP03
+US09,Story,[US09] Validación y Ajuste Manual de Ficha Gastronómica,"Como dueño de restaurante, deseo revisar, editar y confirmar los textos, ingredientes y alérgenos sugeridos por la IA antes de que el plato sea visible en la carta digital.
+
+Criterios de Aceptación:
+**Scenario 1: Aprobación con modificaciones**
+**Given** que la IA sugirió la ficha técnica del plato,
+**When** el administrador corrige un ingrediente particular y pulsa confirmar publicación,
+**Then** los datos editados reemplazan la sugerencia automática y el plato queda registrado oficialmente en el catálogo del restaurante.
+
+**Scenario 2: Cancelación de registro**
+**Given** que el usuario decide no continuar con el alta del plato analizado,
+**When** cancela la operación antes de guardar,
+**Then** el borrador temporal se descarta y el catálogo se mantiene sin alteraciones.","**Scenario 1: Aprobación con modificaciones**
+**Given** que la IA sugirió la ficha técnica del plato,
+**When** el administrador corrige un ingrediente particular y pulsa confirmar publicación,
+**Then** los datos editados reemplazan la sugerencia automática y el plato queda registrado oficialmente en el catálogo del restaurante.
+
+**Scenario 2: Cancelación de registro**
+**Given** que el usuario decide no continuar con el alta del plato analizado,
+**When** cancela la operación antes de guardar,
+**Then** el borrador temporal se descarta y el catálogo se mantiene sin alteraciones.",3,Medium,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US16,Story,[US16] Comparación Visual de Dimensiones del Plato en Mesa,"Como comensal, deseo mover, rotar e inspeccionar la proyección 3D del plato junto a cubiertos o vasos reales sobre mi mesa para constatar su volumen y porción real.
+
+Criterios de Aceptación:
+**Scenario 1: Manipulación de gestos táctiles en AR**
+**Given** que el modelo 3D se encuentra proyectado en la mesa en modo Realidad Aumentada,
+**When** el comensal realiza gestos táctiles de rotación con sus dedos sobre la pantalla,
+**Then** el modelo gira sobre su eje vertical manteniendo estrictamente su escala métrica calibrada en relación con el entorno real.
+
+**Scenario 2: Bloqueo de escalado para fidelidad de porción**
+**Given** que el comensal intenta agrandar el plato con gesto de pellizco en modo AR,
+**When** interactúa con el modelo,
+**Then** el sistema restringe el cambio de tamaño libre y emite un mensaje indicando que el plato se mantiene en escala física 1:1 para garantizar la fidelidad de la porción servida.","**Scenario 1: Manipulación de gestos táctiles en AR**
+**Given** que el modelo 3D se encuentra proyectado en la mesa en modo Realidad Aumentada,
+**When** el comensal realiza gestos táctiles de rotación con sus dedos sobre la pantalla,
+**Then** el modelo gira sobre su eje vertical manteniendo estrictamente su escala métrica calibrada en relación con el entorno real.
+
+**Scenario 2: Bloqueo de escalado para fidelidad de porción**
+**Given** que el comensal intenta agrandar el plato con gesto de pellizco en modo AR,
+**When** interactúa con el modelo,
+**Then** el sistema restringe el cambio de tamaño libre y emite un mensaje indicando que el plato se mantiene en escala física 1:1 para garantizar la fidelidad de la porción servida.",3,Medium,,EP04 - Experiencia WebAR para Comensales,EP04
+US15,Story,[US15] Filtrado de Platos por Alérgenos y Preferencias Dietarias,"Como comensal con requerimientos dietarios o alergias alimentarias, deseo filtrar los platos de la carta excluyendo alérgenos específicos para encontrar opciones seguras para mi consumo.
+
+Criterios de Aceptación:
+**Scenario 1: Aplicación de filtros de seguridad alimentaria**
+**Given** que el comensal ingresa a la carta digital de su mesa,
+**When** marca los filtros de exclusión (ej. ""Sin Gluten"" y ""Sin Mariscos""),
+**Then** la lista de platos se actualiza dinámicamente mostrando únicamente las preparaciones certificadas libres de dichos alérgenos.
+
+**Scenario 2: Búsqueda sin resultados disponibles**
+**Given** que la combinación de filtros seleccionada por el comensal no coincide con ningún plato del menú,
+**When** se aplican las restricciones,
+**Then** el sistema informa que no hay platos disponibles bajo ese criterio estricto y sugiere consultar al personal del restaurante sobre adaptaciones de cocina.","**Scenario 1: Aplicación de filtros de seguridad alimentaria**
+**Given** que el comensal ingresa a la carta digital de su mesa,
+**When** marca los filtros de exclusión (ej. ""Sin Gluten"" y ""Sin Mariscos""),
+**Then** la lista de platos se actualiza dinámicamente mostrando únicamente las preparaciones certificadas libres de dichos alérgenos.
+
+**Scenario 2: Búsqueda sin resultados disponibles**
+**Given** que la combinación de filtros seleccionada por el comensal no coincide con ningún plato del menú,
+**When** se aplican las restricciones,
+**Then** el sistema informa que no hay platos disponibles bajo ese criterio estricto y sugiere consultar al personal del restaurante sobre adaptaciones de cocina.",3,Medium,,EP05 - Información Nutricional & Alérgenos,EP05
+US17,Story,[US17] Consulta de Ingredientes y Advertencias de Contaminación Cruzada,"Como comensal alérgico, deseo acceder a la ficha informativa detallada del plato para revisar posibles trazas de ingredientes y notas de advertencia de cocina.
+
+Criterios de Aceptación:
+**Scenario 1: Despliegue de ficha de ingredientes**
+**Given** que el comensal visualiza la ficha de un plato en la carta digital,
+**When** expande la sección de información de alérgenos e ingredientes,
+**Then** se despliegan las etiquetas destacadas con iconos representativos de cada alérgeno y la advertencia sobre buenas prácticas de manipulación del restaurante.
+
+**Scenario 2: Certificación de plato vegetariano/vegano**
+**Given** que un plato cuenta con certificación vegana en su registro,
+**When** el comensal inspecciona la ficha,
+**Then** se muestra el distintivo correspondiente y el desglose de sustitutos de origen vegetal utilizados.","**Scenario 1: Despliegue de ficha de ingredientes**
+**Given** que el comensal visualiza la ficha de un plato en la carta digital,
+**When** expande la sección de información de alérgenos e ingredientes,
+**Then** se despliegan las etiquetas destacadas con iconos representativos de cada alérgeno y la advertencia sobre buenas prácticas de manipulación del restaurante.
+
+**Scenario 2: Certificación de plato vegetariano/vegano**
+**Given** que un plato cuenta con certificación vegana en su registro,
+**When** el comensal inspecciona la ficha,
+**Then** se muestra el distintivo correspondiente y el desglose de sustitutos de origen vegetal utilizados.",2,Medium,,EP05 - Información Nutricional & Alérgenos,EP05
+US08,Story,[US08] Estimación Calórica y Ficha Nutricional Automatizada,"Como dueño de restaurante, deseo contar con una estimación aproximada del rango calórico y macronutrientes del plato para ofrecer información nutricional transparente a mis comensales.
+
+Criterios de Aceptación:
+**Scenario 1: Cálculo estimado de calorías**
+**Given** que se han identificado los ingredientes y la porción típica del plato analizado,
+**When** el sistema calcula los parámetros nutricionales sugeridos,
+**Then** se despliega un rango calórico estimado (ej. 450 - 550 kcal) y advertencias informativas de que se trata de una estimación nutricional orientativa.
+
+**Scenario 2: Ajuste de porción**
+**Given** que el plato tiene una presentación personal o familiar grande,
+**When** el usuario modifica la escala de porción en la ficha,
+**Then** el sistema recalcula proporcionalmente el rango calórico sugerido.","**Scenario 1: Cálculo estimado de calorías**
+**Given** que se han identificado los ingredientes y la porción típica del plato analizado,
+**When** el sistema calcula los parámetros nutricionales sugeridos,
+**Then** se despliega un rango calórico estimado (ej. 450 - 550 kcal) y advertencias informativas de que se trata de una estimación nutricional orientativa.
+
+**Scenario 2: Ajuste de porción**
+**Given** que el plato tiene una presentación personal o familiar grande,
+**When** el usuario modifica la escala de porción en la ficha,
+**Then** el sistema recalcula proporcionalmente el rango calórico sugerido.",3,Medium,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US18,Story,[US18] Actualización de Disponibilidad de Platos en Tiempo Real,"Como dueño de restaurante, deseo marcar platos como ""Agotado"" con un solo toque desde mi panel para que los comensales no intenten ordenar preparaciones que ya no están disponibles en cocina.
+
+Criterios de Aceptación:
+**Scenario 1: Desactivación inmediata por quiebre de stock**
+**Given** que el administrador identifica que se agotaron los insumos de un plato en el turno,
+**When** desmarca la disponibilidad del plato en su panel administrativo,
+**Then** de forma inmediata y reactiva la carta digital y el visor AR ocultan el botón de pedido o marcan el plato como ""Agotado por hoy"" para todos los comensales conectados.
+
+**Scenario 2: Reactivación de plato disponible**
+**Given** que cocina prepara una nueva tanda del plato previamente agotado,
+**When** el administrador activa nuevamente la casilla de disponibilidad,
+**Then** el plato vuelve a mostrarse activo en las cartas digitales de todas las mesas al instante.","**Scenario 1: Desactivación inmediata por quiebre de stock**
+**Given** que el administrador identifica que se agotaron los insumos de un plato en el turno,
+**When** desmarca la disponibilidad del plato en su panel administrativo,
+**Then** de forma inmediata y reactiva la carta digital y el visor AR ocultan el botón de pedido o marcan el plato como ""Agotado por hoy"" para todos los comensales conectados.
+
+**Scenario 2: Reactivación de plato disponible**
+**Given** que cocina prepara una nueva tanda del plato previamente agotado,
+**When** el administrador activa nuevamente la casilla de disponibilidad,
+**Then** el plato vuelve a mostrarse activo en las cartas digitales de todas las mesas al instante.",2,Medium,,EP02 - Catálogo Gastronómico & Análisis con IA,EP02
+US21,Story,[US21] Inferencia Multimodal RESTful con Gemini Vision (Technical Story),"Como Developer, deseo disponer de un servicio RESTful en Spring Boot que reciba la imagen binaria del plato y se comunique con la API de Google Gemini para retornar la metadata estructurada en JSON.
+
+Criterios de Aceptación:
+**Scenario 1: Inferencia procesada exitosamente**
+**Given** que el cliente envía una petición `POST` al endpoint `/api/v1/dishes/analyze` con un archivo de imagen válido en multipart/form-data y token JWT autorizado,
+**When** el servicio procesa la solicitud con la API externa de IA en menos de 3.5 segundos,
+**Then** la API responde con código HTTP `200 OK` y un cuerpo JSON con los campos `suggestedName`, `description`, `category`, `ingredients` (array), `allergens` (array) y `estimatedCalories` (rango min-max).
+
+**Scenario 2: Excedido tiempo de respuesta o fallo de API de IA**
+**Given** que la API externa experimenta latencia o falta de disponibilidad temporal,
+**When** la petición excede el tiempo límite de timeout configurado (5000 ms),
+**Then** el microservicio aplica el patrón Circuit Breaker, responde con código HTTP `503 Service Unavailable` y devuelve una estructura de error estandarizada indicando la opción de reintento.","**Scenario 1: Inferencia procesada exitosamente**
+**Given** que el cliente envía una petición `POST` al endpoint `/api/v1/dishes/analyze` con un archivo de imagen válido en multipart/form-data y token JWT autorizado,
+**When** el servicio procesa la solicitud con la API externa de IA en menos de 3.5 segundos,
+**Then** la API responde con código HTTP `200 OK` y un cuerpo JSON con los campos `suggestedName`, `description`, `category`, `ingredients` (array), `allergens` (array) y `estimatedCalories` (rango min-max).
+
+**Scenario 2: Excedido tiempo de respuesta o fallo de API de IA**
+**Given** que la API externa experimenta latencia o falta de disponibilidad temporal,
+**When** la petición excede el tiempo límite de timeout configurado (5000 ms),
+**Then** el microservicio aplica el patrón Circuit Breaker, responde con código HTTP `503 Service Unavailable` y devuelve una estructura de error estandarizada indicando la opción de reintento.",8,Low,,EP07 - Arquitectura Backend & Asset Pipeline (Technical Epics),EP07
+US22,Story,[US22] Despacho y Caché de Activos 3D Optimizados (Technical Story),"Como Developer, deseo implementar un endpoint optimizado para servir modelos 3D (GLB/USDZ) con compresión Draco y cabeceras de caché HTTP agresivas para garantizar cargas WebAR en menos de 1.5 segundos en redes móviles.
+
+Criterios de Aceptación:
+**Scenario 1: Petición de activo con compresión y caché activa**
+**Given** que el visor WebAR solicita un activo 3D mediante petición `GET` a `/api/v1/assets/models/{modelId}.glb`,
+**When** el servidor resuelve el archivo optimizado desde el almacenamiento de objetos,
+**Then** responde con código HTTP `200 OK`, cabecera `Content-Type: model/gltf-binary`, cabecera `Cache-Control: public, max-age=31536000, immutable` y tamaño comprimido inferior a 3.0 MB.
+
+**Scenario 2: Validación de caché no modificada (ETag / If-None-Match)**
+**Given** que el navegador del comensal ya posee una copia local del modelo y envía una cabecera `If-None-Match` con el ETag correspondiente,
+**When** el servidor comprueba que el activo no ha variado,
+**Then** responde inmediatamente con código HTTP `304 Not Modified` sin reenviar el cuerpo binario, minimizando el consumo de datos móviles del comensal.","**Scenario 1: Petición de activo con compresión y caché activa**
+**Given** que el visor WebAR solicita un activo 3D mediante petición `GET` a `/api/v1/assets/models/{modelId}.glb`,
+**When** el servidor resuelve el archivo optimizado desde el almacenamiento de objetos,
+**Then** responde con código HTTP `200 OK`, cabecera `Content-Type: model/gltf-binary`, cabecera `Cache-Control: public, max-age=31536000, immutable` y tamaño comprimido inferior a 3.0 MB.
+
+**Scenario 2: Validación de caché no modificada (ETag / If-None-Match)**
+**Given** que el navegador del comensal ya posee una copia local del modelo y envía una cabecera `If-None-Match` con el ETag correspondiente,
+**When** el servidor comprueba que el activo no ha variado,
+**Then** responde inmediatamente con código HTTP `304 Not Modified` sin reenviar el cuerpo binario, minimizando el consumo de datos móviles del comensal.",5,Low,,EP07 - Arquitectura Backend & Asset Pipeline (Technical Epics),EP07
+US19,Story,[US19] Panel de Analítica de Interacciones AR y Platos Populares,"Como dueño de restaurante, deseo visualizar métricas de escaneos de QR y visualizaciones AR por plato para identificar qué preparaciones despiertan mayor interés entre mis comensales.
+
+Criterios de Aceptación:
+**Scenario 1: Consulta de métricas semanales**
+**Given** que el administrador ingresa al módulo de reportes de su cuenta,
+**When** selecciona el periodo de los últimos 7 días,
+**Then** el sistema presenta un ranking gráfico con los platos más explorados en AR, el promedio de permanencia en la carta y la mesa con mayor actividad.
+
+**Scenario 2: Descarga de reporte consolidado**
+**Given** que el restaurante requiere cruzar datos con su sistema de ventas de caja,
+**When** solicita la exportación de interacciones,
+**Then** el sistema genera y descarga un resumen en formato CSV con las marcas de tiempo y tipos de interacción por plato.","**Scenario 1: Consulta de métricas semanales**
+**Given** que el administrador ingresa al módulo de reportes de su cuenta,
+**When** selecciona el periodo de los últimos 7 días,
+**Then** el sistema presenta un ranking gráfico con los platos más explorados en AR, el promedio de permanencia en la carta y la mesa con mayor actividad.
+
+**Scenario 2: Descarga de reporte consolidado**
+**Given** que el restaurante requiere cruzar datos con su sistema de ventas de caja,
+**When** solicita la exportación de interacciones,
+**Then** el sistema genera y descarga un resumen en formato CSV con las marcas de tiempo y tipos de interacción por plato.",5,Low,,EP06 - Panel Administrativo & Suscripciones MYPE,EP06
+US20,Story,[US20] Gestión de Suscripción Mensual y Métodos de Pago,"Como dueño de restaurante, deseo gestionar mi plan de suscripción mensual y registrar mi tarjeta de crédito/débito para mantener activo el servicio de Platter sin interrupciones.
+
+Criterios de Aceptación:
+**Scenario 1: Renovación automática de membresía**
+**Given** que el restaurante se encuentra suscrito a un plan mensual vigente con método de pago registrado,
+**When** llega la fecha de corte mensual,
+**Then** la pasarela procesa el cargo del abono recurrente, emite el comprobante de pago digital correspondiente y mantiene la cuenta en estado activo.
+
+**Scenario 2: Notificación por cobro declinado**
+**Given** que la tarjeta del cliente no cuenta con fondos suficientes en la fecha de corte,
+**When** la pasarela reporta el fallo de cobro,
+**Then** el sistema envía un correo de alerta y otorga un periodo de gracia de 72 horas manteniendo el servicio activo mientras el usuario actualiza sus datos de facturación.","**Scenario 1: Renovación automática de membresía**
+**Given** que el restaurante se encuentra suscrito a un plan mensual vigente con método de pago registrado,
+**When** llega la fecha de corte mensual,
+**Then** la pasarela procesa el cargo del abono recurrente, emite el comprobante de pago digital correspondiente y mantiene la cuenta en estado activo.
+
+**Scenario 2: Notificación por cobro declinado**
+**Given** que la tarjeta del cliente no cuenta con fondos suficientes en la fecha de corte,
+**When** la pasarela reporta el fallo de cobro,
+**Then** el sistema envía un correo de alerta y otorga un periodo de gracia de 72 horas manteniendo el servicio activo mientras el usuario actualiza sus datos de facturación.",5,Low,,EP06 - Panel Administrativo & Suscripciones MYPE,EP06
