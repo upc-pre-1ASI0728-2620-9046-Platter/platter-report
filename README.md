@@ -338,11 +338,6 @@ flowchart LR
     S1 ==> S2 ==> S3
 ```
 
-> [!NOTE]
-> **Evidencia Gráfica del Taller:** El tablero visual detallado con todos los post-its de comandos, eventos, agregados y reglas reactivas construido en **Miro** se ilustra a continuación:
-> 
-> ![EventStorming Diagram](./assets/event-storming.png)
-> *(Figura 4.1: Diagrama de EventStorming colaborativo desarrollado en Miro mostrando el flujo completo de eventos del dominio de Platter).*
 
 ---
 
@@ -381,11 +376,6 @@ graph TD
     BC5 -. "Regula límites operativos" .-> BC4
 ```
 
-> [!NOTE]
-> **Evidencia Gráfica de Descubrimiento:** La descomposición progresiva y agrupación de post-its del EventStorming en los 5 Bounded Contexts se sintetiza en la herramienta de modelado:
-> 
-> ![Candidate Context Discovery](./assets/candidate-context-discovery.png)
-> *(Figura 4.2: Descubrimiento de Bounded Contexts candidatos a partir de la clusterización de eventos pivote en Miro).*
 
 ---
 
@@ -465,12 +455,6 @@ sequenceDiagram
     CDN-->>WebAR: Retorna archivo 3D comprimido con Draco
     WebAR->>Comensal: Proyecta plato en WebAR a escala métrica 1:1 sobre mantel
 ```
-
-> [!NOTE]
-> **Evidencia Gráfica de Domain Storytelling:** Los diagramas completos modelados con actores y work objects en la herramienta **Miro** / **Domain Storytelling Modeler** se presentan a continuación:
-> 
-> ![Domain Storytelling Diagram](./assets/domain-storytelling.png)
-> *(Figura 4.3: Modelado de flujos de mensajes mediante Domain Storytelling para los casos de uso críticos de Platter).*
 
 ---
 
@@ -577,11 +561,6 @@ ightarrow$ AR Dining Experience:** Patrón **Upstream / Downstream (U/D)**. La a
 5. **Subscription & Billing $
 ightarrow$ Restaurant / Catalog:** Patrón **Upstream / Downstream (U/D)** con políticas de límite de recursos (cuota de platos y número máximo de mesas activas).
 
-> [!NOTE]
-> **Evidencia Gráfica de Context Mapping:** El diagrama de relaciones estratégicas de DDD elaborado en la herramienta **Miro** / **UXPressia** se documenta a continuación:
-> 
-> ![Context Map](./assets/context-map.png)
-> *(Figura 4.4: Context Map estratégico de Platter detallando relaciones U/D, ACL, OHS/PL y clasificaciones de dominio).*
 
 ---
 
@@ -632,11 +611,6 @@ graph TB
 * **Cloud Object Storage & CDN:** Infraestructura distribuida que aloja los modelos 3D binarios comprimidos y los entrega directamente a los navegadores móviles de los comensales en menos de 1.5 segundos.
 * **Pasarela de Pagos (MercadoPago / Stripe):** Administra los cobros automáticos de suscripción de los restaurantes afiliados según el plan seleccionado.
 
-> [!NOTE]
-> **Evidencia Gráfica del Paisaje del Sistema:** El diagrama C4 System Landscape formal elaborado en la herramienta **Structurizr** / **Draw.io** se referencia a continuación:
-> 
-> ![Software Architecture System Landscape Diagram](./assets/c4-system-landscape.png)
-> *(Figura 4.5: Software Architecture System Landscape Diagram representando a los actores, la plataforma Platter y sus integraciones externas).*
 
 ---
 
@@ -671,11 +645,6 @@ C4Context
 * **Interacción Comensal:** El comensal no necesita crearse una cuenta ni autenticarse; su interacción con Platter es puramente anónima y transaccional, contextualizada por el identificador de mesa inyectado por el código QR.
 * **Interacción Dueño de Restaurante:** El dueño de restaurante interactúa mediante un canal autenticado con tokens JWT seguros para gestionar el catálogo y monitorear las métricas de interacción de sus comensales.
 
-> [!NOTE]
-> **Evidencia Gráfica de Nivel de Contexto:** El diagrama C4 Context Diagram formal elaborado en **Structurizr** / **Draw.io** se documenta a continuación:
-> 
-> ![Software Architecture Context Level Diagram](./assets/c4-context-diagram.png)
-> *(Figura 4.6: Software Architecture Context Level Diagram de Platter según C4 Model).*
 
 ---
 
@@ -732,12 +701,6 @@ C4Container
 7. **PostgreSQL 16:** Almacenamiento relacional de datos persistentes con integridad referencial estricta y aislamiento lógico multitenant por restaurante.
 8. **Redis Distributed Cache:** Almacenamiento en memoria volátil de alto desempeño que retiene en memoria los menús activos de los restaurantes, reduciendo en más del 85% las consultas directas a la base de datos relacional durante horas pico.
 9. **Cloud Object Storage (S3) & CDN:** Repositorio distribuido de archivos binarios estáticos (modelos GLB/USDZ con compresión Draco y fotos JPEG).
-
-> [!NOTE]
-> **Evidencia Gráfica de Contenedores:** El diagrama C4 Container Diagram formal elaborado en **Structurizr** / **Draw.io** se referencia a continuación:
-> 
-> ![Software Architecture Container Level Diagram](./assets/c4-container-diagram.png)
-> *(Figura 4.7: Software Architecture Container Level Diagram de Platter detallando contenedores y protocolos).*
 
 ---
 
@@ -813,11 +776,6 @@ flowchart TD
 4. **Base de Datos Gestionada (Amazon RDS Multi-AZ):** Despliegue de PostgreSQL 16 con replicación automática entre zonas de disponibilidad, asegurando respaldo continuo y recuperación ante desastres sin pérdida de datos.
 5. **Gestión Segura de Secretos y Roles IAM:** La comunicación con Amazon S3 se autoriza mediante roles IAM asimilados a las tareas de ECS, sin necesidad de quemar credenciales ni llaves de acceso en el código fuente.
 
-> [!NOTE]
-> **Evidencia Gráfica de Despliegue:** El diagrama C4 Deployment Diagram formal elaborado en la herramienta **Structurizr** / **Draw.io** se referencia a continuación:
-> 
-> ![Software Architecture Deployment Diagram](./assets/c4-deployment-diagram.png)
-> *(Figura 4.8: Software Architecture Deployment Diagram representando la infraestructura física y lógica en AWS Cloud).*
 
 
 # Conclusiones
