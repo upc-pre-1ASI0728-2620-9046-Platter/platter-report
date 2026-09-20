@@ -411,21 +411,21 @@ A continuación, se modelan los dos escenarios operacionales más críticos de P
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Dueño as Dueño de Restaurante
-    participant App as App Móvil (Flutter)
+    actor Owner as Dueno de Restaurante
+    participant App as App Movil (Flutter)
     participant Catalog as Dish & Menu Catalog BC
     participant AI as AI Gastronomic Analysis BC
     participant Gemini as Google Gemini Vision API
 
-    Dueño->>App: Captura foto del plato en cocina
+    Owner->>App: Captura foto del plato en cocina
     App->>Catalog: POST /api/v1/dishes (Imagen + Metadata inicial)
-    Catalog->>AI: Solicitar análisis multimodal de imagen
+    Catalog->>AI: Solicitar analisis multimodal de imagen
     AI->>Gemini: POST /v1beta/models/gemini-1.5-flash:generateContent
-    Gemini-->>AI: Respuesta JSON (Texto, Ingredientes, Alérgenos, Calorías)
-    AI-->>Catalog: Metadata gastronómica normalizada
-    Catalog->>Catalog: Asociar Modelo 3D predeterminado de la biblioteca
-    Catalog-->>App: Ficha técnica completa en estado Borrador
-    Dueño->>App: Valida datos y confirma publicación
+    Gemini-->>AI: Respuesta JSON (Texto, Ingredientes, Alergenos, Calorias)
+    AI-->>Catalog: Metadata gastronomica normalizada
+    Note over Catalog: Asociar Modelo 3D predeterminado de la biblioteca
+    Catalog-->>App: Ficha tecnica completa en estado Borrador
+    Owner->>App: Valida datos y confirma publicacion
     App->>Catalog: PUT /api/v1/dishes/{id}/publish
     Catalog-->>App: Plato oficialmente publicado en la carta
 ```
