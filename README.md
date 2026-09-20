@@ -300,10 +300,10 @@ El análisis cualitativo estructurado de las respuestas obtenidas permitió sint
 Los User Personas representan arquetipos construidos a partir de los patrones conductuales, motivaciones y limitaciones identificados durante la investigación cualitativa. El primer arquetipo consolida la perspectiva del gestor de una micro o pequeña empresa gastronómica que busca modernizar su servicio y reducir fricciones operativas sin elevar sus costos fijos. El segundo arquetipo refleja al comensal urbano habitual que valora la transparencia en el servicio, busca optimizar su tiempo de decisión y prioriza experiencias inmersivas respaldadas por información nutricional confiable.
 
 UserPersona 1 
-<img src="./assets/Nombre_Apellido1.png">
+<img src="./assets/Carlos Mendoza Vidal.png">
 
 UserPersona 2 
-<img src="./assets/Nombre_Apellido2.png">
+<img src="./assets/Valeria Ramos Benavides.png">
 
 ### 2.3.2. User Task Matrix.
 
@@ -339,10 +339,10 @@ UserPersona 2
 El Mapa de Empatía sintetiza el entorno sensorial y emocional de ambos actores clave, identificando lo que dicen, hacen, piensan y sienten en su contexto operativo o de consumo regular, permitiendo una comprensión holística de sus dolores y aspiraciones.
 
 #### Mapa de Empatía - Segmento 1: Dueños y Administradores de Restaurantes
-<img src="./assets/Empathy_map.png">
+<img src="./assets/Empathy map1.png">
 
 #### Mapa de Empatía - Segmento 2: Comensales de Restaurante
-<img src="./assets/Empathy_map.png">
+<img src="./assets/Empathy map2.png">
 
 ### 2.3.4. As-is Scenario Mapping.
 
@@ -353,10 +353,10 @@ Para el administrador, el flujo inicia con la concepción manual de cartas impre
 Para el comensal, el escenario actual abarca desde la llegada a la mesa, la lectura de cartas basadas en descripciones ambiguas o fotografías planas desactualizadas, la constante consulta verbal al personal de salón y la decepción final cuando el plato recibido no cumple las expectativas visuales ni de porción deseadas.
 
 #### As-is Scenario Mapping - Segmento 1: Dueños y Administradores de Restaurantes
-<img src="./assets/As_is_scenario_mapping_1.png">
+<img src="./assets/Customer journey map1.png">
 
 #### As-is Scenario Mapping - Segmento 2: Comensales de Restaurante
-<img src="./assets/As_is_scenario_mapping_2.png">
+<img src="./assets/Customer journey map2.png">
 
 ---
 
