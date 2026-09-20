@@ -270,6 +270,8 @@ El diseño de las entrevistas semiestructuradas tiene como propósito validar en
   * Edad: 26 años
   * Fecha: 14 de septiembre de 2026
   * Duración: 22 minutos
+  
+<img src="./assets/Entrevista 1.png">
 
 ### 2.2.3. Análisis de entrevistas.
 
@@ -358,9 +360,11 @@ Para el comensal, el escenario actual abarca desde la llegada a la mesa, la lect
 #### As-is Scenario Mapping - Segmento 2: Comensales de Restaurante
 <img src="./assets/Customer journey map2.png">
 
----
+## 2.4. Big Picture EventStorming.
+<img src="./assets/fase_1_backoffice.png">
+<img src="./assets/fase_2_frontstage.png">
 
-## 2.4. Ubiquitous Language.
+## 2.5. Ubiquitous Language.
 
 | Term (English) | Término (Español) | Definition (Definición en español) |
 | :--- | :--- | :--- |
