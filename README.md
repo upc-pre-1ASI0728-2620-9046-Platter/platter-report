@@ -1776,6 +1776,51 @@ C4Component
 ### 5.3.7. Bounded Context Software Architecture Code Level Diagrams
 #### 5.3.7.1. Bounded Context Domain Layer Class Diagrams
 ```mermaid
+classDiagram
+    class DiningSession {
+        -UUID sessionToken
+        -UUID restaurantId
+        -UUID tableId
+        -Set~String~ activeAllergenFilters
+        -Instant startedAt
+        -Instant lastInteractionAt
+        +applyAllergenFilter(allergens: Set~String~) void
+        +clearFilters() void
+        +isDishSafe(dishAllergens: Set~String~) Boolean
+        +touchSession() void
+    }
+
+    class ARModelAsset {
+        -String modelId
+        -ModelFormat format
+        -Double scaleFactor
+        -Boolean dracoCompressed
+        -String cdnDownloadUrl
+        +isMetricScaleCalibrated() Boolean
+    }
+
+    class ModelFormat {
+        <<enumeration>>
+        GLB
+        USDZ
+    }
+
+    class ScaleConstraint {
+        -Double fixedScale
+        -Boolean allowFreeScaling
+        +validateScaleIntegrity() Boolean
+    }
+
+    class DiningSessionRepository {
+        <<interface>>
+        +save(session: DiningSession) DiningSession
+        +findByToken(token: UUID) Optional~DiningSession~
+    }
+
+    DiningSession ..> ARModelAsset : proyecta
+    DiningSession *-- ScaleConstraint
+    ARModelAsset --> ModelFormat
+    DiningSessionRepository ..> DiningSession : gestiona
 ```
 #### 5.3.7.2. Bounded Context Database Design Diagram
 ```mermaid
