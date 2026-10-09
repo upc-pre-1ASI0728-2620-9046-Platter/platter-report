@@ -1545,6 +1545,49 @@ classDiagram
     Dish o-- Allergen
     DishRepository ..> Dish : administra
 ```
+### 5.1.7.2. Bounded Context Database Design Diagram
+
+```mermaid
+erDiagram
+    DISHES ||--o{ DISH_ALLERGENS : "contiene"
+    DISHES ||--o{ DISH_INGREDIENTS : "compuesto por"
+
+    DISHES {
+        uuid id PK
+        uuid restaurant_id
+        varchar name
+        text description
+        numeric price_amount
+        varchar price_currency
+        varchar category
+        varchar status
+        int min_calories
+        int max_calories
+        numeric protein_grams
+        numeric carbs_grams
+        numeric fat_grams
+        varchar model3d_id
+        varchar model3d_storage_key
+        numeric model3d_scale_factor
+        boolean is_standard_sample
+        varchar photo_url
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    DISH_ALLERGENS {
+        uuid id PK
+        uuid dish_id FK
+        varchar allergen_name
+    }
+
+    DISH_INGREDIENTS {
+        uuid id PK
+        uuid dish_id FK
+        varchar name
+        boolean is_highlighted
+    }
+```
 
 
 # Conclusiones
