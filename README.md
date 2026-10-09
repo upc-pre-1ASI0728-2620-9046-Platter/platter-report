@@ -1706,6 +1706,80 @@ erDiagram
     }
 ```
 
+## 5.3. Bounded Context: AR Dining Experience
+
+En esta sección se especifica el diseño táctico del contexto de experiencia de consumo interactivo en mesa (Front-Stage), orientado a garantizar el acceso inmediato del comensal sin descargas ni credenciales, el renderizado de modelos tridimensionales a escala métrica real 1:1 y el filtrado estricto por seguridad alimentaria.
+
+### 5.3.1. Domain Layer
+Modela el ciclo de vida efímero de la sesión de mesa del comensal, la gobernanza de filtros de alérgenos y las restricciones de escala métrica para la proyección volumétrica.
+
+* **`DiningSession` (Aggregate Root / Entity):** Representa la sesión temporal y anónima de un comensal en el salón físico.
+  * *Atributos:* `sessionToken: UUID`, `restaurantId: UUID`, `tableId: UUID`, `activeAllergenFilters: Set<String>`, `startedAt: Instant`, `lastInteractionAt: Instant`.
+  * *Métodos:* `applyAllergenFilter(allergens: Set<String>): void`, `clearFilters(): void`, `isDishSafe(dishAllergens: Set<String>): Boolean`, `touchSession(): void`.
+* **`ARModelAsset` (Entity / Read Model):** Representa la metadata del activo tridimensional calibrado para su proyección en el espacio físico.
+  * *Atributos:* `modelId: String`, `format: ModelFormat`, `scaleFactor: Double`, `dracoCompressed: Boolean`, `cdnDownloadUrl: String`.
+  * *Métodos:* `isMetricScaleCalibrated(): Boolean`.
+* **`ModelFormat` (Enum):** Formatos de archivo para Realidad Aumentada móvil: `GLB` (WebXR Device API / Scene Viewer para Android) y `USDZ` (AR Quick Look para iOS).
+* **`ScaleConstraint` (Value Object):** Restricción matemática inmutable que bloquea la escala libre del visor WebAR para asegurar fidelidad volumétrica física 1:1 frente al tamaño del plato real.
+* **`DiningSessionRepository` (Domain Interface):** Puerto para la gestión de sesiones efímeras: `save(session: DiningSession): DiningSession`, `findByToken(token: UUID): Optional<DiningSession>`.
+
+### 5.3.2. Interface Layer
+Expone los servicios de navegación y consumo público para los comensales, optimizados para clientes web ligeros móviles (PWA).
+
+* **`DiningSessionController`:** Expone endpoints públicos sin autenticación contextualizados por el identificador de mesa:
+  * `POST /api/v1/dining/session`: Inicia una sesión efímera a partir del token de mesa física.
+  * `GET /api/v1/dining/session/{token}/catalog`: Retorna la carta filtrada según las preferencias activas del comensal.
+  * `POST /api/v1/dining/session/{token}/filters`: Actualiza los alérgenos a excluir de la vista.
+* **`ARModelDeliveryController`:** Controlador REST especializado en la entrega de activos 3D (`GET /api/v1/assets/models/{modelId}`), configurando cabeceras agresivas de caché (`Cache-Control: public, max-age=31536000, immutable`) y validación ETag para minimizar el consumo de datos móviles.
+
+### 5.3.3. Application Layer
+Coordina los flujos de interacción del comensal, el filtrado dinámico de ítems y la resolución de rutas de descarga de activos volumétricos.
+
+* **`StartDiningSessionCommandHandler`:** Valida la vigencia del token de mesa y crea una nueva instancia de `DiningSession` persistida en memoria.
+* **`FilterCatalogByAllergensQueryHandler`:** Toma los filtros dietarios solicitados y purga en memoria cualquier preparación culinaria que declare alérgenos restringidos por el comensal.
+* **`GetARModelDownloadUrlQueryHandler`:** Resuelve la dirección URL óptima en el CDN de Amazon CloudFront para despachar el archivo binario (`.glb` / `.usdz`) en menos de 1.5 segundos.
+* **`LogARInteractionCommandHandler`:** Registra de forma asíncrona la telemetría de interacción con el modelo 3D para la analítica de negocio del restaurante.
+
+### 5.3.4. Infrastructure Layer
+Implementa los adaptadores de almacenamiento volátil y entrega perimetral distribuida para maximizar el rendimiento.
+
+* **`RedisDiningSessionRepository`:** Implementación concreta de `DiningSessionRepository` que almacena los estados de sesión en Redis con un TTL de 3 horas, liberando automáticamente memoria al expirar la visita.
+* **`CloudFrontUrlSignerService`:** Genera y valida las rutas perimetrales de distribución en Amazon CloudFront para el despacho de activos pesados cacheados cerca al dispositivo móvil.
+
+### 5.3.6. Bounded Context Software Architecture Component Level Diagrams
+
+```mermaid
+C4Component
+    title Component Diagram - AR Dining Experience Context
+
+    Container_Boundary(ar_bc, "AR Dining Experience Context (Spring Boot)") {
+        Component(dining_ctrl, "DiningSessionController", "Spring REST Controller", "Expone APIs anónimas de sesión de mesa y consulta de carta con filtros.")
+        Component(asset_ctrl, "ARModelDeliveryController", "Spring REST Controller", "Gestiona redirección y entrega con cabeceras de caché agresivas.")
+        Component(session_service, "DiningSessionAppService", "Spring Service (Application)", "Gobierna ciclo de vida de la sesión efímera y filtrado por alérgenos.")
+        Component(domain_session, "DiningSession Aggregate", "Java Domain Model", "Aplica reglas de seguridad alimentaria y bloqueo de escala 1:1.")
+        Component(redis_session_repo, "RedisSessionRepositoryAdapter", "Spring Component (Infrastructure)", "Guarda sesiones en Redis con TTL de 3 horas.")
+    }
+
+    Container(web_client, "AR Dining Web Client", "Three.js / WebXR", "Renderiza modelos 3D en el navegador móvil.")
+    ContainerDb(redis, "Redis Cache", "In-Memory DB", "Almacena DiningSessions activas.")
+    Container(cdn, "Amazon CloudFront CDN", "Edge Storage", "Despacha binarios GLB/USDZ comprimidos con Draco.")
+
+    Rel(web_client, dining_ctrl, "POST /session con token de mesa", "JSON/HTTPS")
+    Rel(web_client, asset_ctrl, "GET /assets/models/{id}", "HTTPS")
+    Rel(dining_ctrl, session_service, "Coordina sesión", "Java Call")
+    Rel(session_service, domain_session, "Evalúa filtros", "Domain Call")
+    Rel(session_service, redis_session_repo, "Persiste sesión efímera", "Java Interface")
+    Rel(redis_session_repo, redis, "Escribe sesión con TTL", "TCP/RESP")
+    Rel(asset_ctrl, cdn, "Redirige a URL Edge o despacha caché", "HTTP 302/ETag")
+    Rel(web_client, cdn, "Descarga modelo binario < 3MB", "HTTPS")
+```
+
+```mermaid
+```
+
+```mermaid
+```
+
 # Conclusiones
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
    Se evidenció que la brecha tradicional entre la expectativa visual del comensal y el plato servido en mesa representaba un factor crítico de indecisión, quejas y pérdida de reputación para los negocios gastronómicos. Mediante la adopción de una arquitectura orientada a la eliminación de fricción basada en **WebAR sin instalación** (aprovechando estándares nativos como WebXR Device API para Android y AR Quick Look para iOS), Platter resuelve la reticencia del usuario final. El comensal logra visualizar el plato en su entorno a escala física real 1:1 en menos de 2 segundos y con un máximo de 2 toques tras escanear el código QR de mesa, sin requerir descargas de aplicaciones ni registros obligatorios.
