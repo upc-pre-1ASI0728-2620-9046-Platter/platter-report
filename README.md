@@ -1779,6 +1779,17 @@ C4Component
 ```
 #### 5.3.7.2. Bounded Context Database Design Diagram
 ```mermaid
+erDiagram
+    AR_INTERACTION_METRICS {
+        uuid id PK
+        uuid restaurant_id
+        uuid table_id
+        uuid dish_id
+        varchar model_id
+        varchar device_platform
+        int view_duration_seconds
+        timestamp interacted_at
+    }
 ```
 
 # Conclusiones
