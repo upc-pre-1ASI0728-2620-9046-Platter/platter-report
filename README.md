@@ -1908,7 +1908,29 @@ C4Component
 ```
 
 #### 5.4.7.2. Bounded Context Database Design Diagram
+
 ```mermaid
+erDiagram
+    RESTAURANTS ||--o{ DINING_TABLES : "posee"
+
+    RESTAURANTS {
+        uuid id PK
+        varchar name
+        varchar commercial_name
+        varchar slug UK
+        varchar logo_url
+        boolean is_active
+        timestamp created_at
+    }
+
+    DINING_TABLES {
+        uuid id PK
+        uuid restaurant_id FK
+        varchar table_identifier
+        varchar secure_token UK
+        boolean is_available
+        timestamp created_at
+    }
 ```
 
 # Conclusiones
