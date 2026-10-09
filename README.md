@@ -1588,6 +1588,61 @@ erDiagram
         boolean is_highlighted
     }
 ```
+## 5.2. Bounded Context: AI Gastronomic Analysis
+
+En esta sección se especifica el diseño táctico del motor de inferencia y extracción gastronómica automatizada con Inteligencia Artificial multimodal, aislando la complejidad de Google Gemini mediante una Capa Anticorrupción (ACL) y protegiendo el backend con patrones de resiliencia.
+
+### 5.2.1. Domain Layer
+Modela el núcleo de extracción de conocimiento culinario a partir de imágenes fotográficas, manteniéndose agnóstico de formatos externos y dependencias de la nube.
+
+* **`GastronomicAnalysisRequest` (Aggregate Root / Entity):** Representa la transacción de análisis visual solicitada por un restaurante.
+  * *Atributos:* `requestId: UUID`, `restaurantId: UUID`, `imageHash: String`, `executionStatus: AnalysisStatus`, `inferredMetadata: InferredMetadata`, `createdAt: Instant`.
+  * *Métodos:* `completeAnalysis(metadata: InferredMetadata): void`, `failAnalysis(reason: String): void`, `markFallbackTriggered(): void`.
+* **`InferredMetadata` (Value Object):** Encapsula los atributos gastronómicos inferidos por el modelo multimodal: `suggestedName: String`, `sensoryDescription: String`, `suggestedCategory: String`, `identifiedIngredients: List<String>`, `detectedAllergens: Set<String>`, `estimatedCaloriesRange: String`, `confidenceScore: Double`.
+* **`AnalysisStatus` (Enum):** Estados del flujo de procesamiento: `PENDING`, `COMPLETED`, `FAILED`, `FALLBACK_TRIGGERED`.
+* **`GastronomicInferenceService` (Domain Interface):** Puerto del dominio que declara la capacidad de inferencia visual: `analyzeDishImage(imageBytes: byte[], mimeType: String): InferredMetadata`.
+* **`GastronomicInferenceCompletedEvent` (Domain Event):** Evento emitido cuando los datos estructurados son generados exitosamente.
+
+### 5.2.2. Interface Layer
+Expone el punto de entrada para que las aplicaciones cliente envíen fotografías para procesamiento inteligente.
+
+* **`AIGastronomicAnalysisController`:** Expone el endpoint `POST /api/v1/dishes/analyze` que recibe la fotografía del plato en `multipart/form-data`. Responde con código `200 OK` y el JSON estructurado, o `503 Service Unavailable` controlado vía Circuit Breaker ante fallos externos.
+* **`AnalysisRequestValidator`:** Valida que el archivo binario cumpla con extensiones válidas (JPEG, PNG) y no exceda el límite de tamaño de 10 MB antes de su procesamiento.
+
+### 5.2.3. Application Layer
+Gestiona el caso de uso de análisis gastronómico, controlando el flujo entre la validación de entrada y la llamada al servicio de dominio.
+
+* **`AnalyzeDishImageCommandHandler`:** Recibe los bytes de la imagen, genera el hash de control, invoca el puerto `GastronomicInferenceService` y retorna la respuesta normalizada `GastronomicAnalysisResponseDto`.
+* **`GastronomicAnalysisResponseDto`:** Objeto de transferencia que transporta los nombres, descripciones, lista de ingredientes, alérgenos normalizados y estimación calórica hacia la aplicación de administración.
+
+### 5.2.4. Infrastructure Layer
+Implementa los adaptadores técnicos y de integración hacia la API de Google Gemini Vision.
+
+* **`GeminiApiClientAdapter` (Anti-Corruption Layer - ACL):** Implementación de `GastronomicInferenceService`. Traduce las estructuras internas al contrato de Google Gemini (`gemini-1.5-flash`), inyectando el system prompt gastronómico y configurando el `responseSchema` en JSON estricto.
+* **`GeminiResilienceWrapper`:** Aspecto configurado con Resilience4j que aplica un **Circuit Breaker** (umbral de 5000 ms y 50% de fallas en ventanas de 10 peticiones) y fallback ordenado a carga manual para proteger los hilos del servidor.
+
+### 5.2.6. Bounded Context Software Architecture Component Level Diagrams
+
+```mermaid
+C4Component
+    title Component Diagram - AI Gastronomic Analysis Context
+
+    Container_Boundary(ai_bc, "AI Gastronomic Analysis Context (Spring Boot)") {
+        Component(ai_ctrl, "AIGastronomicAnalysisController", "Spring REST Controller", "Recibe multipart/form-data de la imagen y autentica la solicitud.")
+        Component(ai_app_service, "AnalyzeDishImageCommandHandler", "Spring Service (Application)", "Valida formato de imagen y gestiona la ejecución del análisis.")
+        Component(acl_adapter, "GeminiApiClientAdapter (ACL)", "Spring Component (Infrastructure)", "Traduce estructuras internas a llamadas Gemini Vision con Schema JSON.")
+        Component(resilience_cb, "Resilience4j CircuitBreaker", "Resilience4j Aspect", "Corta llamadas si latencia > 5000ms o fallas > 50%.")
+        Component(gemini_client, "GoogleGeminiRestClient", "Spring HTTP Interface", "Cliente HTTP que despacha peticiones a Google Cloud.")
+    }
+
+    System_Ext(gemini_api, "Google Gemini Vision API", "Motor externo multimodal LLM.")
+
+    Rel(ai_ctrl, ai_app_service, "Pasa imagen en bytes", "Java Call")
+    Rel(ai_app_service, resilience_cb, "Ejecuta con protección", "Java Call")
+    Rel(resilience_cb, acl_adapter, "Ejecuta si circuito Closed", "Java Call")
+    Rel(acl_adapter, gemini_client, "Serializa prompt JSON", "HTTP Client")
+    Rel(gemini_client, gemini_api, "POST generateContent", "HTTPS / JSON")
+```
 
 
 # Conclusiones
