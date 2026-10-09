@@ -1906,9 +1906,10 @@ C4Component
 #### 5.4.7.1. Bounded Context Domain Layer Class Diagrams
 ```mermaid
 ```
+
+####5.4.7.2. Bounded Context Database Design Diagram
 ```mermaid
 ```
-
 
 # Conclusiones
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
