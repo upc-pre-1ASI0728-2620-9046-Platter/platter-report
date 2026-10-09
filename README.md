@@ -1907,7 +1907,7 @@ C4Component
 ```mermaid
 ```
 
-####5.4.7.2. Bounded Context Database Design Diagram
+#### 5.4.7.2. Bounded Context Database Design Diagram
 ```mermaid
 ```
 
