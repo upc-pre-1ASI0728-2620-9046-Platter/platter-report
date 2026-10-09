@@ -22,6 +22,8 @@ Docente: Rojas Malasquez, Royer Edelwer
 <br><br>
 Producto: Platter
 <br><br>
+Entrega: Segundo Hito - TP1 (Semana 7)
+<br><br>
 <br><br>
 <strong>Integrantes</strong>  
 <br><br>
@@ -35,24 +37,99 @@ Teves Samaniego, Joan Fernando (U202117303)
 <br><br>
 <br>
 
-**Septiembre - 2026**
+**Octubre - 2026**
 
 </h3>
 </div>
+
+# Registro de Versiones del Informe
+
+| Versión | Fecha | Autor(es) | Descripción de modificaciones |
+| :---: | :---: | :--- | :--- |
+| **1.0.0** | 19/09/2026 | Alvarado, Duran, Nakasone, Teves | Entrega inicial del Primer Hito (TB1). Incorporación de Carátula, Capítulo I (Startup Profile y Solution Profile con Lean UX), Capítulo II (Requirements Elicitation & Analysis con Needfinding y Lenguaje Ubicuo), Capítulo III (Requirements Specification con User Stories e Impact Mapping), Capítulo IV (Strategic-Level Software Design con ADD, DDD y C4 Model), Conclusiones iniciales, Bibliografía preliminar y sustento del Student Outcome ABET 3 para TB1. |
+| **1.1.0** | 09/10/2026 | Alvarado, Duran, Nakasone, Teves | Entrega del Segundo Hito (TP1). Incorporación del Capítulo V (Tactical-Level Software Design con descomposición por capas, diagramas de componentes C4, diagramas de clases y diseño de base de datos para los cuatro Bounded Contexts) y Capítulo VI (Solution UX Design con guías de estilo visual, arquitectura de información, wireframes y mock-ups de Landing Page, y wireframes y diagramas de wireflow para aplicaciones móviles y WebAR). Actualización y avance de Conclusiones y Recomendaciones, ordenamiento formal de Bibliografía bajo estándar APA, y expansión acumulativa de la sección Student Outcome y Project Report Collaboration Insights para el hito TP1. |
+
+# Project Report Collaboration Insights
+
+El desarrollo y mantenimiento del presente informe técnico se gestiona de forma colaborativa y continua mediante un repositorio dedicado alojado en la organización oficial del equipo en GitHub:
+
+- **Repositorio de Documentación (Reporte):** [https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter-report](https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter-report)
+- **Repositorio de la Solución de Software:** [https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter](https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter)
+
+### Metodología de Trabajo y Control de Versiones
+
+Para asegurar la calidad técnica, la coherencia de notación y la trazabilidad del trabajo en equipo, se adoptó el flujo de trabajo GitFlow bajo los siguientes lineamientos:
+
+1. **Estructura de Ramas:** La rama `main` custodia las versiones estables y formalmente auditadas correspondientes a cada hito evaluativo. La rama `develop` actúa como integradora de desarrollo del equipo. Cada capítulo y módulo de trabajo se desarrolló en ramas de características independientes (`feature/chapter-n` o `feature/tp1-final`).
+2. **Convención de Commits:** Se aplicó la convención *Conventional Commits* (`docs:`, `feat:`, `refactor:`, `chore:`, `fix:`), garantizando un historial de cambios legible, granular y auditable.
+3. **Revisión y Aprobación de Pull Requests:** La consolidación de artefactos hacia las ramas integradoras se ejecutó mediante Pull Requests revisados entre los integrantes, validando la sintaxis Markdown, la renderización de diagramas Mermaid y la integridad de los activos visuales alojados en el directorio `assets/`.
+
+### Evidencias de Colaboración en GitHub
+
+El equipo mantuvo una participación activa y equitativa en la redacción, diagramación y revisión de los artefactos del informe en ambas entregas (TB1 y TP1), registrando contribuciones continuas distribuidas entre todos los integrantes en las métricas de colaboración de GitHub:
+
+- **Alvarado De La Cruz, Juan Carlos:** Liderazgo técnico en la especificación arquitectónica estratégica y táctica (Capítulos IV y V), estructuración de diagramas C4 y revisión de consistencia del modelo de dominio.
+- **Duran Diaz, Antonio Rodrigo:** Elaboración de escenarios de atributos de calidad, especificación de persistencia de base de datos relacional y modelado de drivers arquitectónicos (Capítulos IV y V).
+- **Nakasone Gomes, Marco Antonio:** Redacción del perfil de startup, antecedentes del sector, Lean UX, guías de estilo visual, arquitectura de información y diseño de interfaces comerciales y de usuario (Capítulos I y VI).
+- **Teves Samaniego, Joan Fernando:** Especificación de requerimientos funcionales, historias de usuario Gherkin, diagramas de flujo de dominio y especificación de flujos de interacción de aplicaciones (Capítulos III y VI).
+
+*(Las métricas consolidadas de frecuencia de código, commits y contribuyentes se encuentran auditables de manera transparente en la sección Insights del repositorio oficial).*
 
 # Contenido
 
 ## Tabla de contenidos
 
 - [Registro de versiones del informe](#registro-de-versiones-del-informe)
-
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
-
-- [Contenido](#contenido)
-
-- [Student Outcome](#student-outcome-1)
-
-- [Capítulo I: Introducción](#capitulo-i-introduccion)
+- [Student Outcome](#student-outcome)
+- [Capítulo I: Introducción](#capítulo-i-introducción)
+  - [1.1. Startup Profile](#11-startup-profile)
+    - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
+    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
+  - [1.2. Solution Profile](#12-solution-profile)
+    - [1.2.1 Antecedentes y problemática](#121-antecedentes-y-problemática)
+    - [1.2.2 Lean UX Process](#122-lean-ux-process)
+  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+- [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
+  - [2.1. Competidores](#21-competidores)
+  - [2.2. Entrevistas](#22-entrevistas)
+  - [2.3. Needfinding](#23-needfinding)
+  - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
+  - [2.5. Ubiquitous Language](#25-ubiquitous-language)
+- [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
+  - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
+  - [3.2. User Stories](#32-user-stories)
+  - [3.3. Impact Mapping](#33-impact-mapping)
+  - [3.4. Product Backlog](#34-product-backlog)
+- [Capítulo IV: Strategic-Level Software Design](#capítulo-iv-strategic-level-software-design)
+  - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
+  - [4.2. Strategic-Level Domain-Driven Design](#42-strategic-level-domain-driven-design)
+  - [4.3. Software Architecture](#43-software-architecture)
+- [Capítulo V: Tactical-Level Software Design](#capítulo-v-tactical-level-software-design)
+  - [5.1. Bounded Context: Dish & Menu Catalog Management](#51-bounded-context-dish--menu-catalog-management)
+  - [5.2. Bounded Context: AI Gastronomic Analysis](#52-bounded-context-ai-gastronomic-analysis)
+  - [5.3. Bounded Context: AR Dining Experience](#53-bounded-context-ar-dining-experience)
+  - [5.4. Bounded Context: Restaurant & Table Management](#54-bounded-context-restaurant--table-management)
+- [Capítulo VI: Solution UX Design](#capítulo-vi-solution-ux-design)
+  - [6.1. Style Guidelines](#61-style-guidelines)
+    - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
+    - [6.1.2. Web, Mobile & Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
+  - [6.2. Information Architecture](#62-information-architecture)
+    - [6.2.1. Organization Systems](#621-organization-systems)
+    - [6.2.2. Labeling Systems](#622-labeling-systems)
+    - [6.2.3. Searching Systems](#623-searching-systems)
+    - [6.2.4. SEO Tags, Meta Tags y ASO Elements](#624-seo-tags-meta-tags-y-aso-elements)
+    - [6.2.5. Navigation Systems](#625-navigation-systems)
+  - [6.3. Landing Page UI Design](#63-landing-page-ui-design)
+    - [6.3.1. Landing Page Wireframe](#631-landing-page-wireframe)
+    - [6.3.2. Landing Page Mock-up](#632-landing-page-mock-up)
+  - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
+    - [6.4.1. Applications Wireframes](#641-applications-wireframes)
+    - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+- [Conclusiones](#conclusiones)
+- [Recomendaciones](#recomendaciones)
+- [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
 
 # Student Outcome
 
@@ -66,8 +143,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
-| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Expuse ante el equipo y en el video de sustentación los fundamentos de la descomposición estratégica bajo Domain-Driven Design (DDD), justificando la delimitación de Bounded Contexts y la implementación de una Capa Anticorrupción (ACL) para la integración con Google Gemini. Adapté el lenguaje técnico para comunicar claramente cómo la arquitectura soporta los requerimientos de negocio de restaurantes e inversionistas.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Participé activamente en las sesiones de discusión grupal y en la grabación del video de presentación de la entrega, explicando con objetividad los escenarios de atributos de calidad priorizados en Attribute-Driven Design (ADD) y cómo la infraestructura en la nube de AWS responde a las demandas de alta concurrencia en horas pico.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Presenté oralmente en las reuniones de sincronización y en la exposición grabada los resultados del análisis de problemáticas del sector gastronómico y los supuestos de Lean UX, transmitiendo con claridad a perfiles tanto técnicos como de negocio el valor de la proyección en Realidad Aumentada sin fricción para el comensal.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Expuse en el video grupal y en las reuniones técnicas los diagramas de interacción y flujo de mensajes mediante Domain Storytelling, describiendo detalladamente la secuencia técnica entre los clientes móviles, las APIs REST y los servicios en la nube de forma estructurada, fluida y comprensible para el equipo evaluador. | Durante el desarrollo del hito TB1, el equipo demostró capacidad para transmitir conceptos técnicos complejos de ingeniería de software a diversas audiencias. Se articularon con precisión técnica y pertinencia de negocio las decisiones de diseño estratégico, modelado de dominio y esquemas de infraestructura en la nube. A través de reuniones de retrospectiva internas y la sustentación en video, cada integrante adaptó su registro comunicativo para justificar de forma objetiva la viabilidad técnica y operativa de la solución ante evaluadores académicos y potenciales interesados del sector gastronómico. |
-| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Redacté y consolidé los capítulos de diseño estratégico en Markdown, elaborando la especificación formal del Context Mapping y los diagramas C4 (Contexto, Contenedores y Despliegue). Cuidé la consistencia del lenguaje ubicuo del proyecto, documentando los contratos de integración y las decisiones arquitectónicas conforme al estándar de ingeniería solicitado.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Elaboré las especificaciones técnicas de los escenarios de calidad (Quality Attribute Scenarios) y el Backlog de Drivers Arquitectónicos, documentando de forma estructurada los requisitos de rendimiento, disponibilidad y escalabilidad, así como las tácticas arquitectónicas seleccionadas para mitigarlos.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Redacté la caracterización de la startup, la problemática del sector gastronómico, las declaraciones de problema de Lean UX, supuestos e hipótesis. Documenté los hallazgos en tablas y formatos estandarizados dentro del informe, facilitando la comprensión de los dolores del cliente tanto para perfiles de negocio como de desarrollo.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Documenté la especificación formal de requerimientos mediante To-Be Scenario Mapping, User Stories bajo el formato Gherkin y los diagramas de secuencia de Domain Storytelling en Mermaid. Garanticé que la documentación escrita fuera rigurosa, no ambigua y completamente trazable con los objetivos del sistema. | La redacción colaborativa del informe técnico en GitHub bajo estándares de Markdown y conventional commits permitió consolidar un cuerpo documental riguroso, coherente y profesional. Se logró comunicar con claridad el análisis del problema, los modelos formales de dominio y las decisiones de arquitectura de software, empleando notaciones estándar (C4 Model, diagramas UML/secuencia y plantillas Lean UX). El producto escrito evidencia objetividad técnica y una estructura que satisface las exigencias metodológicas del curso y de la práctica profesional de la ingeniería de software. |
+| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Expuse ante el equipo y en el video de sustentación los fundamentos de la descomposición estratégica bajo Domain-Driven Design (DDD), justificando la delimitación de Bounded Contexts y la implementación de una Capa Anticorrupción (ACL) para la integración con Google Gemini. Adapté el lenguaje técnico para comunicar claramente cómo la arquitectura soporta los requerimientos de negocio de restaurantes e inversionistas.<br>*TP1*<br>Sustenté ante el equipo y en las sesiones de revisión técnica las decisiones de diseño táctico para los Bounded Contexts de Catálogo y Análisis con IA, explicando con claridad la segregación en capas (Domain, Application, Infrastructure e Interfaces) y el uso de patrones de arquitectura hexagonal. Adapté la explicación técnica para justificar ante los evaluadores cómo el diseño por componentes desacopla los servicios y garantiza mantenibilidad a largo plazo.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Participé activamente en las sesiones de discusión grupal y en la grabación del video de presentación de la entrega, explicando con objetividad los escenarios de atributos de calidad priorizados en Attribute-Driven Design (ADD) y cómo la infraestructura en la nube de AWS responde a las demandas de alta concurrencia en horas pico.<br>*TP1*<br>Presenté y argumenté de forma estructurada los diagramas de base de datos relacionales y el modelado de entidades de persistencia para los contextos de AR Dining Experience y Restaurant Management. Transmití con objetividad a los integrantes y docentes los criterios de normalización, llaves foráneas e índices seleccionados para asegurar tiempos de respuesta óptimos en consultas concurrentes.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Presenté oralmente en las reuniones de sincronización y en la exposición grabada los resultados del análisis de problemáticas del sector gastronómico y los supuestos de Lean UX, transmitiendo con claridad a perfiles tanto técnicos como de negocio el valor de la proyección en Realidad Aumentada sin fricción para el comensal.<br>*TP1*<br>Expuse en las reuniones de sincronización y preparación de la sustentación la propuesta integral de UX/UI, explicando con fundamentos el sistema de diseño (Material Design 3), las decisiones de la escala tipográfica y los contrastes cromáticos bajo WCAG 2.1 AA. Detallé con precisión el valor de negocio de los wireflows diseñados, demostrando cómo reducen la fricción cognitiva tanto para administradores de restaurante como para comensales.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Expuse en el video grupal y en las reuniones técnicas los diagramas de interacción y flujo de mensajes mediante Domain Storytelling, describiendo detalladamente la secuencia técnica entre los clientes móviles, las APIs REST y los servicios en la nube de forma estructurada, fluida y comprensible para el equipo evaluador.<br>*TP1*<br>Expliqué oralmente en las sesiones de equipo la dinámica de navegación y los flujos de interacción entre pantallas de la aplicación móvil administrativa y el visor WebAR (WF-01 al WF-04). Articulé con claridad los escenarios alternativos de fallo (como latencia o indisponibilidad temporal de la IA) y su degradación elegante, facilitando la comprensión técnica de los flujos para perfiles de frontend y backend. | Durante el desarrollo del hito TB1, el equipo demostró capacidad para transmitir conceptos técnicos complejos de ingeniería de software a diversas audiencias. Se articularon con precisión técnica y pertinencia de negocio las decisiones de diseño estratégico, modelado de dominio y esquemas de infraestructura en la nube. A través de reuniones de retrospectiva internas y la sustentación en video, cada integrante adaptó su registro comunicativo para justificar de forma objetiva la viabilidad técnica y operativa de la solución ante evaluadores académicos y potenciales interesados del sector gastronómico.<br><br>Para el hito TP1, se consolidó la efectividad comunicativa oral al sustentar de manera integrada el diseño táctico por capas y la experiencia de usuario (UX/UI). Mediante reuniones técnicas de diseño y la preparación de la sustentación de hito, cada integrante demostró solvencia para defender alternativas arquitectónicas, justificar decisiones de persistencia relacional y argumentar elecciones de diseño visual frente a criterios de usabilidad, accesibilidad e impacto en el negocio gastronómico. |
+| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Redacté y consolidé los capítulos de diseño estratégico en Markdown, elaborando la especificación formal del Context Mapping y los diagramas C4 (Contexto, Contenedores y Despliegue). Cuidé la consistencia del lenguaje ubicuo del proyecto, documentando los contratos de integración y las decisiones arquitectónicas conforme al estándar de ingeniería solicitado.<br>*TP1*<br>Documenté formalmente en Markdown la especificación técnica de la arquitectura táctica de los Bounded Contexts Dish & Menu Catalog Management y AI Gastronomic Analysis, elaborando los diagramas C4 de nivel componente y los diagramas de clases del dominio. Mantuve una redacción rigurosa y libre de ambigüedades, asegurando la correspondencia exacta entre los contratos de dominio y el lenguaje ubicuo.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Elaboré las especificaciones técnicas de los escenarios de calidad (Quality Attribute Scenarios) y el Backlog de Drivers Arquitectónicos, documentando de forma estructurada los requisitos de rendimiento, disponibilidad y escalabilidad, así como las tácticas arquitectónicas seleccionadas para mitigarlos.<br>*TP1*<br>Elaboré y documenté las especificaciones técnicas de persistencia del Capítulo V, diseñando los diagramas entidad-relación en Mermaid para cada Bounded Context y redactando las justificaciones técnicas de los esquemas relacionales, tipos de datos, llaves primarias e integridad referencial requerida por la solución.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Redacté la caracterización de la startup, la problemática del sector gastronómico, las declaraciones de problema de Lean UX, supuestos e hipótesis. Documenté los hallazgos en tablas y formatos estandarizados dentro del informe, facilitando la comprensión de los dolores del cliente tanto para perfiles de negocio como de desarrollo.<br>*TP1*<br>Redacté integralmente el Capítulo VI de Solution UX Design, documentando las guías de estilo generales (branding, tipografía, paleta accesible WCAG 2.1 AA y espaciados), la arquitectura de información (sistemas de organización, rotulado, búsqueda, navegación y metadatos SEO/ASO) y la justificación de los wireframes y mock-ups de la Landing Page comercial.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Documenté la especificación formal de requerimientos mediante To-Be Scenario Mapping, User Stories bajo el formato Gherkin y los diagramas de secuencia de Domain Storytelling en Mermaid. Garanticé que la documentación escrita fuera rigurosa, no ambigua y completamente trazable con los objetivos del sistema.<br>*TP1*<br>Documenté las especificaciones de diseño UX de las aplicaciones (Platter Admin y Platter AR Viewer), elaborando las tablas de mapeo de pantallas hacia User Stories y la especificación detallada de los 4 diagramas de wireflow (happy path y flujos alternativos), asegurando trazabilidad directa con los requerimientos funcionales del Capítulo III. | La redacción colaborativa del informe técnico en GitHub bajo estándares de Markdown y conventional commits permitió consolidar un cuerpo documental riguroso, coherente y profesional. Se logró comunicar con claridad el análisis del problema, los modelos formales de dominio y las decisiones de arquitectura de software, empleando notaciones estándar (C4 Model, diagramas UML/secuencia y plantillas Lean UX). El producto escrito evidencia objetividad técnica y una estructura que satisface las exigencias metodológicas del curso y de la práctica profesional de la ingeniería de software.<br><br>En el hito TP1, esta capacidad escrita se fortaleció al integrar especificaciones formales de arquitectura de software a nivel táctico (diagramas de clases y esquemas de base de datos detallados) junto con especificaciones exhaustivas de diseño UX/UI (guías de estilo, metadatos SEO y flujos de pantallas vinculados a historias de usuario). La documentación escrita resultante mantiene uniformidad estilística, rigor técnico y plena trazabilidad metodológica, satisfaciendo los criterios de calidad académica y profesional exigidos por el estándar ABET. |
 
 # Capítulo I: Introducción
 
@@ -1985,7 +2062,486 @@ erDiagram
     }
 ```
 
+
+# Capítulo VI: Solution UX Design
+
+En el presente capítulo se aborda la definición formal de la propuesta de diseño de experiencia de usuario (UX) e interfaz de usuario (UI) para el ecosistema digital de **Platter**, integrando de manera sinérgica la **Landing Page** comercial, la **Web Application** para la administración de restaurantes y la experiencia inmersiva de la **Carta Digital WebAR** orientada al comensal en mesa.
+
+Esta propuesta se fundamenta estrictamente en los artefactos de análisis y especificación desarrollados en los capítulos precedentes:
+1. **Trazabilidad con Requerimientos (Capítulo III):** Responde de forma directa a las necesidades críticas y dolores identificados en los arquetipos de usuario:
+   * **Carlos Mendoza Vidal (Dueño de Restaurante MYPE):** Demanda una interfaz administrativa simple, intuitiva y ágil para digitalizar su menú en menos de 2 minutos mediante el pipeline de IA multimodal, sin necesidad de conocimientos técnicos avanzados ni dependencia de agencias de marketing (US01, US04, US06).
+   * **Valeria Ramos Benavides (Comensal Celíaca):** Exige certidumbre visual inmediata del tamaño y presentación real del plato en mesa (escala 1:1), filtrado riguroso y transparente de alérgenos normados (gluten, lactosa, etc.) y una experiencia de cero fricción sin instalaciones obligatorias de aplicaciones móviles pesadas (US02, US03, US05, US08).
+2. **Coherencia con la Arquitectura de Software (Capítulo IV):** Traduce visualmente las capacidades de los Bounded Contexts (*Dish Catalog*, *AI Analysis & Inference*, *WebAR Experience*, *Table & Session Management*), optimizando el consumo de modelos 3D ultraligeros comprimidos con Draco vía CDN y garantizando respuestas reactivas respaldadas por la infraestructura en la nube.
+3. **Estándares de Diseño y Tecnología:** Adopta como marco de referencia los principios de **Material Design 3 (Material You)**, directrices de accesibilidad web **WCAG 2.1 nivel AA (a11y)**, soporte de internacionalización **i18n** (inglés como idioma base `en_US` y español latinoamericano `es_419`) y buenas prácticas de visualización espacial bajo **WebXR** y **AR Quick Look**.
+
+---
+
+## 6.1. Style Guidelines
+
+La sección de Guías de Estilo sienta las bases para centralizar, normar y organizar el repositorio común de diseño visual del equipo. Este sistema de diseño garantiza una experiencia coherente, predecible y estéticamente atractiva a lo largo de todos los puntos de contacto del usuario con la plataforma Platter.
+
+### 6.1.1. General Style Guidelines
+
+#### 1. Branding e Identidad Visual
+
+La identidad corporativa de **Platter** ha sido concebida para transmitir hospitalidad culinaria, modernidad digital y rigor tecnológico:
+* **Concepto de Marca:** Platter actúa como el puente entre el arte gastronómico del salón físico y la dimensión digital inmersiva. El imagotipo combina la silueta limpia y armónica de un plato de cocina contemporánea con un nodo focal superior que representa la apertura espacial del lente de Realidad Aumentada y el procesamiento inteligente con IA.
+* **Isotipo:** Glifo circular estilizado con bordes orgánicos suaves y un visor angular en el cuadrante superior derecho, alusivo a la proyección tridimensional en mesa.
+* **Logotipo Tipográfico:** Construido sobre la tipografía *Outfit* en estilo Bold, con espaciado entre letras (*kerning*) calibrado para proyectar solidez, claridad y sofisticación gastronómica.
+* **Variantes de Aplicación:**
+  * *Versión Dark (Principal para Salón y Experiencia Nocturna):* Diseñada para minimizar el deslumbramiento en salones de restaurante tenue y maximizar el contraste de los modelos 3D iluminados por PBR. Fondo `#121C33` con imagotipo en blanco puro y acento terracota `#E76F51`.
+  * *Versión Light (Secundaria para Documentación y Portal SaaS Diurno):* Fondo crema cálido `#F7F3ED` con logotipo en azul medianoche `#121C33` y acentos cálidos `#D4A373`.
+* **Área de Reserva y Protección:** Se establece un margen de seguridad perimetral inviolable equivalente a la altura de la letra 'P' del logotipo en cualquiera de sus escalas de reproducción, evitando la interferencia de textos o elementos ajenos.
+* **Usos Restringidos:** Queda estrictamente prohibido alterar las proporciones dimensionales, sustituir la paleta cromática por tonos fuera de guía, aplicar gradientes estridentes no estandarizados o rotar el símbolo gráfico.
+
+#### 2. Typography (Tipografía)
+
+El sistema tipográfico de Platter combina dos familias de código abierto de Google Fonts cuidadosamente seleccionadas para equilibrar presencia de marca y máxima legibilidad:
+
+1. **Tipografía Primaria de Marca y Encabezados (Display & Headings):** `Outfit`  
+   Tipografía sans-serif geométrica con terminaciones redondeadas sutiles que evocan la geometría de los platos y vajillas contemporáneas. Se emplea exclusivamente en logotipos, títulos principales, cifras de precios destacados y banners de impacto.
+2. **Tipografía Secundaria de Lectura y Controles de Interfaz (Body & UI):** `Plus Jakarta Sans`  
+   Diseñada específicamente para entornos digitales modernos, ofrece una amplia altura de x (*x-height*), contrastes ópticos refinados y gran rendimiento en pantallas móviles de comensales bajo diversas condiciones de iluminación ambiental.
+
+##### Escala Tipográfica (Type Scale)
+
+A continuación se detalla la escala jerárquica estandarizada en unidades relativas (`rem`) con su equivalencia en píxeles (`px`), considerando una base raíz de `16px`:
+
+| Nivel / Token | Familia Tipográfica | Peso (*Weight*) | Tamaño (rem / px) | Interlineado (*Line-height*) | Espaciado (*Letter-spacing*) | Caso de Uso en Platter |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **H1 - Hero Title** | Outfit | Bold (700) | 2.50 rem / 40 px | 1.20 (48 px) | -0.02 rem (-0.32 px) | Titular principal en Hero de Landing Page y cabeceras de salón. |
+| **H2 - Section Title** | Outfit | SemiBold (600) | 2.00 rem / 32 px | 1.25 (40 px) | -0.01 rem (-0.16 px) | Títulos de categorías gastronómicas y módulos de dashboard SaaS. |
+| **H3 - Dish Title / Card** | Outfit | SemiBold (600) | 1.50 rem / 24 px | 1.30 (31 px) | 0.00 rem (0.00 px) | Nombres de platos en tarjetas de la carta y modales de WebAR. |
+| **H4 - Subheading** | Plus Jakarta Sans | Medium (500) | 1.25 rem / 20 px | 1.35 (27 px) | 0.00 rem (0.00 px) | Subtítulos de secciones, nombres de ingredientes clave y métricas. |
+| **H5 - Price / Emphasis** | Outfit | Bold (700) | 1.125 rem / 18 px | 1.40 (25 px) | 0.01 rem (0.16 px) | Precios destacados de platos y valores numéricos de conversión. |
+| **H6 - Modal Header** | Plus Jakarta Sans | SemiBold (600) | 1.00 rem / 16 px | 1.40 (22 px) | 0.01 rem (0.16 px) | Títulos de diálogos de confirmación, configuración y filtros. |
+| **Subtitle 1** | Plus Jakarta Sans | Regular (400) | 1.00 rem / 16 px | 1.50 (24 px) | 0.01 rem (0.16 px) | Descripciones breves de platos redactadas por Google Gemini. |
+| **Body Regular** | Plus Jakarta Sans | Regular (400) | 0.875 rem / 14 px | 1.50 (21 px) | 0.00 rem (0.00 px) | Párrafos informativos, tablas de datos, términos y condiciones. |
+| **Body Small** | Plus Jakarta Sans | Regular (400) | 0.75 rem / 12 px | 1.40 (17 px) | 0.02 rem (0.24 px) | Notas al pie, metadatos nutricionales, sellos normados de alérgenos. |
+| **Button / CTA** | Plus Jakarta Sans | SemiBold (600) | 0.875 rem / 14 px | 1.00 (14 px) | 0.03 rem (0.42 px) | Botón "Ver en Realidad Aumentada", "Iniciar Sesión", "Filtrar". |
+| **Caption / Badge** | Plus Jakarta Sans | Medium (500) | 0.6875 rem / 11 px | 1.30 (14 px) | 0.04 rem (0.44 px) | Badges de "Sin Gluten", "Recomendado", "Stock Bajo", calorías. |
+
+#### 3. Colors (Paleta Cromática Oficial de Platter)
+
+La paleta cromática de Platter articula tonos cálidos gastronómicos con superficies oscuras de alta inmersión visual. Cumple estrictamente el estándar de accesibilidad **WCAG 2.1 nivel AA**, garantizando un ratio de contraste superior a **4.5:1** en texto normal y **3.0:1** en componentes gráficos e interactivos.
+
+| Rol / Categoría | Nombre del Token | Código HEX | Código RGB | Código HSL | Contraste WCAG (Fondo/Texto) | Propósito y Aplicación en Platter |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Primario (Fondo)** | `--color-bg-dark` | `#121C33` | rgb(18, 28, 51) | hsl(222, 48%, 14%) | 14.8:1 (vs `#FFFFFF`) | Superficie base de la aplicación, visualizador WebAR y modo nocturno. |
+| **Primario (Acento CTA)** | `--color-coral-accent` | `#E76F51` | rgb(231, 111, 81) | hsl(12, 77%, 61%) | 5.2:1 (vs `#121C33`) | Llamado a la acción prioritario ("Ver en Mesa 3D", "Ordenar", "Guardar"). |
+| **Secundario (Gastronómico)** | `--color-gold-culinary` | `#D4A373` | rgb(212, 163, 115) | hsl(30, 52%, 64%) | 6.8:1 (vs `#121C33`) | Sellos de recomendación del chef, estrellas de calificación y bordes AR. |
+| **Secundario (IA / Tech)** | `--color-blue-ai` | `#3A86FF` | rgb(58, 134, 255) | hsl(217, 100%, 61%) | 5.4:1 (vs `#121C33`) | Indicadores de inferencia por IA (Gemini), enlaces y badges tecnológicos. |
+| **Superficie (Tarjetas)** | `--color-card-dark` | `#1B2848` | rgb(27, 40, 72) | hsl(223, 45%, 19%) | 12.5:1 (vs `#FFFFFF`) | Contenedores de platos, paneles modales y secciones de lista. |
+| **Superficie (Hover/Elevada)** | `--color-card-hover` | `#25365E` | rgb(37, 54, 94) | hsl(222, 44%, 26%) | 9.8:1 (vs `#FFFFFF`) | Estado hover de tarjetas de menú, botones secundarios y dropdowns. |
+| **Fondo Claro (Alternativo)** | `--color-bg-light` | `#F7F3ED` | rgb(247, 243, 237) | hsl(40, 33%, 95%) | 13.9:1 (vs `#1A2238`) | Fondo alternativo para facturas impresas, modo diurno y Landing Page. |
+| **Texto Principal** | `--color-text-light` | `#FFFFFF` | rgb(255, 255, 255) | hsl(0, 0%, 100%) | 14.8:1 (vs `#121C33`) | Títulos, precios y contenido de máxima prioridad en modo oscuro. |
+| **Texto Secundario / Muted**| `--color-text-muted` | `#94A3B8` | rgb(148, 163, 184) | hsl(215, 20%, 65%) | 5.8:1 (vs `#121C33`) | Descripciones complementarias, notas de pie, calorías e iconos pasivos. |
+| **Semántico: Éxito / Seguro** | `--color-status-success`| `#2A9D8F` | rgb(42, 157, 143) | hsl(173, 58%, 39%) | 5.1:1 (vs `#121C33`) | Disponibilidad en cocina activa, plato verificado libre del alérgeno buscado. |
+| **Semántico: Alerta / Trazas**| `--color-status-warning`| `#E9C46A` | rgb(233, 196, 106) | hsl(43, 74%, 66%) | 7.9:1 (vs `#121C33`) | Contiene trazas de alérgenos, últimas 3 unidades en stock de salón. |
+| **Semántico: Peligro / Alérgeno**| `--color-status-danger` | `#E63946` | rgb(230, 57, 70) | hsl(355, 78%, 56%) | 4.6:1 (vs `#FFFFFF`) | Advertencia médica crítica de alérgenos presentes, plato agotado. |
+
+#### 4. Spacing, Grids & Elevation (Espaciado, Rejilla y Elevación)
+
+Para garantizar consistencia espacial y ritmo visual matemáticamente armónico, Platter implementa un sistema modular basado en la cuadrícula de **8 puntos (8-Point Grid)** con subdivisión de 4 puntos para micro-alineaciones:
+
+* **Escala de Espaciado:**
+  * `space-xxs (4 px):` Espaciado mínimo entre icono y texto en botones compactos y chips de alérgenos.
+  * `space-xs (8 px):` Padding interno de badges de estado, separación entre tags y campos de entrada compactos.
+  * `space-sm (16 px):` Padding estándar en tarjetas de platos, separación entre filas de tabla y márgenes móviles.
+  * `space-md (24 px):` Espaciado entre bloques de contenido, gutters entre columnas y padding de contenedores.
+  * `space-lg (32 px):` Margen entre secciones de categorías culinarias y padding de diálogos modales.
+  * `space-xl (48 px):` Espaciado vertical entre macro-secciones en la Landing Page comercial.
+  * `space-xxl (64 px):` Margen superior e inferior del Hero Banner de presentación y pie de página.
+* **Sistema de Elevación y Sombras (Material Elevations):**
+  * *Elevation 0 (Flat):* Superficie plana integrada sin sombra (`box-shadow: none`).
+  * *Elevation 1 (Card Rest):* Tarjetas de menú en reposo (`box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20)`).
+  * *Elevation 2 (Card Hover / Active):* Tarjetas al interactuar o activadas (`box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35)`).
+  * *Elevation 3 (Floating Controls / Modals):* Controles flotantes de Realidad Aumentada, selector de alérgenos y Bottom Sheets móviles (`box-shadow: 0 16px 40px rgba(0, 0, 0, 0.50)`).
+* **Radios de Borde (Border Radius):**
+  * `radius-sm (8 px):` Botones secundarios, inputs de texto, chips de filtros.
+  * `radius-md (16 px):` Tarjetas de platos, contenedores de sección y modales.
+  * `radius-lg (24 px):` Contenedores principales, ventanas de visor WebAR y paneles envolventes.
+  * `radius-full (9999 px):` Badges circulares de contador y botones de acción flotante (FAB).
+
+#### 5. Tono de Comunicación y Lenguaje Aplicado
+
+Con base en el marco de trabajo de las cuatro dimensiones de tono de **Nielsen Norman Group**, la voz y comunicación de Platter se calibran según el contexto de interacción:
+
+1. **Divertido vs. Serio (Funny vs. Serious):**  
+   * **Posición (65% hacia lo Divertido / Vibrante):** En la experiencia del comensal en mesa, el tono es estimulante, sensorial y acogedor (ej. *"¡Descubre la textura y el montaje de este lomo saltado en tu mesa antes de pedirlo!"*). En la administración B2B (facturación, reportes de stock y declaraciones médicas de alérgenos), el tono transmuta a serio y estrictamente riguroso (ej. *"Advertencia sanitaria: este plato contiene frutos secos certificados por la cocina"*).
+2. **Formal vs. Casual (Formal vs. Casual):**  
+   * **Posición (70% hacia lo Casual y Cercano):** Se utiliza un trato de segunda persona cordial (*"tu carta"*, *"tu mesa"*, *"tus preferencias"*), eliminando barreras jerárquicas y lenguaje burocrático. En las comunicaciones B2B corporativas y contratos de servicio, se conserva profesionalismo pulcro y directo.
+3. **Respetuoso vs. Irreverente (Respectful vs. Irreverent):**  
+   * **Posición (90% hacia lo Respetuoso y Empático):** La seguridad alimentaria de comensales con celiaquía o intolerancias no tolera ambigüedades ni bromas. El sistema valida con absoluta seriedad las restricciones alimentarias, ofreciendo alternativas transparentes y reconociendo el valor del tiempo del restaurante y del comensal.
+4. **Entusiasta vs. Sereno (Enthusiastic vs. Matter-of-fact):**  
+   * **Posición (75% hacia lo Entusiasta):** Se celebra la riqueza gastronómica y la magia tecnológica de la Realidad Aumentada sin caer en exageraciones vacías, manteniendo serenidad y claridad en las confirmaciones transaccionales y tiempos de carga de modelos.
+
+#### 6. Design System de Referencia
+
+La arquitectura visual de Platter adopta y extiende las especificaciones de **Material Design 3 (Material You)** promovidas por Google:
+* Adopción de tokens de diseño dinámicos (*design tokens*) gestionados mediante CSS Custom Properties.
+* Empleo de componentes estandarizados: *Elevated Cards* con soporte de media enriquecida para platos, *Filter Chips* con selección múltiple para filtros de alérgenos, *Bottom Sheets* deslizables para desgloses nutricionales en smartphones y *Floating Action Buttons (FAB)* con micro-interacciones para el disparo de WebAR.
+
+---
+
+### 6.1.2. Web, Mobile & Devices Style Guidelines
+
+#### 1. Responsive Web Interfaces (Interfaces Web Adaptables)
+
+La plataforma garantiza una experiencia de usuario fluida y receptiva a través de múltiples factores de forma y densidades de píxeles:
+
+* **Breakpoints Oficiales:**
+  * **Mobile Small / Standard (`< 600 px`):** Orientado a smartphones de comensales en mesa (resoluciones típicas de 360x800 px a 430x932 px).
+    * *Estructura de Rejilla:* 4 columnas fluidas, márgenes exteriores de `16 px`, canaletas (*gutters*) de `12 px`.
+    * *Comportamiento UI:* Tarjeta de plato en disposición vertical única (1 columna), barra de navegación anclada en la parte inferior (*Bottom Navigation*), modales desplegados como *Bottom Sheets* deslizables.
+  * **Tablet / Foldables (`600 px - 1024 px`):** Orientado a tablets utilizadas por camareros, capitanes de salón y comensales en modo horizontal.
+    * *Estructura de Rejilla:* 8 columnas, márgenes exteriores de `24 px`, canaletas de `16 px`.
+    * *Comportamiento UI:* Tarjetas de plato en rejilla de 2 columnas con previsualización intermedia, menú lateral colapsable (*Navigation Drawer*).
+  * **Desktop / Large Displays (`> 1024 px`):** Orientado a la Landing Page comercial y al panel SaaS de administración de restaurantes.
+    * *Estructura de Rejilla:* 12 columnas fijas, ancho máximo contenedor centrado de `1200 px`, márgenes automáticos, canaletas de `24 px`.
+    * *Comportamiento UI:* Tarjetas de plato en rejilla de 3 o 4 columnas, visualizador 3D interactivo en Canvas WebGL al posar el cursor (*hover 3D preview*), barra de navegación superior horizontal completa.
+
+#### 2. Native Mobile & WebAR Interfaces (Pautas para Dispositivos Móviles y Realidad Aumentada)
+
+Dado que el visor de platos en mesa se ejecuta directamente sobre el navegador móvil del comensal utilizando estándares nativos de Realidad Aumentada sin instalación (**WebXR Device API** en Google Chrome para Android y **AR Quick Look** con archivos `.usdz` en Apple Safari para iOS), se establecen pautas estrictas de ergonomía táctil y espacial:
+
+* **Touch Targets Mínimos:** Todas las áreas de interacción táctil (botones de selección, chips de filtro, controles de cámara y cierre de visor) poseen una superficie táctil mínima de **48 × 48 dp (px)**, cumpliendo la directriz de accesibilidad móvil para evitar toques accidentales con manos ocupadas en mesa.
+* **Respeto a Zonas Seguras (Safe Areas):** Integración obligatoria de las variables CSS de entorno del dispositivo:
+  ```css
+  padding-top: max(16px, env(safe-area-inset-top));
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  ```
+  Esto previene que la barra de búsqueda o los botones flotantes de WebAR queden solapados por el notch de la cámara o la barra de gestos del sistema operativo.
+* **Patrones de Interacción y Gestos en WebAR:**
+  * **Retícula de Detección de Superficie:** Indicador animado en pantalla con borde dorado pulsante (`#D4A373`) que guía al comensal para enfocar la mesa con la cámara hasta detectar el plano horizontal.
+  * **Toque Único (Single Tap):** Al detectar la mesa, un toque posiciona y ancla el plato virtual en el espacio físico.
+  * **Bloqueo de Escala 1:1:** Por defecto, el plato se proyecta con factor de escala métrica real estricto 1:1 (bloqueado para evitar distorsiones cognitivas de tamaño). El usuario puede activar un interruptor secundario si desea inspeccionar detalles mediante *pinch-to-zoom*.
+  * **Rotación Orbital Unidireccional (One-Finger Drag):** Permite rotar el plato 360° sobre su eje vertical central (eje Y) con un deslizamiento horizontal del dedo, manteniendo los ejes X y Z estables para impedir inclinaciones irreales de la vajilla.
+
+---
+
+## 6.2. Information Architecture
+
+La Arquitectura de Información (IA) de Platter estructura, etiqueta y conecta el contenido y los servicios del sistema, asegurando que tanto los visitantes de la Landing Page comercial como los administradores de restaurante y comensales en mesa encuentren la información necesaria con un esfuerzo cognitivo mínimo.
+
+### 6.2.1. Organization Systems
+
+La organización del contenido responde a esquemas visuales y lógicos diferenciados según la naturaleza de la tarea:
+
+#### 1. Sistemas de Organización Visual
+* **Jerárquico (Visual Hierarchy):**  
+  Aplicado en la **Ficha del Plato** y la **Landing Page**. La información se organiza de forma piramidal:
+  * *Nivel 1 (Foco Primario):* Nombre del plato y precio destacado en fuentes *Outfit Bold*, acompañados del visor/tarjeta 3D interactiva.
+  * *Nivel 2 (Foco Secundario):* Descripción sensorial generada por IA, ingredientes principales y botón prominente de llamado a la acción *"Ver en tu Mesa 3D"*.
+  * *Nivel 3 (Foco de Seguridad y Detalle):* Badges normalizados de alérgenos (sellos de advertencia en rojo/ámbar o sellos de inocuidad en verde) e información calórica/macronutrientes.
+* **Secuencial (Step-by-Step / Flujo Guiado):**  
+  Aplicado en los procesos de alta complejidad o toma de decisión crítica:
+  * *Flujo del Administrador (Digitalización de Plato):* Paso 1: Captura fotográfica con smartphone -> Paso 2: Procesamiento multimodal con Google Gemini (extracción automática de nombre, ingredientes, alérgenos y calorías) -> Paso 3: Asignación y calibración de modelo 3D -> Paso 4: Confirmación y publicación inmediata en carta.
+  * *Flujo del Comensal (Consumo en Mesa):* Paso 1: Escaneo de código QR de mesa -> Paso 2: Configuración rápida opcional de restricciones dietéticas (ej. "Soy celíaco") -> Paso 3: Exploración de carta filtrada -> Paso 4: Apertura de WebAR y anclaje en mesa -> Paso 5: Decisión final de pedido informada.
+* **Matricial:**  
+  Aplicado en el **Dashboard de Administración de Restaurante**, permitiendo a los dueños y administradores cruzar múltiples variables en una sola vista: estado de stock en cocina (*Disponible / Agotado*), categoría culinaria, métricas de visualización 3D por plato y rotación de mesas activas.
+
+#### 2. Esquemas de Categorización de Contenido
+* **Por Tópicos / Categorías Culinarias:** Estructura natural de la gastronomía que agrupa la oferta en: *Entradas & Piques*, *Platos de Fondo*, *Guarniciones*, *Postres Artesanales*, *Bebidas & Coctelería*, y *Especialidades del Chef*.
+* **Por Audiencia / Segmentos:** Separación estricta de dominios de acceso:
+  * *Público / Comensal:* Acceso universal, liviano, anónimo y sin login mediante URLs dinámicas firmadas por mesa (`/menu/:restaurantSlug?mesa=:tableId`).
+  * *B2B / Restaurante:* Portal administrativo seguro (`/admin/dashboard`) protegido mediante autenticación JWT y control de acceso basado en roles (Administrador, Chef de Cocina, Mozo).
+* **Alfabético:** Catálogo normado de alérgenos y glosario de términos gastronómicos en los selectores de búsqueda avanzada.
+* **Cronológico:** Registro de auditoría de modificaciones de platos y precios en la administración, e historial de pedidos del salón.
+
+---
+
+### 6.2.2. Labeling Systems
+
+El sistema de etiquetado utiliza términos breves, directos y universalmente comprensibles en el ámbito de la gastronomía y la tecnología móvil, evitando tecnicismos oscuros y reduciendo la carga cognitiva:
+
+| Contexto / Entorno | Etiqueta en Español | Etiqueta en Inglés (`i18n`) | Componente UI | Significado y Asociación Mental del Usuario |
+| :--- | :--- | :--- | :--- | :--- |
+| **Landing Page** | `Digitaliza tu Carta` | `Digitize Your Menu` | CTA Button (Hero) | Comunica transformación inmediata de la carta física a formato digital 3D. |
+| **Landing Page** | `Ver Demo 3D en Vivo` | `Live 3D Demo` | Secondary Button | Promesa de interacción real e instantánea con Realidad Aumentada sin registro. |
+| **Landing Page** | `Calcula tu Retorno (ROI)` | `Calculate Your ROI` | Navigation Link / CTA | Asociación con rentabilidad financiera y ahorro de costos frente a impresiones. |
+| **Landing Page** | `Planes y Tarifas` | `Pricing & Plans` | Navigation Link | Claridad sobre costos de suscripción mensual sin comisiones ocultas. |
+| **Carta WebAR** | `Ver en tu Mesa` | `View on Table` | Primary CTA Button | Invita a activar la cámara para proyectar el modelo 3D a escala real en la mesa física. |
+| **Carta WebAR** | `Libre de Gluten` | `Gluten-Free` | Filter Badge / Chip | Certeza médica instantánea para personas con celiaquía o intolerancia. |
+| **Carta WebAR** | `Alergias Alimentarias` | `Food Allergies` | Filter Trigger Chip | Acceso al selector de exclusión de los 14 alérgenos de declaración obligatoria. |
+| **Carta WebAR** | `Información Nutricional`| `Nutritional Info` | Accordion / Sheet | Muestra calorías inferidas, proteínas y grasas sin saturar la tarjeta principal. |
+| **Carta WebAR** | `Agotado en Cocina` | `Out of Stock` | Status Tag (Rojo) | Previene pedidos fallidos indicando indisponibilidad de insumos en tiempo real. |
+| **Portal SaaS** | `Escanear Plato con IA` | `Scan Dish with AI` | Action Button (Icon) | Dispara la cámara para fotografiar el plato e iniciar la inferencia con Gemini. |
+| **Portal SaaS** | `Mis Platos` | `My Dishes` | Sidebar Navigation | Directorio maestro del catálogo gastronómico del restaurante. |
+| **Portal SaaS** | `Códigos QR de Mesa` | `Table QR Codes` | Sidebar Navigation | Módulo de generación, descarga e impresión de códigos QR dinámicos por salón. |
+| **Portal SaaS** | `Métricas de Salón` | `Dining Room Analytics`| Sidebar Navigation | Visualizaciones de platos más vistos en 3D, tiempo en carta y conversiones. |
+| **Footer / Legal** | `Términos del Servicio`| `Terms of Service` | Footer Link | Respaldo ético y legal acorde a códigos de conducta ACM/IEEE y CIP. |
+| **Footer / Legal** | `Privacidad y Cookies` | `Privacy Policy` | Footer Link | Compromiso de protección de datos personales y uso anónimo de cámaras en WebAR. |
+
+---
+
+### 6.2.3. Searching Systems
+
+El sistema de búsqueda de Platter está diseñado para que el comensal encuentre preparaciones compatibles con su presupuesto, apetito y requerimientos médicos de salud en menos de 3 interacciones:
+
+#### 1. Mecanismos de Búsqueda Provistos
+* **Búsqueda en Tiempo Real con Autocompletado Predictivo (Live Search):**
+  * Campo de texto persistente en la cabecera de la carta con respuesta instantánea basada en *debounce* de 250 ms.
+  * Tolerancia a errores tipográficos y variantes fonéticas culinarias (ej. coincidencia automática entre *"ceviche"*, *"cebiche"* o *"seviche"*).
+  * Despliegue de sugerencias dinámicas y platos populares al enfocar el cursor o pulsar sobre la barra sin necesidad de escribir.
+
+#### 2. Filtros Avanzados Combinables
+* **Filtro de Seguridad Alimentaria (Alérgenos y Dietas Específicas):**
+  * Chips interactivos de exclusión que permiten deseleccionar platos que contengan alérgenos críticos: *Sin Gluten*, *Sin Lactosa*, *Sin Mariscos*, *Sin Frutos Secos*, *Sin Huevo*, *Vegano*, *Vegetariano*.
+  * Al activar el filtro *"Soy Celíaco"*, el catálogo oculta de forma preventiva y automática toda preparación que contenga trigo, avena, cebada o centeno, o que comparta freidora.
+* **Filtro por Rango de Precios:**
+  * Control deslizante (*Range Slider*) que permite acotar el presupuesto por plato (ej. *Hasta S/ 30.00*, *S/ 30 - S/ 60*, *Más de S/ 60*).
+* **Filtro de Experiencia Inmersiva:**
+  * Interruptor booleano rápido: *"Solo platos con visualización WebAR 3D disponible"*.
+* **Filtro por Tiempo de Preparación y Aporte Calórico:**
+  * Para comensales con prisa en horario de almuerzo (*"Menos de 15 minutos"*) o regímenes hipocalóricos (*"Menos de 500 kcal"*).
+
+#### 3. Visualización de Resultados y Manejo de Estados Vacíos
+* **Presentación de Resultados:** Rejilla dinámica de tarjetas con contador en vivo (*"7 platos encontrados con tus preferencias"*), destacando en cada tarjeta los sellos de seguridad alimentaria y el botón de WebAR.
+* **Estado de Búsqueda Vacía (*Zero Results State*):**  
+  En caso de que una combinación muy restrictiva de filtros no arroje resultados (ej. plato de fondo vegano, sin frutos secos y por menos de S/ 15), la interfaz presenta una ilustración amigable en tonos beige y azul, acompañada de:
+  1. Mensaje empático: *"No encontramos platos que cumplan todos los filtros seleccionados simultáneamente"*.
+  2. Sugerencias guiadas: *"Prueba quitando el filtro de precio"* o *"Ver platos vegetarianos alternativos"*.
+  3. Botón de acción inmediata: *"Restablecer Filtros"*.
+
+---
+
+### 6.2.4. SEO Tags, Meta Tags y ASO Elements
+
+Para maximizar el posicionamiento orgánico en motores de búsqueda de la Landing Page comercial y facilitar la indexación de las cartas digitales públicas de los restaurantes asociados, se formalizan las siguientes especificaciones:
+
+#### 1. SEO Tags y Meta Tags para Páginas Web
+
+A continuación se detallan las etiquetas SEO y meta tags configuradas para las tres vistas principales de la plataforma:
+
+##### A. Landing Page Comercial Principal (`/`)
+
+```html
+<!-- Metadatos Primarios -->
+<title>Platter | Menús Digitales con Realidad Aumentada (WebAR) e Inteligencia Artificial</title>
+<meta name="title" content="Platter | Menús Digitales con Realidad Aumentada (WebAR) e Inteligencia Artificial">
+<meta name="description" content="Digitaliza la carta de tu restaurante con Realidad Aumentada en 3D e IA multimodal. Permite a tus comensales ver el plato a escala real en mesa sin instalar apps. Aumenta tus ventas y elimina quejas.">
+<meta name="keywords" content="carta digital restaurante, menu realidad aumentada, platos 3d en mesa, webar restaurante, ia gastronomica, gemini vision restaurantes, carta qr interactiva, alergenos restaurante">
+<meta name="author" content="Platter Technologies - 1ASI0728 Arquitecturas de Software Emergentes UPC">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://platter.app/">
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://platter.app/">
+<meta property="og:title" content="Platter | Cartas Gastronómicas en Realidad Aumentada sin Instalación">
+<meta property="og:description" content="Multiplica el apetito y las ventas de tu restaurante. Tus comensales proyectan la comida en su mesa en escala 1:1 desde el navegador web.">
+<meta property="og:image" content="https://platter.app/assets/og-platter-hero-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_PE">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://platter.app/">
+<meta name="twitter:title" content="Platter | Digitalización Gastronómica con WebAR e IA">
+<meta name="twitter:description" content="Visualiza tus platos favoritos a tamaño real en tu mesa con Realidad Aumentada escaneando el QR del restaurante.">
+<meta name="twitter:image" content="https://platter.app/assets/og-platter-hero-preview.png">
+```
+
+##### B. Carta Digital Pública por Restaurante (`/menu/:restaurantSlug`)
+
+```html
+<title>Carta Digital 3D de {Nombre del Restaurante} | Menú WebAR Interactivo en Platter</title>
+<meta name="description" content="Explora la carta de {Nombre del Restaurante} en Realidad Aumentada. Mira cada plato en tu mesa en escala 1:1, consulta ingredientes reales, alérgenos normados e información nutricional.">
+<meta name="keywords" content="menu {Nombre del Restaurante}, carta 3d {Nombre del Restaurante}, pedir en {Nombre del Restaurante}, platos en realidad aumentada, comida sin gluten {Nombre del Restaurante}">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://platter.app/menu/{restaurantSlug}">
+<meta property="og:type" content="restaurant.menu">
+<meta property="og:title" content="Carta Digital Interactiva - {Nombre del Restaurante} en Platter">
+<meta property="og:description" content="Mira los platos de nuestra carta en Realidad Aumentada 3D directamente sobre tu mesa.">
+<meta property="og:image" content="https://platter.app/assets/restaurants/{restaurantSlug}-cover.png">
+```
+
+##### C. Portal de Registro y Onboarding B2B (`/onboarding`)
+
+```html
+<title>Comienza Gratis con Platter | Digitaliza tu Restaurante en 2 Minutos</title>
+<meta name="description" content="Únete a cientos de restaurantes que aumentan su ticket promedio con cartas en Realidad Aumentada. Prueba gratuita de 14 días sin tarjeta de crédito.">
+<meta name="robots" content="index, nofollow">
+<link rel="canonical" href="https://platter.app/onboarding">
+```
+
+#### 2. Elementos ASO (App Store Optimization) para la Aplicación Móvil / PWA
+
+Para la distribución de la Progressive Web App (PWA) de Platter y su eventual empaquetamiento en Google Play Store y Apple App Store para administradores de salón, se establecen los siguientes metadatos ASO:
+
+* **App Title (Título de la App):** `Platter: Menús 3D & Cartas WebAR` *(35 caracteres)*  
+  Incorpora la marca y las palabras clave de mayor volumen de búsqueda en el sector.
+* **App Subtitle (Subtítulo de la App - iOS):** `Platos en Realidad Aumentada & IA` *(33 caracteres)*  
+  Sintetiza la propuesta de valor diferenciada en una frase contundente.
+* **App Keywords (Palabras Clave ASO):** `carta digital,menu restaurante,realidad aumentada,webar,platos 3d,alergenos,sin gluten,qr restaurante,ia gastronomica,modelado comida` *(separadas por comas, sin espacios innecesarios)*.
+* **App Description (Descripción ASO para Tiendas):**  
+  * *Párrafo Promocional:* "¿Cansado de cartas impresas desactualizadas o fotos que no reflejan el tamaño real de tus preparaciones? Platter transforma la experiencia culinaria de tus clientes permitiéndoles proyectar cada plato directamente en su mesa a escala 1:1 mediante Realidad Aumentada instantánea."  
+  * *Características Destacadas:*
+    * Digitalización express en menos de 2 minutos tomando una sola foto con tu smartphone.
+    * Inferencia automática de ingredientes, alérgenos y calorías con Google Gemini Vision.
+    * Experiencia WebAR para comensales sin necesidad de descargar aplicaciones pesadas.
+    * Códigos QR dinámicos por mesa con actualización en tiempo real de platos agotados.
+    * Aumento comprobado del 25% al 35% en la conversión de venta de platos destacados en salón.
+
+---
+
+### 6.2.5. Navigation Systems
+
+La navegación en Platter sigue una arquitectura multicanal orientada a guiar al usuario a sus objetivos sin callejones sin salida:
+
+1. **Navegación Global (Persistente):**
+   * *Landing Page:* Barra superior fija con logotipo oficial, enlaces ancla a secciones (*Cómo Funciona*, *Beneficios*, *Demostración 3D*, *Precios*, *Preguntas Frecuentes*), selector de idioma (EN / ES) y botón CTA destacado *"Iniciar Prueba Gratis"*.
+   * *Carta Digital WebAR:* Barra superior compacta con botón de regreso, indicador de mesa activa (*"Mesa 04"*), buscador en vivo, selector de idioma y botón flotante de acceso al carrito o resumen de selección.
+2. **Navegación Local (Contextual de Menú):**
+   * Barra de pestañas horizontales fija (*Sticky Category Bar*) debajo del buscador con desplazamiento lateral suave (*scroll horizontal*) que permite saltar entre categorías gastronómicas (*Entradas*, *Fondos*, *Bebidas*, *Postres*). Incluye sincronización de desplazamiento (*scrollspy*) que resalta la categoría visible automáticamente al deslizar la pantalla.
+3. **Navegación Contextual (Nivel de Componente):**
+   * Dentro de cada tarjeta de plato: botón secundario *"Ver alérgenos y detalles nutricionales"* que despliega un Bottom Sheet, botón primario con icono de cubo 3D *"Ver en tu Mesa"* que activa el visor WebXR / AR Quick Look, y botones de sugerencia de maridaje (*"Combina perfecto con..."*).
+4. **Navegación Suplementaria (Footer y Ayuda):**
+   * Pie de página estructurado en 4 columnas:
+     * *Columna 1:* Identidad corporativa, propósito de Platter y redes sociales.
+     * *Columna 2 (Producto):* Enlaces a características, WebAR, IA gastronómica y compatibilidad de dispositivos.
+     * *Columna 3 (Recursos y Soporte):* Centro de ayuda para restaurantes, calculadora de ROI y canal de contacto.
+     * *Columna 4 (Marco Ético y Legal):* Enlaces a Términos y Condiciones, Política de Privacidad, declaración ética de IA y cumplimiento de estándares de ingeniería de software.
+
+---
+
+## 6.3. Landing Page UI Design
+
+El diseño de interfaz del Landing Page traduce las decisiones de arquitectura de información (sección 6.2) en una página estática de una sola columna, pensada para dos segmentos con objetivos distintos: los **dueños y administradores de restaurantes**, que deben entender el valor del producto y solicitar un piloto, y los **comensales**, que pueden probar la experiencia de Realidad Aumentada desde su navegador.
+Cada sección responde a una User Story del Epic EP01 (US01 a US04)
+
+Las llamadas a la acción (CTA) están separadas por segmento para cumplir el enunciado del proyecto:
+ 
+| CTA | Segmento | Destino |
+| :--- | :--- | :--- |
+| Solicitar piloto gratis / Solicitar piloto | Dueños y administradores | Formulario de piloto del mismo Landing (US04) y, una vez aprobada la cuenta, descarga de la app móvil de gestión |
+| Probar demo en AR / Ver plato en AR | Comensales y visitantes | Demostrador WebAR (US01) |
+| Elegir plan | Dueños y administradores | Formulario de piloto con el plan preseleccionado (US03) |
+
+### 6.3.1. Landing Page Wireframe
+
+Los wireframes están en escala de grises para validar estructura, jerarquía y recorrido antes de aplicar identidad visual. Cada bloque tiene una etiqueta numerada con su nombre para facilitar su referencia en la explicación.
+
+![Landing Page Wireframe - Desktop1](./assets/6.3.1-landing-wireframe-desktop1.png)
+
+![Landing Page Wireframe - Desktop2](./assets/6.3.1-landing-wireframe-desktop2.png)
+
+| # | Sección | Propósito | User Story |
+| :-: | :--- | :--- | :-: |
+| 01 | Header | Logo, navegación por anclas (Cómo funciona, Beneficios, Demo AR, Planes, Contacto), selector de idioma ES / EN y CTA principal. En móvil se reduce a logo, idioma y menú hamburguesa. | US01 |
+| 02 | Hero | Propuesta de valor, dos CTA diferenciados por segmento e imagen del producto en uso. | US01, US04 |
+| 03 | Cómo funciona | Tres pasos (foto, modelo 3D, QR) en tarjetas de igual jerarquía. | US01 |
+| 04 | Demo AR interactiva | En desktop muestra un código QR para probar en el celular y un botón de visor 3D en pantalla; en móvil activa directamente la vista AR. | US01 |
+| 05 | Beneficios y ROI | Tres métricas destacadas y un espacio para el testimonio de un restaurante piloto. | US02 |
+| 06 | Casos de uso | Tarjetas por tipo de cocina (criolla, marina, pollerías y especialidades). | US02 |
+| 07 | Planes y calculadora MYPE | Tres planes mensuales sin cobro por plato y calculadora por número de mesas y platos. | US03 |
+| 08 | Solicitud de piloto | Formulario con nombre del restaurante, correo, teléfono y número de mesas, con validación de campos obligatorios. | US04 |
+| 09 | Footer | Enlaces de producto, contacto, Términos y Condiciones, privacidad y selector de idioma. | - |
+
+**Principios aplicados**
+- **Jerarquía visual y patrón de lectura en F:** el título y la propuesta de valor ocupan la parte superior izquierda en desktop; la imagen balancea el lado derecho.
+- **Un CTA primario por bloque:** el botón principal siempre es el de mayor peso visual; la acción secundaria usa estilo contorno.
+- **Arquitectura de información:** el orden de las secciones sigue el recorrido de decisión del dueño (entender, ver beneficios, comparar precio, solicitar piloto) y el menú ancla a las mismas secciones.
+- **Diseño inclusivo:** objetivos táctiles de al menos 44 px de alto, un campo por fila en móvil, selector de idioma visible (es_419 / en_US) y estructura pensada para atributos ARIA y navegación por teclado en la implementación.
+- **Responsive:** en móvil las tarjetas de tres columnas pasan a una sola columna y los botones ocupan el ancho completo.
+
+### 6.3.2. Landing Page Mock-up
+
+El mock-up aplica color y tipografía sobre los wireframes: la paleta oficial de la sección 6.1.1 (coral, azul medianoche y crema), tipografía Outfit y Plus Jakarta Sans, tarjetas con esquinas redondeadas y sombras suaves, manteniendo los criterios de contraste, espaciado de 8 puntos y objetivos táctiles de las secciones 6.1.1 y 6.1.2.
+
+![Landing Page Mock-up - Desktop1](./assets/6.3.2-landing-mockup-desktop1.png)
+
+![Landing Page Mock-up - Desktop2](./assets/6.3.2-landing-mockup-desktop2.png)
+
+| Elemento | Valor | Uso |
+| :--- | :--- | :--- |
+| Coral de acento (`--color-coral-accent`) | `#E76F51` | CTA, números de pasos, plan destacado |
+| Azul medianoche (`--color-bg-dark`) | `#121C33` | Títulos, texto principal y footer |
+| Fondo claro (`--color-bg-light`) | `#F7F3ED` | Hero, demo AR y planes |
+| Éxito (`--color-status-success`) | `#2A9D8F` | Íconos de verificación y etiquetas de alérgenos |
+| Línea cálida | `#E5DDD0` | Bordes de tarjetas y campos de formulario |
+| Tipografía de títulos | Outfit (SemiBold, Bold) | Títulos, precios y cifras destacadas (tamaño 20 px o más) |
+| Tipografía de lectura y UI | Plus Jakarta Sans (Regular, Medium, SemiBold, Bold) | Párrafos, botones, formularios y etiquetas |
+
+## 6.4. Applications UX/UI Design
+
+La solución tiene dos aplicaciones con las que interactúan directamente los segmentos objetivo:
+ 
+- **Platter Admin - aplicación móvil Flutter:** usada por el dueño o administrador del restaurante para registrar platos con IA, asignar modelos 3D, generar códigos QR, controlar disponibilidad y revisar métricas (Epics EP02, EP03, EP06).
+- **Platter AR Viewer - aplicación web móvil, WebAR:** usada por el comensal al escanear el QR de su mesa, sin instalación ni registro (Epics EP04 y EP05).
+
+### 6.4.1. Applications Wireframes
+
+![Wireframes Platter Admin (Flutter)](./assets/6.4.1-wireframes-admin.png)
+ 
+![Wireframes Platter AR Viewer (WebAR)](./assets/6.4.1-wireframes-viewer.png)
+
+**Platter Admin (Flutter)**
+| ID | Pantalla | Contenido principal | User Story |
+| :-: | :--- | :--- | :-: |
+| A01 | Inicio de sesión | Correo, contraseña y acceso | - |
+| A02 | Inicio | Resumen de platos, escaneos y vistas AR; accesos rápidos | US19 |
+| A03 | Catálogo | Lista de platos con estado e interruptor de disponibilidad | US18 |
+| A04 | Capturar plato | Cámara o galería, validación de formato y peso (JPEG/PNG, máximo 10 MB) | US05 |
+| A05 | Analizando con IA | Estado de carga y opción de continuar manualmente si falla | US06, US21 |
+| A06 | Ficha sugerida | Nombre, categoría, descripción, ingredientes, alérgenos y calorías editables | US06 a US09 |
+| A07 | Modelo 3D | Modelo sugerido por categoría y galería para elegir otro | US10 |
+| A08 | Plato publicado | Confirmación y acceso al catálogo | US09 |
+| A09 | Mesas y QR | Alta por rango de mesas y lista con estado | US11 |
+| A10 | Descarga de QR | Vista previa de la plantilla con logo y descarga PDF/PNG | US12 |
+| A11 | Analítica | Ranking de platos vistos en AR y exportación CSV | US19 |
+| A12 | Mi plan | Plan vigente, método de pago y estado de la suscripción | US20 |
+
+**Platter AR Viewer (WebAR)**
+| ID | Pantalla | Contenido principal | User Story |
+| :-: | :--- | :--- | :-: |
+| D01 | Carta digital | Número de mesa, categorías y platos con alérgenos | US13 |
+| D02 | Filtros de alérgenos | Selección de alérgenos a excluir y mensaje cuando no hay resultados | US15 |
+| D03 | Detalle del plato | Foto, ingredientes, calorías, advertencias y botón Ver en mi mesa | US17 |
+| D04 | Vista AR | Plato a escala 1:1 sobre la mesa con escala bloqueada | US14, US16 |
+| D05 | Visor 3D | Alternativa para dispositivos sin compatibilidad AR | US14 |
+| D06 | Mesa inactiva | Mensaje amigable y enlace al menú general | US13 |
+ 
+Decisiones de diseño: navegación inferior de cuatro destinos en Platter Admin (Inicio, Platos, Mesas, Plan), flujo secuencial paso a paso para el alta de platos, y en AR Viewer una sola pantalla de carta con acceso al AR en máximo 2 toques
+
+### 6.4.2. Applications Wireflow Diagrams
+
+Cada wireflow representa un User Goal y reutiliza los wireframes de la sección anterior. Las flechas continuas indican el camino principal (happy path) y las discontinuas los caminos alternativos.
+
+| ID | User Goal | Persona | Recorrido | User Stories |
+| :-: | :--- | :--- | :--- | :-: |
+| WF-01 | Registrar un plato con ayuda de IA | Carlos Mendoza | A02, A04, A05, A06, A07, A08. *Alternativo:* si la IA falla o tarda más de 5 s, A05 pasa a A06 con campos vacíos para completar manualmente. | US05 a US10, US21 |
+| WF-02 | Generar e imprimir los QR de las mesas | Carlos Mendoza | A02, A09, A10 | US11, US12 |
+| WF-03 | Controlar disponibilidad y revisar interacción | Carlos Mendoza | A02, A03 (marcar agotado), A11 | US18, US19 |
+| WF-04 | Ver un plato en AR antes de ordenar | Valeria Ramos | D01, D02, D03, D04. *Alternativos:* D01 a D06 si el QR no está activo; D03 a D05 si el dispositivo no soporta AR. | US13 a US17 |
+
+**WF-01. Registrar un plato con ayuda de IA**
+ 
+![Wireflow WF-01](./assets/6.4.2-wireflow-wf01.png)
+ 
+**WF-02. Generar e imprimir los QR de las mesas**
+ 
+![Wireflow WF-02](./assets/6.4.2-wireflow-wf02.png)
+ 
+**WF-03. Controlar disponibilidad y revisar interacción**
+ 
+![Wireflow WF-03](./assets/6.4.2-wireflow-wf03.png)
+ 
+**WF-04. Ver un plato en AR antes de ordenar**
+ 
+![Wireflow WF-04](./assets/6.4.2-wireflow-wf04.png)
+
+
+*Nota: Las secciones 6.4.3 (Applications Mock-ups), 6.4.4 (Applications User Flow Diagrams) y 6.5 (Applications Prototyping) corresponden al siguiente hito de entrega (TB2 - Semana 12), conforme a la estructura curricular y alcance del proyecto.*
+
+
 # Conclusiones
+
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
    Se evidenció que la brecha tradicional entre la expectativa visual del comensal y el plato servido en mesa representaba un factor crítico de indecisión, quejas y pérdida de reputación para los negocios gastronómicos. Mediante la adopción de una arquitectura orientada a la eliminación de fricción basada en **WebAR sin instalación** (aprovechando estándares nativos como WebXR Device API para Android y AR Quick Look para iOS), Platter resuelve la reticencia del usuario final. El comensal logra visualizar el plato en su entorno a escala física real 1:1 en menos de 2 segundos y con un máximo de 2 toques tras escanear el código QR de mesa, sin requerir descargas de aplicaciones ni registros obligatorios.
 
@@ -1993,14 +2549,17 @@ erDiagram
    Las soluciones de Realidad Aumentada existentes en el mercado imponen tarifas de modelado fotogramétrico prohibitivas (desde £49 por plato) y flujos manuales lentos incompatibles con la realidad económica de los restaurantes pequeños y medianos. Platter supera esta barrera económica mediante la convergencia de una biblioteca de modelos 3D normalizados y calibrados métricamente junto a un pipeline de procesamiento automatizado con **Google Gemini Vision**. Dicha integración reduce la carga operativa del administrador del restaurante, autogenerando fichas gastronómicas completas (descripción, ingredientes, calorías y etiquetado normado de alérgenos) en menos de 3.5 segundos a partir de una simple fotografía tomada con el smartphone.
 
 3. **Gobernanza del dominio mediante Domain-Driven Design (DDD):**
-   La aplicación sistemática de EventStorming, Candidate Context Discovery y Bounded Context Canvases permitió descomponer el dominio en cinco Bounded Contexts cohesivos, aislando el núcleo de valor competitivo (*Core Domain*: Catálogo de Platos, Análisis Gastronómico con IA y Experiencia WebAR) de los servicios de soporte y genéricos (Gestión de Mesas y Facturación). La formalización del *Context Map* mediante la incorporación de una **Capa Anticorrupción (ACL)** para aislar la API de Google Gemini y un contrato **Open Host Service / Published Language (OHS / PL)** para la publicación de la carta digital, blindó el núcleo del sistema frente a cambios de contratos externos y facilitó la trazabilidad técnica entre requerimientos y diseño.
+   La aplicación sistemática de EventStorming, Candidate Context Discovery y Bounded Context Canvases permitió descomponer el dominio en Bounded Contexts cohesivos, aislando el núcleo de valor competitivo (*Core Domain*: Catálogo de Platos, Análisis Gastronómico con IA y Experiencia WebAR) de los servicios de soporte y genéricos (Gestión de Mesas y Facturación). La formalización del *Context Map* mediante la incorporación de una **Capa Anticorrupción (ACL)** para aislar la API de Google Gemini y un contrato **Open Host Service / Published Language (OHS / PL)** para la publicación de la carta digital, blindó el núcleo del sistema frente a cambios de contratos externos y facilitó la trazabilidad técnica entre requerimientos y diseño.
 
 4. **Robustez y resiliencia arquitectónica (ADD y C4 Model):**
    A través del modelado con el C4 Model y el proceso de Attribute-Driven Design (ADD), se fundamentaron decisiones técnicas orientadas a cumplir escenarios de calidad estrictos:
    * **Rendimiento:** Despacho de activos 3D comprimidos con Draco a través de Amazon S3 y CloudFront (CDN) con cabeceras de caché inmutable, alcanzando tiempos de entrega inferiores a 1.5 segundos en redes móviles 4G.
    * **Tolerancia a fallos:** Protección del backend mediante el patrón **Circuit Breaker (Resilience4j)** ante posibles degradaciones de la API de Google Gemini, garantizando degradación elegante hacia la carga manual en menos de 100 ms sin bloquear los hilos del servidor.
    * **Escalabilidad y Concurrencia:** Adopción de un monolito modular en Spring Boot 3 / Java 21 respaldado por Redis para retener catálogos en memoria, permitiendo atender hasta 500 peticiones concurrentes por segundo y reduciendo en más de un 85% las consultas directas a PostgreSQL durante horas pico.
-#
+
+5. **Diseño Táctico y Experiencia de Usuario Centrada en la Conversión (Hito TP1):**
+   La transición del diseño estratégico al diseño táctico (Capítulo V) permitió formalizar la separación de responsabilidades en capas limpias (Domain, Application, Infrastructure e Interfaces) para cada uno de los cuatro Bounded Contexts, asegurando que la lógica de negocio permanezca desacoplada de frameworks y protocolos de transporte. Esta solidez arquitectónica se articula directamente con las definiciones de diseño de experiencia de usuario (Capítulo VI), donde la arquitectura de información, las directrices de estilo accesibles bajo WCAG 2.1 nivel AA y los flujos de interacción de pantalla (wireflows) garantizan una curva de aprendizaje mínima para el administrador del restaurante y una interacción inmersiva libre de fricción para el comensal.
+
 # Recomendaciones
 
 1. **Gestión y control de calidad del pipeline de modelos 3D:**
@@ -2015,15 +2574,44 @@ erDiagram
 4. **Validación empírica en pruebas de campo (Salón Piloto):**
    Para los siguientes sprints de desarrollo e implementación, se sugiere realizar pruebas de usabilidad y telemetría de red directamente en salones de prueba. Esto permitirá evaluar el comportamiento de detección de superficies horizontales del visor WebAR bajo distintas condiciones de iluminación física y mantelería, asegurando que el bloqueo de escala métrica 1:1 funcione de forma idéntica en diversos dispositivos de gama media y alta.
 
+5. **Auditoría continua de accesibilidad y pruebas de contraste en interfaces:**
+   Para las fases de construcción y prototipado del siguiente hito (TB2), se recomienda implementar linters automáticos de accesibilidad (axe-core / Lighthouse) en los entornos de integración continua para validar que todas las pantallas mantengan los ratios de contraste establecidos (mínimo 4.5:1) y que los atributos ARIA definidos en las guías de estilo se respeten estrictamente en la Landing Page y en el visor WebAR.
+
+# Bibliografía
+
+<div style="text-align: justify">
+
+ARInsider. (2020, 22 de junio). *Does AR really boost eCommerce conversions?* https://arinsider.co/2020/06/22/does-ar-really-boost-ecommerce-conversions/
+
+Ecosire. (2024). *Realidad aumentada en comercio electrónico y venta minorista: pruébelo antes de comprar*. https://ecosire.com/es/blog/augmented-reality-ecommerce-retail
+
+Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional.
+
+Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing Great Products with Agile Teams* (3rd ed.). O'Reilly Media.
+
+Ministerio de la Producción [Produce]. (2021, 14 de mayo). *Terrazas gastronómicas se cuadruplicaron en menos de un mes* [Comunicado de prensa]. Andina, Agencia Peruana de Noticias. https://andina.pe/agencia/noticia-terrazas-gastronomicas-se-cuadruplicaron-menos-un-mes-845218.aspx
+
+Nielsen Norman Group. (2020). *Wireframing and Prototyping Best Practices*. https://www.nngroup.com/
+
+Perú Retail. (2024, 7 de diciembre). *Hay 50 mil restaurantes menos que en 2019 y las ventas siguen un 3% por debajo, alerta el gremio*. https://www.peru-retail.com/?p=355115
+
+Rosenfeld, L., Morville, P., & Arango, J. (2015). *Information Architecture: For the Web and Beyond* (4th ed.). O'Reilly Media.
+
+World Wide Web Consortium [W3C]. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1*. https://www.w3.org/TR/WCAG21/
+
+</div>
 
 # Anexos
-<div style="text-align: justify">
-ARInsider. (2020, 22 de junio). *Does AR really boost eCommerce conversions?* https://arinsider.co/2020/06/22/does-ar-really-boost-ecommerce-conversions/
- 
-Ecosire. (2024). *Realidad aumentada en comercio electrónico y venta minorista: pruébelo antes de comprar*. https://ecosire.com/es/blog/augmented-reality-ecommerce-retail
- 
-Ministerio de la Producción [Produce]. (2021, 14 de mayo). *Terrazas gastronómicas se cuadruplicaron en menos de un mes* [Comunicado de prensa]. Andina, Agencia Peruana de Noticias. https://andina.pe/agencia/noticia-terrazas-gastronomicas-se-cuadruplicaron-menos-un-mes-845218.aspx
- 
-Perú Retail. (2024, 7 de diciembre). *Hay 50 mil restaurantes menos que en 2019 y las ventas siguen un 3% por debajo, alerta el gremio*. https://www.peru-retail.com/?p=355115
- 
-</div>
+
+### Anexo A. Repositorios Oficiales del Proyecto
+
+- **Repositorio de Documentación (Reporte Oficial):** [https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter-report](https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter-report)
+- **Repositorio de Solución de Software:** [https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter](https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter)
+
+### Anexo B. Organización de Componentes Digitales
+
+La solución se estructura como un monorepo compuesto por los siguientes módulos:
+- `landing`: Aplicación web estática para adquisición y portal comercial (HTML5, CSS3, JavaScript).
+- `webar`: Experiencia inmersiva en mesa para comensales (Three.js, WebXR, AR Quick Look).
+- `admin_app`: Aplicación móvil multiplataforma para administración del restaurante (Flutter / Dart).
+- `backend`: Arquitectura de servicios basada en DDD y Spring Boot 3 con base de datos PostgreSQL y Redis.
