@@ -553,15 +553,129 @@ La navegación en Platter sigue una arquitectura multicanal orientada a guiar al
 
 ## 6.3. Landing Page UI Design
 
+El diseño de interfaz del Landing Page traduce las decisiones de arquitectura de información (sección 6.2) en una página estática de una sola columna, pensada para dos segmentos con objetivos distintos: los **dueños y administradores de restaurantes**, que deben entender el valor del producto y solicitar un piloto, y los **comensales**, que pueden probar la experiencia de Realidad Aumentada desde su navegador.
+Cada sección responde a una User Story del Epic EP01 (US01 a US04)
+
+Las llamadas a la acción (CTA) están separadas por segmento para cumplir el enunciado del proyecto:
+ 
+| CTA | Segmento | Destino |
+| :--- | :--- | :--- |
+| Solicitar piloto gratis / Solicitar piloto | Dueños y administradores | Formulario de piloto del mismo Landing (US04) y, una vez aprobada la cuenta, descarga de la app móvil de gestión |
+| Probar demo en AR / Ver plato en AR | Comensales y visitantes | Demostrador WebAR (US01) |
+| Elegir plan | Dueños y administradores | Formulario de piloto con el plan preseleccionado (US03) |
+
 ### 6.3.1. Landing Page Wireframe
+
+Los wireframes están en escala de grises para validar estructura, jerarquía y recorrido antes de aplicar identidad visual. Cada bloque tiene una etiqueta numerada con su nombre para facilitar su referencia en la explicación.
+
+![Landing Page Wireframe - Desktop1](./assets/6.3.1-landing-wireframe-desktop1.png)
+
+![Landing Page Wireframe - Desktop2](./assets/6.3.1-landing-wireframe-desktop2.png)
+
+| # | Sección | Propósito | User Story |
+| :-: | :--- | :--- | :-: |
+| 01 | Header | Logo, navegación por anclas (Cómo funciona, Beneficios, Demo AR, Planes, Contacto), selector de idioma ES / EN y CTA principal. En móvil se reduce a logo, idioma y menú hamburguesa. | US01 |
+| 02 | Hero | Propuesta de valor, dos CTA diferenciados por segmento e imagen del producto en uso. | US01, US04 |
+| 03 | Cómo funciona | Tres pasos (foto, modelo 3D, QR) en tarjetas de igual jerarquía. | US01 |
+| 04 | Demo AR interactiva | En desktop muestra un código QR para probar en el celular y un botón de visor 3D en pantalla; en móvil activa directamente la vista AR. | US01 |
+| 05 | Beneficios y ROI | Tres métricas destacadas y un espacio para el testimonio de un restaurante piloto. | US02 |
+| 06 | Casos de uso | Tarjetas por tipo de cocina (criolla, marina, pollerías y especialidades). | US02 |
+| 07 | Planes y calculadora MYPE | Tres planes mensuales sin cobro por plato y calculadora por número de mesas y platos. | US03 |
+| 08 | Solicitud de piloto | Formulario con nombre del restaurante, correo, teléfono y número de mesas, con validación de campos obligatorios. | US04 |
+| 09 | Footer | Enlaces de producto, contacto, Términos y Condiciones, privacidad y selector de idioma. | - |
+
+**Principios aplicados**
+- **Jerarquía visual y patrón de lectura en F:** el título y la propuesta de valor ocupan la parte superior izquierda en desktop; la imagen balancea el lado derecho.
+- **Un CTA primario por bloque:** el botón principal siempre es el de mayor peso visual; la acción secundaria usa estilo contorno.
+- **Arquitectura de información:** el orden de las secciones sigue el recorrido de decisión del dueño (entender, ver beneficios, comparar precio, solicitar piloto) y el menú ancla a las mismas secciones.
+- **Diseño inclusivo:** objetivos táctiles de al menos 44 px de alto, un campo por fila en móvil, selector de idioma visible (es_419 / en_US) y estructura pensada para atributos ARIA y navegación por teclado en la implementación.
+- **Responsive:** en móvil las tarjetas de tres columnas pasan a una sola columna y los botones ocupan el ancho completo.
 
 ### 6.3.2. Landing Page Mock-up
 
+El mock-up aplica color y tipografía sobre los wireframes: la paleta oficial de la sección 6.1.1 (coral, azul medianoche y crema), tipografía Outfit y Plus Jakarta Sans, tarjetas con esquinas redondeadas y sombras suaves, manteniendo los criterios de contraste, espaciado de 8 puntos y objetivos táctiles de las secciones 6.1.1 y 6.1.2.
+
+![Landing Page Mock-up - Desktop1](./assets/6.3.2-landing-mockup-desktop1.png)
+
+![Landing Page Mock-up - Desktop2](./assets/6.3.2-landing-mockup-desktop2.png)
+
+| Elemento | Valor | Uso |
+| :--- | :--- | :--- |
+| Coral de acento (`--color-coral-accent`) | `#E76F51` | CTA, números de pasos, plan destacado |
+| Azul medianoche (`--color-bg-dark`) | `#121C33` | Títulos, texto principal y footer |
+| Fondo claro (`--color-bg-light`) | `#F7F3ED` | Hero, demo AR y planes |
+| Éxito (`--color-status-success`) | `#2A9D8F` | Íconos de verificación y etiquetas de alérgenos |
+| Línea cálida | `#E5DDD0` | Bordes de tarjetas y campos de formulario |
+| Tipografía de títulos | Outfit (SemiBold, Bold) | Títulos, precios y cifras destacadas (tamaño 20 px o más) |
+| Tipografía de lectura y UI | Plus Jakarta Sans (Regular, Medium, SemiBold, Bold) | Párrafos, botones, formularios y etiquetas |
+
 ## 6.4. Applications UX/UI Design
+
+La solución tiene dos aplicaciones con las que interactúan directamente los segmentos objetivo:
+ 
+- **Platter Admin - aplicación móvil Flutter:** usada por el dueño o administrador del restaurante para registrar platos con IA, asignar modelos 3D, generar códigos QR, controlar disponibilidad y revisar métricas (Epics EP02, EP03, EP06).
+- **Platter AR Viewer - aplicación web móvil, WebAR:** usada por el comensal al escanear el QR de su mesa, sin instalación ni registro (Epics EP04 y EP05).
 
 ### 6.4.1. Applications Wireframes
 
+![Wireframes Platter Admin (Flutter)](./assets/6.4.1-wireframes-admin.png)
+ 
+![Wireframes Platter AR Viewer (WebAR)](./assets/6.4.1-wireframes-viewer.png)
+
+**Platter Admin (Flutter)**
+| ID | Pantalla | Contenido principal | User Story |
+| :-: | :--- | :--- | :-: |
+| A01 | Inicio de sesión | Correo, contraseña y acceso | - |
+| A02 | Inicio | Resumen de platos, escaneos y vistas AR; accesos rápidos | US19 |
+| A03 | Catálogo | Lista de platos con estado e interruptor de disponibilidad | US18 |
+| A04 | Capturar plato | Cámara o galería, validación de formato y peso (JPEG/PNG, máximo 10 MB) | US05 |
+| A05 | Analizando con IA | Estado de carga y opción de continuar manualmente si falla | US06, US21 |
+| A06 | Ficha sugerida | Nombre, categoría, descripción, ingredientes, alérgenos y calorías editables | US06 a US09 |
+| A07 | Modelo 3D | Modelo sugerido por categoría y galería para elegir otro | US10 |
+| A08 | Plato publicado | Confirmación y acceso al catálogo | US09 |
+| A09 | Mesas y QR | Alta por rango de mesas y lista con estado | US11 |
+| A10 | Descarga de QR | Vista previa de la plantilla con logo y descarga PDF/PNG | US12 |
+| A11 | Analítica | Ranking de platos vistos en AR y exportación CSV | US19 |
+| A12 | Mi plan | Plan vigente, método de pago y estado de la suscripción | US20 |
+
+**Platter AR Viewer (WebAR)**
+| ID | Pantalla | Contenido principal | User Story |
+| :-: | :--- | :--- | :-: |
+| D01 | Carta digital | Número de mesa, categorías y platos con alérgenos | US13 |
+| D02 | Filtros de alérgenos | Selección de alérgenos a excluir y mensaje cuando no hay resultados | US15 |
+| D03 | Detalle del plato | Foto, ingredientes, calorías, advertencias y botón Ver en mi mesa | US17 |
+| D04 | Vista AR | Plato a escala 1:1 sobre la mesa con escala bloqueada | US14, US16 |
+| D05 | Visor 3D | Alternativa para dispositivos sin compatibilidad AR | US14 |
+| D06 | Mesa inactiva | Mensaje amigable y enlace al menú general | US13 |
+ 
+Decisiones de diseño: navegación inferior de cuatro destinos en Platter Admin (Inicio, Platos, Mesas, Plan), flujo secuencial paso a paso para el alta de platos, y en AR Viewer una sola pantalla de carta con acceso al AR en máximo 2 toques
+
 ### 6.4.2. Applications Wireflow Diagrams
+
+Cada wireflow representa un User Goal y reutiliza los wireframes de la sección anterior. Las flechas continuas indican el camino principal (happy path) y las discontinuas los caminos alternativos.
+
+| ID | User Goal | Persona | Recorrido | User Stories |
+| :-: | :--- | :--- | :--- | :-: |
+| WF-01 | Registrar un plato con ayuda de IA | Carlos Mendoza | A02, A04, A05, A06, A07, A08. *Alternativo:* si la IA falla o tarda más de 5 s, A05 pasa a A06 con campos vacíos para completar manualmente. | US05 a US10, US21 |
+| WF-02 | Generar e imprimir los QR de las mesas | Carlos Mendoza | A02, A09, A10 | US11, US12 |
+| WF-03 | Controlar disponibilidad y revisar interacción | Carlos Mendoza | A02, A03 (marcar agotado), A11 | US18, US19 |
+| WF-04 | Ver un plato en AR antes de ordenar | Valeria Ramos | D01, D02, D03, D04. *Alternativos:* D01 a D06 si el QR no está activo; D03 a D05 si el dispositivo no soporta AR. | US13 a US17 |
+
+**WF-01. Registrar un plato con ayuda de IA**
+ 
+![Wireflow WF-01](./assets/6.4.2-wireflow-wf01.png)
+ 
+**WF-02. Generar e imprimir los QR de las mesas**
+ 
+![Wireflow WF-02](./assets/6.4.2-wireflow-wf02.png)
+ 
+**WF-03. Controlar disponibilidad y revisar interacción**
+ 
+![Wireflow WF-03](./assets/6.4.2-wireflow-wf03.png)
+ 
+**WF-04. Ver un plato en AR antes de ordenar**
+ 
+![Wireflow WF-04](./assets/6.4.2-wireflow-wf04.png)
 
 ### 6.4.3. Applications Mock-ups
 
