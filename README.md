@@ -1367,8 +1367,6 @@ flowchart TD
 
 # Capítulo V: Tactical-Level Software Design
 
----
-
 ## 5.1. Bounded Context: Dish & Menu Catalog Management
 
 ### 5.1.1. Domain Layer
