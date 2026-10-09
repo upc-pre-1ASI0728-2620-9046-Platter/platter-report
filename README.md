@@ -1836,6 +1836,73 @@ erDiagram
         timestamp interacted_at
     }
 ```
+## 5.4. Bounded Context: Restaurant & Table Management
+
+En esta sección se especifica el diseño táctico del subdominio de soporte encargado de la administración institucional de los restaurantes, la parametrización física del salón y las mesas, y la emisión de identificadores criptográficos contextualizados para la generación de plantillas de códigos QR físicos de alta definición.
+
+### 5.4.1. Domain Layer
+Modela el perfil operativo del establecimiento gastronómico, la configuración espacial de mesas y la unicidad criptográfica de los identificadores de mesa.
+
+* **`Restaurant` (Aggregate Root / Entity):** Representa el establecimiento afiliado a la plataforma Platter.
+  * *Atributos:* `id: RestaurantId`, `name: String`, `commercialName: String`, `slug: String`, `logoUrl: String`, `isActive: Boolean`, `tables: List<DiningTable>`, `createdAt: Instant`.
+  * *Métodos:* `addTable(tableIdentifier: String): DiningTable`, `disableTable(tableId: TableId): void`, `enableTable(tableId: TableId): void`, `getTableByToken(token: String): Optional<DiningTable>`, `updateProfile(commercialName: String, logoUrl: String): void`.
+* **`DiningTable` (Entity):** Entidad subordinada que representa una mesa física del salón.
+  * *Atributos:* `id: TableId`, `restaurantId: RestaurantId`, `tableIdentifier: String` (ej. "Mesa 12", "Terraza 03"), `secureToken: TableSecureToken`, `isAvailable: Boolean`, `createdAt: Instant`.
+  * *Métodos:* `regenerateSecureToken(): void`, `markAsUnavailable(): void`, `markAsAvailable(): void`.
+* **`RestaurantId`, `TableId` (Value Objects):** Identificadores unívocos basados en UUID v4.
+* **`TableSecureToken` (Value Object):** Hash criptográfico aleatorio no correlativo de 32 caracteres alfanuméricos que protege el acceso a la mesa contra ataques de barrido o enumeración secuencial.
+* **`TableRepository` (Domain Interface):** Puerto de persistencia que declara las operaciones del dominio: `save(restaurant: Restaurant): Restaurant`, `findById(id: RestaurantId): Optional<Restaurant>`, `findByTableSecureToken(token: String): Optional<DiningTable>`.
+* **`TableBatchCreatedEvent` (Domain Event):** Evento emitido tras la configuración exitosa de un conjunto de mesas, habilitando la generación asíncrona de artes vectoriales.
+
+### 5.4.2. Interface Layer
+Expone los endpoints administrativos de parametrización del local y la resolución pública de los códigos QR leídos por los dispositivos móviles.
+
+* **`RestaurantTableAdminController`:** Controlador REST administrativo asegurado con JWT:
+  * `POST /api/v1/restaurants/{id}/tables/batch`: Registra rangos de mesas en bloque.
+  * `GET /api/v1/restaurants/{id}/tables`: Consulta la relación de mesas registradas y sus tokens.
+  * `GET /api/v1/restaurants/{id}/tables/pdf`: Descarga la plantilla PDF vectorizada lista para imprimir.
+* **`TablePublicResolverController`:** Controlador REST público que procesa el escaneo del código QR:
+  * `GET /api/v1/tables/resolve?token={token}`: Valida la existencia del token seguro y devuelve el contexto del restaurante y número de mesa para arrancar la sesión WebAR.
+
+### 5.4.3. Application Layer
+Orquesta los casos de uso administrativos de estructuración de salones y la emisión de documentos imprimibles.
+
+* **`ConfigureTablesBatchCommandHandler`:** Genera las instancias de `DiningTable` dentro del agregado `Restaurant`, garantizando la asignación de tokens no repetidos y persistiendo la transacción.
+* **`ResolveTableTokenQueryHandler`:** Consulta el puerto de persistencia mediante el hash recibido y valida si la mesa y el local se encuentran habilitados para el servicio.
+* **`GeneratePrintableQRPdfCommandHandler`:** Recupera la lista de mesas, obtiene los datos gráficos institucionales del local y delega la construcción del archivo imprimible hacia la capa de infraestructura.
+
+### 5.4.4. Infrastructure Layer
+Implementa los adaptadores de base de datos relacional y el motor de dibujo vectorial de códigos QR.
+
+* **`JpaRestaurantRepositoryAdapter`:** Implementación concreta del puerto `TableRepository` mediante Spring Data JPA (`SpringDataRestaurantJpaRepository`), mapeando las entidades relacionales `RestaurantJpaEntity` y `DiningTableJpaEntity`.
+* **`PdfQrGeneratorService`:** Servicio de infraestructura que combina la librería de renderizado matricial ZXing con el procesador PDF OpenPDF para compilar un documento en alta resolución con el logo del restaurante, las instrucciones de escaneo y el código QR por cada mesa.
+
+### 5.4.6. Bounded Context Software Architecture Component Level Diagrams
+
+```mermaid
+C4Component
+    title Component Diagram - Restaurant & Table Management Context
+
+    Container_Boundary(table_bc, "Restaurant & Table Context (Spring Boot)") {
+        Component(table_admin_ctrl, "RestaurantTableAdminController", "Spring REST Controller", "Administra creación de mesas y descarga de plantillas PDF.")
+        Component(table_resolver_ctrl, "TablePublicResolverController", "Spring REST Controller", "Resuelve criptográficamente el token del QR escaneado en mesa.")
+        Component(table_service, "TableManagementAppService", "Spring Service (Application)", "Genera identificadores y orquesta la emisión masiva.")
+        Component(domain_table, "Restaurant & Table Entities", "Java Domain Model", "Garantiza unicidad de tokens y consistencia de mesas.")
+        Component(jpa_table_repo, "JpaRestaurantRepositoryAdapter", "Spring Component (Infrastructure)", "Persiste locales y mesas en PostgreSQL.")
+        Component(pdf_qr_svc, "PdfQrGeneratorService", "Spring Component (Infrastructure)", "Genera PDF vectorizado con QR y logotipo del local.")
+    }
+
+    ContainerDb(postgres, "PostgreSQL 16", "Relational DB", "Tablas restaurants y dining_tables.")
+
+    Rel(table_admin_ctrl, table_service, "Gestiona mesas", "Java Call")
+    Rel(table_resolver_ctrl, table_service, "Resuelve token", "Java Call")
+    Rel(table_service, domain_table, "Aplica reglas", "Domain Call")
+    Rel(table_service, jpa_table_repo, "Persiste entidades", "Java Interface")
+    Rel(table_service, pdf_qr_svc, "Compila PDF de mesa", "Java Call")
+    Rel(jpa_table_repo, postgres, "Lee/Escribe en base de datos", "JDBC/SQL")
+```
+
+
 
 # Conclusiones
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
