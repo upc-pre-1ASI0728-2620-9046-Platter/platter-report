@@ -1903,6 +1903,11 @@ C4Component
 ```
 
 
+```mermaid
+```
+```mermaid
+```
+
 
 # Conclusiones
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
