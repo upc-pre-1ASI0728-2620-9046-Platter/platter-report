@@ -1367,8 +1367,6 @@ flowchart TD
 
 # Capítulo V: Tactical-Level Software Design
 
-En este capítulo se formaliza la perspectiva táctica del diseño de software para **Platter** aplicando los patrones del diseño guiado por el dominio (*Domain-Driven Design* - DDD) y una arquitectura limpia en capas (*Clean / Onion Architecture*). Para cada Bounded Context identificado en el diseño estratégico, se detalla la estructura interna de sus cuatro capas canónicas (**Domain Layer**, **Interface Layer**, **Application Layer** e **Infrastructure Layer**), acompañada de diccionarios formales de clases, diagramas de componentes (C4 Nivel 3), diagramas de clases de dominio y diagramas de base de datos relacional modelados en notación Mermaid.
-
 ---
 
 ## 5.1. Bounded Context: Dish & Menu Catalog Management
