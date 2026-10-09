@@ -1643,7 +1643,68 @@ C4Component
     Rel(acl_adapter, gemini_client, "Serializa prompt JSON", "HTTP Client")
     Rel(gemini_client, gemini_api, "POST generateContent", "HTTPS / JSON")
 ```
+### 5.2.7. Bounded Context Software Architecture Code Level Diagrams
+#### 5.2.7.1. Bounded Context Domain Layer Class Diagrams
+```mermaid
+classDiagram
+    class GastronomicAnalysisRequest {
+        -UUID requestId
+        -UUID restaurantId
+        -String imageHash
+        -AnalysisStatus executionStatus
+        -InferredMetadata inferredMetadata
+        -Instant createdAt
+        +completeAnalysis(metadata: InferredMetadata) void
+        +failAnalysis(reason: String) void
+        +markFallbackTriggered() void
+    }
 
+    class InferredMetadata {
+        -String suggestedName
+        -String sensoryDescription
+        -String suggestedCategory
+        -List~String~ identifiedIngredients
+        -Set~String~ detectedAllergens
+        -String estimatedCaloriesRange
+        -Double confidenceScore
+        +getSuggestedName() String
+        +getDetectedAllergens() Set~String~
+    }
+
+    class AnalysisStatus {
+        <<enumeration>>
+        PENDING
+        COMPLETED
+        FAILED
+        FALLBACK_TRIGGERED
+    }
+
+    class GastronomicInferenceService {
+        <<interface>>
+        +analyzeDishImage(imageBytes: byte[], mimeType: String) InferredMetadata
+    }
+
+    GastronomicAnalysisRequest *-- InferredMetadata
+    GastronomicAnalysisRequest --> AnalysisStatus
+    GastronomicInferenceService ..> InferredMetadata : produce
+```
+#### 5.2.7.2. Bounded Context Database Design Diagram
+
+```mermaid
+erDiagram
+    AI_ANALYSIS_AUDIT_LOGS {
+        uuid request_id PK
+        uuid restaurant_id
+        varchar image_hash
+        varchar execution_status
+        text prompt_tokens_used
+        text completion_tokens_used
+        numeric response_time_ms
+        jsonb inferred_payload
+        varchar error_reason
+        timestamp executed_at
+    }
+```
 
 # Conclusiones
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
