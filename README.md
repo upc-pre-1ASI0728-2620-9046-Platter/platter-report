@@ -1365,6 +1365,94 @@ flowchart TD
 
 
 
+# Capítulo V: Tactical-Level Software Design
+
+En este capítulo se formaliza la perspectiva táctica del diseño de software para **Platter** aplicando los patrones del diseño guiado por el dominio (*Domain-Driven Design* - DDD) y una arquitectura limpia en capas (*Clean / Onion Architecture*). Para cada Bounded Context identificado en el diseño estratégico, se detalla la estructura interna de sus cuatro capas canónicas (**Domain Layer**, **Interface Layer**, **Application Layer** e **Infrastructure Layer**), acompañada de diccionarios formales de clases, diagramas de componentes (C4 Nivel 3), diagramas de clases de dominio y diagramas de base de datos relacional modelados en notación Mermaid.
+
+---
+
+## 5.1. Bounded Context: Dish & Menu Catalog Management
+
+### 5.1.1. Domain Layer
+La capa de dominio encapsula las reglas de negocio, invariantes y entidades fundamentales del catálogo gastronómico, manteniéndose completamente desacoplada de frameworks web, librerías ORM e infraestructura externa.
+
+* **`Dish` (Aggregate Root / Entity):** Representa un plato ofrecido en el restaurante y gobierna su ciclo de vida, precio, información nutricional y disponibilidad.
+  * *Atributos:* `id: DishId`, `restaurantId: RestaurantId`, `name: String`, `description: String`, `price: Money`, `category: DishCategory`, `status: DishStatus`, `ingredients: List<Ingredient>`, `allergens: Set<Allergen>`, `nutritionalInfo: NutritionalInfo`, `model3DRef: Model3DReference`, `photoUrl: String`, `createdAt: Instant`.
+  * *Métodos:* `updateDetails(name: String, description: String, price: Money): void`, `assignModel3D(modelId: String, scaleFactor: Double): void`, `markAsOutOfStock(): void`, `markAsAvailable(): void`, `publish(): void`, `addAllergen(allergen: Allergen): void`.
+* **`DishId` (Value Object):** Identificador unívoco e inmutable del plato basado en UUID v4.
+* **`RestaurantId` (Value Object):** Identificador unívoco del restaurante propietario del plato.
+* **`Money` (Value Object):** Modela el importe monetario compuesto por `amount: BigDecimal` y `currency: Currency` (PEN). Valida que el monto no sea negativo ni nulo.
+* **`Allergen` (Value Object / Enum):** Clasificación estandarizada de sustancias reactivas según directrices sanitarias: `GLUTEN`, `CRUSTACEANS`, `EGGS`, `FISH`, `PEANUTS`, `SOYBEANS`, `MILK`, `NUTS`, `CELERY`, `MUSTARD`, `SESAME`, `SULPHITES`.
+* **`NutritionalInfo` (Value Object):** Encapsula el rango estimado de energía y macronutrientes: `minCalories: Integer`, `maxCalories: Integer`, `proteinGrams: Double`, `carbsGrams: Double`, `fatGrams: Double`.
+* **`Model3DReference` (Value Object):** Enlace hacia el activo tridimensional optimizado: `modelId: String`, `storageKey: String`, `scaleFactor: Double`, `isStandardSample: Boolean`.
+* **`DishCategory` (Enum):** Clasificación del menú: `ENTREE`, `MAIN_COURSE`, `BEVERAGE`, `DESSERT`, `SPECIAL`.
+* **`DishStatus` (Enum):** Estados de ciclo de vida del plato: `DRAFT`, `PUBLISHED`, `OUT_OF_STOCK`, `ARCHIVED`.
+* **`DishRepository` (Domain Interface):** Puerto del dominio que abstrae las operaciones de persistencia del agregado: `save(dish: Dish): Dish`, `findById(id: DishId): Optional<Dish>`, `findByRestaurantId(restaurantId: RestaurantId): List<Dish>`.
+* **`DishPublishedEvent` (Domain Event):** Evento emitido al momento en que un plato es validado y publicado oficialmente en la carta, utilizado para la invalidación de cachés y la sincronización con el visor WebAR.
+
+### 5.1.2. Interface Layer
+Expone las capacidades del contexto hacia clientes HTTP/REST mediante controladores Spring MVC conformes con el estándar OpenAPI 3.0.
+
+* **`DishCommandController`:** Controlador REST administrativo que expone endpoints de mutación asegurados mediante tokens JWT:
+  * `POST /api/v1/dishes`: Registra un nuevo borrador de plato.
+  * `PUT /api/v1/dishes/{id}`: Actualiza los detalles y datos gastronómicos del plato.
+  * `PATCH /api/v1/dishes/{id}/availability`: Modifica la disponibilidad en tiempo real (disponible / agotado).
+  * `POST /api/v1/dishes/{id}/publish`: Cambia el estado a publicado tras validación.
+* **`DishQueryController`:** Controlador REST público que expone endpoints de solo lectura optimizados para comensales en salón:
+  * `GET /api/v1/restaurants/{restaurantId}/dishes/active`: Retorna el catálogo activo de platos para la carta digital.
+  * `GET /api/v1/dishes/{id}`: Retorna el detalle completo de un plato específico con su activo 3D.
+* **`DishDtoMapper`:** Componente encargado de realizar la conversión bidireccional entre entidades de dominio y objetos de transferencia de datos (`CreateDishRequestDto`, `DishResponseDto`, `MenuCatalogViewDto`).
+
+### 5.1.3. Application Layer
+Orquesta los casos de uso del catálogo, transformando los comandos de entrada en invocaciones sobre los agregados y gestionando las transacciones de negocio.
+
+* **`CreateDishDraftCommandHandler`:** Procesa la solicitud inicial de registro del plato a partir de una fotografía, creando la entidad en estado `DRAFT`.
+* **`EnrichDishWithAIDataCommandHandler`:** Toma los metadatos gastronómicos inferidos (nombre, descripción, alérgenos y calorías) provistos por el contexto de IA y los asocia al plato en borrador.
+* **`PublishDishCommandHandler`:** Valida las reglas de publicación (existencia de precio y modelo 3D vinculado), pasa el estado a `PUBLISHED` y dispara el evento de dominio `DishPublishedEvent`.
+* **`UpdateDishAvailabilityCommandHandler`:** Conmuta la disponibilidad del plato y ejecuta la invalidación inmediata de claves asociadas en la caché distribuida.
+* **`GetActiveMenuQueryHandler`:** Recupera la lista de platos activos para un local, consultando prioritariamente la capa de caché distribuida antes de consultar la persistencia relacional.
+
+### 5.1.4. Infrastructure Layer
+Implementa los puertos definidos por el dominio y la persistencia física en PostgreSQL 16 a través de Spring Data JPA, además del control de caché en Redis.
+
+* **`JpaDishRepositoryAdapter`:** Implementación concreta del puerto `DishRepository` que traduce las llamadas de dominio a operaciones de Spring Data JPA utilizando `DishJpaEntity`.
+* **`SpringDataDishJpaRepository`:** Interfaz de Spring Data que extiende de `JpaRepository<DishJpaEntity, UUID>`.
+* **`DishRedisCacheService`:** Administrador de caché que serializa y recupera proyecciones JSON de cartas activas en Redis, con un TTL de 24 horas y purga reactiva por restaurante.
+* **`S3ModelAssetStorageService`:** Componente de infraestructura que se comunica con Amazon S3 para resolver las rutas y pre-firmar accesos a modelos tridimensionales `.glb` y `.usdz`.
+
+### 5.1.6. Bounded Context Software Architecture Component Level Diagrams
+
+```mermaid
+C4Component
+    title Component Diagram - Dish & Menu Catalog Management Context
+
+    Container_Boundary(catalog_bc, "Dish & Menu Catalog Context (Spring Boot)") {
+        Component(command_ctrl, "DishCommandController", "Spring REST Controller", "Expone endpoints administrativos de creación, edición y publicación con JWT.")
+        Component(query_ctrl, "DishQueryController", "Spring REST Controller", "Expone catálogo activo y detalle de platos para el cliente WebAR.")
+        Component(cmd_handler, "DishCommandHandlerService", "Spring Service (Application)", "Orquesta casos de uso de negocio y coordina transacciones del agregado.")
+        Component(query_handler, "CatalogQueryHandlerService", "Spring Service (Application)", "Resuelve consultas de catálogo optimizadas apoyándose en Redis.")
+        Component(domain_model, "Dish Aggregate Root", "Java Domain Model", "Encapsula reglas de negocio, alérgenos, precios y estados.")
+        Component(repo_adapter, "JpaDishRepositoryAdapter", "Spring Component (Infrastructure)", "Implementa DishRepository persistiendo en PostgreSQL.")
+        Component(cache_service, "DishRedisCacheService", "Spring Component (Infrastructure)", "Administra caché de catálogos y revocaciones reactivas.")
+    }
+
+    ContainerDb(postgres, "PostgreSQL 16", "Relational Database", "Tablas dishes, dish_allergens, dish_ingredients.")
+    ContainerDb(redis, "Redis Cache", "In-Memory DB", "Almacena JSON de cartas activas por restaurante.")
+
+    Rel(command_ctrl, cmd_handler, "Invoca comandos", "Java Call")
+    Rel(query_ctrl, query_handler, "Invoca queries", "Java Call")
+    Rel(cmd_handler, domain_model, "Aplica reglas de negocio", "Domain Call")
+    Rel(cmd_handler, repo_adapter, "Persiste agregado", "Java Interface")
+    Rel(cmd_handler, cache_service, "Invalida caché al mutar", "Java Call")
+    Rel(query_handler, cache_service, "Consulta primero", "Redis Protocol")
+    Rel(query_handler, repo_adapter, "Fallback si miss", "Java Interface")
+    Rel(repo_adapter, postgres, "Lee/Escribe vía JPA", "JDBC/SQL")
+    Rel(cache_service, redis, "Guarda claves con TTL", "TCP/RESP")
+```
+
+
+
+
 # Conclusiones
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
    Se evidenció que la brecha tradicional entre la expectativa visual del comensal y el plato servido en mesa representaba un factor crítico de indecisión, quejas y pérdida de reputación para los negocios gastronómicos. Mediante la adopción de una arquitectura orientada a la eliminación de fricción basada en **WebAR sin instalación** (aprovechando estándares nativos como WebXR Device API para Android y AR Quick Look para iOS), Platter resuelve la reticencia del usuario final. El comensal logra visualizar el plato en su entorno a escala física real 1:1 en menos de 2 segundos y con un máximo de 2 toques tras escanear el código QR de mesa, sin requerir descargas de aplicaciones ni registros obligatorios.
