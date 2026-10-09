@@ -1450,7 +1450,101 @@ C4Component
     Rel(cache_service, redis, "Guarda claves con TTL", "TCP/RESP")
 ```
 
+### 5.1.7. Bounded Context Software Architecture Code Level Diagrams
 
+#### 5.1.7.1. Bounded Context Domain Layer Class Diagrams
+
+```mermaid
+classDiagram
+    class Dish {
+        -DishId id
+        -RestaurantId restaurantId
+        -String name
+        -String description
+        -Money price
+        -DishCategory category
+        -DishStatus status
+        -List~Ingredient~ ingredients
+        -Set~Allergen~ allergens
+        -NutritionalInfo nutritionalInfo
+        -Model3DReference model3DRef
+        -String photoUrl
+        -Instant createdAt
+        +updateDetails(name: String, desc: String, price: Money) void
+        +assignModel3D(modelId: String, scale: Double) void
+        +markAsOutOfStock() void
+        +markAsAvailable() void
+        +publish() void
+        +addAllergen(allergen: Allergen) void
+    }
+
+    class DishId {
+        -UUID value
+        +getValue() UUID
+    }
+
+    class RestaurantId {
+        -UUID value
+        +getValue() UUID
+    }
+
+    class Money {
+        -BigDecimal amount
+        -String currency
+        +getAmount() BigDecimal
+    }
+
+    class NutritionalInfo {
+        -Integer minCalories
+        -Integer maxCalories
+        -Double proteinGrams
+        -Double carbsGrams
+        -Double fatGrams
+    }
+
+    class Model3DReference {
+        -String modelId
+        -String storageKey
+        -Double scaleFactor
+        -Boolean isStandardSample
+    }
+
+    class Allergen {
+        <<enumeration>>
+        GLUTEN
+        CRUSTACEANS
+        EGGS
+        FISH
+        PEANUTS
+        SOYBEANS
+        MILK
+        NUTS
+    }
+
+    class DishStatus {
+        <<enumeration>>
+        DRAFT
+        PUBLISHED
+        OUT_OF_STOCK
+        ARCHIVED
+    }
+
+    class DishRepository {
+        <<interface>>
+        +save(dish: Dish) Dish
+        +findById(id: DishId) Optional~Dish~
+        +findByRestaurantId(restaurantId: RestaurantId) List~Dish~
+    }
+
+    Dish *-- DishId
+    Dish *-- RestaurantId
+    Dish *-- Money
+    Dish *-- NutritionalInfo
+    Dish *-- Model3DReference
+    Dish --> DishStatus
+    Dish o-- Allergen
+    DishRepository ..> Dish : administra
+```
 
 
 # Conclusiones
