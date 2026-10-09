@@ -1902,8 +1902,8 @@ C4Component
     Rel(jpa_table_repo, postgres, "Lee/Escribe en base de datos", "JDBC/SQL")
 ```
 
-5.4.7. Bounded Context Software Architecture Code Level Diagrams
-5.4.7.1. Bounded Context Domain Layer Class Diagrams
+### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
+#### 5.4.7.1. Bounded Context Domain Layer Class Diagrams
 ```mermaid
 ```
 ```mermaid
