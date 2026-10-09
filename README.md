@@ -1905,6 +1905,62 @@ C4Component
 ### 5.4.7. Bounded Context Software Architecture Code Level Diagrams
 #### 5.4.7.1. Bounded Context Domain Layer Class Diagrams
 ```mermaid
+classDiagram
+    class Restaurant {
+        -RestaurantId id
+        -String name
+        -String commercialName
+        -String slug
+        -String logoUrl
+        -Boolean isActive
+        -List~DiningTable~ tables
+        -Instant createdAt
+        +addTable(tableIdentifier: String) DiningTable
+        +disableTable(tableId: TableId) void
+        +enableTable(tableId: TableId) void
+        +getTableByToken(token: String) Optional~DiningTable~
+        +updateProfile(commercialName: String, logoUrl: String) void
+    }
+
+    class DiningTable {
+        -TableId id
+        -RestaurantId restaurantId
+        -String tableIdentifier
+        -TableSecureToken secureToken
+        -Boolean isAvailable
+        -Instant createdAt
+        +regenerateSecureToken() void
+        +markAsUnavailable() void
+        +markAsAvailable() void
+    }
+
+    class RestaurantId {
+        -UUID value
+        +getValue() UUID
+    }
+
+    class TableId {
+        -UUID value
+        +getValue() UUID
+    }
+
+    class TableSecureToken {
+        -String tokenHash
+        +getTokenHash() String
+    }
+
+    class TableRepository {
+        <<interface>>
+        +save(restaurant: Restaurant) Restaurant
+        +findById(id: RestaurantId) Optional~Restaurant~
+        +findByTableSecureToken(token: String) Optional~DiningTable~
+    }
+
+    Restaurant "1" *-- "0..*" DiningTable : compone
+    Restaurant *-- RestaurantId
+    DiningTable *-- TableId
+    DiningTable *-- TableSecureToken
+    TableRepository ..> Restaurant : persiste
 ```
 
 #### 5.4.7.2. Bounded Context Database Design Diagram
