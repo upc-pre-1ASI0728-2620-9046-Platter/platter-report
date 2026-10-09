@@ -1773,7 +1773,8 @@ C4Component
     Rel(asset_ctrl, cdn, "Redirige a URL Edge o despacha caché", "HTTP 302/ETag")
     Rel(web_client, cdn, "Descarga modelo binario < 3MB", "HTTPS")
 ```
-
+5.3.7. Bounded Context Software Architecture Code Level Diagrams
+5.3.7.1. Bounded Context Domain Layer Class Diagrams
 ```mermaid
 ```
 
