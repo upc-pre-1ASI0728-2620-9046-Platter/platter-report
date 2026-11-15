@@ -771,6 +771,60 @@ Los mock-ups aplican la identidad visual y el Design System definidos en la secc
 
 ### 6.4.4. Applications User Flow Diagrams
 
+Cada User Flow representa un User Goal de una de las personas de la solución y se deriva del wireflow correspondiente de la sección 6.4.2 (WF-01 a WF-04), por lo que conserva los mismos recorridos y pantallas. A diferencia del wireflow, el User Flow incluye los mock-ups de cada pantalla, las decisiones del sistema o de la persona usuaria (rombos), el camino esperado (happy path, línea continua) y las rutas alternativas (unhappy paths, línea discontinua roja) con sus pantallas de error o recuperación.
+
+| User Flow | User Goal | Persona | Aplicación | Wireflow de origen |
+| :-: | :--- | :--- | :--- | :-: |
+| UF-01 | Registrar un plato con ayuda de IA | Carlos Mendoza Vidal | Platter Admin | WF-01 |
+| UF-02 | Generar e imprimir los QR de las mesas | Carlos Mendoza Vidal | Platter Admin | WF-02 |
+| UF-03 | Controlar disponibilidad y revisar interacción | Carlos Mendoza Vidal | Platter Admin | WF-03 |
+| UF-04 | Ver un plato en AR antes de ordenar | Valeria Ramos Benavides | Platter AR Viewer | WF-04 |
+
+#### UF-01. Registrar un plato con ayuda de IA
+
+**User goal:** registrar un plato en la carta digital en pocos pasos apoyándose en la IA, sin conocimientos técnicos (US05 a US10, US21). **Persona:** Carlos Mendoza Vidal, dueño de restaurante MYPE.
+
+![User Flow UF-01](./assets/6.4.4-userflow-uf01.png)
+
+**Flujo principal (happy path):** Carlos entra a A02 y elige "Registrar nuevo plato". En A04 toma o elige una foto y, si el archivo es JPEG o PNG de hasta 10 MB, pasa a A05, donde la IA identifica ingredientes, alérgenos y calorías. Si responde en 5 s o menos, se abre A06 con la ficha sugerida y editable; luego elige el modelo 3D en A07 y publica el plato, con la confirmación de A08.
+
+**Rutas alternativas:**
+- **Formato o peso no válido (condición en A04):** se muestra A04-E con el motivo y Carlos vuelve a A04 para elegir otra foto.
+- **La IA falla o tarda más de 5 s (condición en A05):** se abre A06-M con los campos vacíos para completar manualmente y el flujo continúa en A07.
+
+#### UF-02. Generar e imprimir los QR de las mesas
+
+**User goal:** dar de alta las mesas del salón y descargar el QR con el logo del restaurante, listo para imprimir (US11, US12). **Persona:** Carlos Mendoza Vidal.
+
+![User Flow UF-02](./assets/6.4.4-userflow-uf02.png)
+
+**Flujo principal (happy path):** desde A02 Carlos toca "Generar QR de mesas" y en A09 ingresa el rango de mesas. Si el rango es válido, el sistema crea las mesas con su QR único y Carlos elige una mesa para abrir A10, donde selecciona PDF o PNG y descarga la plantilla para imprimirla y colocarla en la mesa.
+
+**Ruta alternativa:** si el rango no es válido, A09-E muestra el error junto al campo y Carlos corrige el rango en A09.
+
+#### UF-03. Controlar disponibilidad y revisar interacción
+
+**User goal:** marcar un plato como agotado y revisar qué platos generan más vistas en AR (US18, US19). **Persona:** Carlos Mendoza Vidal.
+
+![User Flow UF-03](./assets/6.4.4-userflow-uf03.png)
+
+**Flujo principal (happy path):** Carlos abre el catálogo desde A02, cambia el interruptor del plato agotado en A03 y, si el cambio se guarda, abre A11 para revisar el ranking de platos más vistos en AR. Opcionalmente exporta los datos en CSV; si no, termina la revisión.
+
+**Ruta alternativa:** si el cambio no se guarda, A03-E informa el error con una acción de reintento y Carlos vuelve a A03.
+
+#### UF-04. Ver un plato en AR antes de ordenar
+
+**User goal:** ver el plato a escala real sobre la mesa, descartando los alérgenos que no puede consumir, sin instalar aplicaciones (US13 a US17). **Persona:** Valeria Ramos Benavides, comensal celíaca.
+
+![User Flow UF-04](./assets/6.4.4-userflow-uf04.png)
+
+**Flujo principal (happy path):** Valeria escanea el QR de su mesa; si la mesa está activa se abre D01 con la carta. Filtra los alérgenos en D02 y, si quedan platos que cumplen, abre el detalle en D03 y toca "Ver en mi mesa". Si su dispositivo soporta AR, D04 proyecta el plato a escala 1:1 sobre la mesa.
+
+**Rutas alternativas:**
+- **Mesa inactiva:** se muestra D06 con un mensaje amigable y la opción "Ver menú general", que lleva a D01.
+- **Sin resultados con los filtros:** D02-V explica que ningún plato cumple y sugiere quitar un filtro para volver a D02.
+- **Dispositivo sin soporte AR:** se abre el visor 3D (D05), desde donde Valeria vuelve al detalle del plato (D03).
+
 ## 6.5. Applications Prototyping
 
 # Capítulo VII: Product Implementation, Validation & Deployment
