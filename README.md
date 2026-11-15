@@ -827,6 +827,76 @@ Cada User Flow representa un User Goal de una de las personas de la solución y 
 
 ## 6.5. Applications Prototyping
 
+Los prototipos de UI simulan la interacción y la navegación de las dos aplicaciones siguiendo los caminos de los User Flows de la sección 6.4.4. Cada pantalla de la sección 6.4.3 es un artboard del lienzo de diseño y los botones, enlaces, elementos de la barra de navegación y chips están enlazados al artboard de destino, de modo que al reproducirlo (Play) se navega como en la aplicación real. El prototipo se abre en **[Prototipo Platter · Mock-ups, User Flows y Prototipo](https://claude.ai/artifact/KkN2go3RAWMAvRhVrfuc3z)**; Platter Admin inicia en A01 y Platter AR Viewer en D01.
+
+### Criterios de las decisiones de interacción
+
+- **Una acción principal por pantalla:** el botón coral es siempre el avance del happy path (por ejemplo, "Tomar foto" lleva a A05 y "Ver en mi mesa" lleva a D04) y las acciones secundarias son de contorno o enlaces, lo que reduce errores de selección.
+- **Tareas largas como flujo secuencial:** el alta de plato (A04 a A08) avanza paso a paso y oculta la barra inferior para evitar desvíos; el retroceso queda siempre en la barra superior.
+- **Navegación persistente solo para consulta:** la barra inferior de cuatro destinos (Inicio, Platos, Mesas, Plan) se mantiene en A02, A03, A09, A11 y A12, de acuerdo con el sistema de navegación global definido en 6.2.5.
+- **Menos pasos hasta el valor:** en AR Viewer el plato se ve en AR en dos toques desde la carta (D01, D03, D04), sin registro ni instalación.
+- **Salidas siempre disponibles:** cada pantalla de error o alternativa (A05, D04, D05, D06) ofrece una salida explícita ("Continuar manualmente", "Cerrar", "Volver al plato", "Ver menú general").
+- **Retroalimentación inmediata:** los interruptores de A03 cambian de estado y texto al tocarlos y los chips de D02 actualizan el conteo de platos disponibles en el momento.
+- **Interacciones familiares y de bajo esfuerzo:** toque simple en botones y chips, interruptor para alternar estados y gesto de arrastre con un dedo para girar el plato en D04 y D05, tal como establece 6.1.2.
+
+### Interacciones del prototipo
+
+**Platter Admin (Flutter)**
+
+| Desde | Elemento | Tipo de interacción | Destino |
+| :-: | :--- | :--- | :-: |
+| A01 | Iniciar sesión | Toque en botón | A02 |
+| A02 | Registrar nuevo plato | Toque en botón | A04 |
+| A02 | Generar QR de mesas | Toque en botón | A09 |
+| A02 | Ver analítica | Toque en botón | A11 |
+| A02 a A12 | Inicio, Platos, Mesas, Plan | Toque en barra de navegación inferior | A02, A03, A09, A12 |
+| A03 | Interruptor de disponibilidad | Interruptor con cambio de estado | La misma pantalla |
+| A03 | Nuevo plato | Toque en botón | A04 |
+| A04 | Tomar foto / Elegir de la galería | Toque en botón | A05 |
+| A05 | Continuar manualmente | Toque en botón | A06 |
+| A06 | Siguiente: modelo 3D | Toque en botón | A07 |
+| A07 | Publicar plato | Toque en botón | A08 |
+| A08 | Ver catálogo / Registrar otro plato | Toque en botón | A03 / A04 |
+| A09 | Descargar QR | Toque en botón | A10 |
+| A10 | Descargar | Toque en botón | A09 |
+| A04 a A07, A10, A11 | Flecha de retroceso | Toque en ícono | Pantalla anterior |
+
+**Platter AR Viewer (WebAR)**
+
+| Desde | Elemento | Tipo de interacción | Destino |
+| :-: | :--- | :--- | :-: |
+| D01 | Filtrar alérgenos | Toque en botón | D02 |
+| D01 | Tarjeta de plato | Toque en tarjeta | D03 |
+| D02 | Chips de alérgenos | Selección múltiple con conteo en vivo | La misma pantalla |
+| D02 | Aplicar filtros | Toque en botón | D01 |
+| D03 | Ver en mi mesa | Toque en botón | D04 |
+| D03 | Ver en 3D (sin soporte AR) | Toque en enlace | D05 |
+| D04 | Cerrar | Toque en botón | D03 |
+| D05 | Volver al plato | Toque en botón | D03 |
+| D06 | Ver menú general | Toque en botón | D01 |
+
+### Escenarios de prueba del prototipo
+
+| Escenario | Aplicación | Recorrido | User Flow |
+| :-: | :-: | :--- | :-: |
+| 1 | Platter Admin | A01, A02, A04, A05, A06, A07, A08 | UF-01 |
+| 2 | Platter Admin | A02, A09, A10 | UF-02 |
+| 3 | Platter Admin | A02, A03 (alternar interruptor), A11 | UF-03 |
+| 4 | Platter AR Viewer | D01, D02 (marcar alérgenos), D03, D04 | UF-04 |
+| 5 | Platter AR Viewer | D03, D05 (sin soporte AR) y D06 (mesa inactiva) | UF-04 |
+
+### Video del prototipo: Platter Admin
+
+![Captura del video del prototipo de Platter Admin](./assets/6.5-video-admin.png)
+
+[Ver video del prototipo de Platter Admin en Microsoft Stream](ENLACE-PENDIENTE)
+
+### Video del prototipo: Platter AR Viewer
+
+![Captura del video del prototipo de Platter AR Viewer](./assets/6.5-video-viewer.png)
+
+[Ver video del prototipo de Platter AR Viewer en Microsoft Stream](ENLACE-PENDIENTE)
+
 # Capítulo VII: Product Implementation, Validation & Deployment
 
 ## 7.1. Software Configuration Management
