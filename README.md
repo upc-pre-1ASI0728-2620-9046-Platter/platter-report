@@ -885,17 +885,15 @@ Los prototipos de UI simulan la interacción y la navegación de las dos aplicac
 | 4 | Platter AR Viewer | D01, D02 (marcar alérgenos), D03, D04 | UF-04 |
 | 5 | Platter AR Viewer | D03, D05 (sin soporte AR) y D06 (mesa inactiva) | UF-04 |
 
-### Video del prototipo: Platter Admin
+### Video del prototipo: Platter Admin y Platter AR Viewer
+
+El video demuestra y explica los principales flujos de interacción de las dos aplicaciones: Platter Admin (escenarios 1 a 3) y Platter AR Viewer (escenarios 4 y 5).
 
 ![Captura del video del prototipo de Platter Admin](./assets/6.5-video-admin.png)
 
-[Ver video del prototipo de Platter Admin en Microsoft Stream](ENLACE-PENDIENTE)
-
-### Video del prototipo: Platter AR Viewer
-
 ![Captura del video del prototipo de Platter AR Viewer](./assets/6.5-video-viewer.png)
 
-[Ver video del prototipo de Platter AR Viewer en Microsoft Stream](ENLACE-PENDIENTE)
+[Ver video del prototipo (Platter Admin y Platter AR Viewer)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202215721_upc_edu_pe/IQCmEDubziyQR4FAzvZYpeTeAdimDmaHT3O4uho_nUtajPU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dIxCLL)
 
 # Capítulo VII: Product Implementation, Validation & Deployment
 
