@@ -48,7 +48,7 @@ Teves Samaniego, Joan Fernando (U202117303)
 | :---: | :---: | :--- | :--- |
 | **1.0.0** | 19/09/2026 | Alvarado, Duran, Nakasone, Teves | Entrega inicial del Primer Hito (TB1). Incorporación de Carátula, Capítulo I (Startup Profile y Solution Profile con Lean UX), Capítulo II (Requirements Elicitation & Analysis con Needfinding y Lenguaje Ubicuo), Capítulo III (Requirements Specification con User Stories e Impact Mapping), Capítulo IV (Strategic-Level Software Design con ADD, DDD y C4 Model), Conclusiones iniciales, Bibliografía preliminar y sustento del Student Outcome ABET 3 para TB1. |
 | **1.1.0** | 09/10/2026 | Alvarado, Duran, Nakasone, Teves | Entrega del Segundo Hito (TP1). Incorporación del Capítulo V (Tactical-Level Software Design con descomposición por capas, diagramas de componentes C4, diagramas de clases y diseño de base de datos para los cuatro Bounded Contexts) y Capítulo VI (Solution UX Design con guías de estilo visual, arquitectura de información, wireframes y mock-ups de Landing Page, y wireframes y diagramas de wireflow para aplicaciones móviles y WebAR). Actualización y avance de Conclusiones y Recomendaciones, ordenamiento formal de Bibliografía bajo estándar APA, y expansión acumulativa de la sección Student Outcome y Project Report Collaboration Insights para el hito TP1. |
-| **1.2.0** | __/11/2026 <!-- VERIFICAR fecha de entrega --> | Alvarado, Duran, Nakasone, Teves | Entrega del Tercer Hito (TB2). Incorporación de las secciones 6.4.3 (Applications Mock-ups), 6.4.4 (Applications User Flow Diagrams) y 6.5 (Applications Prototyping), y del Capítulo VII (Software Configuration Management, Sprint 1 con planning, backlog y evidencias de desarrollo, pruebas, ejecución, documentación de servicios y despliegue, y Video About-the-Product). Primera versión desplegada de Landing Page, AR Viewer, Platter Admin y Web Services. Actualización de Conclusiones, Recomendaciones, Bibliografía, Anexos, Student Outcome y Project Report Collaboration Insights para el hito TB2. |
+| **1.2.0** | 15/11/2026 | Alvarado, Duran, Nakasone, Teves | Entrega del Tercer Hito (TB2). Incorporación de las secciones 6.4.3 (Applications Mock-ups), 6.4.4 (Applications User Flow Diagrams) y 6.5 (Applications Prototyping), y del Capítulo VII (Software Configuration Management, Sprint 1 con planning, backlog y evidencias de desarrollo, pruebas, ejecución, documentación de servicios y despliegue, y Video About-the-Product). Primera versión desplegada de Landing Page, AR Viewer, Platter Admin y Web Services. Actualización de Conclusiones, Recomendaciones, Bibliografía, Anexos, Student Outcome y Project Report Collaboration Insights para el hito TB2. |
 
 # Project Report Collaboration Insights
 
@@ -140,6 +140,9 @@ El equipo mantuvo una participación activa y equitativa en la redacción, diagr
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+    - [6.4.3. Applications Mock-ups](#643-applications-mock-ups)
+    - [6.4.4. Applications User Flow Diagrams](#644-applications-user-flow-diagrams)
+  - [6.5. Applications Prototyping](#65-applications-prototyping)
 - [Capítulo VII: Product Implementation, Validation & Deployment](#capítulo-vii-product-implementation-validation--deployment)
   - [7.1. Software Configuration Management](#71-software-configuration-management)
     - [7.1.1. Software Development Environment Configuration](#711-software-development-environment-configuration)
@@ -2568,7 +2571,223 @@ Cada wireflow representa un User Goal y reutiliza los wireframes de la sección 
 ![Wireflow WF-04](./assets/6.4.2-wireflow-wf04.png)
 
 
-*Nota: Las secciones 6.4.3 (Applications Mock-ups), 6.4.4 (Applications User Flow Diagrams) y 6.5 (Applications Prototyping) corresponden al siguiente hito de entrega (TB2 - Semana 12), conforme a la estructura curricular y alcance del proyecto.*
+### 6.4.3. Applications Mock-ups
+
+Los mock-ups aplican la identidad visual y el Design System definidos en la sección 6.1 sobre los wireframes de la sección 6.4.1, manteniendo los mismos identificadores de pantalla (A01 a A12 para Platter Admin y D01 a D06 para Platter AR Viewer) para conservar la trazabilidad con los wireframes, los wireflows y las User Stories. Se diseñaron a 390 × 844 px (referencia de smartphone) y cada pantalla incluye sus estados alternos cuando el wireflow los contempla.
+
+**Platter Admin (Flutter)**
+
+![Mock-ups Platter Admin (Flutter)](./assets/6.4.3-mockups-admin.png)
+
+**Platter AR Viewer (WebAR)**
+
+![Mock-ups Platter AR Viewer (WebAR)](./assets/6.4.3-mockups-viewer.png)
+
+**Estados alternos (rutas no felices)**
+
+![Estados alternos de los mock-ups](./assets/6.4.3-mockups-alternos.png)
+
+#### Principios y elementos de diseño aplicados
+
+| Principio | Cómo se aplica en los mock-ups |
+| :--- | :--- |
+| **Jerarquía visual** | Cada pantalla tiene un único botón primario en coral (`#E76F51`) y las acciones secundarias usan estilo contorno. Los títulos usan Outfit (28 px en Admin, 24 px en el detalle del plato) y las cifras destacadas (métricas, precios) usan Outfit Bold. |
+| **Consistencia** | Misma barra superior, mismos radios (8, 12 y 16 px), misma escala de espaciado de 8 puntos y mismos componentes (chips, tarjetas, interruptores) en todas las pantallas de una aplicación. |
+| **Visibilidad del estado del sistema** | A05 muestra el progreso de la IA y el plazo de 5 s; A03 muestra el estado de cada plato con texto e interruptor; D04 muestra la insignia "Escala 1:1 bloqueada"; D02 actualiza el conteo de platos disponibles al marcar un alérgeno. |
+| **Prevención y recuperación de errores** | La restricción de la foto (JPEG o PNG, máximo 10 MB) se muestra antes de capturar (A04) y el error se explica con una acción correctiva (A04-E, A09-E, A03-E). Si la IA no responde, el flujo continúa de forma manual (A06-M). |
+| **Reconocimiento antes que recuerdo** | La navegación inferior de Admin combina ícono y etiqueta en los cuatro destinos; los botones llevan verbo de acción ("Registrar nuevo plato", "Ver en mi mesa"). |
+| **Proximidad y agrupación** | Las métricas se agrupan en tarjetas, los datos del plato se agrupan por campo con su etiqueta, y los alérgenos se agrupan en chips seleccionables. |
+
+| Elemento de diseño | Aplicación |
+| :--- | :--- |
+| **Color** | Paleta oficial de 6.1.1. Admin usa el modo claro (`--color-bg-light` `#F7F3ED`) con barra superior en `--color-bg-dark` `#121C33`, por ser una herramienta de uso diurno del dueño del restaurante; AR Viewer usa el modo oscuro (`#121C33` con tarjetas `#1B2848`) para el salón con poca luz. El azul IA (`#3A86FF`) se reserva para lo que infiere la IA, el dorado (`#D4A373`) para la retícula AR y el aviso de mesa, y los semánticos para estados (éxito, alerta, peligro). |
+| **Tipografía** | Outfit para títulos, precios y cifras; Plus Jakarta Sans para lectura, botones y formularios, con la escala de 6.1.1 (botones 14 px SemiBold, etiquetas 12 px, badges 11 px). |
+| **Espaciado y forma** | Cuadrícula de 8 puntos, márgenes móviles de 16 px, tarjetas de 16 px de radio, botones de 12 px y campos de 8 px. |
+| **Elevación** | Tarjetas en reposo con sombra suave (Elevation 1) y la plantilla de QR en A10 con Elevation 2. |
+| **Iconografía** | Íconos de trazo de 2 px (inicio, platos, mesas, plan, cámara, cubo 3D, candado). Los íconos que acompañan estados siempre llevan texto. |
+| **Imagen** | Ilustraciones de platos peruanos (ceviche, lomo saltado, ají de gallina y causa) como contenido de ejemplo y el imagotipo de Platter en la pantalla de acceso. |
+
+#### Diseño inclusivo
+
+- **Contraste (WCAG 2.1 AA):** el texto de los botones coral es `#121C33` (contraste superior a 5:1); el blanco sobre coral queda cerca de 3:1 y por eso no se usa. En fondo claro, los textos de estado usan variantes más oscuras (`#1F7A6F` para "Disponible", `#B3202D` para "Agotado") para mantener 4.5:1.
+- **No depender solo del color:** el estado de un plato se indica con texto ("Disponible" / "Agotado") además del color del interruptor; las alertas combinan ícono, título y mensaje; el plato seleccionado en el menú de alérgenos cambia de color y de relleno.
+- **Objetivos táctiles:** botones de 52 px de alto, chips, interruptores y botones de retroceso de 48 × 48 px como mínimo, según 6.1.2.
+- **Formularios:** cada campo tiene etiqueta visible, no solo placeholder, y los errores se muestran junto al campo con texto.
+- **Idioma y lenguaje:** textos en español neutro con trato cercano ("tu carta", "tu mesa"), consistente con el tono de 6.1.1, y estructura preparada para `es_419` / `en_US`.
+- **Semántica para accesibilidad:** los mock-ups se construyeron con botones, enlaces, campos y etiquetas reales, de modo que la implementación herede foco por teclado y lectores de pantalla; los íconos decorativos se ocultan y los íconos con función llevan nombre.
+- **Seguridad alimentaria:** las advertencias de alérgenos (D03, D02) usan el semántico de alerta con texto explícito, ya que la persona usuaria con celiaquía no debe interpretar ambigüedades.
+
+#### Relación con la arquitectura de información
+
+- **Sistema de navegación (6.2.5):** Admin usa barra inferior de cuatro destinos (Inicio, Platos, Mesas, Plan) en las pantallas de consulta y la oculta durante los flujos secuenciales (alta de plato A04 a A08 y descarga de QR A10) para mantener el foco en la tarea, con botón de retroceso en la barra superior. AR Viewer es una sola pantalla de carta (D01) con acceso a AR en dos toques (D01, D03, D04).
+- **Organización y etiquetado (6.2.1 y 6.2.2):** las categorías gastronómicas (Entradas, Fondos, Postres) se muestran como chips horizontales en D01 y A03, y los nombres de pantallas y botones usan el mismo vocabulario del Ubiquitous Language.
+- **Búsqueda y filtros (6.2.3):** el filtrado de alérgenos es un paso propio (D02) con selección múltiple, conteo de resultados y mensaje amigable cuando no hay platos (D02-V).
+
+#### Detalle por pantalla
+
+**Platter Admin (Flutter)**
+
+| ID | Pantalla | Decisiones de diseño | User Story |
+| :-: | :--- | :--- | :-: |
+| A01 | Inicio de sesión | Variante dark de la marca, campos de 52 px con etiqueta y un único CTA. | - |
+| A02 | Inicio | Saludo, tres métricas en tarjetas, CTA primario para registrar plato y accesos secundarios a QR y analítica, más el plato más visto. | US19 |
+| A03 | Catálogo | Chips de categoría, estado textual e interruptor por plato (con estado interactivo en el prototipo) y botón "Nuevo plato". | US18 |
+| A04 | Capturar plato | Visor con guía de encuadre, restricción de formato visible, cámara como acción primaria y galería como secundaria. | US05 |
+| A05 | Analizando con IA | Indicador de progreso, mensaje del plazo de 5 s y salida "Continuar manualmente". | US06, US21 |
+| A06 | Ficha sugerida | Etiqueta "Sugerido por IA · editable" en azul IA, campos editables, alérgenos como chips y calorías. | US06 a US09 |
+| A07 | Modelo 3D | Vista previa del modelo sugerido con indicación de giro y galería de alternativas en chips. | US10 |
+| A08 | Plato publicado | Confirmación con ícono y texto, y dos salidas claras (ver catálogo o registrar otro). | US09 |
+| A09 | Mesas y QR | Campo de rango, lista de mesas con estado textual y descarga de QR. | US11 |
+| A10 | Descarga de QR | Plantilla con logo del restaurante, selector PDF / PNG y descarga. El QR es ilustrativo. | US12 |
+| A11 | Analítica | Métricas y ranking en barras con porcentaje en texto, y exportación CSV. | US19 |
+| A12 | Mi plan | Plan vigente con estado, método de pago, próximo cobro y cancelación diferenciada en contorno rojo. | US20 |
+
+**Platter AR Viewer (WebAR)**
+
+| ID | Pantalla | Decisiones de diseño | User Story |
+| :-: | :--- | :--- | :-: |
+| D01 | Carta digital · Mesa 5 | Modo oscuro, mesa activa en el título, chips de categoría, acceso a filtros y tarjetas con alérgenos y precio. | US13 |
+| D02 | Filtros de alérgenos | Chips de selección múltiple, conteo en vivo de platos disponibles y mensaje cuando no hay resultados. | US15 |
+| D03 | Detalle del plato | Imagen, ingredientes, calorías, advertencia "Contiene" en color de alerta y CTA "Ver en mi mesa"; enlace secundario al visor 3D. | US17 |
+| D04 | Vista AR | Plato a escala 1:1 sobre la mesa, retícula dorada, insignia de escala bloqueada y botón "Cerrar". | US14, US16 |
+| D05 | Visor 3D | Alternativa para dispositivos sin AR, con aviso y giro con el dedo. | US14 |
+| D06 | Mesa inactiva | Mensaje amigable y salida al menú general. | US13 |
+
+**Estados alternos**
+
+| ID | Estado | Condición | Origen |
+| :-: | :--- | :--- | :--- |
+| A03-E | Error al guardar disponibilidad | El cambio de estado no se guardó. | A03 |
+| A04-E | Formato de foto no admitido | La imagen no es JPEG o PNG, o pesa más de 10 MB. | A04 |
+| A06-M | Ficha manual | La IA falló o tardó más de 5 s. | A05 |
+| A09-E | Rango de mesas no válido | El rango ingresado no es válido. | A09 |
+| D02-V | Sin resultados | Ningún plato cumple los alérgenos excluidos. | D02 |
+
+### 6.4.4. Applications User Flow Diagrams
+
+Cada User Flow representa un User Goal de una de las personas de la solución y se deriva del wireflow correspondiente de la sección 6.4.2 (WF-01 a WF-04), por lo que conserva los mismos recorridos y pantallas. A diferencia del wireflow, el User Flow incluye los mock-ups de cada pantalla, las decisiones del sistema o de la persona usuaria (rombos), el camino esperado (happy path, línea continua) y las rutas alternativas (unhappy paths, línea discontinua roja) con sus pantallas de error o recuperación.
+
+| User Flow | User Goal | Persona | Aplicación | Wireflow de origen |
+| :-: | :--- | :--- | :--- | :-: |
+| UF-01 | Registrar un plato con ayuda de IA | Carlos Mendoza Vidal | Platter Admin | WF-01 |
+| UF-02 | Generar e imprimir los QR de las mesas | Carlos Mendoza Vidal | Platter Admin | WF-02 |
+| UF-03 | Controlar disponibilidad y revisar interacción | Carlos Mendoza Vidal | Platter Admin | WF-03 |
+| UF-04 | Ver un plato en AR antes de ordenar | Valeria Ramos Benavides | Platter AR Viewer | WF-04 |
+
+#### UF-01. Registrar un plato con ayuda de IA
+
+**User goal:** registrar un plato en la carta digital en pocos pasos apoyándose en la IA, sin conocimientos técnicos (US05 a US10, US21). **Persona:** Carlos Mendoza Vidal, dueño de restaurante MYPE.
+
+![User Flow UF-01](./assets/6.4.4-userflow-uf01.png)
+
+**Flujo principal (happy path):** Carlos entra a A02 y elige "Registrar nuevo plato". En A04 toma o elige una foto y, si el archivo es JPEG o PNG de hasta 10 MB, pasa a A05, donde la IA identifica ingredientes, alérgenos y calorías. Si responde en 5 s o menos, se abre A06 con la ficha sugerida y editable; luego elige el modelo 3D en A07 y publica el plato, con la confirmación de A08.
+
+**Rutas alternativas:**
+- **Formato o peso no válido (condición en A04):** se muestra A04-E con el motivo y Carlos vuelve a A04 para elegir otra foto.
+- **La IA falla o tarda más de 5 s (condición en A05):** se abre A06-M con los campos vacíos para completar manualmente y el flujo continúa en A07.
+
+#### UF-02. Generar e imprimir los QR de las mesas
+
+**User goal:** dar de alta las mesas del salón y descargar el QR con el logo del restaurante, listo para imprimir (US11, US12). **Persona:** Carlos Mendoza Vidal.
+
+![User Flow UF-02](./assets/6.4.4-userflow-uf02.png)
+
+**Flujo principal (happy path):** desde A02 Carlos toca "Generar QR de mesas" y en A09 ingresa el rango de mesas. Si el rango es válido, el sistema crea las mesas con su QR único y Carlos elige una mesa para abrir A10, donde selecciona PDF o PNG y descarga la plantilla para imprimirla y colocarla en la mesa.
+
+**Ruta alternativa:** si el rango no es válido, A09-E muestra el error junto al campo y Carlos corrige el rango en A09.
+
+#### UF-03. Controlar disponibilidad y revisar interacción
+
+**User goal:** marcar un plato como agotado y revisar qué platos generan más vistas en AR (US18, US19). **Persona:** Carlos Mendoza Vidal.
+
+![User Flow UF-03](./assets/6.4.4-userflow-uf03.png)
+
+**Flujo principal (happy path):** Carlos abre el catálogo desde A02, cambia el interruptor del plato agotado en A03 y, si el cambio se guarda, abre A11 para revisar el ranking de platos más vistos en AR. Opcionalmente exporta los datos en CSV; si no, termina la revisión.
+
+**Ruta alternativa:** si el cambio no se guarda, A03-E informa el error con una acción de reintento y Carlos vuelve a A03.
+
+#### UF-04. Ver un plato en AR antes de ordenar
+
+**User goal:** ver el plato a escala real sobre la mesa, descartando los alérgenos que no puede consumir, sin instalar aplicaciones (US13 a US17). **Persona:** Valeria Ramos Benavides, comensal celíaca.
+
+![User Flow UF-04](./assets/6.4.4-userflow-uf04.png)
+
+**Flujo principal (happy path):** Valeria escanea el QR de su mesa; si la mesa está activa se abre D01 con la carta. Filtra los alérgenos en D02 y, si quedan platos que cumplen, abre el detalle en D03 y toca "Ver en mi mesa". Si su dispositivo soporta AR, D04 proyecta el plato a escala 1:1 sobre la mesa.
+
+**Rutas alternativas:**
+- **Mesa inactiva:** se muestra D06 con un mensaje amigable y la opción "Ver menú general", que lleva a D01.
+- **Sin resultados con los filtros:** D02-V explica que ningún plato cumple y sugiere quitar un filtro para volver a D02.
+- **Dispositivo sin soporte AR:** se abre el visor 3D (D05), desde donde Valeria vuelve al detalle del plato (D03).
+
+## 6.5. Applications Prototyping
+
+Los prototipos de UI simulan la interacción y la navegación de las dos aplicaciones siguiendo los caminos de los User Flows de la sección 6.4.4. Cada pantalla de la sección 6.4.3 es un artboard del lienzo de diseño y los botones, enlaces, elementos de la barra de navegación y chips están enlazados al artboard de destino, de modo que al reproducirlo (Play) se navega como en la aplicación real. El prototipo se abre en **[Prototipo Platter · Mock-ups, User Flows y Prototipo](https://claude.ai/artifact/KkN2go3RAWMAvRhVrfuc3z)**; Platter Admin inicia en A01 y Platter AR Viewer en D01.
+
+### Criterios de las decisiones de interacción
+
+- **Una acción principal por pantalla:** el botón coral es siempre el avance del happy path (por ejemplo, "Tomar foto" lleva a A05 y "Ver en mi mesa" lleva a D04) y las acciones secundarias son de contorno o enlaces, lo que reduce errores de selección.
+- **Tareas largas como flujo secuencial:** el alta de plato (A04 a A08) avanza paso a paso y oculta la barra inferior para evitar desvíos; el retroceso queda siempre en la barra superior.
+- **Navegación persistente solo para consulta:** la barra inferior de cuatro destinos (Inicio, Platos, Mesas, Plan) se mantiene en A02, A03, A09, A11 y A12, de acuerdo con el sistema de navegación global definido en 6.2.5.
+- **Menos pasos hasta el valor:** en AR Viewer el plato se ve en AR en dos toques desde la carta (D01, D03, D04), sin registro ni instalación.
+- **Salidas siempre disponibles:** cada pantalla de error o alternativa (A05, D04, D05, D06) ofrece una salida explícita ("Continuar manualmente", "Cerrar", "Volver al plato", "Ver menú general").
+- **Retroalimentación inmediata:** los interruptores de A03 cambian de estado y texto al tocarlos y los chips de D02 actualizan el conteo de platos disponibles en el momento.
+- **Interacciones familiares y de bajo esfuerzo:** toque simple en botones y chips, interruptor para alternar estados y gesto de arrastre con un dedo para girar el plato en D04 y D05, tal como establece 6.1.2.
+
+### Interacciones del prototipo
+
+**Platter Admin (Flutter)**
+
+| Desde | Elemento | Tipo de interacción | Destino |
+| :-: | :--- | :--- | :-: |
+| A01 | Iniciar sesión | Toque en botón | A02 |
+| A02 | Registrar nuevo plato | Toque en botón | A04 |
+| A02 | Generar QR de mesas | Toque en botón | A09 |
+| A02 | Ver analítica | Toque en botón | A11 |
+| A02 a A12 | Inicio, Platos, Mesas, Plan | Toque en barra de navegación inferior | A02, A03, A09, A12 |
+| A03 | Interruptor de disponibilidad | Interruptor con cambio de estado | La misma pantalla |
+| A03 | Nuevo plato | Toque en botón | A04 |
+| A04 | Tomar foto / Elegir de la galería | Toque en botón | A05 |
+| A05 | Continuar manualmente | Toque en botón | A06 |
+| A06 | Siguiente: modelo 3D | Toque en botón | A07 |
+| A07 | Publicar plato | Toque en botón | A08 |
+| A08 | Ver catálogo / Registrar otro plato | Toque en botón | A03 / A04 |
+| A09 | Descargar QR | Toque en botón | A10 |
+| A10 | Descargar | Toque en botón | A09 |
+| A04 a A07, A10, A11 | Flecha de retroceso | Toque en ícono | Pantalla anterior |
+
+**Platter AR Viewer (WebAR)**
+
+| Desde | Elemento | Tipo de interacción | Destino |
+| :-: | :--- | :--- | :-: |
+| D01 | Filtrar alérgenos | Toque en botón | D02 |
+| D01 | Tarjeta de plato | Toque en tarjeta | D03 |
+| D02 | Chips de alérgenos | Selección múltiple con conteo en vivo | La misma pantalla |
+| D02 | Aplicar filtros | Toque en botón | D01 |
+| D03 | Ver en mi mesa | Toque en botón | D04 |
+| D03 | Ver en 3D (sin soporte AR) | Toque en enlace | D05 |
+| D04 | Cerrar | Toque en botón | D03 |
+| D05 | Volver al plato | Toque en botón | D03 |
+| D06 | Ver menú general | Toque en botón | D01 |
+
+### Escenarios de prueba del prototipo
+
+| Escenario | Aplicación | Recorrido | User Flow |
+| :-: | :-: | :--- | :-: |
+| 1 | Platter Admin | A01, A02, A04, A05, A06, A07, A08 | UF-01 |
+| 2 | Platter Admin | A02, A09, A10 | UF-02 |
+| 3 | Platter Admin | A02, A03 (alternar interruptor), A11 | UF-03 |
+| 4 | Platter AR Viewer | D01, D02 (marcar alérgenos), D03, D04 | UF-04 |
+| 5 | Platter AR Viewer | D03, D05 (sin soporte AR) y D06 (mesa inactiva) | UF-04 |
+
+### Video del prototipo: Platter Admin y Platter AR Viewer
+
+El video demuestra y explica los principales flujos de interacción de las dos aplicaciones: Platter Admin (escenarios 1 a 3) y Platter AR Viewer (escenarios 4 y 5).
+
+![Captura del video del prototipo de Platter Admin](./assets/6.5-video-admin.png)
+
+![Captura del video del prototipo de Platter AR Viewer](./assets/6.5-video-viewer.png)
+
+[Ver video del prototipo (Platter Admin y Platter AR Viewer)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202215721_upc_edu_pe/IQCmEDubziyQR4FAzvZYpeTeAdimDmaHT3O4uho_nUtajPU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dIxCLL)
 
 
 # Capítulo VII: Product Implementation, Validation & Deployment
@@ -2756,10 +2975,10 @@ El Sprint 1 tuvo como propósito convertir el diseño de los Capítulos IV, V y 
 | Sprint # | Sprint 1 |
 | :--- | :--- |
 | **Sprint Planning Background** | |
-| Date | 2026-10-12 **[VERIFICAR]** |
-| Time | 08:00 PM **[VERIFICAR]** |
-| Location | Reunión virtual en Microsoft Teams **[VERIFICAR]** |
-| Prepared By | Nakasone Gomes, Marco Antonio **[VERIFICAR]** |
+| Date | 2026-10-12 |
+| Time | 08:00 PM |
+| Location | Reunión virtual en Microsoft Teams |
+| Prepared By | Nakasone Gomes, Marco Antonio |
 | Attendees (to planning meeting) | Alvarado De La Cruz, Juan Carlos / Duran Diaz, Antonio Rodrigo / Nakasone Gomes, Marco Antonio / Teves Samaniego, Joan Fernando |
 | Sprint 0 Review Summary | Al ser el primer sprint de implementación, se toma como referencia la revisión de las entregas TB1 y TP1: el diseño estratégico (ADD, DDD y C4), el diseño táctico de los cuatro Bounded Contexts y el diseño UX quedaron aprobados como base. La retroalimentación indicó priorizar un MVP desplegado y verificable sobre funcionalidades secundarias. |
 | Sprint 0 Retrospective Summary | Aciertos: trabajo por capítulos en ramas separadas y uso de Mermaid para mantener los diagramas versionados. Oportunidades de mejora: las integraciones de ramas se concentraron el último día; para el Sprint 1 se acordó integrar al menos una vez por semana mediante Pull Requests a `develop` y mantener el tablero de Jira actualizado. |
@@ -3084,17 +3303,17 @@ El video About-the-Product está dirigido a dos públicos: los visitantes de la 
 
 **Guion y secuencias**
 
-| Inicio | Secuencia | Contenido |
-| :-: | :--- | :--- |
-| 00:00 | Problema | Comensal dudando frente a una carta sin fotos; plato que llega distinto a lo esperado. Voz en off: "¿Te ha pasado que pides algo y llega otra cosa?" |
-| 00:20 | Propuesta de valor | Logo de Platter y la frase principal de la Landing. Qué es Platter en una oración. |
-| 00:35 | Dueño: registrar un plato | Grabación de pantalla de Platter Admin: foto del plato, análisis con IA, revisión de la ficha, modelo 3D y publicación. |
-| 01:20 | Dueño: mesas y QR | Creación de mesas y descarga de la plantilla de QR; QR impreso en la mesa. |
-| 01:40 | Comensal: carta y AR | Escaneo del QR, filtro de alérgenos y plato proyectado sobre una mesa real a escala 1:1. |
-| 02:20 | Dueño: control y métricas | "Agotado por hoy" y ranking de platos más vistos. |
-| 02:40 | Planes y cierre | Planes en soles, invitación a solicitar el piloto gratuito y URL de la Landing. |
+| Secuencia | Contenido |
+| :--- | :--- |
+| Problema | Comensal dudando frente a una carta sin fotos; plato que llega distinto a lo esperado. Voz en off: "¿Te ha pasado que pides algo y llega otra cosa?" |
+| Propuesta de valor | Logo de Platter y la frase principal de la Landing. Qué es Platter en una oración. |
+| Dueño: registrar un plato | Grabación de pantalla de Platter Admin: foto del plato, análisis con IA, revisión de la ficha, modelo 3D y publicación. |
+| Dueño: mesas y QR | Creación de mesas y descarga de la plantilla de QR; QR impreso en la mesa. |
+| Comensal: carta y AR | Escaneo del QR, filtro de alérgenos y plato proyectado sobre una mesa real a escala 1:1. |
+| Dueño: control y métricas | "Agotado por hoy" y ranking de platos más vistos. |
+| Planes y cierre | Planes en soles, invitación a solicitar el piloto gratuito y URL de la Landing. |
 
-- **Duración estimada:** 3 minutos **[VERIFICAR al editar]**
+- **Duración:** 1 minuto
 - **URL YouTube:** [https://youtu.be/uo1fP-3kjl4](https://youtu.be/uo1fP-3kjl4)
 
 [![Video About-the-Product de Platter](https://img.youtube.com/vi/uo1fP-3kjl4/maxresdefault.jpg)](https://youtu.be/uo1fP-3kjl4)
@@ -3223,4 +3442,3 @@ La solución se estructura como un monorepo compuesto por los siguientes módulo
 | Documentación OpenAPI (Swagger UI) | https://platter-api.onrender.com/swagger-ui/index.html |
 | Contrato de la API | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/blob/main/docs/api-contract.md |
 | Video About-the-Product | https://youtu.be/uo1fP-3kjl4 |
-| Video About-the-Team | **[PENDIENTE]** |
