@@ -679,6 +679,96 @@ Cada wireflow representa un User Goal y reutiliza los wireframes de la sección 
 
 ### 6.4.3. Applications Mock-ups
 
+Los mock-ups aplican la identidad visual y el Design System definidos en la sección 6.1 sobre los wireframes de la sección 6.4.1, manteniendo los mismos identificadores de pantalla (A01 a A12 para Platter Admin y D01 a D06 para Platter AR Viewer) para conservar la trazabilidad con los wireframes, los wireflows y las User Stories. Se diseñaron a 390 × 844 px (referencia de smartphone) y cada pantalla incluye sus estados alternos cuando el wireflow los contempla.
+
+**Platter Admin (Flutter)**
+
+![Mock-ups Platter Admin (Flutter)](./assets/6.4.3-mockups-admin.png)
+
+**Platter AR Viewer (WebAR)**
+
+![Mock-ups Platter AR Viewer (WebAR)](./assets/6.4.3-mockups-viewer.png)
+
+**Estados alternos (rutas no felices)**
+
+![Estados alternos de los mock-ups](./assets/6.4.3-mockups-alternos.png)
+
+#### Principios y elementos de diseño aplicados
+
+| Principio | Cómo se aplica en los mock-ups |
+| :--- | :--- |
+| **Jerarquía visual** | Cada pantalla tiene un único botón primario en coral (`#E76F51`) y las acciones secundarias usan estilo contorno. Los títulos usan Outfit (28 px en Admin, 24 px en el detalle del plato) y las cifras destacadas (métricas, precios) usan Outfit Bold. |
+| **Consistencia** | Misma barra superior, mismos radios (8, 12 y 16 px), misma escala de espaciado de 8 puntos y mismos componentes (chips, tarjetas, interruptores) en todas las pantallas de una aplicación. |
+| **Visibilidad del estado del sistema** | A05 muestra el progreso de la IA y el plazo de 5 s; A03 muestra el estado de cada plato con texto e interruptor; D04 muestra la insignia "Escala 1:1 bloqueada"; D02 actualiza el conteo de platos disponibles al marcar un alérgeno. |
+| **Prevención y recuperación de errores** | La restricción de la foto (JPEG o PNG, máximo 10 MB) se muestra antes de capturar (A04) y el error se explica con una acción correctiva (A04-E, A09-E, A03-E). Si la IA no responde, el flujo continúa de forma manual (A06-M). |
+| **Reconocimiento antes que recuerdo** | La navegación inferior de Admin combina ícono y etiqueta en los cuatro destinos; los botones llevan verbo de acción ("Registrar nuevo plato", "Ver en mi mesa"). |
+| **Proximidad y agrupación** | Las métricas se agrupan en tarjetas, los datos del plato se agrupan por campo con su etiqueta, y los alérgenos se agrupan en chips seleccionables. |
+
+| Elemento de diseño | Aplicación |
+| :--- | :--- |
+| **Color** | Paleta oficial de 6.1.1. Admin usa el modo claro (`--color-bg-light` `#F7F3ED`) con barra superior en `--color-bg-dark` `#121C33`, por ser una herramienta de uso diurno del dueño del restaurante; AR Viewer usa el modo oscuro (`#121C33` con tarjetas `#1B2848`) para el salón con poca luz. El azul IA (`#3A86FF`) se reserva para lo que infiere la IA, el dorado (`#D4A373`) para la retícula AR y el aviso de mesa, y los semánticos para estados (éxito, alerta, peligro). |
+| **Tipografía** | Outfit para títulos, precios y cifras; Plus Jakarta Sans para lectura, botones y formularios, con la escala de 6.1.1 (botones 14 px SemiBold, etiquetas 12 px, badges 11 px). |
+| **Espaciado y forma** | Cuadrícula de 8 puntos, márgenes móviles de 16 px, tarjetas de 16 px de radio, botones de 12 px y campos de 8 px. |
+| **Elevación** | Tarjetas en reposo con sombra suave (Elevation 1) y la plantilla de QR en A10 con Elevation 2. |
+| **Iconografía** | Íconos de trazo de 2 px (inicio, platos, mesas, plan, cámara, cubo 3D, candado). Los íconos que acompañan estados siempre llevan texto. |
+| **Imagen** | Ilustraciones de platos peruanos (ceviche, lomo saltado, ají de gallina y causa) como contenido de ejemplo y el imagotipo de Platter en la pantalla de acceso. |
+
+#### Diseño inclusivo
+
+- **Contraste (WCAG 2.1 AA):** el texto de los botones coral es `#121C33` (contraste superior a 5:1); el blanco sobre coral queda cerca de 3:1 y por eso no se usa. En fondo claro, los textos de estado usan variantes más oscuras (`#1F7A6F` para "Disponible", `#B3202D` para "Agotado") para mantener 4.5:1.
+- **No depender solo del color:** el estado de un plato se indica con texto ("Disponible" / "Agotado") además del color del interruptor; las alertas combinan ícono, título y mensaje; el plato seleccionado en el menú de alérgenos cambia de color y de relleno.
+- **Objetivos táctiles:** botones de 52 px de alto, chips, interruptores y botones de retroceso de 48 × 48 px como mínimo, según 6.1.2.
+- **Formularios:** cada campo tiene etiqueta visible, no solo placeholder, y los errores se muestran junto al campo con texto.
+- **Idioma y lenguaje:** textos en español neutro con trato cercano ("tu carta", "tu mesa"), consistente con el tono de 6.1.1, y estructura preparada para `es_419` / `en_US`.
+- **Semántica para accesibilidad:** los mock-ups se construyeron con botones, enlaces, campos y etiquetas reales, de modo que la implementación herede foco por teclado y lectores de pantalla; los íconos decorativos se ocultan y los íconos con función llevan nombre.
+- **Seguridad alimentaria:** las advertencias de alérgenos (D03, D02) usan el semántico de alerta con texto explícito, ya que la persona usuaria con celiaquía no debe interpretar ambigüedades.
+
+#### Relación con la arquitectura de información
+
+- **Sistema de navegación (6.2.5):** Admin usa barra inferior de cuatro destinos (Inicio, Platos, Mesas, Plan) en las pantallas de consulta y la oculta durante los flujos secuenciales (alta de plato A04 a A08 y descarga de QR A10) para mantener el foco en la tarea, con botón de retroceso en la barra superior. AR Viewer es una sola pantalla de carta (D01) con acceso a AR en dos toques (D01, D03, D04).
+- **Organización y etiquetado (6.2.1 y 6.2.2):** las categorías gastronómicas (Entradas, Fondos, Postres) se muestran como chips horizontales en D01 y A03, y los nombres de pantallas y botones usan el mismo vocabulario del Ubiquitous Language.
+- **Búsqueda y filtros (6.2.3):** el filtrado de alérgenos es un paso propio (D02) con selección múltiple, conteo de resultados y mensaje amigable cuando no hay platos (D02-V).
+
+#### Detalle por pantalla
+
+**Platter Admin (Flutter)**
+
+| ID | Pantalla | Decisiones de diseño | User Story |
+| :-: | :--- | :--- | :-: |
+| A01 | Inicio de sesión | Variante dark de la marca, campos de 52 px con etiqueta y un único CTA. | - |
+| A02 | Inicio | Saludo, tres métricas en tarjetas, CTA primario para registrar plato y accesos secundarios a QR y analítica, más el plato más visto. | US19 |
+| A03 | Catálogo | Chips de categoría, estado textual e interruptor por plato (con estado interactivo en el prototipo) y botón "Nuevo plato". | US18 |
+| A04 | Capturar plato | Visor con guía de encuadre, restricción de formato visible, cámara como acción primaria y galería como secundaria. | US05 |
+| A05 | Analizando con IA | Indicador de progreso, mensaje del plazo de 5 s y salida "Continuar manualmente". | US06, US21 |
+| A06 | Ficha sugerida | Etiqueta "Sugerido por IA · editable" en azul IA, campos editables, alérgenos como chips y calorías. | US06 a US09 |
+| A07 | Modelo 3D | Vista previa del modelo sugerido con indicación de giro y galería de alternativas en chips. | US10 |
+| A08 | Plato publicado | Confirmación con ícono y texto, y dos salidas claras (ver catálogo o registrar otro). | US09 |
+| A09 | Mesas y QR | Campo de rango, lista de mesas con estado textual y descarga de QR. | US11 |
+| A10 | Descarga de QR | Plantilla con logo del restaurante, selector PDF / PNG y descarga. El QR es ilustrativo. | US12 |
+| A11 | Analítica | Métricas y ranking en barras con porcentaje en texto, y exportación CSV. | US19 |
+| A12 | Mi plan | Plan vigente con estado, método de pago, próximo cobro y cancelación diferenciada en contorno rojo. | US20 |
+
+**Platter AR Viewer (WebAR)**
+
+| ID | Pantalla | Decisiones de diseño | User Story |
+| :-: | :--- | :--- | :-: |
+| D01 | Carta digital · Mesa 5 | Modo oscuro, mesa activa en el título, chips de categoría, acceso a filtros y tarjetas con alérgenos y precio. | US13 |
+| D02 | Filtros de alérgenos | Chips de selección múltiple, conteo en vivo de platos disponibles y mensaje cuando no hay resultados. | US15 |
+| D03 | Detalle del plato | Imagen, ingredientes, calorías, advertencia "Contiene" en color de alerta y CTA "Ver en mi mesa"; enlace secundario al visor 3D. | US17 |
+| D04 | Vista AR | Plato a escala 1:1 sobre la mesa, retícula dorada, insignia de escala bloqueada y botón "Cerrar". | US14, US16 |
+| D05 | Visor 3D | Alternativa para dispositivos sin AR, con aviso y giro con el dedo. | US14 |
+| D06 | Mesa inactiva | Mensaje amigable y salida al menú general. | US13 |
+
+**Estados alternos**
+
+| ID | Estado | Condición | Origen |
+| :-: | :--- | :--- | :--- |
+| A03-E | Error al guardar disponibilidad | El cambio de estado no se guardó. | A03 |
+| A04-E | Formato de foto no admitido | La imagen no es JPEG o PNG, o pesa más de 10 MB. | A04 |
+| A06-M | Ficha manual | La IA falló o tardó más de 5 s. | A05 |
+| A09-E | Rango de mesas no válido | El rango ingresado no es válido. | A09 |
+| D02-V | Sin resultados | Ningún plato cumple los alérgenos excluidos. | D02 |
+
 ### 6.4.4. Applications User Flow Diagrams
 
 ## 6.5. Applications Prototyping
