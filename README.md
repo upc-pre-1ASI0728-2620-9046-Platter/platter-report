@@ -22,7 +22,7 @@ Docente: Rojas Malasquez, Royer Edelwer
 <br><br>
 Producto: Platter
 <br><br>
-Entrega: Segundo Hito - TP1 (Semana 7)
+Entrega: Tercer Hito - TB2 (Semana 12)
 <br><br>
 <br><br>
 <strong>Integrantes</strong>  
@@ -37,7 +37,7 @@ Teves Samaniego, Joan Fernando (U202117303)
 <br><br>
 <br>
 
-**Octubre - 2026**
+**Noviembre - 2026**
 
 </h3>
 </div>
@@ -48,6 +48,7 @@ Teves Samaniego, Joan Fernando (U202117303)
 | :---: | :---: | :--- | :--- |
 | **1.0.0** | 19/09/2026 | Alvarado, Duran, Nakasone, Teves | Entrega inicial del Primer Hito (TB1). Incorporación de Carátula, Capítulo I (Startup Profile y Solution Profile con Lean UX), Capítulo II (Requirements Elicitation & Analysis con Needfinding y Lenguaje Ubicuo), Capítulo III (Requirements Specification con User Stories e Impact Mapping), Capítulo IV (Strategic-Level Software Design con ADD, DDD y C4 Model), Conclusiones iniciales, Bibliografía preliminar y sustento del Student Outcome ABET 3 para TB1. |
 | **1.1.0** | 09/10/2026 | Alvarado, Duran, Nakasone, Teves | Entrega del Segundo Hito (TP1). Incorporación del Capítulo V (Tactical-Level Software Design con descomposición por capas, diagramas de componentes C4, diagramas de clases y diseño de base de datos para los cuatro Bounded Contexts) y Capítulo VI (Solution UX Design con guías de estilo visual, arquitectura de información, wireframes y mock-ups de Landing Page, y wireframes y diagramas de wireflow para aplicaciones móviles y WebAR). Actualización y avance de Conclusiones y Recomendaciones, ordenamiento formal de Bibliografía bajo estándar APA, y expansión acumulativa de la sección Student Outcome y Project Report Collaboration Insights para el hito TP1. |
+| **1.2.0** | __/11/2026 <!-- VERIFICAR fecha de entrega --> | Alvarado, Duran, Nakasone, Teves | Entrega del Tercer Hito (TB2). Incorporación de las secciones 6.4.3 (Applications Mock-ups), 6.4.4 (Applications User Flow Diagrams) y 6.5 (Applications Prototyping), y del Capítulo VII (Software Configuration Management, Sprint 1 con planning, backlog y evidencias de desarrollo, pruebas, ejecución, documentación de servicios y despliegue, y Video About-the-Product). Primera versión desplegada de Landing Page, AR Viewer, Platter Admin y Web Services. Actualización de Conclusiones, Recomendaciones, Bibliografía, Anexos, Student Outcome y Project Report Collaboration Insights para el hito TB2. |
 
 # Project Report Collaboration Insights
 
@@ -66,14 +67,27 @@ Para asegurar la calidad técnica, la coherencia de notación y la trazabilidad 
 
 ### Evidencias de Colaboración en GitHub
 
-El equipo mantuvo una participación activa y equitativa en la redacción, diagramación y revisión de los artefactos del informe en ambas entregas (TB1 y TP1), registrando contribuciones continuas distribuidas entre todos los integrantes en las métricas de colaboración de GitHub:
+El equipo mantuvo una participación activa y equitativa en la redacción, diagramación y revisión de los artefactos del informe en las entregas TB1, TP1 y TB2, registrando contribuciones continuas distribuidas entre todos los integrantes en las métricas de colaboración de GitHub:
 
 - **Alvarado De La Cruz, Juan Carlos:** Liderazgo técnico en la especificación arquitectónica estratégica y táctica (Capítulos IV y V), estructuración de diagramas C4 y revisión de consistencia del modelo de dominio.
 - **Duran Diaz, Antonio Rodrigo:** Elaboración de escenarios de atributos de calidad, especificación de persistencia de base de datos relacional y modelado de drivers arquitectónicos (Capítulos IV y V).
 - **Nakasone Gomes, Marco Antonio:** Redacción del perfil de startup, antecedentes del sector, Lean UX, guías de estilo visual, arquitectura de información y diseño de interfaces comerciales y de usuario (Capítulos I y VI).
 - **Teves Samaniego, Joan Fernando:** Especificación de requerimientos funcionales, historias de usuario Gherkin, diagramas de flujo de dominio y especificación de flujos de interacción de aplicaciones (Capítulos III y VI).
 
+**Hito TB2** <!-- VERIFICAR: ajustar a la participación real de cada integrante -->
+
+- **Alvarado De La Cruz, Juan Carlos:** Implementación del backend de catálogo, análisis con IA (ACL de Gemini y Circuit Breaker) e IAM; redacción de la documentación de servicios (7.2.1.6) y de las pruebas del backend (7.2.1.4).
+- **Duran Diaz, Antonio Rodrigo:** Implementación del backend de mesas, QR, analítica, persistencia (Flyway) y despacho de modelos 3D; redacción de la configuración de despliegue (7.1.4) y del Sprint Backlog (7.2.1.2).
+- **Nakasone Gomes, Marco Antonio:** Implementación de la Landing Page, el AR Viewer, la biblioteca de modelos 3D y el despliegue en Render y Supabase; redacción de Software Configuration Management (7.1) y Video About-the-Product (7.4).
+- **Teves Samaniego, Joan Fernando:** Implementación de Platter Admin en Flutter y sus pruebas; redacción de la evidencia de ejecución del Sprint 1 (7.2.1.5).
+
 *(Las métricas consolidadas de frecuencia de código, commits y contribuyentes se encuentran auditables de manera transparente en la sección Insights del repositorio oficial).*
+
+![Network graph del repositorio platter-report con las ramas feature/chapter-5, tp1-final y feature/chapter-6](./assets/tb2-report-network.png)
+
+*Network graph del repositorio `platter-report` (15/11/2026): ramas de trabajo por capítulo.*
+
+<!-- VERIFICAR: Insights → Contributors solo cuenta commits en main; subir la captura cuando las ramas de TB2 se integren a main -->
 
 # Contenido
 
@@ -126,6 +140,23 @@ El equipo mantuvo una participación activa y equitativa en la redacción, diagr
   - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
     - [6.4.1. Applications Wireframes](#641-applications-wireframes)
     - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+- [Capítulo VII: Product Implementation, Validation & Deployment](#capítulo-vii-product-implementation-validation--deployment)
+  - [7.1. Software Configuration Management](#71-software-configuration-management)
+    - [7.1.1. Software Development Environment Configuration](#711-software-development-environment-configuration)
+    - [7.1.2. Source Code Management](#712-source-code-management)
+    - [7.1.3. Source Code Style Guide & Conventions](#713-source-code-style-guide--conventions)
+    - [7.1.4. Software Deployment Configuration](#714-software-deployment-configuration)
+  - [7.2. Solution Implementation](#72-solution-implementation)
+    - [7.2.1. Sprint 1](#721-sprint-1)
+      - [7.2.1.1. Sprint Planning 1](#7211-sprint-planning-1)
+      - [7.2.1.2. Sprint Backlog 1](#7212-sprint-backlog-1)
+      - [7.2.1.3. Development Evidence for Sprint Review](#7213-development-evidence-for-sprint-review)
+      - [7.2.1.4. Testing Suite Evidence for Sprint Review](#7214-testing-suite-evidence-for-sprint-review)
+      - [7.2.1.5. Execution Evidence for Sprint Review](#7215-execution-evidence-for-sprint-review)
+      - [7.2.1.6. Services Documentation Evidence for Sprint Review](#7216-services-documentation-evidence-for-sprint-review)
+      - [7.2.1.7. Software Deployment Evidence for Sprint Review](#7217-software-deployment-evidence-for-sprint-review)
+      - [7.2.1.8. Team Collaboration Insights during Sprint](#7218-team-collaboration-insights-during-sprint)
+  - [7.4. Video About-the-Product](#74-video-about-the-product)
 - [Conclusiones](#conclusiones)
 - [Recomendaciones](#recomendaciones)
 - [Bibliografía](#bibliografía)
@@ -143,8 +174,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
-| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Expuse ante el equipo y en el video de sustentación los fundamentos de la descomposición estratégica bajo Domain-Driven Design (DDD), justificando la delimitación de Bounded Contexts y la implementación de una Capa Anticorrupción (ACL) para la integración con Google Gemini. Adapté el lenguaje técnico para comunicar claramente cómo la arquitectura soporta los requerimientos de negocio de restaurantes e inversionistas.<br>*TP1*<br>Sustenté ante el equipo y en las sesiones de revisión técnica las decisiones de diseño táctico para los Bounded Contexts de Catálogo y Análisis con IA, explicando con claridad la segregación en capas (Domain, Application, Infrastructure e Interfaces) y el uso de patrones de arquitectura hexagonal. Adapté la explicación técnica para justificar ante los evaluadores cómo el diseño por componentes desacopla los servicios y garantiza mantenibilidad a largo plazo.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Participé activamente en las sesiones de discusión grupal y en la grabación del video de presentación de la entrega, explicando con objetividad los escenarios de atributos de calidad priorizados en Attribute-Driven Design (ADD) y cómo la infraestructura en la nube de AWS responde a las demandas de alta concurrencia en horas pico.<br>*TP1*<br>Presenté y argumenté de forma estructurada los diagramas de base de datos relacionales y el modelado de entidades de persistencia para los contextos de AR Dining Experience y Restaurant Management. Transmití con objetividad a los integrantes y docentes los criterios de normalización, llaves foráneas e índices seleccionados para asegurar tiempos de respuesta óptimos en consultas concurrentes.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Presenté oralmente en las reuniones de sincronización y en la exposición grabada los resultados del análisis de problemáticas del sector gastronómico y los supuestos de Lean UX, transmitiendo con claridad a perfiles tanto técnicos como de negocio el valor de la proyección en Realidad Aumentada sin fricción para el comensal.<br>*TP1*<br>Expuse en las reuniones de sincronización y preparación de la sustentación la propuesta integral de UX/UI, explicando con fundamentos el sistema de diseño (Material Design 3), las decisiones de la escala tipográfica y los contrastes cromáticos bajo WCAG 2.1 AA. Detallé con precisión el valor de negocio de los wireflows diseñados, demostrando cómo reducen la fricción cognitiva tanto para administradores de restaurante como para comensales.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Expuse en el video grupal y en las reuniones técnicas los diagramas de interacción y flujo de mensajes mediante Domain Storytelling, describiendo detalladamente la secuencia técnica entre los clientes móviles, las APIs REST y los servicios en la nube de forma estructurada, fluida y comprensible para el equipo evaluador.<br>*TP1*<br>Expliqué oralmente en las sesiones de equipo la dinámica de navegación y los flujos de interacción entre pantallas de la aplicación móvil administrativa y el visor WebAR (WF-01 al WF-04). Articulé con claridad los escenarios alternativos de fallo (como latencia o indisponibilidad temporal de la IA) y su degradación elegante, facilitando la comprensión técnica de los flujos para perfiles de frontend y backend. | Durante el desarrollo del hito TB1, el equipo demostró capacidad para transmitir conceptos técnicos complejos de ingeniería de software a diversas audiencias. Se articularon con precisión técnica y pertinencia de negocio las decisiones de diseño estratégico, modelado de dominio y esquemas de infraestructura en la nube. A través de reuniones de retrospectiva internas y la sustentación en video, cada integrante adaptó su registro comunicativo para justificar de forma objetiva la viabilidad técnica y operativa de la solución ante evaluadores académicos y potenciales interesados del sector gastronómico.<br><br>Para el hito TP1, se consolidó la efectividad comunicativa oral al sustentar de manera integrada el diseño táctico por capas y la experiencia de usuario (UX/UI). Mediante reuniones técnicas de diseño y la preparación de la sustentación de hito, cada integrante demostró solvencia para defender alternativas arquitectónicas, justificar decisiones de persistencia relacional y argumentar elecciones de diseño visual frente a criterios de usabilidad, accesibilidad e impacto en el negocio gastronómico. |
-| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Redacté y consolidé los capítulos de diseño estratégico en Markdown, elaborando la especificación formal del Context Mapping y los diagramas C4 (Contexto, Contenedores y Despliegue). Cuidé la consistencia del lenguaje ubicuo del proyecto, documentando los contratos de integración y las decisiones arquitectónicas conforme al estándar de ingeniería solicitado.<br>*TP1*<br>Documenté formalmente en Markdown la especificación técnica de la arquitectura táctica de los Bounded Contexts Dish & Menu Catalog Management y AI Gastronomic Analysis, elaborando los diagramas C4 de nivel componente y los diagramas de clases del dominio. Mantuve una redacción rigurosa y libre de ambigüedades, asegurando la correspondencia exacta entre los contratos de dominio y el lenguaje ubicuo.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Elaboré las especificaciones técnicas de los escenarios de calidad (Quality Attribute Scenarios) y el Backlog de Drivers Arquitectónicos, documentando de forma estructurada los requisitos de rendimiento, disponibilidad y escalabilidad, así como las tácticas arquitectónicas seleccionadas para mitigarlos.<br>*TP1*<br>Elaboré y documenté las especificaciones técnicas de persistencia del Capítulo V, diseñando los diagramas entidad-relación en Mermaid para cada Bounded Context y redactando las justificaciones técnicas de los esquemas relacionales, tipos de datos, llaves primarias e integridad referencial requerida por la solución.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Redacté la caracterización de la startup, la problemática del sector gastronómico, las declaraciones de problema de Lean UX, supuestos e hipótesis. Documenté los hallazgos en tablas y formatos estandarizados dentro del informe, facilitando la comprensión de los dolores del cliente tanto para perfiles de negocio como de desarrollo.<br>*TP1*<br>Redacté integralmente el Capítulo VI de Solution UX Design, documentando las guías de estilo generales (branding, tipografía, paleta accesible WCAG 2.1 AA y espaciados), la arquitectura de información (sistemas de organización, rotulado, búsqueda, navegación y metadatos SEO/ASO) y la justificación de los wireframes y mock-ups de la Landing Page comercial.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Documenté la especificación formal de requerimientos mediante To-Be Scenario Mapping, User Stories bajo el formato Gherkin y los diagramas de secuencia de Domain Storytelling en Mermaid. Garanticé que la documentación escrita fuera rigurosa, no ambigua y completamente trazable con los objetivos del sistema.<br>*TP1*<br>Documenté las especificaciones de diseño UX de las aplicaciones (Platter Admin y Platter AR Viewer), elaborando las tablas de mapeo de pantallas hacia User Stories y la especificación detallada de los 4 diagramas de wireflow (happy path y flujos alternativos), asegurando trazabilidad directa con los requerimientos funcionales del Capítulo III. | La redacción colaborativa del informe técnico en GitHub bajo estándares de Markdown y conventional commits permitió consolidar un cuerpo documental riguroso, coherente y profesional. Se logró comunicar con claridad el análisis del problema, los modelos formales de dominio y las decisiones de arquitectura de software, empleando notaciones estándar (C4 Model, diagramas UML/secuencia y plantillas Lean UX). El producto escrito evidencia objetividad técnica y una estructura que satisface las exigencias metodológicas del curso y de la práctica profesional de la ingeniería de software.<br><br>En el hito TP1, esta capacidad escrita se fortaleció al integrar especificaciones formales de arquitectura de software a nivel táctico (diagramas de clases y esquemas de base de datos detallados) junto con especificaciones exhaustivas de diseño UX/UI (guías de estilo, metadatos SEO y flujos de pantallas vinculados a historias de usuario). La documentación escrita resultante mantiene uniformidad estilística, rigor técnico y plena trazabilidad metodológica, satisfaciendo los criterios de calidad académica y profesional exigidos por el estándar ABET. |
+| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Expuse ante el equipo y en el video de sustentación los fundamentos de la descomposición estratégica bajo Domain-Driven Design (DDD), justificando la delimitación de Bounded Contexts y la implementación de una Capa Anticorrupción (ACL) para la integración con Google Gemini. Adapté el lenguaje técnico para comunicar claramente cómo la arquitectura soporta los requerimientos de negocio de restaurantes e inversionistas.<br>*TP1*<br>Sustenté ante el equipo y en las sesiones de revisión técnica las decisiones de diseño táctico para los Bounded Contexts de Catálogo y Análisis con IA, explicando con claridad la segregación en capas (Domain, Application, Infrastructure e Interfaces) y el uso de patrones de arquitectura hexagonal. Adapté la explicación técnica para justificar ante los evaluadores cómo el diseño por componentes desacopla los servicios y garantiza mantenibilidad a largo plazo.<br>*TB2*<br>Expuse en la Sprint Review del Sprint 1 el funcionamiento del análisis gastronómico con IA, explicando con una demostración en vivo cómo el Circuit Breaker evita que una caída de Gemini bloquee al dueño y lo deriva a la carga manual. Adapté la explicación para que perfiles no técnicos entendieran el beneficio de esta decisión.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Participé activamente en las sesiones de discusión grupal y en la grabación del video de presentación de la entrega, explicando con objetividad los escenarios de atributos de calidad priorizados en Attribute-Driven Design (ADD) y cómo la infraestructura en la nube de AWS responde a las demandas de alta concurrencia en horas pico.<br>*TP1*<br>Presenté y argumenté de forma estructurada los diagramas de base de datos relacionales y el modelado de entidades de persistencia para los contextos de AR Dining Experience y Restaurant Management. Transmití con objetividad a los integrantes y docentes los criterios de normalización, llaves foráneas e índices seleccionados para asegurar tiempos de respuesta óptimos en consultas concurrentes.<br>*TB2*<br>Presenté al equipo y a los participantes de validación el flujo de mesas y códigos QR, explicando por qué cada QR usa un token aleatorio no secuencial y cómo los límites de cada plan protegen el modelo de negocio. Comuniqué los resultados del despliegue del backend y de la base de datos en la nube.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Presenté oralmente en las reuniones de sincronización y en la exposición grabada los resultados del análisis de problemáticas del sector gastronómico y los supuestos de Lean UX, transmitiendo con claridad a perfiles tanto técnicos como de negocio el valor de la proyección en Realidad Aumentada sin fricción para el comensal.<br>*TP1*<br>Expuse en las reuniones de sincronización y preparación de la sustentación la propuesta integral de UX/UI, explicando con fundamentos el sistema de diseño (Material Design 3), las decisiones de la escala tipográfica y los contrastes cromáticos bajo WCAG 2.1 AA. Detallé con precisión el valor de negocio de los wireflows diseñados, demostrando cómo reducen la fricción cognitiva tanto para administradores de restaurante como para comensales.<br>*TB2*<br>Conduje la demostración de la Landing Page y del AR Viewer desplegados en la Sprint Review, explicando en lenguaje sencillo cómo proyectar un plato a escala real sin instalar aplicaciones y cómo el despliegue en la nube permite probarlo desde cualquier celular.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Expuse en el video grupal y en las reuniones técnicas los diagramas de interacción y flujo de mensajes mediante Domain Storytelling, describiendo detalladamente la secuencia técnica entre los clientes móviles, las APIs REST y los servicios en la nube de forma estructurada, fluida y comprensible para el equipo evaluador.<br>*TP1*<br>Expliqué oralmente en las sesiones de equipo la dinámica de navegación y los flujos de interacción entre pantallas de la aplicación móvil administrativa y el visor WebAR (WF-01 al WF-04). Articulé con claridad los escenarios alternativos de fallo (como latencia o indisponibilidad temporal de la IA) y su degradación elegante, facilitando la comprensión técnica de los flujos para perfiles de frontend y backend.<br>*TB2*<br>Presenté en la Sprint Review los flujos implementados en Platter Admin (registro de un plato con IA, mesas y QR, métricas), explicando con claridad los caminos alternativos ante fallas de la IA y cómo la app guía al dueño hacia la carga manual. | Durante el desarrollo del hito TB1, el equipo demostró capacidad para transmitir conceptos técnicos complejos de ingeniería de software a diversas audiencias. Se articularon con precisión técnica y pertinencia de negocio las decisiones de diseño estratégico, modelado de dominio y esquemas de infraestructura en la nube. A través de reuniones de retrospectiva internas y la sustentación en video, cada integrante adaptó su registro comunicativo para justificar de forma objetiva la viabilidad técnica y operativa de la solución ante evaluadores académicos y potenciales interesados del sector gastronómico.<br><br>Para el hito TP1, se consolidó la efectividad comunicativa oral al sustentar de manera integrada el diseño táctico por capas y la experiencia de usuario (UX/UI). Mediante reuniones técnicas de diseño y la preparación de la sustentación de hito, cada integrante demostró solvencia para defender alternativas arquitectónicas, justificar decisiones de persistencia relacional y argumentar elecciones de diseño visual frente a criterios de usabilidad, accesibilidad e impacto en el negocio gastronómico.<br><br>En el hito TB2, la comunicación oral se centró en la Sprint Review del Sprint 1: cada integrante demostró en vivo la parte del producto desplegado que implementó y explicó sus decisiones técnicas en un lenguaje comprensible tanto para perfiles técnicos como de negocio. |
+| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **Alvarado De La Cruz, Juan Carlos**<br>*TB1*<br>Redacté y consolidé los capítulos de diseño estratégico en Markdown, elaborando la especificación formal del Context Mapping y los diagramas C4 (Contexto, Contenedores y Despliegue). Cuidé la consistencia del lenguaje ubicuo del proyecto, documentando los contratos de integración y las decisiones arquitectónicas conforme al estándar de ingeniería solicitado.<br>*TP1*<br>Documenté formalmente en Markdown la especificación técnica de la arquitectura táctica de los Bounded Contexts Dish & Menu Catalog Management y AI Gastronomic Analysis, elaborando los diagramas C4 de nivel componente y los diagramas de clases del dominio. Mantuve una redacción rigurosa y libre de ambigüedades, asegurando la correspondencia exacta entre los contratos de dominio y el lenguaje ubicuo.<br>*TB2*<br>Redacté la evidencia de pruebas del backend y la documentación de los Web Services del Sprint 1, describiendo cada endpoint con su verbo, parámetros y ejemplos de respuesta, de forma que pueda ser usada tanto por desarrolladores frontend como por evaluadores.<br><br>**Duran Diaz, Antonio Rodrigo**<br>*TB1*<br>Elaboré las especificaciones técnicas de los escenarios de calidad (Quality Attribute Scenarios) y el Backlog de Drivers Arquitectónicos, documentando de forma estructurada los requisitos de rendimiento, disponibilidad y escalabilidad, así como las tácticas arquitectónicas seleccionadas para mitigarlos.<br>*TP1*<br>Elaboré y documenté las especificaciones técnicas de persistencia del Capítulo V, diseñando los diagramas entidad-relación en Mermaid para cada Bounded Context y redactando las justificaciones técnicas de los esquemas relacionales, tipos de datos, llaves primarias e integridad referencial requerida por la solución.<br>*TB2*<br>Documenté la configuración de despliegue en Render y Supabase, incluyendo el diagrama de despliegue y los pasos reproducibles desde el repositorio, y estructuré el Sprint Backlog con sus tareas, estimaciones y estados.<br><br>**Nakasone Gomes, Marco Antonio**<br>*TB1*<br>Redacté la caracterización de la startup, la problemática del sector gastronómico, las declaraciones de problema de Lean UX, supuestos e hipótesis. Documenté los hallazgos en tablas y formatos estandarizados dentro del informe, facilitando la comprensión de los dolores del cliente tanto para perfiles de negocio como de desarrollo.<br>*TP1*<br>Redacté integralmente el Capítulo VI de Solution UX Design, documentando las guías de estilo generales (branding, tipografía, paleta accesible WCAG 2.1 AA y espaciados), la arquitectura de información (sistemas de organización, rotulado, búsqueda, navegación y metadatos SEO/ASO) y la justificación de los wireframes y mock-ups de la Landing Page comercial.<br>*TB2*<br>Redacté la sección de Software Configuration Management (herramientas, GitFlow, versionado semántico, Conventional Commits y guías de estilo) y el guion del Video About-the-Product, cuidando un lenguaje claro para públicos técnicos y de negocio.<br><br>**Teves Samaniego, Joan Fernando**<br>*TB1*<br>Documenté la especificación formal de requerimientos mediante To-Be Scenario Mapping, User Stories bajo el formato Gherkin y los diagramas de secuencia de Domain Storytelling en Mermaid. Garanticé que la documentación escrita fuera rigurosa, no ambigua y completamente trazable con los objetivos del sistema.<br>*TP1*<br>Documenté las especificaciones de diseño UX de las aplicaciones (Platter Admin y Platter AR Viewer), elaborando las tablas de mapeo de pantallas hacia User Stories y la especificación detallada de los 4 diagramas de wireflow (happy path y flujos alternativos), asegurando trazabilidad directa con los requerimientos funcionales del Capítulo III.<br>*TB2*<br>Documenté la evidencia de ejecución del Sprint 1 y las pruebas de Platter Admin, describiendo de forma precisa qué vistas se implementaron, qué comportamiento verifica cada prueba y su trazabilidad con las User Stories. | La redacción colaborativa del informe técnico en GitHub bajo estándares de Markdown y conventional commits permitió consolidar un cuerpo documental riguroso, coherente y profesional. Se logró comunicar con claridad el análisis del problema, los modelos formales de dominio y las decisiones de arquitectura de software, empleando notaciones estándar (C4 Model, diagramas UML/secuencia y plantillas Lean UX). El producto escrito evidencia objetividad técnica y una estructura que satisface las exigencias metodológicas del curso y de la práctica profesional de la ingeniería de software.<br><br>En el hito TP1, esta capacidad escrita se fortaleció al integrar especificaciones formales de arquitectura de software a nivel táctico (diagramas de clases y esquemas de base de datos detallados) junto con especificaciones exhaustivas de diseño UX/UI (guías de estilo, metadatos SEO y flujos de pantallas vinculados a historias de usuario). La documentación escrita resultante mantiene uniformidad estilística, rigor técnico y plena trazabilidad metodológica, satisfaciendo los criterios de calidad académica y profesional exigidos por el estándar ABET.<br><br>En el hito TB2, la documentación escrita pasó del diseño a la evidencia: convenciones de gestión de la configuración, backlog del sprint, pruebas automatizadas, contrato de servicios, despliegue reproducible y la documentación de servicios con OpenAPI. El informe permite a un lector técnico reproducir la solución y a un lector de negocio entender su estado real y sus siguientes pasos. |
 
 # Capítulo I: Introducción
 
@@ -2540,6 +2571,538 @@ Cada wireflow representa un User Goal y reutiliza los wireframes de la sección 
 *Nota: Las secciones 6.4.3 (Applications Mock-ups), 6.4.4 (Applications User Flow Diagrams) y 6.5 (Applications Prototyping) corresponden al siguiente hito de entrega (TB2 - Semana 12), conforme a la estructura curricular y alcance del proyecto.*
 
 
+# Capítulo VII: Product Implementation, Validation & Deployment
+
+Este capítulo documenta cómo el equipo implementó, probó y desplegó la primera versión de los productos digitales de Platter: la **Landing Page**, el **AR Viewer** (carta WebAR del comensal), la aplicación **Platter Admin** (Flutter) y los **Web Services** RESTful (Platter Core Backend). Incluye las convenciones de gestión de la configuración, la evidencia del Sprint 1 y el Video About-the-Product.
+
+## 7.1. Software Configuration Management
+
+Esta sección reúne las decisiones y convenciones que mantienen la consistencia de la solución durante su ciclo de vida: herramientas de trabajo, organización del código fuente, guías de estilo y configuración del despliegue.
+
+### 7.1.1. Software Development Environment Configuration
+
+| Actividad | Producto | Propósito en el proyecto | Ruta de referencia / descarga |
+| :--- | :--- | :--- | :--- |
+| Project Management | Jira Software (Scrum) | Product Backlog, Sprint Backlog, tablero del sprint y seguimiento de tareas. | https://www.atlassian.com/software/jira |
+| Project Management | Microsoft Teams | Reuniones de Sprint Planning, Review, Retrospective y sincronización del equipo. | https://www.microsoft.com/microsoft-teams |
+| Requirements Management | Miro | EventStorming, mapas de escenarios As-Is / To-Be e Impact Mapping. | https://miro.com |
+| Requirements Management | UXPressia | User Personas, Empathy Maps y Journey Maps. | https://uxpressia.com |
+| Product Design | Figma | Wireframes, mock-ups, wireflows, user flows y prototipos navegables. | https://www.figma.com |
+| Product Design | Mermaid | Diagramas C4, de clases, entidad-relación y user flows versionados como texto dentro del informe. | https://mermaid.js.org |
+| Software Development | IntelliJ IDEA | IDE para el backend en Java 21 / Spring Boot. | https://www.jetbrains.com/idea/download |
+| Software Development | Visual Studio Code | Edición de la Landing Page, el AR Viewer (HTML, CSS y JavaScript) y del informe en Markdown. | https://code.visualstudio.com/download |
+| Software Development | Android Studio | SDK y emuladores Android para la app Flutter. | https://developer.android.com/studio |
+| Software Development | Eclipse Temurin JDK 21 | Entorno de ejecución y compilación del backend. | https://adoptium.net/temurin/releases/?version=21 |
+| Software Development | Apache Maven 3.9 | Gestión de dependencias, compilación y pruebas del backend. | https://maven.apache.org/download.cgi |
+| Software Development | Flutter SDK 3.44.1 (Dart 3.12) | Desarrollo de Platter Admin para Android, iOS y web. | https://docs.flutter.dev/get-started/install |
+| Software Development | Node.js (LTS) | Ejecución del generador de modelos 3D (`tools/model-generator`) con glTF-Transform y Draco. | https://nodejs.org/en/download |
+| Software Development | Docker Desktop | Entorno local completo (PostgreSQL 16, Redis 7, backend y gateway NGINX) con `docker compose`. | https://www.docker.com/products/docker-desktop |
+| Software Development | Google AI Studio | Obtención de la clave de la API de Gemini para el análisis gastronómico con IA. | https://aistudio.google.com |
+| Software Testing | JUnit 5, Spring MockMvc, AssertJ y H2 | Pruebas unitarias y de integración del backend sin servicios externos. | Incluidos en `backend/pom.xml` |
+| Software Testing | flutter_test y flutter_lints | Pruebas unitarias y de widgets, y análisis estático de la app Flutter. | Incluidos en `admin_app/pubspec.yaml` |
+| Software Testing | Chrome DevTools y Lighthouse | Pruebas de rendimiento, accesibilidad y emulación móvil de la Landing Page y el AR Viewer. | https://developer.chrome.com/docs/lighthouse |
+| Software Testing | Postman | Pruebas manuales de los endpoints REST. | https://www.postman.com/downloads |
+| Software Deployment | GitHub Actions | Integración continua (pruebas del backend, análisis y pruebas de Flutter, verificación de sintaxis web) y ping de disponibilidad. | https://github.com/features/actions |
+| Software Deployment | Render | Hosting del backend (Docker) y de los sitios estáticos (Landing + AR Viewer y Platter Admin web). | https://render.com |
+| Software Deployment | Supabase | PostgreSQL administrado y almacenamiento S3 compatible para las fotos de los platos. | https://supabase.com |
+| Software Documentation | GitHub (Markdown) | Redacción colaborativa del informe y documentación técnica (`README.md`, `docs/api-contract.md`, `docs/deploy.md`). | https://github.com |
+| Software Documentation | springdoc-openapi y Swagger UI | Documentación OpenAPI 3 de los Web Services generada desde el código y navegable en `/swagger-ui/index.html`. | https://springdoc.org |
+| Software Documentation | Microsoft Stream y YouTube | Publicación de los videos About-the-Product, About-the-Team y de prototipos. | https://www.microsoft.com/microsoft-365/microsoft-stream |
+
+### 7.1.2. Source Code Management
+
+El equipo usa **GitHub** como plataforma de control de versiones dentro de la organización `upc-pre-1ASI0728-2620-9046-Platter`. La solución se organiza en un **monorepo** con una carpeta por producto digital, y el informe vive en un repositorio separado.
+
+| Producto digital | Repositorio / ruta |
+| :--- | :--- |
+| Informe del proyecto | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter-report |
+| Solución completa (monorepo) | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter |
+| Landing Page | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/tree/main/landing |
+| AR Viewer (WebAR) | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/tree/main/webar |
+| Platter Admin (Flutter) | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/tree/main/admin_app |
+| Web Services (Spring Boot) y pruebas | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/tree/main/backend |
+| Generador de modelos 3D | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/tree/main/tools/model-generator |
+
+**Flujo de trabajo GitFlow**
+
+Se aplica el modelo de ramas de Vincent Driessen (*A successful Git branching model*):
+
+| Rama | Origen | Se integra en | Propósito y convención de nombre |
+| :--- | :--- | :--- | :--- |
+| `main` | — | — | Solo versiones liberadas y estables. Cada merge a `main` se etiqueta con su versión (`v0.1.0`, `v1.0.0`). |
+| `develop` | `main` | `release/*` | Rama de integración del equipo. Recibe los Pull Requests de las ramas de funcionalidad. |
+| `feature/*` | `develop` | `develop` | Una rama por User Story o tarea técnica: `feature/<id>-<descripcion-corta>` en minúsculas y con guiones. Ejemplos: `feature/us06-gemini-analysis`, `feature/us11-table-qr`, `feature/tb2-chapter-7`. |
+| `release/*` | `develop` | `main` y `develop` | Preparación de una versión (ajustes finales, número de versión, notas): `release/v<MAJOR>.<MINOR>.<PATCH>`, por ejemplo `release/v0.2.0`. |
+| `hotfix/*` | `main` | `main` y `develop` | Correcciones urgentes sobre producción: `hotfix/v<MAJOR>.<MINOR>.<PATCH>-<descripcion>`, por ejemplo `hotfix/v0.1.1-qr-token`. |
+
+Toda integración a `develop` o `main` se hace mediante Pull Request revisado por al menos otro integrante y con el workflow de CI en verde.
+
+**Versionado semántico**
+
+Las versiones siguen *Semantic Versioning 2.0.0* (`MAJOR.MINOR.PATCH`): `MAJOR` cambia cuando se rompe el contrato público de la API (`/api/v1` pasaría a `/api/v2`), `MINOR` cuando se agregan funcionalidades compatibles y `PATCH` para correcciones. La versión liberada en el Sprint 1 es **v0.1.0** (MVP); la versión `1.0.0` se reserva para la salida del piloto con restaurantes reales.
+
+**Conventional Commits**
+
+Los mensajes de commit siguen la especificación *Conventional Commits 1.0.0*: `<tipo>(<alcance opcional>): <descripción en imperativo>`.
+
+| Tipo | Uso | Ejemplo |
+| :--- | :--- | :--- |
+| `feat` | Nueva funcionalidad | `feat: Platter v0.1 — MVP de carta gastronómica en Realidad Aumentada` |
+| `fix` | Corrección de un defecto | `fix(webar): ocultar botón AR en platos agotados` |
+| `docs` | Documentación e informe | `docs(report): add chapter 7 sprint 1 evidence` |
+| `test` | Pruebas nuevas o corregidas | `test(catalog): cover publish rules for dishes` |
+| `refactor` | Cambio interno sin alterar el comportamiento | `refactor(dining): extract table resolver` |
+| `chore` | Configuración, dependencias y despliegue | `chore(deploy): usar el bucket 'photo' de Supabase Storage` |
+| `ci` | Workflows de integración continua | `ci: run flutter analyze on pull requests` |
+| `style` | Formato sin cambios de lógica | `style(admin): apply dart format` |
+
+### 7.1.3. Source Code Style Guide & Conventions
+
+Todo el código (clases, métodos, variables, tablas, endpoints y archivos) se nombra en **inglés**. Los textos visibles para el usuario están en español, dentro de las vistas o archivos de mensajes.
+
+| Lenguaje / artefacto | Guía adoptada | Convenciones aplicadas en Platter |
+| :--- | :--- | :--- |
+| Java 21 (backend) | *Google Java Style Guide* y convenciones de Spring Boot | Clases en `PascalCase`, métodos y variables en `camelCase`, constantes en `UPPER_SNAKE_CASE`. Paquetes por Bounded Context y luego por capa: `pe.platter.<context>.{domain, application, infrastructure, interfaces}` (por ejemplo `pe.platter.catalog.domain.Dish`). Controladores con sufijo `Controller`, recursos de respuesta con sufijo `Resource`, adaptadores externos con sufijo `Adapter` (por ejemplo `GeminiApiClientAdapter`). Inyección por constructor. |
+| SQL / Flyway | Convenciones de Flyway | Migraciones versionadas `V<n>__<descripcion>.sql` (por ejemplo `V1__initial_schema.sql`); tablas y columnas en `snake_case`; el esquema solo cambia mediante migraciones (`ddl-auto: validate`). |
+| API REST | Contrato `docs/api-contract.md` | Prefijo `/api/v1`, recursos en plural (`/dishes`, `/tables`), JSON en `camelCase`, rutas públicas bajo `/public/**`, errores con un único formato `{code, message, details}` y códigos de error en `UPPER_SNAKE_CASE`. |
+| Dart / Flutter | *Effective Dart* y reglas de `flutter_lints` | Archivos en `snake_case.dart`, clases en `PascalCase`, miembros en `lowerCamelCase`. Carpetas por responsabilidad: `api/`, `models/`, `screens/<feature>/`, `state/`, `widgets/`, `utils/`. `flutter analyze` se ejecuta en cada push. |
+| JavaScript (Landing y AR Viewer) | *Google JavaScript Style Guide* | ES2020+ sin paso de build, `const`/`let` (nunca `var`), funciones y variables en `camelCase`, constantes globales en `UPPER_SNAKE_CASE` (por ejemplo `MODEL_VIEWER_URL`). La CI valida la sintaxis con `node --check`. |
+| HTML y CSS | *Google HTML/CSS Style Guide* y metodología BEM | HTML semántico (`header`, `nav`, `main`, `section`) con atributos ARIA; clases BEM `bloque__elemento--modificador` (por ejemplo `demo__title`, `section--tinted`); colores y espaciados como variables CSS según los tokens de la sección 6.1. |
+| Gherkin (`.feature`) | *Gherkin Conventions for Readable Specifications* | Un `Feature` por User Story, escenarios en tercera persona y tiempo presente, sin detalles de interfaz, pasos `Given / When / Then` con datos de ejemplo en tablas `Examples`. |
+| Markdown (informe) | Convenciones del curso | Encabezados numerados según la estructura del enunciado, diagramas en Mermaid e imágenes en `assets/` con el prefijo de la sección (por ejemplo `6.4.2-wireflow-wf01.png`). |
+
+### 7.1.4. Software Deployment Configuration
+
+Para el Sprint 1 el equipo desplegó la solución en servicios con plan gratuito, lo que permite validar con usuarios reales sin costo. La topología conserva los contenedores del diagrama C4 de la sección 4.3.4; la diferencia es que los servicios gestionados de AWS (ECS Fargate, RDS, ElastiCache, S3 y CloudFront) se reemplazan por equivalentes de Render y Supabase. La migración a AWS queda para la etapa de piloto con carga real.
+
+```mermaid
+flowchart TD
+    classDef client fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef render fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#5b21b6;
+    classDef data fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;
+    classDef ext fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#991b1b;
+    classDef ci fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;
+
+    subgraph Devices ["Dispositivos de usuario"]
+        Diner["<b>Navegador móvil del comensal</b><br>AR Viewer (model-viewer: WebXR / Scene Viewer / Quick Look)"]:::client
+        Owner["<b>Celular o navegador del dueño</b><br>Platter Admin (Flutter Android / iOS / web)"]:::client
+        Visitor["<b>Navegador del visitante</b><br>Landing Page"]:::client
+    end
+
+    subgraph GitHub ["GitHub"]
+        Repo["<b>Repositorio platter</b><br>rama main"]:::ci
+        Actions["<b>GitHub Actions</b><br>CI (Maven, Flutter, node --check)<br>Keep alive cada 10 min"]:::ci
+    end
+
+    subgraph Render ["Render · región Virginia (us-east)"]
+        Web["<b>platter-web</b> (Static Site)<br>/ → Landing · /m/{token} → AR Viewer<br>/api/* → rewrite al backend"]:::render
+        Admin["<b>platter-admin</b> (Static Site)<br>Flutter web compilado"]:::render
+        Api["<b>platter-api</b> (Web Service · Docker)<br>Spring Boot 4.1 · Java 21 · caché en memoria<br>Biblioteca GLB incluida en la imagen"]:::render
+    end
+
+    subgraph Supabase ["Supabase · East US (North Virginia)"]
+        Db["<b>PostgreSQL</b><br>Session pooler · Flyway"]:::data
+        Storage["<b>Storage (S3)</b><br>bucket privado 'photo'"]:::data
+    end
+
+    Gemini["<b>Google Gemini API</b><br>gemini-2.5-flash"]:::ext
+
+    Visitor -->|HTTPS| Web
+    Diner -->|HTTPS| Web
+    Owner -->|HTTPS| Admin
+    Owner -->|HTTPS / REST + JWT| Api
+    Web -->|HTTPS / REST| Api
+    Api -->|JDBC / TLS 5432| Db
+    Api -->|S3 API / HTTPS| Storage
+    Api -->|HTTPS · timeout 5 s · Circuit Breaker| Gemini
+    Repo -->|Auto-deploy por Blueprint render.yaml| Render
+    Repo --> Actions
+    Actions -->|GET /actuator/health| Api
+```
+
+**Productos y URLs de despliegue**
+
+| Producto | Servicio | URL pública |
+| :--- | :--- | :--- |
+| Landing Page | Render Static Site `platter-web` | https://platter-web.onrender.com |
+| AR Viewer (carta demo) | Render Static Site `platter-web` | https://platter-web.onrender.com/m/demo |
+| Platter Admin (web) | Render Static Site `platter-admin` | https://platter-admin.onrender.com |
+| Web Services | Render Web Service `platter-api` | https://platter-api.onrender.com/api/v1 |
+| Health check | Spring Boot Actuator | https://platter-api.onrender.com/actuator/health |
+
+**Pasos de despliegue a partir del repositorio**
+
+1. **Base de datos y almacenamiento (Supabase):** crear el proyecto `platter` en la región East US (North Virginia), copiar la cadena de conexión del *Session pooler* (compatible con Flyway y JPA), crear el bucket privado `photo` y generar las credenciales S3 desde *Storage → S3 Configuration*.
+2. **Infraestructura como código (Render Blueprint):** el archivo `render.yaml` en la raíz del repositorio declara los tres servicios. En Render se elige *New → Blueprint*, se selecciona el repositorio `platter` y se completan las variables secretas: `DATABASE_URL`, `DATABASE_USER`, `DATABASE_PASSWORD`, `S3_ENDPOINT`, `S3_REGION`, `S3_ACCESS_KEY`, `S3_SECRET_KEY` y `GEMINI_API_KEY`. `JWT_SECRET` lo genera Render automáticamente.
+3. **Backend (`platter-api`):** Render construye la imagen con `backend/Dockerfile` (build multietapa con Maven y ejecución en `eclipse-temurin:21-jre-alpine` con usuario sin privilegios y JVM ajustada a 512 MB). Flyway crea el esquema al arrancar y el health check `/actuator/health` confirma que la base de datos responde.
+4. **Landing + AR Viewer (`platter-web`):** sitio estático que copia `landing/` a la raíz y `webar/` a `/m/`. Reglas de rewrite: `/m/*` sirve la SPA del AR Viewer y `/api/*` se reenvía al backend, de modo que la carta consume la API desde el mismo origen.
+5. **Platter Admin web (`platter-admin`):** Render descarga Flutter 3.44.1 y ejecuta `flutter build web --release --dart-define=API_BASE_URL=https://platter-api.onrender.com/api/v1`.
+6. **Despliegue continuo:** cada push a `main` dispara solo el servicio cuyos archivos cambiaron (`buildFilter` por carpeta). El workflow `CI` valida backend, app y web en cada push o Pull Request.
+7. **Disponibilidad:** el workflow `Keep alive` hace ping al health check cada 10 minutos entre las 8:00 y las 23:59 (hora de Lima), porque el plan gratuito de Render suspende el backend tras 15 minutos sin tráfico y Supabase pausa proyectos inactivos por una semana.
+8. **App móvil nativa:** para pruebas en dispositivo se compila con `flutter build apk --dart-define=API_BASE_URL=https://platter-api.onrender.com/api/v1`.
+
+**Entorno local:** `docker compose up --build` levanta PostgreSQL 16, Redis 7, el backend y un gateway NGINX que sirve la Landing en `http://localhost:8081/`, la carta demo en `http://localhost:8081/m/demo` y la API en `http://localhost:8081/api/v1`.
+
+## 7.2. Solution Implementation
+
+### 7.2.1. Sprint 1
+
+#### 7.2.1.1. Sprint Planning 1
+
+El Sprint 1 tuvo como propósito convertir el diseño de los Capítulos IV, V y VI en una primera versión desplegada de los cuatro productos digitales, priorizando el núcleo del MVP: registrar un plato con IA, generar los QR de mesa y permitir que el comensal vea el plato en AR sin instalar nada.
+
+<!-- VERIFICAR: fecha, hora, lugar y asistentes de la reunión de planificación -->
+
+| Sprint # | Sprint 1 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-10-12 **[VERIFICAR]** |
+| Time | 08:00 PM **[VERIFICAR]** |
+| Location | Reunión virtual en Microsoft Teams **[VERIFICAR]** |
+| Prepared By | Nakasone Gomes, Marco Antonio **[VERIFICAR]** |
+| Attendees (to planning meeting) | Alvarado De La Cruz, Juan Carlos / Duran Diaz, Antonio Rodrigo / Nakasone Gomes, Marco Antonio / Teves Samaniego, Joan Fernando |
+| Sprint 0 Review Summary | Al ser el primer sprint de implementación, se toma como referencia la revisión de las entregas TB1 y TP1: el diseño estratégico (ADD, DDD y C4), el diseño táctico de los cuatro Bounded Contexts y el diseño UX quedaron aprobados como base. La retroalimentación indicó priorizar un MVP desplegado y verificable sobre funcionalidades secundarias. |
+| Sprint 0 Retrospective Summary | Aciertos: trabajo por capítulos en ramas separadas y uso de Mermaid para mantener los diagramas versionados. Oportunidades de mejora: las integraciones de ramas se concentraron el último día; para el Sprint 1 se acordó integrar al menos una vez por semana mediante Pull Requests a `develop` y mantener el tablero de Jira actualizado. |
+| **Sprint Goal & User Stories** | |
+| Sprint 1 Goal | **Nuestro enfoque** está en publicar la primera versión funcional de Platter: Landing Page, carta WebAR, app de gestión y API desplegadas en la nube. **Creemos que** esto permite a los dueños de restaurantes digitalizar un plato a partir de una foto y a los comensales ver ese plato a escala real sobre su mesa sin instalar aplicaciones. **Esto se confirmará cuando** un plato registrado desde Platter Admin con apoyo de la IA aparezca publicado en la carta de una mesa y pueda abrirse en AR desde un celular al escanear su QR, en el entorno desplegado. |
+| Sprint 1 Velocity | 80 Story Points |
+| Sum of Story Points | 78 Story Points (21 User Stories: US01 a US19, US21 y US22) |
+
+La User Story US20 (suscripción con pasarela de pagos, 5 SP) quedó fuera del alcance del Sprint 1: en esta versión solo se implementó el cambio de plan sin cobro, como base para el Sprint 2.
+
+#### 7.2.1.2. Sprint Backlog 1
+
+El objetivo del Sprint 1 es entregar el MVP desplegado de Platter con el flujo completo foto → IA → publicación → QR → AR. El tablero del sprint se gestionó en Jira Software.
+
+![Tablero del Sprint 1 en Jira con las columnas Por hacer, En curso, En revisión y Finalizado](./assets/7.2.1.2-jira-sprint1-board.png)
+
+*Tablero del Sprint 1 en Jira (15/11/2026): 21 historias de usuario y 78 SP. Las historias US04, US12, US19 y US22 siguen en curso porque tienen una tarea pendiente; las otras 17 están finalizadas.*
+
+- **URL del tablero:** [https://marcoanakasone-1789856155139.atlassian.net/jira/software/projects/SCRUM/boards/1](https://marcoanakasone-1789856155139.atlassian.net/jira/software/projects/SCRUM/boards/1)
+
+<!-- VERIFICAR: la columna "Assigned To" es una propuesta según las áreas de cada integrante en TB1/TP1; ajustarla a quien realmente hizo cada tarea -->
+
+| User Story Id | User Story Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+| :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| US01 | Propuesta de valor y demostrador WebAR | T01.1 | Estructura y hero de la Landing | Maquetar header, hero y navegación con anclas según el mock-up y los tokens del Design System. | 4 | Nakasone Gomes, Marco Antonio | Done |
+| US01 | Propuesta de valor y demostrador WebAR | T01.2 | Demo 3D interactiva en la Landing | Integrar `model-viewer` con selector de platos de ejemplo, dimensiones reales y QR hacia la carta demo. | 5 | Nakasone Gomes, Marco Antonio | Done |
+| US02 | Beneficios, ROI y casos de uso | T02.1 | Secciones "Cómo funciona" y "Beneficios" | Redactar y maquetar los tres pasos y los beneficios con las métricas que buscará comprobar el piloto. | 3 | Nakasone Gomes, Marco Antonio | Done |
+| US03 | Planes y calculadora MYPE | T03.1 | Tabla de planes desde la API | Mostrar los planes leídos de `GET /plans` con precios en soles y límites. | 2 | Nakasone Gomes, Marco Antonio | Done |
+| US03 | Planes y calculadora MYPE | T03.2 | Calculadora por número de mesas | Recomendar el plan según la cantidad de mesas ingresada, con resultado anunciado por `aria-live`. | 2 | Nakasone Gomes, Marco Antonio | Done |
+| US04 | Solicitud de piloto gratuito | T04.1 | Formulario de piloto | Formulario accesible con validación en cliente y envío a `POST /public/leads`. | 2 | Nakasone Gomes, Marco Antonio | Done |
+| US04 | Solicitud de piloto gratuito | T04.2 | Endpoint de leads | Entidad `Lead`, repositorio, validación y respuesta 201. | 2 | Duran Diaz, Antonio Rodrigo | Done |
+| US05 | Carga fotográfica del plato | T05.1 | Captura y validación en la app | Cámara o galería con validación JPEG/PNG ≤ 10 MB antes de subir (`image_validation.dart`). | 4 | Teves Samaniego, Joan Fernando | Done |
+| US05 | Carga fotográfica del plato | T05.2 | Servicio de fotos | `POST /dishes/photos` con puerto `ObjectStorage` y adaptadores local y S3; respuesta 413/415 ante archivos inválidos. | 5 | Alvarado De La Cruz, Juan Carlos | Done |
+| US06 | Sugerencia de descripción y categoría con IA | T06.1 | Puerto de inferencia y ACL de Gemini | `GastronomicInferenceService` y `GeminiApiClientAdapter` que traduce la respuesta de Gemini al lenguaje del dominio. | 6 | Alvarado De La Cruz, Juan Carlos | Done |
+| US06 | Sugerencia de descripción y categoría con IA | T06.2 | Pantalla "Analizando con IA" | Estado de carga y apertura de la ficha prellenada con la sugerencia. | 3 | Teves Samaniego, Joan Fernando | Done |
+| US07 | Detección de ingredientes y alérgenos | T07.1 | Catálogo de 14 alérgenos normados | Enum `Allergen`, endpoint `GET /allergens` y mapeo de la respuesta de la IA a códigos válidos. | 3 | Alvarado De La Cruz, Juan Carlos | Done |
+| US08 | Estimación calórica | T08.1 | Rango calórico en la inferencia y la ficha | Incluir `estimatedCalories {min, max}` en el análisis y campos editables en la app. | 2 | Alvarado De La Cruz, Juan Carlos | Done |
+| US09 | Validación y ajuste manual de la ficha | T09.1 | Formulario de ficha editable | Formulario con campos sugeridos, chips de alérgenos y declaración "sin alérgenos". | 5 | Teves Samaniego, Joan Fernando | Done |
+| US09 | Validación y ajuste manual de la ficha | T09.2 | Reglas de publicación | `POST /dishes/{id}/publish` valida nombre, categoría, precio, foto, modelo y alérgenos; responde 422 con los campos faltantes. | 4 | Alvarado De La Cruz, Juan Carlos | Done |
+| US10 | Modelo 3D a escala real | T10.1 | Biblioteca de modelos procedurales | Generar 10 modelos GLB a escala real con glTF-Transform y compresión Draco (`tools/model-generator`). | 6 | Nakasone Gomes, Marco Antonio | Done |
+| US10 | Modelo 3D a escala real | T10.2 | Asignación por categoría y selector | Modelo por defecto según categoría y `model_picker.dart` para elegir otro. | 3 | Teves Samaniego, Joan Fernando | Done |
+| US11 | Códigos QR por mesa | T11.1 | Mesas y token criptográfico | Alta individual y por lote, token aleatorio de 22 caracteres, activación y desactivación, límite por plan. | 5 | Duran Diaz, Antonio Rodrigo | Done |
+| US11 | Códigos QR por mesa | T11.2 | Pantalla de mesas | Lista de mesas, alta por rango y acciones de QR en Platter Admin. | 3 | Teves Samaniego, Joan Fernando | Done |
+| US12 | Plantilla QR para impresión | T12.1 | QR PNG y plantilla PDF | `QrRenderer` con ZXing y plantilla PDF con OpenPDF (una tarjeta por mesa). | 4 | Duran Diaz, Antonio Rodrigo | Done |
+| US12 | Plantilla QR para impresión | T12.2 | Logo del restaurante en la plantilla | Incluir el logotipo del restaurante en la tarjeta PDF. | 3 | Duran Diaz, Antonio Rodrigo | To-do |
+| US13 | Carta digital sin registro ni app | T13.1 | Resolución de mesa y carta pública | `GET /public/tables/{token}` y `GET /public/restaurants/{id}/menu` con caché `activeMenu`. | 4 | Duran Diaz, Antonio Rodrigo | Done |
+| US13 | Carta digital sin registro ni app | T13.2 | SPA de la carta | Carta por categorías, estados de carga, QR no válido y mesa inactiva. | 6 | Nakasone Gomes, Marco Antonio | Done |
+| US14 | Proyección AR a escala 1:1 | T14.1 | Integración AR | `model-viewer` con `ar-modes="webxr scene-viewer quick-look"`, `ar-scale="fixed"` y alternativa 3D sin AR. | 6 | Nakasone Gomes, Marco Antonio | Done |
+| US15 | Filtro por alérgenos | T15.1 | Filtro en API y en la carta | Parámetro `exclude` en la carta pública y hoja de filtros con chips activos. | 4 | Nakasone Gomes, Marco Antonio | Done |
+| US16 | Comparación visual de dimensiones | T16.1 | Visor 3D interactivo | Rotación, zoom y dimensiones del plato visibles en el detalle. | 2 | Nakasone Gomes, Marco Antonio | Done |
+| US17 | Ingredientes y advertencias | T17.1 | Detalle del plato | Ingredientes, calorías, notas de cocina y alérgenos con icono y texto. | 2 | Nakasone Gomes, Marco Antonio | Done |
+| US18 | Disponibilidad en tiempo real | T18.1 | "Agotado por hoy" | `PATCH /dishes/{id}/availability` con invalidación de la caché e interruptor en la Carta de la app. | 3 | Alvarado De La Cruz, Juan Carlos | Done |
+| US19 | Analítica de interacciones AR | T19.1 | Eventos anónimos del comensal | `POST /public/events` (QR_SCAN, DISH_VIEW, AR_LAUNCH, AR_SESSION_END) desde el AR Viewer. | 3 | Duran Diaz, Antonio Rodrigo | Done |
+| US19 | Analítica de interacciones AR | T19.2 | Resumen de métricas | `GET /analytics/summary` y pantalla Métricas con periodos de 7 y 30 días. | 5 | Teves Samaniego, Joan Fernando | Done |
+| US19 | Analítica de interacciones AR | T19.3 | Exportación de reporte | Exportar el resumen de métricas a CSV. | 3 | Teves Samaniego, Joan Fernando | To-do |
+| US21 | Inferencia Gemini con Circuit Breaker | T21.1 | Resiliencia de la inferencia | `ResilientGeminiInferenceService` con timeout de 5 s, ventana de 10 llamadas, umbral de 50 % y 30 s abierto; respuesta 503 `AI_UNAVAILABLE`. | 6 | Alvarado De La Cruz, Juan Carlos | Done |
+| US21 | Inferencia Gemini con Circuit Breaker | T21.2 | Degradación a carga manual en la app | Mensajes según el código de error y apertura de la ficha vacía. | 2 | Teves Samaniego, Joan Fernando | Done |
+| US22 | Despacho y caché de activos 3D | T22.1 | Endpoint de modelos GLB | `GET /assets/models/{id}.glb` con `ETag`, `Cache-Control: immutable` y respuesta 304. | 3 | Duran Diaz, Antonio Rodrigo | Done |
+| US22 | Despacho y caché de activos 3D | T22.2 | CDN para activos 3D | Servir los GLB desde una CDN en el entorno de producción. | 4 | Duran Diaz, Antonio Rodrigo | To-do |
+| — | Tarea técnica: IAM | T00.1 | Registro e inicio de sesión | JWT HS256 de 1 h, `SecurityConfig` y aislamiento de datos por restaurante. | 5 | Alvarado De La Cruz, Juan Carlos | Done |
+| — | Tarea técnica: app | T00.2 | Login, registro y sesión en Flutter | Pantallas de acceso y cierre de sesión ante 401. | 3 | Teves Samaniego, Joan Fernando | Done |
+| — | Tarea técnica: persistencia | T00.3 | Esquema inicial y datos demo | Migración Flyway `V1__initial_schema.sql` y `DemoDataSeeder` con restaurante y mesa demo. | 4 | Duran Diaz, Antonio Rodrigo | Done |
+| — | Tarea técnica: infraestructura | T00.4 | Docker Compose y gateway NGINX | Entorno local completo con PostgreSQL, Redis, backend y NGINX. | 4 | Duran Diaz, Antonio Rodrigo | Done |
+| — | Tarea técnica: despliegue | T00.5 | CI y despliegue en Render y Supabase | Workflows `CI` y `Keep alive`, Blueprint `render.yaml` y configuración de Supabase. | 5 | Nakasone Gomes, Marco Antonio | Done |
+| — | Tarea técnica: documentación | T00.6 | Documentación OpenAPI | Generar la documentación OpenAPI 3 con springdoc, publicar Swagger UI con esquema de seguridad JWT y agrupar los endpoints por Bounded Context. | 3 | Alvarado De La Cruz, Juan Carlos | To-Review |
+| US01 | Propuesta de valor y demostrador WebAR | T01.3 | Sección de producto, ventajas y FAQ | Mockups con capturas reales del panel y de la carta, franja de ventajas, FAQ de 9 preguntas, consentimiento en el formulario de piloto, imagen para compartir, `robots.txt` y `sitemap.xml`. | 5 | Nakasone Gomes, Marco Antonio | Done |
+| US04 | Solicitud de piloto gratuito | T04.3 | Términos y condiciones y política de privacidad | Borradores de `terminos.html` y `privacidad.html` (Ley N.° 29733). Falta completar la razón social y el RUC y enlazarlos desde el pie de página y el formulario. | 3 | Nakasone Gomes, Marco Antonio | In Progress |
+| US10 | Modelo 3D a escala real | T10.3 | Spike de generación de modelos desde fotos | Prueba comparativa de Tripo, Meshy y Apple Object Capture para reemplazar los modelos procedurales por modelos del plato real (`tools/model-spike`). | 5 | Nakasone Gomes, Marco Antonio | Done |
+| US13 | Carta digital sin registro ni app | T13.3 | Corrección del desplazamiento de la carta | El cambio de categoría ya no mueve la página: solo se desplaza la barra de categorías. | 1 | Nakasone Gomes, Marco Antonio | Done |
+| — | Tarea técnica: UX | T00.7 | Identidad visual y pantalla Inicio del panel | Tema de marca (Fraunces + Inter), barra lateral en escritorio e inferior en celular, Inicio con indicadores, platos estrella y accesos rápidos, carta en tarjetas con búsqueda, mesas en grilla de QR y métricas con tasa de AR. | 8 | Nakasone Gomes, Marco Antonio | Done |
+| — | Tarea técnica: marca | T00.8 | Logo de Platter | Logo vectorial generado con `tools/brand` (versiones clara y oscura, isotipo e íconos de app) aplicado en la Landing, la carta y el panel. | 3 | Nakasone Gomes, Marco Antonio | Done |
+| — | Tarea técnica: datos demo | T00.9 | Carta demo con fotos y métricas | 18 platos peruanos con fotos, 15 mesas (una inactiva) y unas 5 semanas de interacciones de ejemplo para las métricas (`DemoMenu`, `DemoHistoryGenerator`). | 5 | Nakasone Gomes, Marco Antonio | Done |
+
+#### 7.2.1.3. Development Evidence for Sprint Review
+
+En el Sprint 1 se implementó la versión v0.1.0 de los cuatro productos digitales en el monorepo `platter`:
+
+- **Web Services (backend):** monolito modular en Spring Boot 4.1 y Java 21 organizado por Bounded Context (`catalog`, `analysis`, `dining`, `restaurants`, `billing`, `assets`, `iam`, `leads`), con persistencia en PostgreSQL mediante JPA y Flyway, caché de la carta activa (memoria o Redis), almacenamiento de fotos local o S3, autenticación JWT y la integración con Gemini protegida por una capa anticorrupción y un Circuit Breaker de Resilience4j.
+- **AR Viewer:** carta del comensal sin instalación ni registro, con filtro de alérgenos, detalle del plato, visor 3D y AR a escala 1:1 mediante `model-viewer`.
+- **Landing Page:** propuesta de valor, demo 3D interactiva, sección de producto con capturas reales, ventajas, planes con calculadora, FAQ, formulario de piloto con consentimiento y metadatos para buscadores y redes sociales.
+- **Platter Admin:** app Flutter con la identidad visual de Platter: login y registro, Inicio con indicadores del restaurante, alta de platos con IA, selector de modelo 3D, mesas y QR, métricas y cuenta.
+- **Datos demo:** restaurante "Sabores de Barranco" con 18 platos peruanos con fotos, 15 mesas y varias semanas de interacciones de ejemplo, para que la carta y las métricas se puedan mostrar sin datos reales.
+- **Herramientas e infraestructura:** generador de 10 modelos 3D a escala real, generador del logo (`tools/brand`), spike de modelos 3D desde fotos (`tools/model-spike`), Docker Compose con gateway NGINX, CI en GitHub Actions y Blueprint de Render.
+
+<!-- VERIFICAR: si se suben commits desde ramas feature de otros integrantes, agregarlos a esta tabla -->
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 9d4b494 | feat: Platter v0.1 — MVP de carta gastronómica en Realidad Aumentada | backend: monolito modular Spring Boot 4.1 / Java 21 por bounded contexts (catálogo, análisis IA con ACL Gemini + Circuit Breaker, experiencia WebAR, mesas y QR, planes), JWT HS256, Flyway, caché de carta, almacenamiento local o S3 y biblioteca de modelos GLB con ETag/caché inmutable; webar: carta del comensal sin instalación con model-viewer, escala 1:1 bloqueada y filtro de alérgenos; landing: propuesta de valor, demo AR, planes con calculadora y piloto; admin_app: app Flutter del dueño; tools/model-generator: 10 modelos 3D procedurales a escala real con Draco; infra: docker-compose + gateway NGINX, Blueprint de Render y CI. | 09/10/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 929b8cc | chore(deploy): usar el bucket 'photo' de Supabase Storage | Configura el nombre del bucket de fotos en el Blueprint de Render. | 09/10/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 59e2f03 | feat(admin): nueva identidad visual del panel y pantalla de Inicio | Tema de marca con Fraunces + Inter, barra lateral en escritorio e inferior en celular, Inicio con resumen e indicadores, carta en tarjetas con búsqueda, mesas en grilla de QR, métricas con tasa de AR y acceso con la cuenta demo. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 747908d | feat(demo): carta demo con fotos, más mesas y métricas de ejemplo | 18 platos peruanos con fotos, un borrador y un agotado; 15 mesas (una inactiva) y unas 5 semanas de interacciones generadas en segundo plano (`DEMO_HISTORY`). | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | e4a32f0 | feat(landing): sección de producto, ventajas, FAQ ampliada y SEO | Mockups con capturas reales, ventajas, FAQ de 9 preguntas, consentimiento en el formulario, imagen para compartir, `robots.txt`, `sitemap.xml` y borradores de privacidad y términos. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 9a8b397 | chore(tools): prueba comparativa de modelos 3D (Tripo, Meshy, Apple Object Capture) | Spike para generar modelos 3D a partir de fotos reales del plato. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | ee8941c | fix(demo): regenerar métricas aunque haya escaneos reales recientes | El historial demo se regenera si la última semana tiene menos de 200 eventos, para que el demo desplegado no quede sin métricas. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | feaeabb | feat(brand): nuevo logo de Platter en landing, carta y panel | Logo vectorial generado con `tools/brand`, favicon, íconos de app (web, Android, iOS y macOS) e imagen para compartir. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 3214ece | fix(deploy): reutilizar Flutter de la caché de Render en el build del panel | El build de `platter-admin` reutiliza Flutter 3.44.1 desde la caché de Render en lugar de fallar al clonarlo de nuevo. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | f8e10f6 | fix(carta): el scroll de la carta ya no rebota al cambiar de categoría | Solo se desplaza horizontalmente la barra de categorías, sin mover la página en el celular. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | feature/t00-6-openapi | 5208d59 | feat(api): add OpenAPI documentation with Swagger UI | Documentación OpenAPI 3.1 con springdoc y Swagger UI (detalle en 7.2.1.6). | 15/11/2026 |
+
+#### 7.2.1.4. Testing Suite Evidence for Sprint Review
+
+El Sprint 1 cuenta con **32 pruebas automatizadas** que se ejecutan en GitHub Actions en cada push y Pull Request: 10 en el backend (JUnit 5 + Spring MockMvc, con H2 en modo PostgreSQL para no depender de servicios externos) y 22 en Platter Admin (`flutter_test`). En la última ejecución local (15/11/2026) las 32 pruebas pasaron sin fallos.
+
+```bash
+cd backend && mvn test      # Tests run: 10, Failures: 0, Errors: 0
+cd admin_app && flutter test # 22 tests: All tests passed!
+```
+
+**Pruebas del backend**
+
+| Clase de prueba | Tipo | Prueba | Comportamiento verificado | User Story |
+| :--- | :--- | :--- | :--- | :---: |
+| `GeminiResilienceTest` | Unitaria | `translatesGeminiContractIntoDomainLanguage` | La ACL `GeminiApiClientAdapter` traduce la respuesta JSON de Gemini a `GastronomicInference` (nombre, categoría, ingredientes, alérgenos, calorías y confianza), limpia ingredientes vacíos y descarta códigos de alérgeno no válidos. | US06, US07, US08 |
+| `GeminiResilienceTest` | Unitaria | `opensCircuitAfterRepeatedFailuresAndFailsFast` | Tras fallos repetidos el Circuit Breaker se abre y las llamadas siguientes fallan de inmediato sin esperar al proveedor. | US21 |
+| `GeminiResilienceTest` | Unitaria | `withoutApiKeyTheProviderIsUnavailable` | Sin clave de API el servicio se declara no disponible y no intenta la llamada externa. | US21 |
+| `PlatterApiIntegrationTest` | Integración | `loginAndProtectedEndpoints` | Los endpoints privados exigen JWT (401), el login con credenciales erróneas falla, `GET /me` responde con sesión válida y el registro valida los datos (400). | Técnica (IAM) |
+| `PlatterApiIntegrationTest` | Integración | `tablesQrAndPlanLimits` | Alta de mesas por lote sin duplicar etiquetas, conflicto 409 por etiqueta repetida, límite de 15 mesas del plan Emprendedor (403), QR PNG, plantilla PDF con `access_token`, desactivación de mesa y token inexistente (404). | US11, US12, US20 |
+| `PlatterApiIntegrationTest` | Integración | `dishLifecycleFromPhotoToPublicMenu` | Subida de foto (y rechazo 415 de formatos no válidos), 503 controlado sin IA, borrador, rechazo 422 al publicar una ficha incompleta, publicación, filtro de alérgenos, "agotado" reflejado en la carta y eliminación. | US05, US09, US13, US15, US18, US21 |
+| `PlatterApiIntegrationTest` | Integración | `ownersCannotSeeOtherRestaurantsData` | Un dueño no puede ver ni consultar platos de otro restaurante (aislamiento por *tenant*). | Técnica (seguridad) |
+| `PlatterApiIntegrationTest` | Integración | `demoMenuEventsAndAnalytics` | La carta demo es pública, los eventos del comensal se aceptan (202) y se rechazan tipos inválidos (400), y el resumen de analítica refleja los eventos. | US13, US19 |
+| `PlatterApiIntegrationTest` | Integración | `openApiDocumentationIsPublic` | La especificación `/v3/api-docs` y Swagger UI son públicas, incluyen el esquema de seguridad `bearerAuth` y documentan los endpoints de catálogo y de la experiencia del comensal. | Técnica (documentación) |
+| `PlatterApiIntegrationTest` | Integración | `referenceDataLeadsAndModels` | Planes (3), alérgenos (14), categorías, registro y validación de leads, biblioteca de modelos y descarga GLB con `ETag` y respuesta 304. | US03, US04, US10, US22 |
+
+**Pruebas de Platter Admin**
+
+| Archivo | Tipo | Pruebas | Comportamiento verificado | User Story |
+| :--- | :--- | :---: | :--- | :---: |
+| `test/api_test.dart` | Unitaria | 11 | Parseo del formato de error `{code, message, details}`, envío del JWT, cierre de sesión ante 401 autenticado (y no en el login), mapeo del 503 de la IA, construcción de URLs de QR y PDF, formato de soles y validación de fotos JPEG/PNG ≤ 10 MB. | US05, US12, US21 |
+| `test/models_test.dart` | Unitaria | 6 | Deserialización de `Dish`, `Analysis`, `AuthResponse`, `Plan` ilimitado y `AnalyticsSummary`; tolerancia a valores nulos en borradores. | US06, US09, US19 |
+| `test/login_screen_test.dart` | Widget | 3 | Login visible sin sesión, validación de campos vacíos y correo inválido, mensaje amigable ante error de conexión. | Técnica (IAM) |
+| `test/dish_form_test.dart` | Widget | 2 | La ficha se prellena con la sugerencia de la IA y el modelo sugerido; se muestran los motivos de un 422 `DISH_NOT_PUBLISHABLE`. | US06, US09, US10 |
+
+**Pruebas de aceptación (BDD)**
+
+Los criterios de aceptación Gherkin de la sección 3.2 se automatizarán como archivos `.feature` con Cucumber en `backend/src/test/resources/features/` durante el Sprint 2. Los escenarios ya están cubiertos por las pruebas de integración anteriores; el siguiente es un ejemplo del formato que se usará:
+
+```gherkin
+Feature: US15 Filtrado de platos por alérgenos
+  As a diner with food allergies
+  I want to exclude dishes that contain specific allergens
+  So that I only see options that are safe for me
+
+  Scenario Outline: Diner excludes an allergen from the menu
+    Given the restaurant has a published dish "<dish>" that contains "<allergen>"
+    When the diner requests the menu excluding "<allergen>"
+    Then the menu does not include "<dish>"
+
+    Examples:
+      | dish            | allergen |
+      | Cebiche clásico | FISH     |
+      | Pizza pepperoni | GLUTEN   |
+```
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 9d4b494 | feat: Platter v0.1 — MVP de carta gastronómica en Realidad Aumentada | Incluye `PlatterApiIntegrationTest`, `GeminiResilienceTest` y las pruebas de Flutter (`api_test`, `models_test`, `login_screen_test`, `dish_form_test`), además del workflow `CI` que las ejecuta. | 09/10/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 59e2f03 | feat(admin): nueva identidad visual del panel y pantalla de Inicio | Adapta `login_screen_test` y `dish_form_test` al nuevo logo y desactiva Google Fonts en las pruebas para que no dependan de la red. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 747908d | feat(demo): carta demo con fotos, más mesas y métricas de ejemplo | Apaga el historial demo en el perfil de pruebas y actualiza el nombre del restaurante demo en `PlatterApiIntegrationTest`. | 15/11/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | feature/t00-6-openapi | 5208d59 | feat(api): add OpenAPI documentation with Swagger UI | Agrega la prueba de integración `openApiDocumentationIsPublic`. | 15/11/2026 |
+
+#### 7.2.1.5. Execution Evidence for Sprint Review
+
+Al cierre del Sprint 1, los cuatro productos están desplegados y se pueden usar de extremo a extremo: el dueño registra su restaurante, crea un plato a partir de una foto con sugerencias de la IA, le asigna un modelo 3D, lo publica y genera los QR de sus mesas; el comensal escanea el QR, filtra la carta por alérgenos y proyecta el plato a escala real sobre su mesa.
+
+| Producto | Vistas implementadas | URL |
+| :--- | :--- | :--- |
+| Landing Page | Hero, demo 3D, Cómo funciona, Producto, Beneficios, Planes y calculadora, FAQ, formulario de piloto | https://platter-web.onrender.com |
+| AR Viewer | Carta, filtros de alérgenos, detalle del plato, visor 3D, AR, QR no válido y mesa inactiva | https://platter-web.onrender.com/m/demo |
+| Platter Admin | Login y registro, Inicio, Carta, Nuevo plato (foto, análisis, ficha, modelo 3D), Mesas y QR, Métricas, Cuenta | https://platter-admin.onrender.com |
+
+**Landing Page** (https://platter-web.onrender.com)
+
+![Landing Page: hero con la demo 3D interactiva y el QR hacia la carta demo](./assets/7.2.1.5-landing-hero.png)
+
+![Landing Page: planes en soles](./assets/7.2.1.5-landing-planes.png)
+
+**AR Viewer** (https://platter-web.onrender.com/m/demo)
+
+<p align="center">
+  <img src="./assets/7.2.1.5-carta-demo.png" alt="Carta demo del comensal por categorías" width="300">
+  <img src="./assets/7.2.1.5-detalle-plato.png" alt="Detalle del plato con visor 3D, dimensiones reales y alérgenos" width="300">
+</p>
+
+*Carta demo y detalle del plato en un celular (390 × 844). En un navegador sin soporte de AR, el visor ofrece la vista 3D interactiva como alternativa.*
+
+<p align="center">
+  <img src="./assets/7.2.1.5-ar-mesa-real.png" alt="Postre de la carta demo proyectado en Realidad Aumentada a escala real sobre una mesa" width="300">
+</p>
+
+*Plato de la carta demo proyectado en AR a escala 1:1 sobre una mesa real, desde un celular.*
+
+**Platter Admin**
+
+![Platter Admin: inicio de sesión con acceso a la cuenta demo](./assets/7.2.1.5-admin-login.png)
+
+![Platter Admin: Inicio con indicadores de los últimos 7 días, platos estrella y estado de la carta](./assets/7.2.1.5-admin-inicio.png)
+
+![Platter Admin: Carta con búsqueda, filtro por categoría e interruptor de disponibilidad](./assets/7.2.1.5-admin-carta.png)
+
+![Platter Admin: Nuevo plato, paso de fotografía para el análisis con IA](./assets/7.2.1.5-admin-nuevo-plato.png)
+
+![Platter Admin: ficha del plato con ingredientes, alérgenos y rango calórico](./assets/7.2.1.5-admin-ficha-plato.png)
+
+![Platter Admin: Mesas y QR](./assets/7.2.1.5-admin-mesas.png)
+
+![Platter Admin: Métricas con platos más vistos, tasa de AR y mesas con más escaneos](./assets/7.2.1.5-admin-metricas.png)
+
+*Las capturas de Platter Admin se tomaron con la cuenta demo y los datos de ejemplo del backend (15/11/2026).*
+
+- **Video de ejecución del Sprint 1:** [https://youtu.be/3ZFhB007pzw](https://youtu.be/3ZFhB007pzw)
+
+#### 7.2.1.6. Services Documentation Evidence for Sprint Review
+
+En el Sprint 1 se definió y publicó el contrato REST v1 de Platter (*Published Language* del Context Map) en `docs/api-contract.md`. Todas las rutas usan la base `/api/v1`, intercambian JSON en UTF-8 y responden los errores con el formato `{ "code", "message", "details" }`. Las rutas del dueño requieren `Authorization: Bearer <JWT>`; las rutas `/public/**`, `/auth/**`, `/plans`, `/allergens`, `/categories`, `/models`, `/assets/**` y `/media/**` son anónimas.
+
+La documentación OpenAPI 3.1 se genera automáticamente desde el código con **springdoc-openapi 3.2.0**. Los endpoints se agrupan en 11 etiquetas que siguen los Bounded Contexts (IAM, Restaurant & Plan, Tables & QR, Plans, Dish Catalog, Catalog Reference, Media, 3D Models, Dining (public), Analytics y Leads), con un total de 27 rutas y 32 operaciones. Las operaciones que requieren autenticación declaran el esquema `bearerAuth` (JWT), de modo que en Swagger UI basta con iniciar sesión con `POST /api/v1/auth/login`, pulsar **Authorize** y pegar el token para probar los endpoints del dueño. La prueba de integración `openApiDocumentationIsPublic` verifica que la documentación sea pública y que incluya el esquema de seguridad.
+
+<!-- VERIFICAR: el enlace desplegado funciona después de hacer push de la tarea T00.6 a main (Render redespliega el backend) -->
+
+- **Documentación OpenAPI desplegada (Swagger UI):** https://platter-api.onrender.com/swagger-ui/index.html
+- **Especificación OpenAPI (JSON):** https://platter-api.onrender.com/v3/api-docs
+- **Documentación local:** http://localhost:8080/swagger-ui/index.html
+- **Contrato complementario:** https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/blob/main/docs/api-contract.md
+
+| Endpoint | Verbo | Sintaxis de llamada | Parámetros | Respuesta (ejemplo y explicación) |
+| :--- | :---: | :--- | :--- | :--- |
+| Registro | POST | `/api/v1/auth/register` | Body: `ownerName`, `email`, `password` (mín. 8), `restaurantName`, `address?` | 201 `{ token, expiresIn: 3600, user, restaurant }`. 409 `EMAIL_TAKEN` si el correo ya existe. |
+| Login | POST | `/api/v1/auth/login` | Body: `email`, `password` | 200 `AuthResponse` con JWT de 1 hora. 401 `INVALID_CREDENTIALS`. |
+| Sesión | GET | `/api/v1/me` | Header JWT | 200 `{ user, restaurant }`. |
+| Planes | GET | `/api/v1/plans` | — | 200 `[{ "code": "EMPRENDEDOR", "priceSoles": 49.00, "maxTables": 15, "maxDishes": 30, "aiAnalysis": true }, …]`. `null` en un límite significa ilimitado. |
+| Restaurante | GET / PUT | `/api/v1/restaurant` | PUT body: `name`, `address?` | 200 `{ id, name, address, plan, tableCount, dishCount }`. |
+| Cambio de plan | PUT | `/api/v1/restaurant/plan` | Body: `planCode` | 200 `Restaurant` con el plan actualizado (v0.1: sin cobro). |
+| Mesas | GET | `/api/v1/tables` | Header JWT | 200 `[{ id, label, token, active, menuUrl }]`. |
+| Mesas por lote | POST | `/api/v1/tables/batch` | Body: `from`, `to`, `prefix` | 201 con las mesas nuevas; las etiquetas existentes se omiten. 403 `PLAN_LIMIT_REACHED`. |
+| Mesa individual | POST | `/api/v1/tables` | Body: `label` | 201 `Table`. 409 `DUPLICATE_TABLE`. |
+| Activar / desactivar mesa | PATCH | `/api/v1/tables/{id}` | Path: `id`; body: `active` | 200 `Table`. |
+| QR de mesa | GET | `/api/v1/tables/{id}/qr.png?size=1024` | Path: `id`; query: `size` | 200 `image/png` con la URL `{PUBLIC_WEB_URL}/m/{token}` codificada. |
+| Plantilla de QR | GET | `/api/v1/tables/qr-sheet.pdf?ids=…` | Query: `ids` (opcional), `access_token` | 200 `application/pdf` con una tarjeta por mesa. |
+| Alérgenos | GET | `/api/v1/allergens` | — | 200 `[{ "code": "GLUTEN", "label": "Gluten", "icon": "🌾" }, …]` (14 alérgenos). |
+| Categorías | GET | `/api/v1/categories` | — | 200 `["Entradas", "Ceviches", "Fondos", …]`. |
+| Foto de plato | POST | `/api/v1/dishes/photos` | Multipart: `image` (JPEG/PNG ≤ 10 MB) | 201 `{ photoId, photoUrl }`. 413 `IMAGE_TOO_LARGE` o 415 `UNSUPPORTED_IMAGE`. |
+| Análisis con IA | POST | `/api/v1/dishes/analyze` | Multipart: `image` o `photoId` | 200 `{ suggestedName, description, category, ingredients, allergens, estimatedCalories: {min, max}, confidence, lowConfidence, suggestedModelId }`. 503 `AI_UNAVAILABLE` con `details.manualEntryAllowed = true`. |
+| Platos | GET | `/api/v1/dishes` | Header JWT | 200 `Dish[]` del restaurante autenticado. |
+| Plato | GET / PUT / DELETE | `/api/v1/dishes/{id}` | Path: `id`; PUT body: `DishInput` | 200 `Dish` / 204 al eliminar. 404 si el plato es de otro restaurante. |
+| Crear plato | POST | `/api/v1/dishes` | Body: `DishInput` (`name`, `category`, `priceSoles`, `ingredients`, `allergens`, `allergenFree`, `photoId?`, `modelId?`, …) | 201 `Dish` en estado `DRAFT`; si no se envía `modelId`, se asigna el modelo de la categoría. |
+| Publicar plato | POST | `/api/v1/dishes/{id}/publish` | Path: `id` | 200 `Dish` en estado `PUBLISHED`. 422 `DISH_NOT_PUBLISHABLE` con los campos faltantes en `details`. |
+| Disponibilidad | PATCH | `/api/v1/dishes/{id}/availability` | Body: `available` | 200 `Dish`; invalida la caché de la carta. |
+| Modelos 3D | GET | `/api/v1/models` | — | 200 `[{ id, name, category, glbUrl, dimensions: { widthM, depthM, heightM } }]`. |
+| Archivo GLB | GET | `/api/v1/assets/models/{id}.glb` | Header opcional: `If-None-Match` | 200 `model/gltf-binary` con `ETag` y `Cache-Control: public, max-age=31536000, immutable`; 304 si no cambió. |
+| Foto pública | GET | `/api/v1/media/photos/{photoId}` | Path: `photoId` | 200 imagen con caché pública. |
+| Mesa pública | GET | `/api/v1/public/tables/{token}` | Path: `token` | 200 `{ table: { label, active }, restaurant: { id, name } }`. 404 `TABLE_NOT_FOUND`. |
+| Carta pública | GET | `/api/v1/public/restaurants/{id}/menu?exclude=GLUTEN,FISH` | Path: `id`; query: `exclude` | 200 `{ restaurant, excludedAllergens, categories: [{ name, dishes }] }`; solo platos publicados; los agotados llegan con `available: false`. |
+| Eventos del comensal | POST | `/api/v1/public/events` | Body: `type` (`QR_SCAN`, `DISH_VIEW`, `AR_LAUNCH`, `AR_SESSION_END`), `tableToken?`, `dishId?`, `durationSeconds?` | 202 sin cuerpo. 400 si el tipo no es válido. |
+| Solicitud de piloto | POST | `/api/v1/public/leads` | Body: `restaurantName`, `contactName`, `email`, `phone`, `tables` | 201 `{ message }`. |
+| Analítica | GET | `/api/v1/analytics/summary?days=7` | Query: `days` (7 o 30) | 200 `{ qrScans, dishViews, arLaunches, avgArSeconds, topDishes, topTables }`. |
+
+Las siguientes capturas muestran la interacción con Swagger UI usando la cuenta demo: consulta pública de planes, inicio de sesión, autorización con el JWT y consulta de un endpoint protegido. `POST /dishes/analyze` no se incluye porque en el entorno local no hay clave de Gemini y el endpoint responde 503 `AI_UNAVAILABLE`, el comportamiento esperado del Circuit Breaker.
+
+<!-- VERIFICAR: capturas tomadas en el entorno local (localhost:8099); reemplazarlas por las del entorno desplegado cuando la tarea T00.6 llegue a main -->
+
+![Swagger UI de Platter API: información general, esquema de autorización y endpoints agrupados por Bounded Context](./assets/7.2.1.6-swagger-overview.png)
+
+![Swagger UI: GET /api/v1/plans con respuesta 200 y los tres planes](./assets/7.2.1.6-swagger-get-plans.png)
+
+![Swagger UI: POST /api/v1/auth/login con la cuenta demo y respuesta 200 con el JWT](./assets/7.2.1.6-swagger-login.png)
+
+![Swagger UI: autorización bearerAuth con el JWT obtenido](./assets/7.2.1.6-swagger-authorize.png)
+
+![Swagger UI: GET /api/v1/analytics/summary autenticado con respuesta 200](./assets/7.2.1.6-swagger-analytics.png)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | main | 9d4b494 | feat: Platter v0.1 — MVP de carta gastronómica en Realidad Aumentada | Incluye `docs/api-contract.md` (contrato REST v1) y `docs/deploy.md`. | 09/10/2026 |
+| upc-pre-1ASI0728-2620-9046-Platter/platter | feature/t00-6-openapi | 5208d59 | feat(api): add OpenAPI documentation with Swagger UI | springdoc-openapi 3.2.0, `OpenApiConfig` con esquema `bearerAuth`, etiquetas por Bounded Context, rutas de Swagger públicas en `SecurityConfig` y prueba `openApiDocumentationIsPublic`. | 15/11/2026 |
+
+#### 7.2.1.7. Software Deployment Evidence for Sprint Review
+
+Durante el Sprint 1 se desplegaron por primera vez los cuatro productos. Las actividades realizadas fueron:
+
+1. **Creación de cuentas:** cuentas de Render y Supabase vinculadas con GitHub y autorización de Render sobre la organización `upc-pre-1ASI0728-2620-9046-Platter`; clave de API de Gemini generada en Google AI Studio.
+2. **Supabase:** proyecto `platter` en East US (North Virginia), cadena de conexión del *Session pooler*, bucket privado `photo` y credenciales S3.
+3. **Render Blueprint:** importación de `render.yaml`, carga de las variables secretas y primer despliegue de `platter-api` (imagen Docker), `platter-web` y `platter-admin`.
+4. **Verificación:** el health check `https://platter-api.onrender.com/actuator/health` responde `{"status":"UP"}`, `GET /api/v1/plans` devuelve los tres planes a través de `platter-web` y la carta demo carga en `/m/demo` (comprobado el 15/11/2026).
+5. **Automatización:** workflows `CI` (pruebas en cada push y Pull Request) y `Keep alive` (ping al backend cada 10 minutos en horario de atención) en GitHub Actions; despliegue automático en Render en cada push a `main`.
+
+![Panel de Render con platter-web, platter-admin y platter-api desplegados](./assets/7.2.1.7-render-servicios.png)
+
+*Render: `platter-web` y `platter-admin` como sitios estáticos y `platter-api` como servicio Docker en Virginia, los tres en estado Deployed.*
+
+![Table Editor de Supabase con las tablas creadas por Flyway](./assets/7.2.1.7-supabase-tablas.png)
+
+*Supabase: tablas del esquema `public` creadas por la migración de Flyway (`flyway_schema_history` incluida).*
+
+![Storage de Supabase con el bucket photo](./assets/7.2.1.7-supabase-storage.png)
+
+*Supabase Storage: bucket `photo`, usado por el adaptador S3 del backend para las fotos de los platos.*
+
+![Pestaña Actions del repositorio platter con ejecuciones exitosas de CI y Keep alive](./assets/7.2.1.7-github-actions.png)
+
+![Respuesta del health check del backend desplegado: status UP](./assets/7.2.1.7-health-check.png)
+
+*Health check de `https://platter-api.onrender.com/actuator/health` (15/11/2026). La carta demo desplegada se muestra en 7.2.1.5.*
+
+#### 7.2.1.8. Team Collaboration Insights during Sprint
+
+La implementación se organizó por producto y Bounded Context: backend de catálogo, análisis con IA e IAM; backend de mesas, QR, analítica y persistencia; app Flutter; y Landing, AR Viewer, generación de modelos 3D y despliegue. La integración se realizó en el monorepo `platter` y el avance se controló en el tablero de Jira.
+
+<!-- VERIFICAR: describir aquí la participación real de cada integrante en el código del sprint -->
+
+![Insights → Contributors del repositorio platter](./assets/7.2.1.8-platter-contributors.png)
+
+![Historial de commits de la rama main del repositorio platter](./assets/7.2.1.8-platter-commits.png)
+
+![Insights → Code frequency del repositorio platter](./assets/7.2.1.8-platter-code-frequency.png)
+
+![Insights → Network del repositorio platter con main y la rama feature/t00-6-openapi](./assets/7.2.1.8-platter-network.png)
+
+## 7.4. Video About-the-Product
+
+El video About-the-Product está dirigido a dos públicos: los visitantes de la Landing Page (dueños de restaurantes que evalúan la propuesta) y los usuarios de las aplicaciones (dueños que registran su carta y comensales que la usan en la mesa). El tono es cercano, directo y optimista, el mismo de la Landing ("Tu carta en Realidad Aumentada, creada con una foto"), con lenguaje sencillo y sin tecnicismos.
+
+**Guion y secuencias**
+
+| Inicio | Secuencia | Contenido |
+| :-: | :--- | :--- |
+| 00:00 | Problema | Comensal dudando frente a una carta sin fotos; plato que llega distinto a lo esperado. Voz en off: "¿Te ha pasado que pides algo y llega otra cosa?" |
+| 00:20 | Propuesta de valor | Logo de Platter y la frase principal de la Landing. Qué es Platter en una oración. |
+| 00:35 | Dueño: registrar un plato | Grabación de pantalla de Platter Admin: foto del plato, análisis con IA, revisión de la ficha, modelo 3D y publicación. |
+| 01:20 | Dueño: mesas y QR | Creación de mesas y descarga de la plantilla de QR; QR impreso en la mesa. |
+| 01:40 | Comensal: carta y AR | Escaneo del QR, filtro de alérgenos y plato proyectado sobre una mesa real a escala 1:1. |
+| 02:20 | Dueño: control y métricas | "Agotado por hoy" y ranking de platos más vistos. |
+| 02:40 | Planes y cierre | Planes en soles, invitación a solicitar el piloto gratuito y URL de la Landing. |
+
+- **Duración estimada:** 3 minutos **[VERIFICAR al editar]**
+- **URL YouTube:** [https://youtu.be/uo1fP-3kjl4](https://youtu.be/uo1fP-3kjl4)
+
+[![Video About-the-Product de Platter](https://img.youtube.com/vi/uo1fP-3kjl4/maxresdefault.jpg)](https://youtu.be/uo1fP-3kjl4)
+
+*Cuadro representativo del video About-the-Product (clic para verlo en YouTube).*
+
+
+
 # Conclusiones
 
 1. **Alineación con la problemática y eliminación de fricción para el usuario final:**
@@ -2560,6 +3123,9 @@ Cada wireflow representa un User Goal y reutiliza los wireframes de la sección 
 5. **Diseño Táctico y Experiencia de Usuario Centrada en la Conversión (Hito TP1):**
    La transición del diseño estratégico al diseño táctico (Capítulo V) permitió formalizar la separación de responsabilidades en capas limpias (Domain, Application, Infrastructure e Interfaces) para cada uno de los cuatro Bounded Contexts, asegurando que la lógica de negocio permanezca desacoplada de frameworks y protocolos de transporte. Esta solidez arquitectónica se articula directamente con las definiciones de diseño de experiencia de usuario (Capítulo VI), donde la arquitectura de información, las directrices de estilo accesibles bajo WCAG 2.1 nivel AA y los flujos de interacción de pantalla (wireflows) garantizan una curva de aprendizaje mínima para el administrador del restaurante y una interacción inmersiva libre de fricción para el comensal.
 
+6. **Primera versión desplegada y verificable (Hito TB2):**
+   El Sprint 1 demostró que la arquitectura diseñada es implementable: los cuatro productos digitales (Landing Page, AR Viewer, Platter Admin y Web Services) están desplegados y el flujo completo foto → IA → publicación → QR → AR funciona de extremo a extremo. Se implementaron 21 de las 22 User Stories (78 de 83 Story Points) y las decisiones clave del diseño quedaron respaldadas por 32 pruebas automatizadas, entre ellas la degradación controlada ante fallas de la IA (Circuit Breaker con respuesta 503 y carga manual) y el aislamiento de datos entre restaurantes. Desplegar en servicios con plan gratuito (Render y Supabase) permitió validar con usuarios reales sin costo, a cambio de limitaciones de disponibilidad que deberán resolverse antes del piloto.
+
 # Recomendaciones
 
 1. **Gestión y control de calidad del pipeline de modelos 3D:**
@@ -2577,15 +3143,41 @@ Cada wireflow representa un User Goal y reutiliza los wireframes de la sección 
 5. **Auditoría continua de accesibilidad y pruebas de contraste en interfaces:**
    Para las fases de construcción y prototipado del siguiente hito (TB2), se recomienda implementar linters automáticos de accesibilidad (axe-core / Lighthouse) en los entornos de integración continua para validar que todas las pantallas mantengan los ratios de contraste establecidos (mínimo 4.5:1) y que los atributos ARIA definidos en las guías de estilo se respeten estrictamente en la Landing Page y en el visor WebAR.
 
+6. **Responsabilidad ética y transparencia en el uso de datos:**
+   En el Sprint 1 se redactaron los borradores de los Términos y Condiciones y de la Política de Privacidad (`terminos.html` y `privacidad.html`). Antes de usar Platter con restaurantes reales, se recomienda completar los datos legales pendientes (razón social, RUC y domicilio) y enlazar ambos documentos desde el pie de página de los tres productos y desde el formulario de registro, explicando el tratamiento de las fotos enviadas a la IA y de los eventos anónimos del comensal, conforme a la Ley N.° 29733 y a los códigos de ética de ACM/IEEE y del CIP.
+
+7. **Cierre de brechas del Sprint 1 en el Sprint 2:**
+   Se recomienda priorizar en el Sprint 2 la pasarela de pagos (US20), la automatización de las pruebas de aceptación con Cucumber, la internacionalización (i18n) de la Landing y del AR Viewer, la renovación de la sesión del dueño y la migración del backend a un plan sin suspensión por inactividad.
+
 # Bibliografía
 
 <div style="text-align: justify">
 
 ARInsider. (2020, 22 de junio). *Does AR really boost eCommerce conversions?* https://arinsider.co/2020/06/22/does-ar-really-boost-ecommerce-conversions/
 
+Association for Computing Machinery & IEEE Computer Society. (1999). *Software Engineering Code of Ethics and Professional Practice*. https://ethics.acm.org/code-of-ethics/software-engineering-code/
+
+Congreso de la República del Perú. (2011). *Ley N.° 29733, Ley de Protección de Datos Personales*. Diario Oficial El Peruano.
+
+Conventional Commits. (s.f.). *Conventional Commits 1.0.0*. https://www.conventionalcommits.org/en/v1.0.0/
+
+Cucumber. (s.f.). *Gherkin reference*. https://cucumber.io/docs/gherkin/reference/
+
+Dart. (s.f.). *Effective Dart*. https://dart.dev/effective-dart
+
+Driessen, V. (2010, 5 de enero). *A successful Git branching model*. https://nvie.com/posts/a-successful-git-branching-model/
+
 Ecosire. (2024). *Realidad aumentada en comercio electrónico y venta minorista: pruébelo antes de comprar*. https://ecosire.com/es/blog/augmented-reality-ecommerce-retail
 
 Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional.
+
+Google. (s.f.-a). *Google HTML/CSS Style Guide*. https://google.github.io/styleguide/htmlcssguide.html
+
+Google. (s.f.-b). *Google Java Style Guide*. https://google.github.io/styleguide/javaguide.html
+
+Google. (s.f.-c). *Google JavaScript Style Guide*. https://google.github.io/styleguide/jsguide.html
+
+Google. (s.f.-d). *&lt;model-viewer&gt; documentation*. https://modelviewer.dev/
 
 Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing Great Products with Agile Teams* (3rd ed.). O'Reilly Media.
 
@@ -2594,6 +3186,10 @@ Ministerio de la Producción [Produce]. (2021, 14 de mayo). *Terrazas gastronóm
 Nielsen Norman Group. (2020). *Wireframing and Prototyping Best Practices*. https://www.nngroup.com/
 
 Perú Retail. (2024, 7 de diciembre). *Hay 50 mil restaurantes menos que en 2019 y las ventas siguen un 3% por debajo, alerta el gremio*. https://www.peru-retail.com/?p=355115
+
+Preston-Werner, T. (s.f.). *Semantic Versioning 2.0.0*. https://semver.org/
+
+Render. (s.f.). *Blueprint YAML reference*. https://render.com/docs/blueprint-spec
 
 Rosenfeld, L., Morville, P., & Arango, J. (2015). *Information Architecture: For the Web and Beyond* (4th ed.). O'Reilly Media.
 
@@ -2615,3 +3211,16 @@ La solución se estructura como un monorepo compuesto por los siguientes módulo
 - `webar`: Experiencia inmersiva en mesa para comensales (Three.js, WebXR, AR Quick Look).
 - `admin_app`: Aplicación móvil multiplataforma para administración del restaurante (Flutter / Dart).
 - `backend`: Arquitectura de servicios basada en DDD y Spring Boot 3 con base de datos PostgreSQL y Redis.
+
+### Anexo C. Productos Desplegados y Videos (TB2)
+
+| Recurso | URL |
+| :--- | :--- |
+| Landing Page | https://platter-web.onrender.com |
+| AR Viewer (carta demo) | https://platter-web.onrender.com/m/demo |
+| Platter Admin (web) | https://platter-admin.onrender.com |
+| Web Services (API v1) | https://platter-api.onrender.com/api/v1 |
+| Documentación OpenAPI (Swagger UI) | https://platter-api.onrender.com/swagger-ui/index.html |
+| Contrato de la API | https://github.com/upc-pre-1ASI0728-2620-9046-Platter/platter/blob/main/docs/api-contract.md |
+| Video About-the-Product | https://youtu.be/uo1fP-3kjl4 |
+| Video About-the-Team | **[PENDIENTE]** |
